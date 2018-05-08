@@ -26,7 +26,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+gem 'jquery-rails'
+gem 'pry-rails'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -48,10 +51,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'pry-rails'
   gem 'annotate'
-  gem 'bcrypt'
-  gem 'jquery-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
