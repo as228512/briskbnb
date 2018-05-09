@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -37,8 +37,6 @@ class SessionForm extends React.Component {
     );
   }
 
-  // if (this.state.)
-
   render() {
     return (
       <div className="login-form-container">
@@ -46,6 +44,7 @@ class SessionForm extends React.Component {
           Welcome to Briskbnb!
           <br/>
           Already have a Briskbnb account? {this.props.navLink}
+          <div onClick={this.props.closeModal} className="close-x">X</div>
           {this.renderErrors()}
           <div className="login-form">
 
