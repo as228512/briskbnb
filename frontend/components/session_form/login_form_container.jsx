@@ -5,6 +5,8 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import { login } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 
+
+
 const mapStateToProps = ({ errors }) => {
   return {
     errors: errors.session,

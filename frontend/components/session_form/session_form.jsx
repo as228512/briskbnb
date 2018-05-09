@@ -41,14 +41,10 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Briskbnb!
           <br/>
-          Already have a Briskbnb account? {this.props.navLink}
           <div onClick={this.props.closeModal} className="close-x">X</div>
           {this.renderErrors()}
           <div className="login-form">
-
-            <br/>
 
             <label>Email address:
               <input type="text"
@@ -88,6 +84,8 @@ class SessionForm extends React.Component {
               />
             </label>
 
+            <br/>
+            Already have a Briskbnb account? {this.props.navLink}
             <br/>
 
             <input className="session-submit" type="submit" value={this.props.formType} />
