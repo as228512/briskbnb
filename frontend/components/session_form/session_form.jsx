@@ -37,62 +37,102 @@ class SessionForm extends React.Component {
     );
   }
 
-  render() {
-    return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          <br/>
-          <div onClick={this.props.closeModal} className="close-x">X</div>
-          {this.renderErrors()}
-          <div className="login-form">
+    render() {
+      switch(this.props.formType) {
+        case "signup":
+          return (
+            <div className="login-form-container">
+              <form onSubmit={this.handleSubmit} className="login-form-box">
+                <br/>
+                <div onClick={this.props.closeModal} className="close-x">X</div>
+                {this.renderErrors()}
+                <div className="login-form">
 
-            <label>Email address:
-              <input type="text"
-                value={this.state.e_mail}
-                onChange={this.update('e_mail')}
-                className="login-input"
-              />
-            </label>
+                  <label>Email Address:
+                    <input type="text"
+                      value={this.state.e_mail}
+                      onChange={this.update('e_mail')}
+                      className="login-input"
+                    />
+                  </label>
 
-            <br/>
+                  <br/>
 
-            <label>First name:
-              <input type="text"
-                value={this.state.fname}
-                onChange={this.update('fname')}
-                className="login-input"
-              />
-            </label>
+                  <label>First name:
+                    <input type="text"
+                      value={this.state.fname}
+                      onChange={this.update('fname')}
+                      className="login-input"
+                    />
+                  </label>
 
-            <br/>
+                  <br/>
 
-            <label>Last name:
-              <input type="text"
-                value={this.state.lname}
-                onChange={this.update('lname')}
-                className="login-input"
-              />
-            </label>
+                  <label>Last name:
+                    <input type="text"
+                      value={this.state.lname}
+                      onChange={this.update('lname')}
+                      className="login-input"
+                    />
+                  </label>
 
-            <br/>
+                  <br/>
 
-            <label>Create a Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label>
+                  <label>Create a Password:
+                    <input type="password"
+                      value={this.state.password}
+                      onChange={this.update('password')}
+                      className="login-input"
+                    />
+                  </label>
 
-            <br/>
-            Already have a Briskbnb account? {this.props.navLink}
-            <br/>
+                  <br/>
+                  Already have a Briskbnb account? {this.props.navLink}
+                  <br/>
 
-            <input className="session-submit" type="submit" value={this.props.formType} />
-          </div>
-        </form>
-      </div>
-    );
+                  <input className="session-submit" type="submit" value={this.props.formType} />
+                </div>
+              </form>
+            </div>
+          );
+
+        case "login":
+          return (
+            <div className="login-form-container">
+              <form onSubmit={this.handleSubmit} className="login-form-box">
+                <br/>
+                <div onClick={this.props.closeModal} className="close-x">X</div>
+                {this.renderErrors()}
+                <div className="login-form">
+
+                  <label>Email Address:
+                    <input type="text"
+                      value={this.state.e_mail}
+                      onChange={this.update('e_mail')}
+                      className="login-input"
+                    />
+                  </label>
+
+                  <br/>
+                  <label>Password:
+                    <input type="password"
+                      value={this.state.password}
+                      onChange={this.update('password')}
+                      className="login-input"
+                    />
+                  </label>
+
+                  <br/>
+                  Don't have an account? {this.props.navLink}
+                  <br/>
+
+                  <input className="session-submit" type="submit" value={this.props.formType} />
+                </div>
+              </form>
+            </div>
+          );
+      }
+
   }
 }
 
