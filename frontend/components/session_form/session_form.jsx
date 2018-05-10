@@ -87,7 +87,7 @@ class SessionForm extends React.Component {
                   </label>
 
                   <br/>
-                  Already have a Briskbnb account? {this.props.navLink}
+                  Already have a Briskbnb account? {this.props.otherForm}
                   <br/>
 
                   <input className="session-submit" type="submit" value={this.props.formType} />
@@ -123,7 +123,7 @@ class SessionForm extends React.Component {
                   </label>
 
                   <br/>
-                  Don't have an account? {this.props.navLink}
+                  Don't have an account? {this.props.otherForm}
                   <br/>
 
                   <input className="session-submit" type="submit" value={this.props.formType} />
