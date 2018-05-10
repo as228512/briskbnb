@@ -25,6 +25,7 @@ class SessionForm extends React.Component {
     this.props.processForm(user).then(this.props.closeModal);
   }
 
+
   renderErrors() {
     return(
       <ul>
@@ -41,57 +42,61 @@ class SessionForm extends React.Component {
       switch(this.props.formType) {
         case "signup":
           return (
-            <div className="login-form-container">
+            <div className="signup-form-container">
               <form onSubmit={this.handleSubmit} className="login-form-box">
                 <br/>
                 <div onClick={this.props.closeModal} className="close-x">X</div>
                 {this.renderErrors()}
-                <div className="login-form">
 
-                  <label>Email Address:
+                <div>
+                  <div className="input-margin">
                     <input type="text"
                       value={this.state.e_mail}
                       onChange={this.update('e_mail')}
-                      className="login-input"
+                      className="signup-input"
+                      placeholder="Email address"
                     />
-                  </label>
+                  </div>
 
                   <br/>
 
-                  <label>First name:
+                  <div>
                     <input type="text"
                       value={this.state.fname}
                       onChange={this.update('fname')}
-                      className="login-input"
+                      className="signup-input"
+                      placeholder="First name"
                     />
-                  </label>
+                  </div>
 
                   <br/>
 
-                  <label>Last name:
+                  <div>
                     <input type="text"
                       value={this.state.lname}
                       onChange={this.update('lname')}
-                      className="login-input"
+                      className="signup-input"
+                      placeholder="Last name"
                     />
-                  </label>
+                  </div>
 
                   <br/>
 
-                  <label>Create a Password:
+                  <div>
                     <input type="password"
                       value={this.state.password}
                       onChange={this.update('password')}
-                      className="login-input"
+                      className="signup-input"
+                      placeholder="Create a Password"
                     />
-                  </label>
+                  </div>
 
                   <br/>
-                  Already have a Briskbnb account? {this.props.otherForm}
-                  <br/>
-
-                  <input className="session-submit" type="submit" value={this.props.formType} />
+                    <input className="session-submit" type="submit" value={`Sign up`} />
                 </div>
+                <br/>
+                <div className="sign-up-form-footer-border"/>
+                <span className="sign-up-form-footer">Already have a Briskbnb account? <i className="sign-up-form-footer-link">{this.props.otherForm} </i></span>
               </form>
             </div>
           );
@@ -105,28 +110,31 @@ class SessionForm extends React.Component {
                 {this.renderErrors()}
                 <div className="login-form">
 
-                  <label>Email Address:
-                    <input type="text"
-                      value={this.state.e_mail}
-                      onChange={this.update('e_mail')}
-                      className="login-input"
-                    />
-                  </label>
+                    <div className="input-margin">
+                      <input type="text"
+                        value={this.state.e_mail}
+                        onChange={this.update('e_mail')}
+                        className="login-input"
+                        placeholder="Email Address"
+                      />
+                    </div>
+
+                    <br/>
+                    <div className="input-margin">
+                      <input type="password"
+                        value={this.state.password}
+                        onChange={this.update('password')}
+                        className="login-input"
+                        placeholder="Password"
+                      />
+                    </div>
 
                   <br/>
-                  <label>Password:
-                    <input type="password"
-                      value={this.state.password}
-                      onChange={this.update('password')}
-                      className="login-input"
-                    />
-                  </label>
-
-                  <br/>
-                  Don't have an account? {this.props.otherForm}
+                    <input className="session-submit" type="submit" value={this.props.formType} />
                   <br/>
 
-                  <input className="session-submit" type="submit" value={this.props.formType} />
+                  <div className="sign-up-form-footer-border"/>
+                  <span className="sign-up-form-footer">Don't have an account? <i className="sign-up-form-footer-link">{this.props.otherForm} </i></span>
                 </div>
               </form>
             </div>

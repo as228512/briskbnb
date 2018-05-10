@@ -14,6 +14,39 @@
  *= require_self
  */
 
+ body {
+   font-family: Montserrat, sans-serif;
+   font-size: 14px;
+   color: #484848;
+   line-height: 1.45;
+   -webkit-font-smoothing: antialiased;
+   display: flex;
+ }
+
+ .sign-up-form-footer {
+   display: inline-block;
+   margin-top: 30px;
+   font-style: inherit;
+   font-size: 19px;
+   margin-left: 60px;
+ }
+
+ .sign-up-form-footer-border {
+   border-top: 1px solid rgb(219,219,219);
+   width: 510px;
+ }
+
+.sign-up-form-footer-link {
+  color: #7595bf;
+  font-style: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.sign-up-form-footer-link:hover {
+  text-decoration: underline;
+}
+
  .modal-background {
    position: fixed;
    top: 0;
@@ -25,9 +58,56 @@
  }
 
  .modal-child {
+   height: 550px;
+   width: 504px;
+   display: block;
+   padding: 32px;
    position: absolute;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
    background-color: white;
+ }
+
+ .signup-form {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 8;
+   border: 1px;
+   border-radius: 10px;
+   border-color: rgb(219, 219, 219);
+   width: 100%;
+ }
+
+ .signup-input, .login-input {
+   font-family: Montserrat, sans-serif;
+   height: 46px;
+   line-height: 24px;
+   font-size: 19px;
+   color: rgb(72,72,72);
+   width: 100%;
+ }
+
+ .close-x {
+   cursor: pointer;
+   align-items: flex-start;
+   padding-bottom: 24px;
+   margin-right: auto;
+   width: 15px;
+   font-family: inherit;
+   font-size: 28px;
+   color: rgb(205,205,205);
+ }
+
+ .session-submit {
+   width: 510px;
+   height: 52px;
+   font-size: 19px;
+   font-weight: 700;
+   padding: 12px;
+   border: 2px;
+   border-radius: 3px;
+   color: white;
+   background-color: #011c40;
+   cursor: pointer;
  }
