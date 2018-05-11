@@ -14,13 +14,30 @@
  *= require_self
  */
 
+
  body {
+   background-image: image-url(splash);
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+   background-color: #464646;
+
    font-family: Montserrat, sans-serif;
    font-size: 14px;
    color: #484848;
    line-height: 1.45;
    -webkit-font-smoothing: antialiased;
    display: flex;
+ }
+
+ .splash {
+   display: block;
+   font-size: 50px;
+   color: #011c40;
+   font-weight: 700;
+   text-shadow: 1px 1px 40px
+      rgba(22,23,31,0.4);
  }
 
  .sign-up-form-footer {
@@ -31,19 +48,27 @@
    margin-left: 60px;
  }
 
- .sign-up-form-footer-border {
-   border-top: 1px solid rgb(219,219,219);
-   width: 510px;
+ .login-form-footer {
+   display: inline-block;
+   margin-top: 30px;
+   font-style: inherit;
+   font-size: 19px;
+   margin-left: 107px;
  }
 
-.sign-up-form-footer-link {
+ .form-footer-border {
+   border-bottom: 1px solid rgb(219,219,219);
+   width: 504px;
+ }
+
+.form-footer-link {
   color: #7595bf;
   font-style: inherit;
   font-size: inherit;
   cursor: pointer;
 }
 
-.sign-up-form-footer-link:hover {
+.form-footer-link:hover {
   text-decoration: underline;
 }
 
@@ -66,7 +91,7 @@
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
-   background-color: white;
+   background-color: rgb(255, 255, 255);
  }
 
  .signup-form {
@@ -79,13 +104,13 @@
    width: 100%;
  }
 
- .signup-input, .login-input {
+ .form-field {
    font-family: Montserrat, sans-serif;
    height: 46px;
    line-height: 24px;
    font-size: 19px;
    color: rgb(72,72,72);
-   width: 100%;
+   width: 498px;
  }
 
  .close-x {
@@ -100,7 +125,7 @@
  }
 
  .session-submit {
-   width: 510px;
+   width: 504px;
    height: 52px;
    font-size: 19px;
    font-weight: 700;

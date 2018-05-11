@@ -43,18 +43,17 @@ class SessionForm extends React.Component {
         case "signup":
           return (
             <div className="signup-form-container">
-              <form onSubmit={this.handleSubmit} className="login-form-box">
+              <form onSubmit={this.handleSubmit}>
                 <br/>
                 <div onClick={this.props.closeModal} className="close-x">X</div>
                 {this.renderErrors()}
 
                 <div>
-                  <div className="input-margin">
+                  <div>
                     <input type="text"
                       value={this.state.e_mail}
                       onChange={this.update('e_mail')}
-                      className="signup-input"
-                      placeholder="Email address"
+                      className="form-field" placeholder="Email Address"
                     />
                   </div>
 
@@ -64,8 +63,7 @@ class SessionForm extends React.Component {
                     <input type="text"
                       value={this.state.fname}
                       onChange={this.update('fname')}
-                      className="signup-input"
-                      placeholder="First name"
+                      className="form-field" placeholder="First name"
                     />
                   </div>
 
@@ -75,8 +73,7 @@ class SessionForm extends React.Component {
                     <input type="text"
                       value={this.state.lname}
                       onChange={this.update('lname')}
-                      className="signup-input"
-                      placeholder="Last name"
+                      className="form-field" placeholder="Last name"
                     />
                   </div>
 
@@ -86,8 +83,7 @@ class SessionForm extends React.Component {
                     <input type="password"
                       value={this.state.password}
                       onChange={this.update('password')}
-                      className="signup-input"
-                      placeholder="Create a Password"
+                      className="form-field" placeholder="Create a Password"
                     />
                   </div>
 
@@ -95,8 +91,8 @@ class SessionForm extends React.Component {
                     <input className="session-submit" type="submit" value={`Sign up`} />
                 </div>
                 <br/>
-                <div className="sign-up-form-footer-border"/>
-                <span className="sign-up-form-footer">Already have a Briskbnb account? <i className="sign-up-form-footer-link">{this.props.otherForm} </i></span>
+                <div className="form-footer-border"/>
+                <span className="sign-up-form-footer">Already have a Briskbnb account? <i className="form-footer-link">{this.props.otherForm} </i></span>
               </form>
             </div>
           );
@@ -104,38 +100,35 @@ class SessionForm extends React.Component {
         case "login":
           return (
             <div className="login-form-container">
-              <form onSubmit={this.handleSubmit} className="login-form-box">
-                <br/>
+              <form onSubmit={this.handleSubmit}>
+              <br/>
+              <div>
                 <div onClick={this.props.closeModal} className="close-x">X</div>
                 {this.renderErrors()}
-                <div className="login-form">
 
-                    <div className="input-margin">
+                    <div>
                       <input type="text"
                         value={this.state.e_mail}
                         onChange={this.update('e_mail')}
-                        className="login-input"
-                        placeholder="Email Address"
+                        className="form-field" placeholder="Email Address"
                       />
                     </div>
 
                     <br/>
-                    <div className="input-margin">
+                    <div>
                       <input type="password"
                         value={this.state.password}
                         onChange={this.update('password')}
-                        className="login-input"
-                        placeholder="Password"
+                        className="form-field" placeholder="Password"
                       />
                     </div>
 
                   <br/>
                     <input className="session-submit" type="submit" value={this.props.formType} />
-                  <br/>
-
-                  <div className="sign-up-form-footer-border"/>
-                  <span className="sign-up-form-footer">Don't have an account? <i className="sign-up-form-footer-link">{this.props.otherForm} </i></span>
-                </div>
+              </div>
+                <br/>
+                <div className="form-footer-border"/>
+                <span className="login-form-footer">Don't have an account? <i className="form-footer-link">{this.props.otherForm} </i></span>
               </form>
             </div>
           );
