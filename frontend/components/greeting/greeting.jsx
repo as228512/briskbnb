@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout, openModal }) => {
 
+
   const sessionLinks = () => (
     <nav>
       <a className="nav-login" onClick={() => openModal('login')}>Log in</a>
@@ -12,9 +13,10 @@ const Greeting = ({ currentUser, logout, openModal }) => {
     </nav>
   );
 
+
   const personalGreeting = () => (
     <hgroup className="header-group">
-      <h2 className="header-name">Hi, {currentUser.fname}!</h2>
+      <img src={currentUser.image_url}/>
       <button className="header-button" onClick={logout}>Log Out</button>
     </hgroup>
   );

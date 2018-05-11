@@ -1,6 +1,6 @@
 import React from 'react';
 import SessionForm from './session_form';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { login } from '../../actions/session_actions';
 import { connect } from 'react-redux';
