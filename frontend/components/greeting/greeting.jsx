@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 const Greeting = ({ currentUser, logout, openModal }) => {
 
   const sessionLinks = () => (
-    <nav className="login-signup">
-      <a onClick={() => openModal('login')}>Log in</a>
-      <a onClick={() => openModal('signup')}>Sign up</a>
+    <nav>
+      <a className="nav-login" onClick={() => openModal('login')}>Log in</a>
+      <a className="nav-signup" onClick={() => openModal('signup')}>Sign up</a>
     </nav>
   );
 

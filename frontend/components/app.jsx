@@ -13,7 +13,7 @@ const App = () => (
   <div>
     <Modal />
     <header>
-      <h1 className="splash">Brisk bnb, the world is waiting...</h1>
+      <h1 className="splash">Brisk bnb, the world is waiting..</h1>
       <GreetingContainer />
     </header>
   </div>
