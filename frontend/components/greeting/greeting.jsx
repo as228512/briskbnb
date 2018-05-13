@@ -1,28 +1,78 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+class LoggedIn extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      imageFile: null,
+      imageUrl: null
+    };
+    this.updateFile = this.updateFile.bind(this);
+  }
+
+    sessionLinks() {
+      return (
+        <nav>
+          <a className="nav-login"
+            onClick={() => this.props.openModal('login')}>Log in</a>
+
+          <a className="nav-signup"
+            onClick={() => this.props.openModal('signup')}>Sign up</a>
+        </nav>
+      );
+    }
+
+    updateFile(e) {
+      const file = e.currentTarget.files[0];
+      const fileReader = new FileReader();
+
+      fileReader.onloadend = () => {
+        this.setState({ imageFile: file, imageUrl: fileReader.result });
+      };
+
+      if (file) {
+        fileReader.readAsDataURL(file);
+      }
+    }
+
+    avatarDropdown() {
+      if(this.state.imageUrl !== null) {
+        return (
+          <hgroup className="header-group">
+            <button className="header-button"
+              onClick={this.props.logout}>Log Out</button>
+
+            <input type="file"  onChange={this.updateFile}/>
+            <div className="wrapper">
+              <img src={this.state.imageUrl} alt="avatar"/>
+            </div>
+          </hgroup>
+        );
+
+        } else {
+
+        return (
+          <hgroup className="header-group">
+            <button className="header-button"
+              onClick={this.props.logout}>Log Out</button>
 
 
-const Greeting = ({ currentUser, logout, openModal }) => {
+            <input type="file" onChange={this.updateFile}/>
+            <img src={this.props.currentUser.image_url}/>
+          </hgroup>
+        );
+      }
+    }
+
+  render () {
+    return this.props.currentUser ?
+      this.avatarDropdown() : this.sessionLinks();
+  }
+}
 
 
-  const sessionLinks = () => (
-    <nav>
-      <a className="nav-login" onClick={() => openModal('login')}>Log in</a>
-      <a className="nav-signup" onClick={() => openModal('signup')}>Sign up</a>
-    </nav>
-  );
 
 
-  const personalGreeting = () => (
-    <hgroup className="header-group">
-      <img src={currentUser.image_url}/>
-      <button className="header-button" onClick={logout}>Log Out</button>
-    </hgroup>
-  );
 
-  return currentUser ? personalGreeting(currentUser, logout) : sessionLinks();
-};
-
-
-export default Greeting;
+export default LoggedIn;

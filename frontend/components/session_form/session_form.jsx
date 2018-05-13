@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, Route, Redirect } from 'react-router-dom';
-import Greeting from '../greeting/greeting';
+import LoggedIn from '../greeting/greeting';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -20,11 +20,11 @@ class SessionForm extends React.Component {
     });
   }
 
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user)
-      .then(this.props.closeModal).then(Greeting(this.props));
+    this.props.processForm(user).then(this.props.closeModal);
   }
 
 

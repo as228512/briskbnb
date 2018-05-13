@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
-import Greeting from './greeting';
+import LoggedIn from './greeting';
 
-const mapStateToProps = ({ session }) => {
+const mapStateToProps = ({ session, entities }) => {
   return {
-    currentUser: session.currentUser
+    currentUser: entities.users[session.id]
   };
 };
 
@@ -17,4 +17,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Greeting);
+)(LoggedIn);
