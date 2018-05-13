@@ -37,7 +37,19 @@ class LoggedIn extends React.Component {
     }
 
     avatarDropdown() {
-      if(this.state.imageUrl !== null) {
+      if(this.state.imageUrl) {
+        <ul id="gear-dropdown" class="gear-dropdown hidden">
+        	<li>
+        		<ul class="user-dropdown">
+        			<li><a className="logout"
+                onClick={this.props.logout}>Log Out</a></li>
+              <li className="chooseAvatar"><a href="#">Update Avatar</a>
+                <input type="file"  onChange={this.updateFile}/></li>
+        		</ul>
+        	</li>
+        </ul>
+
+
         return (
           <hgroup className="header-group">
             <button className="header-button"
@@ -59,7 +71,9 @@ class LoggedIn extends React.Component {
 
 
             <input type="file" onChange={this.updateFile}/>
-            <img src={this.props.currentUser.image_url}/>
+            <div className="wrapper">
+              <img src={this.props.currentUser.image_url} alt="avatar"/>
+            </div>
           </hgroup>
         );
       }
