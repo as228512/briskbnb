@@ -46,7 +46,6 @@ class LoggedIn extends React.Component {
 
     avatarDropdown() {
       // if(this.state.imageUrl) {
-      //   debugger
       //   return (
       //     <hgroup className="header-group">
       //
