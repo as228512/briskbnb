@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 class LoggedIn extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      imageFile: null,
-      imageUrl: null
-    };
+
     this.updateFile = this.updateFile.bind(this);
+    this.revealDropdown = this.revealDropdown.bind(this);
+    this.hideDropdown = this.hideDropdown.bind(this);
   }
 
     sessionLinks() {
@@ -24,59 +23,80 @@ class LoggedIn extends React.Component {
     }
 
     updateFile(e) {
+      // need to add an "onload" to decrease the time lag of update
       const file = e.currentTarget.files[0];
-      const fileReader = new FileReader();
+      const formData = new FormData();
+      if (file) formData.append("user[image]", file);
+      this.props.updateAvatar(this.props.currentUser.id, formData);
+    }
 
-      fileReader.onloadend = () => {
-        this.setState({ imageFile: file, imageUrl: fileReader.result });
-      };
+    revealDropdown(event) {
+      // shouldn't use Jquery, need to conditionally render a child throgh jsx
+      // and maybe switching a state slice from null to open
+    	      $('#dropdown').removeClass('hidden');
+      $('#dropdown-button').off('click', this.revealDropdown);
+      $(document).on('click', this.hideDropdown);
+    }
 
-      if (file) {
-        fileReader.readAsDataURL(file);
-      }
+    hideDropdown() {
+    	      $('#dropdown').addClass('hidden');
+      $('#dropdown-button').on('click', this.revealDropdown);
+      $(document).off('click',this. hideDropdown);
     }
 
     avatarDropdown() {
-      if(this.state.imageUrl) {
-        <ul id="gear-dropdown" class="gear-dropdown hidden">
-        	<li>
-        		<ul class="user-dropdown">
-        			<li><a className="logout"
-                onClick={this.props.logout}>Log Out</a></li>
-              <li className="chooseAvatar"><a href="#">Update Avatar</a>
-                <input type="file"  onChange={this.updateFile}/></li>
-        		</ul>
-        	</li>
-        </ul>
-
+      // if(this.state.imageUrl) {
+      //   debugger
+      //   return (
+      //     <hgroup className="header-group">
+      //
+      //       <div className="dropdown-button">
+      //         <img src={this.state.imageUrl} alt="dropdown-button"
+      //            onClick={this.revealDropdown}/>
+      //       </div>
+      //
+      //       <ul id="dropdown" className="dropdown hidden">
+      //       	<li>
+      //       		<ul className="options">
+      //             <div><label htmlFor="file_input">Update Avatar</label></div>
+      //             <li className="chooseAvatar">
+      //               <input type="file" id="file_input"
+      //                 onChange={this.updateFile}/>
+      //             </li>
+      //       			<li><a className="logout"
+      //               onClick={this.props.logout}>Log Out</a></li>
+      //       		</ul>
+      //       	</li>
+      //       </ul>
+      //     </hgroup>
+      //   );
+      //
+      //   } else {
 
         return (
           <hgroup className="header-group">
-            <button className="header-button"
-              onClick={this.props.logout}>Log Out</button>
 
-            <input type="file"  onChange={this.updateFile}/>
-            <div className="wrapper">
-              <img src={this.state.imageUrl} alt="avatar"/>
+            <div className="dropdown-button">
+               <img src={this.props.currentUser.image_url}
+                 alt="dropdown-button" onClick={this.revealDropdown}/>
             </div>
+
+            <ul id="dropdown" className="dropdown hidden">
+            	<li>
+            		<ul className="options">
+                  <div><label htmlFor="file_input">Update Avatar</label></div>
+                  <li className="chooseAvatar">
+                    <input type="file" id="file_input"
+                      onChange={this.updateFile}/>
+                  </li>
+            			<li><a className="logout"
+                    onClick={this.props.logout}>Log Out</a></li>
+            		</ul>
+            	</li>
+            </ul>
           </hgroup>
         );
-
-        } else {
-
-        return (
-          <hgroup className="header-group">
-            <button className="header-button"
-              onClick={this.props.logout}>Log Out</button>
-
-
-            <input type="file" onChange={this.updateFile}/>
-            <div className="wrapper">
-              <img src={this.props.currentUser.image_url} alt="avatar"/>
-            </div>
-          </hgroup>
-        );
-      }
+      // }
     }
 
   render () {

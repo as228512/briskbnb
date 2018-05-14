@@ -45,7 +45,7 @@
 
  .nav-login {
    top: 3.5%;
-   right: 8.5%;
+   right: 6.0%;
    padding-right: 3px;
    padding-left: 3px;
    padding-bottom: 34px;
@@ -79,6 +79,11 @@
 
  .nav-signup:hover, .nav-login:hover {
    border-bottom: 2px solid white;
+   cursor: pointer;
+ }
+
+ .dropdown-button:hover {
+   border-bottom: 2px solid #7595bf;
    cursor: pointer;
  }
 
@@ -182,19 +187,19 @@
  .header-group {
    display: inline-block;
    position: fixed;
-   right: 3.5%;
-   width: 5%;
+   right: 0.5%;
+   top: 2%;
  }
 
 
- .wrapper {
-   border-radius:50%;
+ .dropdown-button {
    position: relative;
-   top: -31.5%;
-   right: 35%;
+   top: -18.5%;
+   right: 41%;
+   padding-bottom: 20px;
  }
 
- .wrapper img {
+ .dropdown-button img {
    width:28px;
    height:28px;
    overflow: hidden;
@@ -202,5 +207,6 @@
    position: sticky;
    border-radius:50%;
    border: 2px solid;
-   border-color: buttonface;
+   border-color: #7595bf;
+   cursor: pointer;
  }
