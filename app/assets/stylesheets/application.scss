@@ -82,11 +82,6 @@
    cursor: pointer;
  }
 
- .dropdown-button:hover {
-   border-bottom: 2px solid #7595bf;
-   cursor: pointer;
- }
-
  .sign-up-form-footer {
    display: inline-block;
    margin-top: 30px;
@@ -234,15 +229,20 @@
  .header-group {
    display: inline-block;
    position: fixed;
-   right: 0.5%;
+   right: 1.5%;
    top: 2%;
  }
 
  .dropdown-button {
-   position: relative;
+   position: absolute;
    top: -18.5%;
    right: 41%;
    padding-bottom: 20px;
+ }
+
+ .dropdown-button:hover {
+   border-bottom: 2px solid #7595bf;
+   cursor: pointer;
  }
 
  .dropdown-button img {
