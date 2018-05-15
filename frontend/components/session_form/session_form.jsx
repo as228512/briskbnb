@@ -33,7 +33,7 @@ class SessionForm extends React.Component {
     return(
       <ul>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <li className='errors' key={`error-${i}`}>
             {error}
           </li>
         ))}
@@ -91,10 +91,10 @@ class SessionForm extends React.Component {
                   </div>
 
                   <br/>
-                    <input className="session-submit" type="submit" value={`Sign up`} />
+                    <input className="signup-session-submit" type="submit" value={"Sign up"} />
                 </div>
                 <br/>
-                <div className="form-footer-border"/>
+                <div className="signup-form-footer-border"/>
                 <span className="sign-up-form-footer">Already have a Briskbnb account? <i className="form-footer-link">{this.props.otherForm} </i></span>
               </form>
             </div>
@@ -126,11 +126,17 @@ class SessionForm extends React.Component {
                       />
                     </div>
 
-                  <br/>
-                    <input className="session-submit" type="submit" value={this.props.formType} />
+                    <br/>
+
+                    <input className="login-session-submit" type="submit" value={"Log in"} />
               </div>
                 <br/>
-                <div className="form-footer-border"/>
+                <div className="login-form-footer-border"/>
+
+                <input className="demo-user" type="submit" value="Demo user" onClick={() => (this.props.processGuest(
+                  {e_mail: 'demo@demo.com', password: 'Demo11'}).then(this.props.closeModal))}></input>
+                <div className="demo-form-footer-border"/>
+
                 <span className="login-form-footer">Don't have an account? <i className="form-footer-link">{this.props.otherForm} </i></span>
               </form>
             </div>

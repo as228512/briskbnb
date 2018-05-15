@@ -103,8 +103,21 @@
    margin-left: 107px;
  }
 
- .form-footer-border {
+ .signup-form-footer-border {
    border-bottom: 1px solid rgb(219,219,219);
+   width: 504px;
+ }
+
+ .login-form-footer-border {
+   border-bottom: 1px solid rgb(219,219,219);
+   margin-bottom: 38px;
+   width: 504px;
+ }
+
+ .demo-form-footer-border {
+   border-bottom: 1px solid rgb(219,219,219);
+   margin-top: 29px;
+   margin-bottom: 22px;
    width: 504px;
  }
 
@@ -127,6 +140,10 @@
    left: 0;
    background: rgba(0, 0, 0, 0.7);
    z-index: 10;
+ }
+
+ .errors {
+   color: red;
  }
 
  .modal-child {
@@ -153,7 +170,7 @@
 
  .form-field {
    font-family: Montserrat, sans-serif;
-   height: 46px;
+   height: 40px;
    line-height: 24px;
    font-size: 19px;
    color: rgb(72,72,72);
@@ -171,16 +188,46 @@
    color: rgb(205,205,205);
  }
 
- .session-submit {
+ .signup-session-submit {
    width: 504px;
-   height: 52px;
+   height: 45px;
+   font-size: 19px;
+   font-weight: 700;
+   padding: 12px;
+   margin-top: 24px;
+   margin-bottom: 9px;
+   border: 2px;
+   border-radius: 3px;
+   color: white;
+   background-color: #011c40;
+   cursor: pointer;
+ }
+
+ .login-session-submit {
+   width: 504px;
+   height: 45px;
+   font-size: 19px;
+   font-weight: 700;
+   padding: 12px;
+   margin-top: 19px;
+   margin-bottom: 9px;
+   border: 2px;
+   border-radius: 3px;
+   color: white;
+   background-color: #011c40;
+   cursor: pointer;
+ }
+
+ .demo-user {
+   width: 504px;
+   height: 45px;
    font-size: 19px;
    font-weight: 700;
    padding: 12px;
    border: 2px;
    border-radius: 3px;
    color: white;
-   background-color: #011c40;
+   background-color: #7595bf;
    cursor: pointer;
  }
 
@@ -190,7 +237,6 @@
    right: 0.5%;
    top: 2%;
  }
-
 
  .dropdown-button {
    position: relative;
