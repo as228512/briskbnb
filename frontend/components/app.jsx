@@ -13,8 +13,13 @@ const App = () => (
   <div>
     <Modal />
     <header>
-      
-        <h1 className="splash">Brisk bnb, the world is waiting..</h1>
+        <Route exact path="/" component={GreetingContainer} />
+
+
+        <Link to="/" className="favicon" rel="icon" t
+          ype="image/png" href="favicon-32x32.png" sizes="32x32" />
+        <h1 className="splash">Book unique homes in cool climates</h1>
+        <h1 className="splash-2">the world over.</h1>
       <GreetingContainer />
     </header>
   </div>

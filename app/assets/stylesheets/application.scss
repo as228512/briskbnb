@@ -33,7 +33,7 @@
 
  .splash {
    display: block;
-   font-size: 50px;
+   font-size: calc(2.4vw + 9px);
    color: #ffffff;
    font-weight: 700;
    position: fixed;
@@ -41,6 +41,31 @@
    left: 23%;
    text-shadow: 1px 1px 40px
       rgba(50,23,31,50);
+ }
+
+ .splash-2 {
+   display: block;
+   font-size: calc(2.4vw + 9px);
+   color: #ffffff;
+   font-weight: 700;
+   position: fixed;
+   top: 42%;
+   left: 23%;
+   text-shadow: 1px 1px 40px
+      rgba(50,23,31,50);
+ }
+
+ .favicon {
+   background-image: image-url(favicon-32x32);
+   display: block;
+   background-size: auto;
+   background-repeat: no-repeat;
+   position: relative;
+   height: 36px;
+   width: 36px;
+   margin-left: 26px;
+   margin-top: 19px;
+   cursor: pointer;
  }
 
  .nav-login {
@@ -204,7 +229,7 @@
    font-size: 19px;
    font-weight: 700;
    padding: 12px;
-   margin-top: 19px;
+   margin-top: 34px;
    margin-bottom: 9px;
    border: 2px;
    border-radius: 3px;
