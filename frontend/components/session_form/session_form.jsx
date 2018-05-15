@@ -134,7 +134,7 @@ class SessionForm extends React.Component {
                 <div className="login-form-footer-border"/>
 
                 <input className="demo-user" type="submit" value="Demo user" onClick={() => (this.props.processGuest(
-                  {e_mail: 'demo@demo.com', password: 'Demo11'}).then(this.props.closeModal))}></input>
+                  {e_mail: 'demo@demos.com', password: 'Demo11'}).then(this.props.closeModal))}></input>
                 <div className="demo-form-footer-border"/>
 
                 <span className="login-form-footer">Don't have an account? <i className="form-footer-link">{this.props.otherForm} </i></span>
