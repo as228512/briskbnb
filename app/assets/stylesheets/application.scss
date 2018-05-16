@@ -31,6 +31,11 @@
    display: flex;
  }
 
+ #map {
+   height: 810px;
+   width: 630px;
+ }
+
  .splash {
    display: block;
    font-size: calc(2.4vw + 9px);

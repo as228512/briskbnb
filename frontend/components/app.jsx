@@ -4,6 +4,7 @@ import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import GreetingContainer from './greeting/greeting_container';
+import HomeIndex from './homes/home_index';
 import GreetingText from './greeting/greeting_text';
 import Modal from './session_form/login_signup_modal.jsx';
 
@@ -19,6 +20,7 @@ const App = () => (
     </header>
     <Switch>
       <Route exact path="/" component={GreetingText} />
+      <Route exact patch="/homes" component={ HomeIndex } />
     </Switch>
   </div>
 );
