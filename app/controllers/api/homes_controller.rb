@@ -4,7 +4,7 @@ class Api::HomesController < ApplicationController
   def index
     homes = homes ? Home.in_bound(bounds) : Home.all
 
-    @homes = homes.includes(:reviews)
+    @homes = homes
   end
 
   def show
@@ -25,3 +25,4 @@ class Api::HomesController < ApplicationController
   def bounds
     params[:bounds]
   end
+end

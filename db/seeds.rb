@@ -23,3 +23,11 @@ Home.create!(
   long: 140.709702,
   user_id: 1
 )
+
+Home.create!(
+  description: 'An authentic Alaskan cabin overlooking Creamer\'s Field Waterfowl Refuge, nestled in the edge of the woods. Outdoor and nature lovers will love the trails and wildlife viewing possible from this location. Conveniently located 5 miles from downtown.
+                Featured on RealSimple as the most wished for Airbnb in Alaska.',
+  lat: 64.836378,
+  long: -147.717240,
+  user_id: 1
+)

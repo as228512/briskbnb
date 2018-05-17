@@ -14,6 +14,10 @@
  *= require_self
  */
 
+html {
+  height: 100%;
+  width: 100%;
+}
 
  body {
    background-image: image-url(splash);
@@ -60,51 +64,60 @@
       rgba(50,23,31,50);
  }
 
+ .home-button-border {
+   display: block;
+   height: 60px;
+   width: 0px;
+   margin-top: 6px;
+   margin-left: 86px;
+   border-radius: 2px;
+   border-right: 2px solid #ffffff;
+   position: fixed;
+ }
+
  .favicon {
    background-image: image-url(favicon-32x32);
    display: block;
-   background-size: auto;
+   background-size: contain;
    background-repeat: no-repeat;
-   position: relative;
-   height: 36px;
-   width: 36px;
-   margin-left: 26px;
-   margin-top: 19px;
+   position: fixed;
+   height: 40px;
+   width: 40px;
+   margin-left: 23px;
+   margin-top: 16px;
    cursor: pointer;
+   z-index: 1;
+   float: left;
  }
 
  .nav-login {
-   top: 3.5%;
-   right: 6.0%;
+   top: 3%;
+   right: 6%;
    padding-right: 3px;
    padding-left: 3px;
-   padding-bottom: 34px;
+   padding-bottom: 25px;
    display: block;
    vertical-align: middle;
    line-height: 1;
    font-size: 14px;
    font-weight: 700;
-   position: absolute;
+   position: fixed;
    color: #ffffff;
-   text-shadow: 1px 1px 40px
-      rgba(0,0,0,50);
  }
 
  .nav-signup {
-   top: 3.5%;
+   top: 3%;
    right: 2%;
    padding-right: 3px;
    padding-left: 3px;
-   padding-bottom: 34px;
+   padding-bottom: 25px;
    display: block;
    vertical-align: middle;
    line-height: 1;
    font-size: 14px;
    font-weight: 700;
-   position: absolute;
+   position: fixed;
    color: #ffffff;
-   text-shadow: 1px 1px 40px
-      rgba(0,0,0,50);
  }
 
  .nav-signup:hover, .nav-login:hover {
@@ -258,20 +271,21 @@
 
  .header-group {
    display: inline-block;
+   width: 100%;
    position: fixed;
-   right: 1.5%;
-   top: 2%;
+   height: 70px;
+   background-color: #7595bf;
  }
 
  .dropdown-button {
-   position: absolute;
-   top: -18.5%;
-   right: 41%;
-   padding-bottom: 20px;
+   position: fixed;
+   top: 1.8%;
+   right: 1.5%;
+   padding-bottom: 12.5px;
  }
 
  .dropdown-button:hover {
-   border-bottom: 2px solid #7595bf;
+   border-bottom: 2px solid #ffffff;
    cursor: pointer;
  }
 

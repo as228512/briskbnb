@@ -74,6 +74,7 @@ class LoggedIn extends React.Component {
 
         return (
           <hgroup className="header-group">
+            <div className="home-button-border"/>
 
             <div className="dropdown-button">
                <img src={this.props.currentUser.image_url}
