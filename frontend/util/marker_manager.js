@@ -6,7 +6,6 @@ class MarkerManager {
   }
 
   updateMarkers(homes){
-    debugger
     const homesObj = {};
     homes.forEach(home => homesObj[home.id] = home);
 

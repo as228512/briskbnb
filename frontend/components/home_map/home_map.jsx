@@ -21,16 +21,13 @@ class HomeMap extends React.Component {
     const map = ReactDOM.findDOMNode(this.refs.map);
 
     this.map = new google.maps.Map(map, mapOptions);
-    debugger
     this.MarkerManager =
       new MarkerManager(this.map, this.handleMarkerClick.bind(this));
 
     if (this.props.singleHome) {
-      debugger
       this.props.fetchHome(this.props.homeId);
     } else {
       this.registerListeners();
-      debugger
       this.MarkerManager.updateMarkers(this.props.homes);
     }
   }
@@ -64,8 +61,8 @@ class HomeMap extends React.Component {
 
   render () {
     return (
-      <div className="map" id="map" ref="map">
-        Map
+      <div className="map-container">
+        <div className="map" id="map" ref="map">Map</div>
       </div>
     );
   }

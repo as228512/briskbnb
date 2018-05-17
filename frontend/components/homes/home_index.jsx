@@ -3,7 +3,7 @@ import HomeIndexItem from './home_index_item';
 import HomeMap from '../home_map/home_map';
 
 const HomeIndex = (props) => {
-  debugger
+  // debugger
   return(
           <div>
 

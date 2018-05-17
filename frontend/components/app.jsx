@@ -11,16 +11,16 @@ import Modal from './session_form/login_signup_modal.jsx';
 
 const App = () => (
   <div>
-    <Modal />
-    <header>
-      <hgroup className="header-group"/>
-      <div className="home-button-border"/>
-      <Link to="/" className="favicon" rel="icon"
-        type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <div className="header-box">
+      <header  className="header-group">
+        <Modal />
+        <div className="home-button-border"/>
+        <Link to="/" className="favicon" rel="icon"
+          type="image/png" href="favicon-32x32.png" sizes="32x32" />
 
-
-      <GreetingContainer />
-    </header>
+        <GreetingContainer />
+      </header>
+    </div>
     <Switch>
       <Route exact path="/" component={GreetingText} />
       <Route exact path="/homes" component={ SearchContainer } />
