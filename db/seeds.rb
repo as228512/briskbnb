@@ -1,5 +1,5 @@
-Home.delete_all
-User.delete_all
+Home.destroy_all
+User.destroy_all
 
 User.create!(
   e_mail: 'demo@demos.com',
