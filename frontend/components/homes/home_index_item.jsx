@@ -16,13 +16,14 @@ class HomeIndexItem extends React.Component {
   }
 
   render() {
-    const { description } = this.props.home;
+    const { title, price } = this.props.home;
     return (
-      <div className='home-index-item' onClick={this.handleClick}>
+      <div className="home-index-item" onClick={this.handleClick}>
 
         <div className="home-image"/>
         <div className='index-item-info'>
-          <span className='index-item-copy'>{description}</span>
+          <div className="index-item-info-title">{title}</div>
+          <p>From ${price} per night · Free cancellation</p>
         </div>
       </div>
 

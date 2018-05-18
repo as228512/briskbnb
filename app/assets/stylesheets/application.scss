@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require gmaps-auto-complete
  */
 
 html {
@@ -57,18 +58,34 @@ html {
    display: flex;
  }
 
+ .home-index {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   flex-direction: row;
+   padding-top: 13px
+ }
+
  .home-index-item {
    display: block;
    box-sizing: border-box;
-   height: 200px;
-   width: 300px;
-   padding: 8px 8px 12px 8px;
+   margin: 8px 8px 12px 8px;
+ }
+
+ .index-item-info {
+   display: block;
+   width: 19.8vw;
+   height: 100%;
+ }
+
+ .index-item-info-title {
+   font-weight: 700;
  }
 
  .home-image {
-   background-image: image-url(hokkadio_homes/hokkaido_thumb1);
-   width: 100%;
-   height: 100%;
+   background-image: image-url(splash2);
+   width: 19.8vw;
+   height: 25.8vh;
    border-radius: 3px;
    background-position: center center;
    background-repeat: no-repeat;
@@ -157,7 +174,7 @@ html {
 
  .nav-signup {
    top: 3%;
-   right: 1%;
+   right: 2%;
    padding-right: 3px;
    padding-left: 3px;
    padding-bottom: 23px;

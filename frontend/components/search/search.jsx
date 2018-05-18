@@ -6,7 +6,7 @@ import HomeMap from '../home_map/home_map';
 
 const Search = ({ homes, updateFilter }) => (
   <div className="home-index-body">
-    <div className="home-index">
+    <div>
       <HomeIndex key={homes.id} homes={homes} />
     </div>
     <div className="home-index-map">

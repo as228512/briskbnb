@@ -5,9 +5,7 @@ import HomeMap from '../home_map/home_map';
 const HomeIndex = (props) => {
   // debugger
   return(
-          <div>
-
-            <h1>Explore Hokkaido: </h1>
+          <div className='home-index'>
             {props.homes.map(home => (
               <HomeIndexItem home={home} key={home.id}/>
             ))}

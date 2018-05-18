@@ -19,7 +19,7 @@ class Api::HomesController < ApplicationController
   private
 
   def home_params
-    params.require(:home).permit(:lat, :long, :description)
+    params.require(:home).permit(:lat, :long, :description, :title, :price)
   end
 
   def bounds
