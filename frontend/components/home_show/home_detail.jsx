@@ -5,11 +5,10 @@ const HomeDetail = ({ home }) => {
   return (
     <div>
 
+      <div className="home-show-image"/>
       <ul className="home-list">
-        <img className="index-image"
-          src={"../../../app/assets/images/splash2.jpg"}/>
         <li>{home.title}</li>
-        <li>{home.price}</li>
+        <li>From {home.price} per night · Free cancellation</li>
         <li>{home.description}</li>
         <li>Rating: { null ||
              'No reviews to be seen... be the frist to leave one!'}</li>

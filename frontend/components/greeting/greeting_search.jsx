@@ -1,13 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Route, Redirect, Switch, NavLink, HashRouter } from 'react-router-dom';
+import Autocomplete from 'react-google-autocomplete';
+
+
+
 
 const greetingSearch = () => {
   return (
-    <div className="greeting-searchbar-container">
-      <input className="greeting-searchbar">
-        
-      </input>
+    <div>
+      <div>
+        <div className="search-bar-container">
+          <NavLink to="/homes" className="search-bar-link" placeholder="button">
+            <p>Search</p>
+          </NavLink>
+        </div>
+        <Autocomplete
+          className="search-bar"
+          placeholder='    "Try Hokkaido"'
+          onPlaceSelected={(place) => {
+            console.log(place);
+          }}
+          types={['(regions)']}
+          />
+      </div>
     </div>
+
   );
 };
 

@@ -8,8 +8,6 @@ class HomeIndexItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-
-
   handleClick() {
     const homeId = this.props.home.id;
     this.props.history.push(`/homes/${homeId}`);
@@ -20,10 +18,10 @@ class HomeIndexItem extends React.Component {
     return (
       <div className="home-index-item" onClick={this.handleClick}>
 
-        <div className="home-image"/>
+        <div className="home-index-image"/>
         <div className='index-item-info'>
           <div className="index-item-info-title">{title}</div>
-          <p>From ${price} per night · Free cancellation</p>
+          <p>From `${price}`` per night · Free cancellation</p>
         </div>
       </div>
 

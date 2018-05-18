@@ -1,0 +1,48 @@
+.search-bar {
+  display: block;
+  font-size: 19px;
+  background-color: #ffffff;
+  font-weight: 400;
+  font-family: inherit;
+  position: fixed;
+  top: 50%;
+  left: 23%;
+  border-radius: 5px;
+  height: 6.7%;
+  width: 57%;
+}
+
+.search-bar-container {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 74.0%;
+  z-index: 1;
+}
+
+.search-bar-container p {
+  display: inline-block;
+  position: fixed;
+  top: 53%;
+  left: 75.5%;
+  font-size: 19px;
+}
+
+.search-bar-link {
+  font-family: inherit;
+  font-size: 19px;
+  line-height: 15px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 4px;
+  background: #3887e6;
+  color: #ffffff;
+  margin: 12px;
+  margin-left: 16px;
+  height: 48px;
+  text-align: center;
+  display: inline-block;
+  white-space: nowrap;
+  width: 51px;
+  cursor: pointer;
+}
