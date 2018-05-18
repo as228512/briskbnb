@@ -20,16 +20,11 @@ class HomeIndexItem extends React.Component {
     return (
       <div className='home-index-item' onClick={this.handleClick}>
 
-        <p>PICTURE</p>
+        <div className="home-image"/>
         <div className='index-item-info'>
-          <span className='index-itemcategory'>Rating:</span>
-          <span className='index-item-copy'>
-            { null || 'Have you been here? Be the first to review!' }
-          </span>
-          <span className='index-item-category'>Description:</span>
           <span className='index-item-copy'>{description}</span>
         </div>
-    </div>
+      </div>
 
     );
   }

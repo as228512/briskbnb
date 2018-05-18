@@ -7,7 +7,7 @@ const HomeIndex = (props) => {
   return(
           <div>
 
-            <h1>Homes: </h1>
+            <h1>Explore Hokkaido: </h1>
             {props.homes.map(home => (
               <HomeIndexItem home={home} key={home.id}/>
             ))}
