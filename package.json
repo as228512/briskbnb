@@ -17,7 +17,7 @@
     "redux-thunk": "^2.2.0",
     "webpack": "^3.11.0"
   },
-  "devDepndencies": {
+  "devDependencies": {
     "redux-logger": "^3.0.6"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
