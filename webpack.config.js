@@ -1,7 +1,7 @@
 var path = require("path");
 var webpack = require("webpack");
 
-var plugins = []; 
+var plugins = [];
 var devPlugins = [];
 
 var prodPlugins = [
@@ -28,6 +28,7 @@ module.exports = {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
   },
+  plugins: plugins,
   module: {
     loaders: [
       {
