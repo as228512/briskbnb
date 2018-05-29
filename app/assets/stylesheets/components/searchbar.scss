@@ -20,29 +20,24 @@
   z-index: 1;
 }
 
-.search-bar-container p {
-  display: inline-block;
-  position: fixed;
-  top: 53%;
-  left: 75.5%;
-  font-size: 19px;
-}
-
 .search-bar-link {
+  position: fixed;
+  z-index: 1;
   font-family: inherit;
-  font-size: 19px;
-  line-height: 15px;
+  font-size: 15px;
+  line-height: 42px;
+  height: 4.7%;
+  width: 2%;
+  text-decoration: none;
   padding-left: 18px;
-  padding-right: 18px;
+  padding-right: 28px;
   border-radius: 4px;
   background: #3887e6;
   color: #ffffff;
   margin: 12px;
-  margin-left: 16px;
-  height: 48px;
+  margin-left: 25px;
   text-align: center;
   display: inline-block;
   white-space: nowrap;
-  width: 51px;
   cursor: pointer;
 }
