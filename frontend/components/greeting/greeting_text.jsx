@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import GreetingSearch from './greeting_search';
+import SearchBar from './greeting_search';
 import Autocomplete from 'react-google-autocomplete';
 
 const greetingText = () => {
@@ -8,7 +8,7 @@ const greetingText = () => {
     <div className="greeting-background-image">
       <h1 className="splash-text">Book unique homes in cool climates</h1>
       <h1 className="splash-2-text">the world over.</h1>
-      <GreetingSearch className="search-bar-container"/>
+      <SearchBar className="search-bar-container"/>
     </div>
   );
 };

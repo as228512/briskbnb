@@ -18,6 +18,8 @@ class MarkerManager {
       .forEach((homeId) => this.removeMarker(this.markers[homeId]));
   }
 
+ // marker creation / deletion handled by updateMarkers, 
+  // which is called upon GMAPS interaction (componentDidUpdate)
   createMarkerFromHome(home) {
     const position = new google.maps.LatLng(home.lat, home.long);
     const marker = new google.maps.Marker({

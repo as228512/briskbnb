@@ -39,7 +39,7 @@ gem 'gmaps-autocomplete-rails'
 
 group :development, :test do
   gem 'pry-rails'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'byebug' anywhere in the code to stop execution and get a  console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'web-console', '>= 3.3.0'
   gem 'spring'

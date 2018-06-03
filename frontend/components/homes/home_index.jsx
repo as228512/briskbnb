@@ -1,8 +1,11 @@
 import React from 'react';
 import HomeIndexItem from './home_index_item';
 import HomeMap from '../home_map/home_map';
+import {withRouter} from 'react-router-dom';
 
 const HomeIndex = (props) => {
+
+
   return(
         <div>
           <div className='home-index'>
@@ -13,4 +16,4 @@ const HomeIndex = (props) => {
         </div>
         );};
 
-export default HomeIndex;
+export default withRouter(HomeIndex);

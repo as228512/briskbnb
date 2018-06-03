@@ -1,10 +1,12 @@
+require 'byebug'
+
 class Api::HomesController < ApplicationController
   before_action :require_logged_in, only: [:create]
 
   def index
-    homes = homes ? Home.in_bound(bounds) : Home.all
-
+    homes = bounds ? Home.in_bounds(bounds) : Home.all
     @homes = homes
+
   end
 
   def show

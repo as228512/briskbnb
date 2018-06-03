@@ -2,25 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom';
 import MarkerManager from '../../util/marker_manager';
-
-
-const getCoordsObj = latLng => ({
-  lat: latLng.lat(),
-  lng: latLng.lng()
-});
-
-const mapOptions = {
-  center: { lat: 42.857149, lng: 140.709702},
-  zoom: 13
-};
-
+import HomeIndex from '../homes/home_index';
 
 class HomeMap extends React.Component {
 
   componentDidMount() {
-    const map = ReactDOM.findDOMNode(this.refs.map);
+    const map = this.refs.map;
+    let coords;
+    if (this.props.history.action === "POP") {
+      coords = { lat: 40.754932, lng: -73.984016 };
+    } else {
+      coords = this.props.history.location.place.geometry.location;
+    }
 
-    this.map = new google.maps.Map(map, mapOptions);
+    this.map = new google.maps.Map(map, {
+      center: coords,
+      zoom: 8
+    });
+
     this.MarkerManager =
       new MarkerManager(this.map, this.handleMarkerClick.bind(this));
 
@@ -32,6 +31,7 @@ class HomeMap extends React.Component {
     }
   }
 
+
   componentDidUpdate() {
     if (this.props.singleHome) {
       const targetHomeKey = Object.keys(this.props.homes)[0];
@@ -42,13 +42,15 @@ class HomeMap extends React.Component {
     }
   }
 
+
   registerListeners() {
+
     google.maps.event.addListener(this.map, 'idle', () => {
-      const {north, south, east, west } = this.map.getBounds().toJSON();
-      const bounds = {
-        northEast: { lat:north, lng: east },
-        southWest: { lat: south, lng: west } };
-      this.props.updateFilter('bounds', bounds);
+        const { north, south, east, west } = this.map.getBounds().toJSON();
+        const bounds = {
+          northEast: { lat: north, lng: east },
+          southWest: { lat: south, lng: west } };
+          this.props.updateFilter('bounds', bounds);
     });
   }
 
@@ -56,14 +58,21 @@ class HomeMap extends React.Component {
     this.props.history.push(`/homes/${home.id}`);
   }
 
-
-
-
   render () {
+
     return (
-      <div className="map-container">
-        <div className="map" id="map" ref="map">Map</div>
+    <div className="home-index-body">
+      <div className="home-index-cntr">
+        <HomeIndex key={this.props.homes.id} homes={this.props.homes}/>
       </div>
+
+      <div className="home-index-map">
+        <div className="map-container">
+          <div className="map" id="map" ref="map">Map</div>
+        </div>
+      </div>
+
+    </div>
     );
   }
 }
