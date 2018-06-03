@@ -5,6 +5,8 @@ import Autocomplete from 'react-google-autocomplete';
 
 
 class SearchBar extends React.Component {
+
+
   render() {
     return (
       <div>

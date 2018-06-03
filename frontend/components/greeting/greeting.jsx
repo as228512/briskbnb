@@ -45,58 +45,30 @@ class LoggedIn extends React.Component {
     }
 
     avatarDropdown() {
-      // if(this.state.imageUrl) {
-      //   return (
-      //     <hgroup className="header-group">
-      //
-      //       <div className="dropdown-button">
-      //         <img src={this.state.imageUrl} alt="dropdown-button"
-      //            onClick={this.revealDropdown}/>
-      //       </div>
-      //
-      //       <ul id="dropdown" className="dropdown hidden">
-      //       	<li>
-      //       		<ul className="options">
-      //             <div><label htmlFor="file_input">Update Avatar</label></div>
-      //             <li className="chooseAvatar">
-      //               <input type="file" id="file_input"
-      //                 onChange={this.updateFile}/>
-      //             </li>
-      //       			<li><a className="logout"
-      //               onClick={this.props.logout}>Log Out</a></li>
-      //       		</ul>
-      //       	</li>
-      //       </ul>
-      //     </hgroup>
-      //   );
-      //
-      //   } else {
+      return (
+        <hgroup>
+          <div className="home-button-border"/>
 
-        return (
-            <hgroup>
-              <div className="home-button-border"/>
+          <div className="dropdown-button">
+             <img src={this.props.currentUser.image_url}
+               alt="dropdown-button" onClick={this.revealDropdown}/>
+          </div>
 
-              <div className="dropdown-button">
-                 <img src={this.props.currentUser.image_url}
-                   alt="dropdown-button" onClick={this.revealDropdown}/>
-              </div>
-
-              <ul id="dropdown" className="dropdown hidden">
-              	<li>
-              		<ul className="options">
-                    <div><label htmlFor="file_input">Update Avatar</label></div>
-                    <li className="chooseAvatar">
-                      <input type="file" id="file_input"
-                        onChange={this.updateFile}/>
-                    </li>
-              			<li><a className="logout"
-                      onClick={this.props.logout}>Log Out</a></li>
-              		</ul>
-              	</li>
-              </ul>
-            </hgroup>
-        );
-      // }
+          <ul id="dropdown" className="dropdown hidden">
+          	<li>
+          		<ul className="options">
+                <div><label htmlFor="file_input">Update Avatar</label></div>
+                <li className="chooseAvatar">
+                  <input type="file" id="file_input"
+                    onChange={this.updateFile}/>
+                </li>
+          			<li><a className="logout"
+                  onClick={this.props.logout}>Log Out</a></li>
+          		</ul>
+          	</li>
+          </ul>
+        </hgroup>
+      );
     }
 
   render () {
