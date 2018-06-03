@@ -6,6 +6,7 @@ class Home < ApplicationRecord
 
   #each home has 1 creator
   belongs_to :user
+  has_many :bookings
 
 
   def self.in_bounds(bounds)

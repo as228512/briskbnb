@@ -6,7 +6,6 @@ class Api::HomesController < ApplicationController
   def index
     homes = bounds ? Home.in_bounds(bounds) : Home.all
     @homes = homes
-
   end
 
   def show
