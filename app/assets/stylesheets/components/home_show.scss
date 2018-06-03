@@ -1,0 +1,12 @@
+.home-show-image {
+  height: 80vh;
+  background-image: image-url(hokkadio_homes/hokkaido_thumb1);
+  background-position: center center;
+  background-size: cover;
+}
+
+.home-details-cntr {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
