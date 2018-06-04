@@ -4,11 +4,10 @@ class Api::BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
 
-    bookings = Booking.find(params[:home_id])
 
     conflicts = 0
-    bookings.each do |booking|
-      if booking.start_date >= @booking.start_date ||
+    Booking.where(home_id: @booking.home_id).find_each do |booking|
+      if booking.start_date >= @booking.start_date &&
         booking.end_date <= @booking.end_date
           conflicts += 1
       end
@@ -17,7 +16,7 @@ class Api::BookingsController < ApplicationController
     if conflicts == 0
       @booking.save
     else
-      render json: ["Invalid date range"]
+      render json: ["Date range already booked"]
     end
   end
 
