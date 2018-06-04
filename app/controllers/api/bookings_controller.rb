@@ -17,7 +17,7 @@ class Api::BookingsController < ApplicationController
     if conflicts == 0
       @booking.save
     else
-      render json: ["Date range already in taken"]
+      render json: ["Invalid date range"]
     end
   end
 
