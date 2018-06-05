@@ -3,13 +3,13 @@ class Api::BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-
+    @booking.user_id = current_user.id
 
     booking_valid = true
     Booking.where(home_id: @booking.home_id).find_each do |booking|
       if @booking.start_date < booking.start_date &&
-        @booking.end_date < booking.start_date ||
-        @booking.start_date > booking.end_date
+         @booking.end_date < booking.start_date ||
+         @booking.start_date > booking.end_date
           next
       else
         booking_valid = false
@@ -33,7 +33,7 @@ class Api::BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :home_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date, :home_id)
   end
 
 end

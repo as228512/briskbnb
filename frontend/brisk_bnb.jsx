@@ -11,7 +11,6 @@ import { createUser } from './util/user_api_util';
 document.addEventListener('DOMContentLoaded', () => {
 
   window.createBooking = createBooking;
-  window.createUser = createUser;
 
   let store;
   if (window.currentUser) {
