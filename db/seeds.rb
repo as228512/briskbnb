@@ -1,5 +1,6 @@
 Home.destroy_all
 User.destroy_all
+Booking.destroy_all
 
 User.create!(
   e_mail: 'demo@demos.com',
@@ -198,10 +199,18 @@ Home.create!(
 )
 
 Home.create!(
+  id: 100,
   description: 'An authentic Alaskan cabin overlooking Creamer\'s Field Waterfowl Refuge, nestled in the edge of the woods. Outdoor and nature lovers will love the trails and wildlife viewing possible from this location. Conveniently located 5 miles from downtown. Featured on RealSimple as the most wished for Airbnb in Alaska.',
   price: 400,
   title: "Moiwa Onsen House - Private Onsen, Full House",
   lat: 64.836378,
   long: -147.717240,
-  user_id: 100
+  user_id: 100,
+)
+
+Booking.create!(
+  start_date: DateTime.strptime("06/04/2018 8:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("06/07/2018 16:00", "%m/%d/%Y %H:%M"),
+  user_id: 100,
+  home_id: 100
 )

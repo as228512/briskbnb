@@ -1,19 +1,24 @@
 class Api::BookingsController < ApplicationController
-  before_action :require_logged_in
+  # before_action :require_logged_in
 
   def create
     @booking = Booking.new(booking_params)
 
 
-    conflicts = 0
+    booking_valid = true
     Booking.where(home_id: @booking.home_id).find_each do |booking|
-      if booking.start_date >= @booking.start_date &&
-        booking.end_date <= @booking.end_date
-          conflicts += 1
+      if @booking.start_date < booking.start_date &&
+        @booking.end_date < booking.start_date ||
+        @booking.start_date > booking.end_date
+          next
+      else
+        booking_valid = false
+        break
       end
     end
 
-    if conflicts == 0
+    debugger
+    if booking_valid
       @booking.save
     else
       render json: ["Date range already booked"]
@@ -28,7 +33,7 @@ class Api::BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :home_id, :user_id)
   end
 
 end
