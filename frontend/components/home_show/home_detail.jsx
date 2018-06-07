@@ -1,33 +1,52 @@
 import React from 'react';
 import { Link } from 'react-router';
+import BookingDatePicker from './bookings_datepicker';
 
-const HomeDetail = ({ home }) => {
-  return (
-    <div>
+class HomeDetail extends React.Component {
 
-      <div className="home-show-image"/>
 
-      <div className="home-details-cntr">
-        <ul className="home-list">
-          <li>{home.title}</li>
-          <li>From {home.price} per night · Free cancellation</li>
-          <li>{home.description}</li>
-          <li>Rating: { null ||
-               'No reviews to be seen... be the frist to leave one!'}</li>
-          <li>Description: {home.description}</li>
-        </ul>
+  componentDidMount() {
+    this.props.fetchHome(this.props.homeId);
+    this.props.fetchBookings(this.props.homeId);
+  }
 
-        <br/>
+  handleSubmit(event) {
+    event.stopPropagation();
+  }
 
-        <div className='reviews'>
-          <h3>Reviews</h3>
-          <p>review1</p>
-          <p>review2</p>
-          <p>review3</p>
+
+  render () {
+    return (
+      <div>
+
+        <div className="home-show-image"/>
+
+        <div className="home-contents-cntr">
+          <div className="home-details-cntr">
+
+            <ul className="home-summary">
+              <h1 className="home-title">{this.props.home.title}</h1>
+              <br/>
+              <br/>
+              <li className="home-description">{this.props.home.description}</li>
+            </ul>
+
+
+            <form className="booking-form" onSubmit={this.handleSubmit}>
+              <div>${this.props.home.price} <p>per night</p></div>
+
+            <p>Dates</p>
+            <BookingDatePicker/>
+
+            <input className="book" type="submit" value={"Book"} />
+
+            </form>
+
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default HomeDetail;

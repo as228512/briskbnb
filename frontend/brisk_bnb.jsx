@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import { createBooking } from './util/booking_api_util';
-import { createUser } from './util/user_api_util';
 
 
 

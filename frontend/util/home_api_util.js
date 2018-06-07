@@ -6,17 +6,17 @@ export const fetchHomes = data => {
   });
 };
 
-export const fetchHome = id => (
-  $.ajax({
+export const fetchHome = id => {
+  return $.ajax({
     method: 'GET',
-    url: `/api/homes/${id}`
-  })
-);
+    url: `/api/homes/${id}`,
+  });
+};
 
-export const createHome = home => (
-  $.ajax({
+export const createHome = home => {
+  return $.ajax({
     method: 'POST',
     url: '/api/homes',
     data: { home }
-  })
-);
+  });
+};

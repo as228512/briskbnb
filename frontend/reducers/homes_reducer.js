@@ -10,7 +10,7 @@ const homesReducer = (state = {}, action) => {
 
     case RECEIVE_HOMES:
       return action.homes;
-      
+
     case RECEIVE_HOME:
       const newHome = { [action.home.id]: action.home };
       return merge({}, state, newHome);

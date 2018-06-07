@@ -1,5 +1,9 @@
 class Api::BookingsController < ApplicationController
-  # before_action :require_logged_in
+  before_action :require_logged_in, only: [:create, :destroy]
+
+  def index
+    @bookings = Booking.all
+  end
 
   def create
     @booking = Booking.new(booking_params)
@@ -17,7 +21,6 @@ class Api::BookingsController < ApplicationController
       end
     end
 
-    debugger
     if booking_valid
       @booking.save
     else

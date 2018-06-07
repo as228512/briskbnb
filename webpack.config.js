@@ -38,11 +38,12 @@ module.exports = {
         query: {
           presets: ['env', 'react']
         }
-      }
+      },
+      { test: /\.css$/, loader: 'style-loader!css-loader', }
     ]
   },
   devtool: 'source-map',
   resolve: {
-    extensions: [".js", ".jsx", "*"]
+    extensions: [".js", ".jsx", "*", ".css"]
   }
 };

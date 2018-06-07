@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchHome } from '../../actions/home_actions';
 import { selectHome } from '../../reducers/selectors';
+import { fetchBookings } from '../../actions/booking_actions';
 import HomeShow from './home_show';
 
 const mapStateToProps = (state, { match }) => {
@@ -8,12 +9,13 @@ const mapStateToProps = (state, { match }) => {
   const home = selectHome(state.entities, homeId);
   return {
     homeId,
-    home
+    home,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchHome: id => dispatch(fetchHome(id))
+  fetchHome: id => dispatch(fetchHome(id)),
+  fetchBookings: id => dispatch(fetchBookings(id))
 });
 
 export default connect(

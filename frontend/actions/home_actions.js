@@ -21,8 +21,8 @@ export const fetchHomes = filters => dispatch => (
 );
 
 export const fetchHome = id => dispatch => (
-  APIUtil.fetchHomes(id).then(payload => (
-    dispatch(receiveHome(payload))
+  APIUtil.fetchHome(id).then(home => (
+    dispatch(receiveHome(home))
   ))
 );
 

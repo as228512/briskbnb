@@ -12,7 +12,7 @@ class HomeMap extends React.Component {
     if (this.props.history.action === "POP") {
       coords = { lat: 40.754932, lng: -73.984016 };
     } else {
-      coords = this.props.history.location.place.geometry.location;
+      coords = this.props.location.place.geometry.location;
     }
 
     this.map = new google.maps.Map(map, {
@@ -20,26 +20,17 @@ class HomeMap extends React.Component {
       zoom: 8
     });
 
+
     this.MarkerManager =
       new MarkerManager(this.map, this.handleMarkerClick.bind(this));
 
-    if (this.props.singleHome) {
-      this.props.fetchHome(this.props.homeId);
-    } else {
       this.registerListeners();
       this.MarkerManager.updateMarkers(this.props.homes);
-    }
   }
 
 
   componentDidUpdate() {
-    if (this.props.singleHome) {
-      const targetHomeKey = Object.keys(this.props.homes)[0];
-      const targetHome = this.props.homes[targetHomeKey];
-      this.MarkerManager.updateMarkers([targetHome]);
-    } else {
       this.MarkerManager.updateMarkers(this.props.homes);
-    }
   }
 
 
@@ -59,7 +50,6 @@ class HomeMap extends React.Component {
   }
 
   render () {
-
     return (
     <div className="home-index-body">
       <div className="home-index-cntr">

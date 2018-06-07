@@ -10,21 +10,9 @@ class LoggedIn extends React.Component {
     this.hideDropdown = this.hideDropdown.bind(this);
   }
 
-    sessionLinks() {
-      return (
-          <nav>
-            <a className="nav-login"
-              onClick={() => this.props.openModal('login')}>Log in</a>
-
-            <a className="nav-signup"
-              onClick={() => this.props.openModal('signup')}>Sign up</a>
-          </nav>
-      );
-    }
-
-    updateFile(e) {
+    updateFile(event) {
       // need to add an "onload" to decrease the time lag of update
-      const file = e.currentTarget.files[0];
+      const file = event.currentTarget.files[0];
       const formData = new FormData();
       if (file) formData.append("user[image]", file);
       this.props.updateAvatar(this.props.currentUser.id, formData);
@@ -42,6 +30,18 @@ class LoggedIn extends React.Component {
     	      $('#dropdown').addClass('hidden');
       $('#dropdown-button').on('click', this.revealDropdown);
       $(document).off('click',this. hideDropdown);
+    }
+
+    sessionLinks() {
+      return (
+          <nav>
+            <a className="nav-login"
+              onClick={() => this.props.openModal('login')}>Log in</a>
+
+            <a className="nav-signup"
+              onClick={() => this.props.openModal('signup')}>Sign up</a>
+          </nav>
+      );
     }
 
     avatarDropdown() {
