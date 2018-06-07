@@ -33,7 +33,7 @@ class HomeDetail extends React.Component {
 
 
             <form className="booking-form" onSubmit={this.handleSubmit}>
-              <div>${this.props.home.price} <p>per night</p></div>
+              <div><strong className="price">${this.props.home.price}</strong> per night</div>
 
             <p>Dates</p>
             <BookingDatePicker/>

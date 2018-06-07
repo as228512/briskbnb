@@ -1,3 +1,13 @@
+.single-home-show {
+  font-size: small;
+}
+
+.price {
+  font-weight: 900;
+  font-size: 100%;
+  font-size: x-large;
+}
+
 .home-show-image {
   height: 80vh;
   background-image: image-url(hokkadio_homes/hokkaido_thumb1);
@@ -13,6 +23,7 @@
 
 .home-details-cntr {
   margin-top: 25px;
+  margin-bottom: 100px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -33,4 +44,5 @@
 
 .home-description {
   width: 83%;
+  font-size: 16px;
 }
