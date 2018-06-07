@@ -33,12 +33,13 @@ class HomeDetail extends React.Component {
 
 
             <form className="booking-form" onSubmit={this.handleSubmit}>
-              <div><strong className="price">${this.props.home.price}</strong> per night</div>
+              <div className="price-line"><strong className="price">
+                ${this.props.home.price}</strong> per night</div>
 
-            <p>Dates</p>
+              <p className="dates">Dates</p>
             <BookingDatePicker/>
 
-            <input className="book" type="submit" value={"Book"} />
+            <input className="book" type="submit" value={"Request to Book"} />
 
             </form>
 

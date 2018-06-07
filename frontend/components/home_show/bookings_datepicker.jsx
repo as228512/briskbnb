@@ -26,6 +26,8 @@ class BookingDatepicker extends React.Component {
       <DatePicker
         selected={this.state.startDate}
         onChange={this.handleChange}
+        placeholderText="Click to select a start date"
+        minDate={moment().add(1, "days")}
       />
   );
   }

@@ -2,10 +2,22 @@
   font-size: small;
 }
 
+.price-line {
+  padding-top: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgb(219,219,219);
+  width: 88%;
+}
+
 .price {
-  font-weight: 900;
-  font-size: 100%;
-  font-size: x-large;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.dates {
+  margin-right: 300px;
+  margin-bottom: 5px;
+  margin-top: 20px;
 }
 
 .home-show-image {
@@ -45,4 +57,41 @@
 .home-description {
   width: 83%;
   font-size: 16px;
+}
+
+
+.booking-form {
+  border: 1px solid rgb(219,219,219);
+  border-radius: 1px;
+  display: flex;
+  flex-direction: column;
+  width: 378px;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-datepicker__input-container input {
+  display: block;
+  height:35px;
+  font-size: 16px;
+  border: 1px solid rgb(219,219,219);
+  border-radius: 1px;
+  width: 325px;
+  text-indent: 10px;
+}
+
+.book {
+  width: 88%;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  padding: 12px;
+  margin-top: 24px;
+  margin-bottom: 20px;
+  border: 2px;
+  border-radius: 3px;
+  color: white;
+  background-color: #7595bf;
+  cursor: pointer;
 }

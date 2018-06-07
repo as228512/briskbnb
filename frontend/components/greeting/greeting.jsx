@@ -34,13 +34,13 @@ class LoggedIn extends React.Component {
 
     sessionLinks() {
       return (
-          <nav>
-            <a className="nav-login"
-              onClick={() => this.props.openModal('login')}>Log in</a>
+        <nav>
+          <a className="nav-login"
+            onClick={() => this.props.openModal('login')}>Log in</a>
 
-            <a className="nav-signup"
-              onClick={() => this.props.openModal('signup')}>Sign up</a>
-          </nav>
+          <a className="nav-signup"
+            onClick={() => this.props.openModal('signup')}>Sign up</a>
+        </nav>
       );
     }
 
