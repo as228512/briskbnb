@@ -10,26 +10,54 @@ class BookingDatepicker extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      startDate: moment()
+      startDate: moment(),
+      endDate: moment()
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeStart = this.handleChangeStart.bind(this);
+    this.handleChangeEnd = this.handleChangeEnd.bind(this);
   }
 
-  handleChange(date) {
+  handleChangeStart(date) {
     this.setState({
       startDate: date
     });
   }
 
+  handleChangeEnd(date) {
+    debugger
+    this.setState({
+      endDate: date
+    });
+  }
+
   render() {
+    debugger
     return (
-      <DatePicker
-        selected={this.state.startDate}
-        onChange={this.handleChange}
-        placeholderText="Click to select a start date"
-        minDate={moment().add(1, "days")}
-      />
-  );
+      <div className="date-picker-inner-content">
+        <p className="dates">Check In</p>
+        <DatePicker
+          id="datepicker-border"
+          selectsStart
+          selected={this.state.startDate}
+          startDate={this.state.startDate}
+          endDate={this.state.endDate}
+          onChange={this.handleChangeStart}
+          minDate={moment().add(1, "days")}
+          placeholderText="Click to select a check-in date"
+        />
+
+        <p className="dates">Check Out</p>
+        <DatePicker
+          id="datepicker-border"
+          selectsEnd
+          selected={this.state.endDate}
+          startDate={this.state.startDate}
+          endDate={this.state.endDate}
+          onChange={this.handleChangeEnd}
+          placeholderText="Select a check-out date"
+        />
+      </div>
+    );
   }
 }
 

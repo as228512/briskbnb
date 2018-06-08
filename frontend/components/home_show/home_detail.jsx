@@ -36,8 +36,10 @@ class HomeDetail extends React.Component {
               <div className="price-line"><strong className="price">
                 ${this.props.home.price}</strong> per night</div>
 
-              <p className="dates">Dates</p>
-            <BookingDatePicker/>
+              <div className="date-picker-cntr">
+                <BookingDatePicker homeId={this.props.homeId}
+                  bookings={this.props.bookings} className="date-picker"/>
+              </div>
 
             <input className="book" type="submit" value={"Request to Book"} />
 
