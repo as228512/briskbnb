@@ -25,12 +25,16 @@ class HomeDetail extends React.Component {
           <div className="home-details-cntr">
 
             <ul className="home-summary">
-              <h1 className="home-title">{this.props.home.title}</h1>
+              <div className="home-header">
+                <h1 className="home-title">{this.props.home.title}</h1>
+                <img className="seller-avatar" src={this.props.home.image_url}/>
+              </div>
               <br/>
               <br/>
-              <li className="home-description">{this.props.home.description}</li>
+              <div>
+                <li className="home-description">{this.props.home.description}</li>
+              </div>
             </ul>
-
 
             <form className="booking-form" onSubmit={this.handleSubmit}>
               <div className="price-line"><strong className="price">

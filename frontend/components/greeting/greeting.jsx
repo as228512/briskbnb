@@ -11,6 +11,7 @@ class LoggedIn extends React.Component {
   }
 
     updateFile(event) {
+      debugger
       // need to add an "onload" to decrease the time lag of update
       const file = event.currentTarget.files[0];
       const formData = new FormData();

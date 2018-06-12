@@ -24,14 +24,12 @@ class BookingDatepicker extends React.Component {
   }
 
   handleChangeEnd(date) {
-    debugger
     this.setState({
       endDate: date
     });
   }
 
   render() {
-    debugger
     return (
       <div className="date-picker-inner-content">
         <p className="dates">Check In</p>
