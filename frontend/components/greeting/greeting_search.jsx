@@ -13,6 +13,7 @@ class SearchBar extends React.Component {
           className="search-bar"
           placeholder='"Try Hokkaido"'
           onPlaceSelected={(place) => {
+            console.log(place);
             this.props.history.push({
               pathname: "/homes",
               place

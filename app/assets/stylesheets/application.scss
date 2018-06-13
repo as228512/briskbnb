@@ -98,6 +98,10 @@ html {
    cursor: pointer;
  }
 
+ .home-index-map {
+   margin-right: 1%;
+ }
+
  .map-container {
    padding-top: 21px;
    position: sticky;
@@ -107,7 +111,6 @@ html {
  #map {
    height: calc(100vh - 113px);
    width: 34vw;
-   margin-right: 18px;
  }
 
  .splash-text {

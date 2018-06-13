@@ -21,7 +21,7 @@ class HomeDetail extends React.Component {
 
         <div className="home-show-image"/>
 
-        <div className="home-contents-cntr">
+          <div className="home-contents-cntr">
           <div className="home-details-cntr">
 
             <ul className="home-summary">
