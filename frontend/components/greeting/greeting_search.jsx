@@ -6,10 +6,18 @@ import Autocomplete from 'react-google-autocomplete';
 
 class SearchBar extends React.Component {
 
+  handleKeyPress(event) {
+    if(typeof event.target.value === "string" && event.keyCode === 13) {
+      event.preventDefault();
+      $(".search-bar").attr("placeholder", "Please select an option from the dropdown");
+    }
+  }
+
   render() {
     return (
       <div>
         <Autocomplete
+          onKeyPress={this.handleKeyPress}
           className="search-bar"
           placeholder='"Try Hokkaido"'
           onPlaceSelected={(place) => {

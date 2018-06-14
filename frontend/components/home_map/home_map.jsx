@@ -9,11 +9,19 @@ class HomeMap extends React.Component {
   componentDidMount() {
     const map = this.refs.map;
     let coords;
-    if (this.props.history.action === "POP") {
+    coords = localStorage.getItem('coords');
+
+    if (coords) {
+      coords = JSON.parse(coords);
+    }
+    else if (this.props.history.action === "POP") {
       coords = { lat: 40.754932, lng: -73.984016 };
-    } else {
+    }
+    else {
       coords = this.props.location.place.geometry.location;
     }
+
+    localStorage.setItem('coords', JSON.stringify(coords));
 
     this.map = new google.maps.Map(map, {
       center: coords,
@@ -28,9 +36,13 @@ class HomeMap extends React.Component {
       this.MarkerManager.updateMarkers(this.props.homes);
   }
 
+  componentWillUnmount() {
+    localStorage.clear();
+  }
+
 
   componentDidUpdate() {
-      this.MarkerManager.updateMarkers(this.props.homes);
+    this.MarkerManager.updateMarkers(this.props.homes);
   }
 
 
