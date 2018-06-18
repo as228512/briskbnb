@@ -13,16 +13,16 @@ class HomeMap extends React.Component {
     const search = new URLSearchParams(coords);
     const lat = search.get("lat");
     const lng = search.get("lng");
-    const defaultCoords = { lat: 40.754932, lng: -73.984016 };
+    const defaultCoords = { lat: 43.979128, lng: -74.431108 };
     coords = { lat: parseFloat(lat), lng: parseFloat(lng) };
 
-    if (!coords) {
+    if (!coords.lat) {
       coords = defaultCoords;
     }
 
     this.map = new google.maps.Map(map, {
       center: coords,
-      zoom: 8
+      zoom: 7
     });
 
 
