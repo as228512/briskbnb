@@ -8,20 +8,17 @@ class HomeMap extends React.Component {
 
   componentDidMount() {
     const map = this.refs.map;
-    let coords;
-    coords = localStorage.getItem('coords');
 
-    if (coords) {
-      coords = JSON.parse(coords);
-    }
-    else if (this.props.history.action === "POP") {
-      coords = { lat: 40.754932, lng: -73.984016 };
-    }
-    else {
-      coords = this.props.location.place.geometry.location;
-    }
+    let coords = this.props.location.search;
+    const search = new URLSearchParams(coords);
+    const lat = search.get("lat");
+    const lng = search.get("lng");
+    const defaultCoords = { lat: 40.754932, lng: -73.984016 };
+    coords = { lat: parseFloat(lat), lng: parseFloat(lng) };
 
-    localStorage.setItem('coords', JSON.stringify(coords));
+    if (!coords) {
+      coords = defaultCoords;
+    }
 
     this.map = new google.maps.Map(map, {
       center: coords,
