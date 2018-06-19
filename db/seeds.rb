@@ -237,66 +237,290 @@ Home.create!(
 
 #NewYork_4
 Home.create!(
-  description: 'An authentic Alaskan cabin overlooking Creamer\'s Field Waterfowl Refuge, nestled in the edge of the woods. Outdoor and nature lovers will love the trails and wildlife viewing possible from this location. Conveniently located 5 miles from downtown. Featured on RealSimple as the most wished for Airbnb in Alaska.',
-  price: 400,
-  title: "Moiwa Onsen House - Private Onsen, Full House",
-  lat: 64.836378,
-  long: -147.717240,
+  description: 'Tucked back in the woods of the Adirondacks, this private little authentic one room log cabin is not only charming
+                and inviting, but a great little get away for a couple or small family, even two couples. Provided with all the
+                basics you need, it is welcoming and cozy. A perfect getaway spot. 1 mile from snowmobile trails, linking Brantingham,
+                Tug Hill, Stillwater & Old Forge . Hiking, waterfalls, horseback riding & fishing are available on the many lakes and
+                rivers as well as state land.',
+  price: 125,
+  title: "Black Bear Lodge",
+  lat: 43.762816,
+  long: -75.314217,
   user_id: 100,
-  home_url: "https://s3.console.aws.amazon.com/s3/object/briskavatars/homes/hokkaido_thumb1.jpg?region=us-east-2&tab=overview"
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/New+York+Homes/NewYork_4.jpg"
 )
 
 #NewYork_5
 Home.create!(
-  description: 'Our 3-bedroom house called Snow Monkey 1 is centrally located next to all major amenities, within walking distance to the ski lifts, and just steps away from the hot spring. It is the perfect place to chill around the fireplace after a long day in the famous Niseko snow!',
-  price: 9001,
-  title: "3BD House+Netflix+Fireplace ★ Close to everything",
-  lat: 42.857149,
-  long: 140.709702,
+  description: 'Cabin located across from Macomb State Park providing access to cross country skiing.
+                30 minute drive to Whiteface Mt. Ski Area. Sleeps 4 with 2 twins and a double in upstairs loft.
+                Fully furnished kitchen, bath with shower. Quiet space.',
+  price: 75,
+  title: "Cozy Cabin",
+  lat: 44.614139,
+  long: -73.607246,
   user_id: 100,
-  home_url: "https://s3.console.aws.amazon.com/s3/object/briskavatars/homes/hokkaido_thumb1.jpg?region=us-east-2&tab=overview"
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/New+York+Homes/NewYork_5.jpg"
 )
 
 #NewYork_6
 Home.create!(
-  description: 'An authentic Alaskan cabin overlooking Creamer\'s Field Waterfowl Refuge, nestled in the edge of the woods. Outdoor and nature lovers will love the trails and wildlife viewing possible from this location. Conveniently located 5 miles from downtown. Featured on RealSimple as the most wished for Airbnb in Alaska.',
-  price: 400,
-  title: "Moiwa Onsen House - Private Onsen, Full House",
-  lat: 64.836378,
-  long: -147.717240,
+  description: 'The East Lake Cabin is perfectly positioned to take advantage of all the Adirondacks\' has to offer.
+                A short 20 minute drive to Saranac Lake and 35 minute drive to Lake Placid. Canoes and catch and release fishing
+                of native Brook Trout are available to guests as well. There is no cell phone service and limited internet access,
+                guests often comment they like this feature! However a landline is available for United States / Canadian phone calls
+                at no charge.',
+  price: 99,
+  title: "Camp Arden East Lake Cabin",
+  lat: 44.515862,
+  long: -74.025557,
   user_id: 100,
-  home_url: "https://s3.console.aws.amazon.com/s3/object/briskavatars/homes/hokkaido_thumb1.jpg?region=us-east-2&tab=overview"
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/New+York+Homes/NewYork_6.jpg"
 )
 
+#SwissAlps_1
 Home.create!(
-  description: 'Our 3-bedroom house called Snow Monkey 1 is centrally located next to all major amenities, within walking distance to the ski lifts, and just steps away from the hot spring. It is the perfect place to chill around the fireplace after a long day in the famous Niseko snow!',
-  price: 9001,
-  title: "3BD House+Netflix+Fireplace ★ Close to everything",
-  lat: 42.857149,
-  long: 140.709702,
+  description: 'Welcome to Airolo, in the small mountain village at the foot of the spectacular St Gotthard Massif.
+                A quiet apartment in the village center with mountain views.',
+  price: 103,
+  title: "In the middle of the Alps, Airolo",
+  lat: 46.528815,
+  long: 8.608717,
   user_id: 100,
-  home_url: "https://s3.console.aws.amazon.com/s3/object/briskavatars/homes/hokkaido_thumb1.jpg?region=us-east-2&tab=overview"
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Swiss+Alps+Homes/SwissAlps_1.jpg"
 )
 
+#SwissAlps_2
 Home.create!(
-  description: 'An authentic Alaskan cabin overlooking Creamer\'s Field Waterfowl Refuge, nestled in the edge of the woods. Outdoor and nature lovers will love the trails and wildlife viewing possible from this location. Conveniently located 5 miles from downtown. Featured on RealSimple as the most wished for Airbnb in Alaska.',
-  price: 400,
-  title: "Moiwa Onsen House - Private Onsen, Full House",
-  lat: 64.836378,
-  long: -147.717240,
+  description: 'This exceptional and simple hunting hut is located at an altitude of 1650 m at the foot of the Oberalppasse
+                and at the source of the Rhine. The cottage is directly accessible by car and the MGB station is only
+                a few minutes away by foot.',
+  price: 77,
+  title: "Hunting lodge at the Rhine river",
+  lat: 46.677782,
+  long: 8.756976,
   user_id: 100,
-  home_url: "https://s3.console.aws.amazon.com/s3/object/briskavatars/homes/hokkaido_thumb1.jpg?region=us-east-2&tab=overview"
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Swiss+Alps+Homes/SwissAlps_2.jpg"
 )
 
+#SwissAlps_3
+Home.create!(
+  description: 'Modern apartment in the village center. Huge windows give a view to the river, church & mountains beyond.
+                There\'s a spacious balcony for sunbathing, eating out and lounging in summer.
+                Full facilities: underground garage, ski room, sauna, HiFi, cable TV and WiFi',
+  price: 124,
+  title: "Luxurious & light attic apartment.",
+  lat: 46.635931,
+  long: 8.593369,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Swiss+Alps+Homes/SwissAlps_3.jpg"
+)
+
+#SwissAlps_4
+Home.create!(
+  description: 'Romantic Chalet Hotel room with Spa & Restaurant.',
+  price: 144,
+  title: "CHALET STELLA ALPINA - superior room",
+  lat: 46.503425,
+  long: 8.506567,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Swiss+Alps+Homes/SwissAlps_4.jpg"
+)
+
+#SwissAlps_5
+Home.create!(
+  description: 'Gadestatt is our private Maiensäss. A real bijoux. Here above the roofs of Obergesteln in Obergoms,
+                you can enjoy a breathtaking view over the Goms, a proud high valley in the Valais Alps.
+                In the immediate vicinity are the Alpine passes Furka, Grimsel, & Nufenen.
+                The Maiensäss can be easily reached by car, by bike / Töff, or in a 40`Wandererung from Obergesteln.
+                The well-known Gommer Höhenweg leads not far past the hut.',
+  price: 310,
+  title: "A private butler to the starry sky bed",
+  lat: 46.513582,
+  long: 8.325200,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Swiss+Alps+Homes/SwissAlps_5.jpg"
+)
+
+#SwissAlps_6
+Home.create!(
+  description: 'Modern loft apartment in the heart of the Swiss Alps',
+  price: 155,
+  title: "New Loft in the heart of the Swiss Alps (90m2)",
+  lat: 46.703694,
+  long: 8.851170,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Swiss+Alps+Homes/SwissAlps_6.jpg"
+)
+
+#Greenland_1
+Home.create!(
+  description: 'We offer 3 rooms in our Blue Guesthouse to individuals and groups in our beautiful house with shared kitchen
+                and bathroom facilities. On request we also offer 3 rooms in our Red Guesthouse located next door.
+                The UNESCO site is only a few minutes away on foot as well as the city centre.
+                If you are looking for your own private house, we can accommodate you in our Green Guesthouse with 2 bed rooms and
+                1 alcove. We look forward to welcome you and offer you the best view!',
+  price: 120,
+  title: "Ilulissat Blue Guesthouse room 3",
+  lat: 69.218858,
+  long: -51.113858,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Greenland+Homes/Greenland_1.jpg"
+)
+
+#Greenland_2
+Home.create!(
+  description: 'The house is in a very quiet area with really some really good views.',
+  price: 104,
+  title: "Little Yellow House",
+  lat: 60.910282,
+  long: -46.039591,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Greenland+Homes/Greenland_2.jpg"
+)
+
+#Greenland_3
+Home.create!(
+  description: 'A charming house with an amazing picture-window-view of a fjord with icebergs.
+                Full kitchen, bedroom with rooftop window, fold-out couch & table in front room.
+                Wooden deck has a view of the ice cap ("Isikkivik" is the Greenlandic word for "view").
+                Electric heater for cooler days. Swedish wood-fired hot tub. Hot and cold running water in the kitchen.
+                Cold water only in sink in WC, with composting toilet. Quiet, private location at the edge of town,
+                right at the foot of Qaqqarsuaq Mountain.',
+  price: 102,
+  title: "Isikkivik - a house in Greenland",
+  lat: 60.912840,
+  long: -46.036618,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Greenland+Homes/Greenland_3.jpg"
+)
+
+#Greenland_4
+Home.create!(
+  description: 'We offer 3 rooms in our Blue Guesthouse to individuals and groups in our beautiful house with shared kitchen
+                and bathroom facilities. On request we also offer 3 rooms in our Red Guesthouse located next door.
+                The UNESCO site is only a few minutes away on foot as well as the city centre. If you are looking for your own
+                private house, we can accommodate you in our Green Guesthouse with 2 bed rooms and 1 alcove.
+                We look forward to welcome you and offer you the best view!',
+  price: 120,
+  title: "Ilulissat Blue Guesthouse room 2",
+  lat: 69.217570,
+  long: -51.112574,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Greenland+Homes/Greenland_4.jpg"
+)
+
+#Greenland_5
+Home.create!(
+  description: '5-star luxury apartment of 60 m2 with beautiful view of the fiord and the mountains surrounding Nuuk.
+                Quiet neighborhood. Large livingroom, kitchen with all appliances, bathroom with shower, bedroom with bed for two.
+                Sofa bed in livingroom for two. Cable TV and wifi/internet included.',
+  price: 92,
+  title: "Wonderful private apartment with great view",
+  lat: 64.195226,
+  long: -51.708105,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Greenland+Homes/Greenland_5.jpg"
+)
+
+#Greenland_6
+Home.create!(
+  description: 'Cosy apartment with gorgeous view overlooking the mountain and fjord. The apartment is facing the hill side
+                and it\'s easy to access central Nuuk by foot, it\'s a beautiful 10 min walk to cross the pass.
+                Kitchen is fully equipped and with washing and drying facilities. Wi-fi internet is available for basic use.
+                It\'s a two bedroom apartment with living room, kitchen and bath. I stay in one of the bedrooms and host in the guest room.
+
+                Welcome home :)',
+  price: 67,
+  title: "Cosy apartment with gorgeous view :)",
+  lat: 64.189534,
+  long: -51.725673,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Greenland+Homes/Greenland_6.jpg"
+)
+
+#Toronto_1
+Home.create!(
+  description: 'Make the most of Toronto from this smart and stylish central condo, a clean and comfortable base from which to
+                explore the city. The private balcony is perfect for watching the sunset after a day of sightseeing.',
+  price: 188,
+  title: "Central Toronto Penthouse with Large Balcony",
+  lat: 43.649380,
+  long: -79.397741,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Toronto+Homes/Toronto_1.jpg"
+)
+
+#Toronto_2
+Home.create!(
+  description: 'A FORMER FOUR SEASONS HOTEL Suite. Located In the heart of YORKVILLE, steps to UNIVERSITY of TORONTO.
+          MANAGED BY AN AIRBNB PLUS CERTIFIED HOST. Business traveller preferred. Laptop with All in one printer.
+          Family friendly. WHOLE FOODS at your door.',
+  price: 152,
+  title: "Hotel Style Executive Condominium near U of T and Rom",
+  lat: 43.673624,
+  long: -79.393517,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Toronto+Homes/Toronto_2.jpg"
+)
+
+#Toronto_3
+Home.create!(
+  description: 'Located in the heart of Toronto\'s most popular downtown area, the Fashion District, in King West is centrally
+                located and steps to the hottest restaurants, shopping, attractions and nightlife.
+                This particular boutique condo has been professionally designed and voted Fashions Districts
+                "Best Under 500 sqft Small Condo Design" by HGTV',
+  price: 124,
+  title: "Luxury Boutique Condo Downtown WIFI",
+  lat: 43.646002,
+  long: -79.403050,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Toronto+Homes/Toronto_3.jpg"
+)
+
+#Toronto_4
+Home.create!(
+  description: 'If you love views, this is the place to be! Unbelievable views of the CN Tower and the Toronto skyline.
+                My one bedroom downtown suite is right out of a magazine.
+                Directly across from Union Station, ACC, Longo\'s Grocery Store, Starbucks, Restaurants, Pharmacy & TD Bank.
+                Steps to Toronto\'s Harbourfront, Lakefront, and the Financial & Entertainment Districts.
+                If you want to be in the centre of it all, look no further.
+                This building was recently ranked as the top ten in the world.',
+  price: 140,
+  title: "Unbelievable Views of Toronto",
+  lat: 43.643210,
+  long: -79.383600,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Toronto+Homes/Toronto_4.jpg"
+)
+
+#Toronto_5
+Home.create!(
+  description: 'Great view
+                Downtown entertainment district
+                Walking distance to restaurants, bars, groceries and coffee shops
+                Brand new
+                Lots of amenities
+                Full kitchen',
+  price: 94,
+  title: "Gorgeous view Downtown Toronto",
+  lat: 43.642766,
+  long: -79.396651,
+  user_id: 100,
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Toronto+Homes/Toronto_5.jpg"
+)
+
+#Toronto_6
 Home.create!(
   id: 100,
-  description: 'An authentic Alaskan cabin overlooking Creamer\'s Field Waterfowl Refuge, nestled in the edge of the woods. Outdoor and nature lovers will love the trails and wildlife viewing possible from this location. Conveniently located 5 miles from downtown. Featured on RealSimple as the most wished for Airbnb in Alaska.',
-  price: 400,
-  title: "Moiwa Onsen House - Private Onsen, Full House",
-  lat: 64.836378,
-  long: -147.717240,
+  description: 'Luxury high sky view suite in the heart of Toronto- York st, located just steps to the Union Station,
+                CN tower, Rogers center, Air Canada Center and many others.',
+  price: 186,
+  title: "50+Floor Luxury Sky View Suite DT Toronto",
+  lat: 43.642253,
+  long: -79.382894,
   user_id: 100,
-  home_url: "https://s3.console.aws.amazon.com/s3/object/briskavatars/homes/hokkaido_thumb1.jpg?region=us-east-2&tab=overview"
+  home_url: "https://s3.amazonaws.com/briskavatars/homes/Toronto+Homes/Toronto_6.jpg"
 )
 
 Booking.create!(

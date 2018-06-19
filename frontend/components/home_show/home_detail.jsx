@@ -19,7 +19,7 @@ class HomeDetail extends React.Component {
     return (
       <div>
 
-        <div className="home-show-image"/>
+        <img className="home-show-image" src={this.props.home.home_url}/>
 
           <div className="home-contents-cntr">
           <div className="home-details-cntr">
