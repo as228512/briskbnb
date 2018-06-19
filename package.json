@@ -21,6 +21,9 @@
     "webpack": "^3.11.0"
   },
   "devDependencies": {
+    "react-google-autocomplete": "^1.0.15",
+    "react-places-autocomplete": "^7.1.1",
+    "css-loader": "^0.28.11",
     "redux-logger": "^3.0.6",
     "style-loader": "^0.21.0"
   },
