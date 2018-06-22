@@ -30,7 +30,6 @@ class SessionForm extends React.Component {
 
 
   renderErrors() {
-    if (this.props.processGuest) return;
     return(
       <ul>
         {this.props.errors.map((error, i) => (
@@ -130,15 +129,15 @@ class SessionForm extends React.Component {
                     <br/>
 
                     <input className="login-session-submit" type="submit" value={"Log in"} />
-              </div>
                 <br/>
                 <div className="login-form-footer-border"/>
 
-                <input className="demo-user" type="submit" value="Demo user" onClick={() => (this.props.processGuest(
+                <input className="demo-user" type="button" value="Demo user" onClick={() => (this.props.processGuest(
                   {e_mail: 'demo@demos.com', password: 'Demo11'}).then(this.props.closeModal))}></input>
                 <div className="demo-form-footer-border"/>
 
                 <span className="login-form-footer">Don't have an account? <i className="form-footer-link">{this.props.otherForm} </i></span>
+              </div>
               </form>
             </div>
           );
