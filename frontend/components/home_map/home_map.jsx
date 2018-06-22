@@ -58,10 +58,22 @@ class HomeMap extends React.Component {
     this.props.history.push(`/homes/${home.id}`);
   }
 
+  homeMessage() {
+    if(this.props.homes.length === 0)
+    return (
+      <div>
+        <p className="home-results">No Results</p>
+        <p className="no-homes">To get more results, try zooming out on the map</p>
+        <div className="no-results-bottom-border"></div>
+      </div>
+    );
+  }
+
   render () {
     return (
     <div className="home-index-body">
       <div className="home-index-cntr">
+        {this.homeMessage()}
         <HomeIndex key={this.props.homes.id} homes={this.props.homes}/>
       </div>
 
