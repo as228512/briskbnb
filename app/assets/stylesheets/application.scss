@@ -137,17 +137,6 @@ html {
       rgba(50,23,31,50);
  }
 
- .home-button-border {
-   display: block;
-   height: 60px;
-   width: 0px;
-   margin-top: 6px;
-   margin-left: 86px;
-   border-radius: 2px;
-   border-right: 2px solid #ffffff;
-   position: fixed;
- }
-
  .favicon {
    background-image: image-url(favicon-32x32);
    display: block;
@@ -168,14 +157,14 @@ html {
    right: 6.5%;
    padding-right: 3px;
    padding-left: 3px;
-   padding-bottom: 23px;
+   padding-bottom: 25px;
    display: block;
    vertical-align: middle;
    line-height: 1;
    font-size: 14px;
    font-weight: 700;
    position: fixed;
-   color: #ffffff;
+   color: #484848;
  }
 
  .nav-signup {
@@ -183,18 +172,18 @@ html {
    right: 2%;
    padding-right: 3px;
    padding-left: 3px;
-   padding-bottom: 23px;
+   padding-bottom: 25px;
    display: block;
    vertical-align: middle;
    line-height: 1;
    font-size: 14px;
    font-weight: 700;
    position: fixed;
-   color: #ffffff;
+   color: #484848;
  }
 
  .nav-signup:hover, .nav-login:hover {
-   border-bottom: 2px solid white;
+   border-bottom: 2px solid #484848;
    cursor: pointer;
  }
 
@@ -321,7 +310,7 @@ html {
    font-weight: 700;
    padding: 12px;
    margin-top: 34px;
-   margin-bottom: 9px;
+   margin-bottom: 29px;
    border: 2px;
    border-radius: 3px;
    color: white;
@@ -351,8 +340,9 @@ html {
    width: 100%;
    position: fixed;
    height: 70px;
-   background-color: #7595bf;
+   background-color: #ffffff;
    z-index: 1;
+   border-bottom: 1px solid #e4e4e4;
  }
 
  .dropdown-button {

@@ -45,7 +45,7 @@ class HomeDetail extends React.Component {
                   bookings={this.props.bookings} className="date-picker"/>
               </div>
 
-            <input className="book" type="submit" value={"Request to Book"} />
+            <input className="book" type="submit" value={"Book"} />
 
             </form>
 
