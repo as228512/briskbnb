@@ -21,7 +21,6 @@ class SearchBar extends React.Component {
     const input = document.getElementsByClassName("search-bar")[0];
     const autocomplete = new google.maps.places.Autocomplete(input);
 
-    google.maps.event.addDomListener(window, "load", autocomplete);
     let location;
     autocomplete.addListener("place_changed", () => {
 
@@ -50,16 +49,21 @@ class SearchBar extends React.Component {
 
     geocoder.geocode({ address: this.state.location }, (results, status) => {
       if (status === "OK") {
+        const view1 = results[0].geometry.viewport.b.b;
+        const view2 = results[0].geometry.viewport.b.f;
+        const view3 = results[0].geometry.viewport.f.b;
+        const view4 = results[0].geometry.viewport.f.f;
         const lat = results[0].geometry.location.lat();
         const lng = results[0].geometry.location.lng();
 
-        this.props.history.push(`/homes?lat=${lat}&lng=${lng}`);
+        this.props.history.push({
+          pathname: "/homes",
+          search:`?lat=${lat}&lng=${lng}&view1=${view1}
+                  &view2=${view2}&view3=${view3}&view4=${view4}`
+        });
+
       }
     });
-
-    if (e) {
-      e.preventDefault();
-    }
   }
 
   update(field) {
@@ -73,15 +77,11 @@ class SearchBar extends React.Component {
 
     return (
       <div>
-        <form onSubmit={e => this.handleSubmit(e)}>
-
         <input
           className="search-bar"
           onChange={this.update("location")}
           placeholder='"Try Hokkaido"'
           value={this.state.location}/>
-
-        </form>
       </div>
 
     );

@@ -5,8 +5,6 @@ import Root from './components/root';
 import { createBooking } from './util/booking_api_util';
 
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
   window.createBooking = createBooking;

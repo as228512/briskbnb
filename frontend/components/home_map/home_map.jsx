@@ -8,33 +8,34 @@ class HomeMap extends React.Component {
 
   componentDidMount() {
     const map = this.refs.map;
-
-    let coords = this.props.location.search;
+    const coords = this.props.location.search;
     const search = new URLSearchParams(coords);
-    const lat = search.get("lat");
-    const lng = search.get("lng");
-    const defaultCoords = { lat: 43.979128, lng: -74.431108 };
-    coords = { lat: parseFloat(lat), lng: parseFloat(lng) };
 
-    if (!coords.lat) {
-      coords = defaultCoords;
+    let bounds = new google.maps.LatLngBounds();
+    bounds.b.b = parseFloat(search.get("view1"));
+    bounds.b.f = parseFloat(search.get("view2"));
+    bounds.f.b = parseFloat(search.get("view3"));
+    bounds.f.f = parseFloat(search.get("view4"));
+
+
+    if (!bounds.b.b) {
+      const defaultCoords = { lat: 43.979128, lng: -74.431108 };
+      this.map = new google.maps.Map(map, {
+        center: defaultCoords,
+        zoom: 7
+      });
     }
 
-    this.map = new google.maps.Map(map, {
-      center: coords,
-      zoom: 7
-    });
-
+    else {
+      this.map = new google.maps.Map(map);
+      this.map.fitBounds(bounds);
+    }
 
     this.MarkerManager =
       new MarkerManager(this.map, this.handleMarkerClick.bind(this));
 
       this.registerListeners();
       this.MarkerManager.updateMarkers(this.props.homes);
-  }
-
-  componentWillUnmount() {
-    localStorage.clear();
   }
 
 
@@ -44,7 +45,6 @@ class HomeMap extends React.Component {
 
 
   registerListeners() {
-
     google.maps.event.addListener(this.map, 'idle', () => {
         const { north, south, east, west } = this.map.getBounds().toJSON();
         const bounds = {
