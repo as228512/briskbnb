@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class LoggedIn extends React.Component {
+class SplashLoggedIn extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,10 +35,10 @@ class LoggedIn extends React.Component {
     sessionLinks() {
       return (
         <nav>
-          <a className="nav-login"
+          <a className="splash-nav-login"
             onClick={() => this.props.openModal('login')}>Log in</a>
 
-          <a className="nav-signup"
+          <a className="splash-nav-signup"
             onClick={() => this.props.openModal('signup')}>Sign up</a>
         </nav>
       );
@@ -48,9 +48,9 @@ class LoggedIn extends React.Component {
       return (
         <hgroup>
 
-          <div className="dropdown-button">
+          <div className="splash-dropdown-button">
              <img src={this.props.currentUser.image_url}
-               alt="dropdown-button" onClick={this.revealDropdown}/>
+               alt="splash-dropdown-button" onClick={this.revealDropdown}/>
           </div>
 
           <ul id="dropdown" className="dropdown hidden">
@@ -80,4 +80,4 @@ class LoggedIn extends React.Component {
 
 
 
-export default LoggedIn;
+export default SplashLoggedIn;

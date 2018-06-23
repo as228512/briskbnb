@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom';
+
 import MarkerManager from '../../util/marker_manager';
 import HomeIndex from '../homes/home_index';
+import { NavBar } from '../nav/nav_bar';
 
 class HomeMap extends React.Component {
 
@@ -71,18 +73,21 @@ class HomeMap extends React.Component {
 
   render () {
     return (
-    <div className="home-index-body">
-      <div className="home-index-cntr">
-        {this.homeMessage()}
-        <HomeIndex key={this.props.homes.id} homes={this.props.homes}/>
-      </div>
-
-      <div className="home-index-map">
-        <div className="map-container">
-          <div className="map" id="map" ref="map">Map</div>
+    <div>
+      <NavBar />
+      <div className="home-index-body">
+        <div className="home-index-cntr">
+          {this.homeMessage()}
+          <HomeIndex key={this.props.homes.id} homes={this.props.homes}/>
         </div>
-      </div>
 
+        <div className="home-index-map">
+          <div className="map-container">
+            <div className="map" id="map" ref="map">Map</div>
+          </div>
+        </div>
+
+      </div>
     </div>
     );
   }
