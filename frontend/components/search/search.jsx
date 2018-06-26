@@ -2,9 +2,9 @@ import React from 'react';
 import HomeMap from '../home_map/home_map';
 
 
-const Search = ({ homes, updateFilter }) => {
+const Search = ({ homes, bounds, updateFilter }) => {
   let loading = { loading: true };
-  if(homes.length > 0) loading = { loading: false };
+  if(bounds.northEast) loading = { loading: false };
 
   return (
   <div>

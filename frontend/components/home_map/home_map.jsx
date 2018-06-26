@@ -11,12 +11,11 @@ class HomeMap extends React.Component {
     super(props);
 
     this.state ={
-      loading: props.loadingState.loading
+      loading: true,
     };
   }
 
   componentDidMount() {
-
     const map = this.refs.map;
     const coords = this.props.location.search;
     const search = new URLSearchParams(coords);
@@ -50,7 +49,7 @@ class HomeMap extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if(this.props.loadingState.loading === false &&
-        nextProps.loadingState.loading === true) {
+        nextProps.loadingState.loading === false) {
       this.setState({loading: false});
     }
   }
@@ -87,7 +86,7 @@ class HomeMap extends React.Component {
   }
 
   loading() {
-    if(this.state.loading === true && this.props.homes.length === 0) return <div>Loading...</div>;
+    if(this.state.loading === true) return <div>Loading...</div>;
   }
 
   render () {
