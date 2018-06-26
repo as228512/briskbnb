@@ -7,8 +7,16 @@ import HomeIndex from '../homes/home_index';
 import { NavBar } from '../nav/nav_bar';
 
 class HomeMap extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state ={
+      loading: props.loadingState.loading
+    };
+  }
 
   componentDidMount() {
+
     const map = this.refs.map;
     const coords = this.props.location.search;
     const search = new URLSearchParams(coords);
@@ -40,6 +48,12 @@ class HomeMap extends React.Component {
       this.MarkerManager.updateMarkers(this.props.homes);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(this.props.loadingState.loading === false &&
+        nextProps.loadingState.loading === true) {
+      this.setState({loading: false});
+    }
+  }
 
   componentDidUpdate() {
     this.MarkerManager.updateMarkers(this.props.homes);
@@ -61,14 +75,19 @@ class HomeMap extends React.Component {
   }
 
   homeMessage() {
-    if(this.props.homes.length === 0)
-    return (
-      <div>
-        <p className="home-results">No Results</p>
-        <p className="no-homes">To get more results, try zooming out on the map</p>
-        <div className="no-results-bottom-border"></div>
-      </div>
-    );
+    if(this.state.loading === false && this.props.homes.length === 0) {
+      return (
+        <div>
+          <p className="home-results">No Results</p>
+          <p className="no-homes">To get more results, try zooming out on the map</p>
+          <div className="no-results-bottom-border"></div>
+        </div>
+      );
+    }
+  }
+
+  loading() {
+    if(this.state.loading === true && this.props.homes.length === 0) return <div>Loading...</div>;
   }
 
   render () {
@@ -77,6 +96,7 @@ class HomeMap extends React.Component {
       <NavBar />
       <div className="home-index-body">
         <div className="home-index-cntr">
+          {this.loading()}
           {this.homeMessage()}
           <HomeIndex key={this.props.homes.id} homes={this.props.homes}/>
         </div>

@@ -53,13 +53,11 @@ class SearchBar extends React.Component {
         const view2 = results[0].geometry.viewport.b.f;
         const view3 = results[0].geometry.viewport.f.b;
         const view4 = results[0].geometry.viewport.f.f;
-        const lat = results[0].geometry.location.lat();
-        const lng = results[0].geometry.location.lng();
 
         this.props.history.push({
           pathname: "/homes",
-          search:`?lat=${lat}&lng=${lng}&view1=${view1}
-                  &view2=${view2}&view3=${view3}&view4=${view4}`
+          search:`?view1=${view1}&view2=${view2}
+                  &view3=${view3}&view4=${view4}`
         });
 
       }
