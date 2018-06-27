@@ -11,7 +11,8 @@ class HomeMap extends React.Component {
     super(props);
 
     this.state ={
-      loading: true,
+      loading: false,
+      initalLoadingState: true
     };
   }
 
@@ -48,10 +49,8 @@ class HomeMap extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(this.props.loadingState.loading === false &&
-        nextProps.loadingState.loading === false) {
-      this.setState({loading: false});
-    }
+    this.setState({loading: this.props.indexLoading});
+    if(this.props.indexLoading === true) this.setState({ initalLoadingState: false, loading: false });
   }
 
   componentDidUpdate() {
@@ -74,7 +73,8 @@ class HomeMap extends React.Component {
   }
 
   homeMessage() {
-    if(this.state.loading === false && this.props.homes.length === 0) {
+    if((this.state.loading === false && this.props.homes.length === 0) &&
+       (this.state.initalLoadingState === false)) {
       return (
         <div>
           <p className="home-results">No Results</p>
@@ -86,7 +86,11 @@ class HomeMap extends React.Component {
   }
 
   loading() {
-    if(this.state.loading === true) return <div>Loading...</div>;
+    if((this.state.loading === true || this.state.initalLoadingState === true) &&
+        this.props.homes.length === 0)
+        {
+          return <div>Loading...</div>;
+        }
   }
 
   render () {

@@ -5,8 +5,8 @@ import Search from './search';
 import homesReducer from '../../reducers/homes_reducer';
 
 const mapStateToProps = state => ({
-  bounds: state.ui.filters.bounds,
-  homes: asArray(state.entities)
+  indexLoading: state.ui.loadingState.indexLoading,
+  homes: asArray(state.entities),
 });
 
 const mapDispatchToProps = dispatch => ({
