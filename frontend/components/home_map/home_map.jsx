@@ -57,6 +57,14 @@ class HomeMap extends React.Component {
     this.MarkerManager.updateMarkers(this.props.homes);
   }
 
+  componentWillUnmount() {
+    const bounds = {
+      northEast: { lat: 0, lng: 0 },
+      southWest: { lat: 0, lng: 0 } };
+
+    this.props.updateFilter('bounds', bounds);
+  }
+
 
   registerListeners() {
     google.maps.event.addListener(this.map, 'idle', () => {
