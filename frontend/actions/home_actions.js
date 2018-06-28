@@ -19,6 +19,7 @@ export const startLoadingHomes = () => ({
 });
 
 
+
 export const fetchHomes = filters => dispatch => {
   dispatch(startLoadingHomes());
   return APIUtil.fetchHomes(filters).then(homes => (

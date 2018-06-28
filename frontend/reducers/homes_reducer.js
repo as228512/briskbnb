@@ -2,7 +2,6 @@ import merge from 'lodash/merge';
 
 import { RECEIVE_HOMES, RECEIVE_HOME } from '../actions/home_actions';
 
-//test
 
 const homesReducer = (state = {}, action) => {
   Object.freeze(state);
