@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom';
+import ReactBodymovin from 'react-bodymovin';
+import animation from '../../../app/assets/animations/location_pin.json';
 
 import MarkerManager from '../../util/marker_manager';
 import HomeIndex from '../homes/home_index';
@@ -81,12 +83,26 @@ class HomeMap extends React.Component {
   }
 
   homeMessage() {
+    const bodyMovinOptions = {
+      loop: true,
+      autoplay: true,
+      prerender: true,
+      animationData: animation
+    };
+
     if((this.state.loading === false && this.props.homes.length === 0) &&
        (this.state.initalLoadingState === false)) {
       return (
         <div>
-          <p className="home-results">No Results</p>
-          <p className="no-homes">To get more results, try zooming out on the map</p>
+          <div className="no-results-cntr">
+            <div className="no-results-text">
+              <p className="no-homes-text-1">No Results</p>
+              <p className="no-homes-text-2">To get more results, try zooming out on the map or searching a new location</p>
+            </div>
+            <div className="map-marker-animation">
+              <ReactBodymovin options={bodyMovinOptions} />
+            </div>
+          </div>
           <div className="no-results-bottom-border"></div>
         </div>
       );
@@ -97,7 +113,9 @@ class HomeMap extends React.Component {
     if((this.state.loading === true || this.state.initalLoadingState === true) &&
         this.props.homes.length === 0)
         {
-          return <div>Loading...</div>;
+          return (
+            <div></div>
+          );
         }
   }
 
