@@ -18,8 +18,9 @@ class SearchBar extends React.Component {
   }
 
   componentDidMount() {
-    const input = document.getElementsByClassName("search-bar")[0];
-    const autocomplete = new google.maps.places.Autocomplete(input);
+    const splashInput = document.getElementsByClassName("splash-search-bar")[0];
+    const navInput = document.getElementsByClassName("nav-search-bar")[0];
+    const autocomplete = new google.maps.places.Autocomplete(splashInput || navInput);
 
     let location;
     autocomplete.addListener("place_changed", () => {
@@ -71,17 +72,36 @@ class SearchBar extends React.Component {
       });
   }
 
-  render() {
-
-    return (
-      <div>
+  splashSearch() {
+    if(this.props.location.pathname === "/") {
+      return (
         <input
-          className="search-bar"
+          className="splash-search-bar"
           onChange={this.update("location")}
           placeholder='"Try Hokkaido"'
           value={this.state.location}/>
-      </div>
+      );
+    }
+  }
 
+  navSearch() {
+    if(this.props.location.pathname !== "/") {
+      return (
+        <input
+          className="nav-search-bar"
+          onChange={this.update("location")}
+          placeholder='"Try Hokkaido"'
+          value={this.state.location}/>
+      );
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        { this.splashSearch() }
+        { this.navSearch() }
+      </div>
     );
   }
 }

@@ -19,6 +19,7 @@ class HomeMap extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     const map = this.refs.map;
     const coords = this.props.location.search;
     const search = new URLSearchParams(coords);
@@ -51,6 +52,7 @@ class HomeMap extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+
     this.setState({loading: this.props.indexLoading});
     if(this.props.indexLoading === true) this.setState({ initalLoadingState: false, loading: false });
   }
@@ -125,8 +127,8 @@ class HomeMap extends React.Component {
       <NavBar />
       <div className="home-index-body">
         <div className="home-index-cntr">
-          {this.loading()}
-          {this.homeMessage()}
+          { this.loading() }
+          { this.homeMessage() }
           <HomeIndex key={this.props.homes.id} homes={this.props.homes}/>
         </div>
 

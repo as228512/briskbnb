@@ -36,7 +36,6 @@ html {
    width: 100%;
  }
 
-
  .app-container {
    height: 100%;
    width: 100%;
@@ -133,91 +132,6 @@ html {
    left: 23%;
    text-shadow: 1px 1px 40px
       rgba(50,23,31,50);
- }
-
- .favicon {
-   background-image: image-url(favicon-32x32);
-   display: block;
-   background-size: contain;
-   background-repeat: no-repeat;
-   position: fixed;
-   height: 40px;
-   width: 40px;
-   margin-left: 23px;
-   margin-top: 16px;
-   cursor: pointer;
-   z-index: 1;
-   float: left;
- }
-
- .nav-login {
-   top: 3%;
-   right: 6.5%;
-   padding-right: 3px;
-   padding-left: 3px;
-   padding-bottom: 25px;
-   display: block;
-   vertical-align: middle;
-   line-height: 1;
-   font-size: 14px;
-   font-weight: 700;
-   position: fixed;
-   color: #484848;
- }
-
- .nav-signup {
-   top: 3%;
-   right: 2%;
-   padding-right: 3px;
-   padding-left: 3px;
-   padding-bottom: 25px;
-   display: block;
-   vertical-align: middle;
-   line-height: 1;
-   font-size: 14px;
-   font-weight: 700;
-   position: fixed;
-   color: #484848;
- }
-
- .nav-signup:hover, .nav-login:hover {
-   border-bottom: 2px solid #484848;
-   cursor: pointer;
- }
-
- .splash-nav-login {
-   top: 3%;
-   right: 6.5%;
-   padding-right: 3px;
-   padding-left: 3px;
-   padding-bottom: 25px;
-   display: block;
-   vertical-align: middle;
-   line-height: 1;
-   font-size: 14px;
-   font-weight: 700;
-   position: fixed;
-   color: #ffffff;
- }
-
- .splash-nav-signup {
-   top: 3%;
-   right: 2%;
-   padding-right: 3px;
-   padding-left: 3px;
-   padding-bottom: 25px;
-   display: block;
-   vertical-align: middle;
-   line-height: 1;
-   font-size: 14px;
-   font-weight: 700;
-   position: fixed;
-   color: #ffffff;
- }
-
- .splash-nav-signup:hover, .splash-nav-login:hover {
-   border-bottom: 2px solid #ffffff;
-   cursor: pointer;
  }
 
  .sign-up-form-footer {
@@ -362,20 +276,6 @@ html {
    color: white;
    background-color: #7595bf;
    cursor: pointer;
- }
-
- .header-box {
-   height: 70px;
- }
-
- .header-group {
-   display: inline-block;
-   width: 100%;
-   position: fixed;
-   height: 70px;
-   background-color: #ffffff;
-   z-index: 1;
-   border-bottom: 1px solid #e4e4e4;
  }
 
  .dropdown-button {

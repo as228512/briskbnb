@@ -1,4 +1,4 @@
-.search-bar {
+.splash-search-bar {
   display: block;
   font-size: 22px;
   background-color: #ffffff;
@@ -19,26 +19,4 @@
   top: 50%;
   left: 74.0%;
   z-index: 1;
-}
-
-.search-bar-link {
-  position: fixed;
-  z-index: 1;
-  font-family: inherit;
-  font-size: 15px;
-  line-height: 42px;
-  height: 4.7%;
-  width: 2%;
-  text-decoration: none;
-  padding-left: 18px;
-  padding-right: 28px;
-  border-radius: 4px;
-  background: #3887e6;
-  color: #ffffff;
-  margin: 12px;
-  margin-left: 25px;
-  text-align: center;
-  display: inline-block;
-  white-space: nowrap;
-  cursor: pointer;
 }
