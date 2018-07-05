@@ -5,7 +5,7 @@ import Search from './search';
 import homesReducer from '../../reducers/homes_reducer';
 
 const mapStateToProps = state => ({
-  indexLoading: state.ui.loadingState.indexLoading,
+  currentLoadingState: state.ui.loadingState.indexLoading,
   homes: asArray(state.entities),
 });
 

@@ -11,7 +11,7 @@ import Modal from './session_form/login_signup_modal.jsx';
 
 const App = () => (
   <div>
-    
+
     <Switch>
       <Route exact path="/" component={ GreetingText } />
       <Route exact path="/homes" component={ SearchContainer } />

@@ -13,13 +13,17 @@ class HomeMap extends React.Component {
     super(props);
 
     this.state ={
-      loading: false,
-      initalLoadingState: true
+      initialLoadingState: true
     };
   }
 
   componentDidMount() {
-    debugger
+    this.indexSearch();
+  }
+
+
+  indexSearch() {
+    this.setState({ initialLoadingState: true });
     const map = this.refs.map;
     const coords = this.props.location.search;
     const search = new URLSearchParams(coords);
@@ -47,14 +51,19 @@ class HomeMap extends React.Component {
     this.MarkerManager =
       new MarkerManager(this.map, this.handleMarkerClick.bind(this));
 
-      this.registerListeners();
-      this.MarkerManager.updateMarkers(this.props.homes);
+    this.registerListeners();
+    this.MarkerManager.updateMarkers(this.props.homes);
   }
 
-  componentWillReceiveProps(nextProps) {
 
-    this.setState({loading: this.props.indexLoading});
-    if(this.props.indexLoading === true) this.setState({ initalLoadingState: false, loading: false });
+
+
+
+  componentWillReceiveProps(nextProps) {
+    if(this.props.location.search !== nextProps.location.search) {
+      this.indexSearch();
+    }
+    if(this.props.currentLoadingState === true) this.setState({ initialLoadingState: false });
   }
 
   componentDidUpdate() {
@@ -92,8 +101,8 @@ class HomeMap extends React.Component {
       animationData: animation
     };
 
-    if((this.state.loading === false && this.props.homes.length === 0) &&
-       (this.state.initalLoadingState === false)) {
+    if((this.props.currentLoadingState === false && this.state.initialLoadingState === false) &&
+       (this.props.homes.length === 0)) {
       return (
         <div>
           <div className="no-results-cntr">
@@ -111,23 +120,12 @@ class HomeMap extends React.Component {
     }
   }
 
-  loading() {
-    if((this.state.loading === true || this.state.initalLoadingState === true) &&
-        this.props.homes.length === 0)
-        {
-          return (
-            <div></div>
-          );
-        }
-  }
-
   render () {
     return (
     <div>
       <NavBar />
       <div className="home-index-body">
         <div className="home-index-cntr">
-          { this.loading() }
           { this.homeMessage() }
           <HomeIndex key={this.props.homes.id} homes={this.props.homes}/>
         </div>
