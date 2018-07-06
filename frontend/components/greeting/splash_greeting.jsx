@@ -34,7 +34,7 @@ class SplashLoggedIn extends React.Component {
 
     sessionLinks() {
       return (
-        <nav>
+        <nav className="splash-nav-cntr">
           <a className="splash-nav-login"
             onClick={() => this.props.openModal('login')}>Log in</a>
 
