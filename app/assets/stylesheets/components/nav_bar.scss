@@ -21,6 +21,39 @@
   margin-left: 17px;
 }
 
+.right-nav-cntr {
+  display: flex;
+  justify-content: space-evenly;
+  width: 11%;
+}
+
+.nav-login {
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 700;
+  color: #484848;
+  cursor: pointer;
+}
+
+.nav-signup {
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 700;
+  color: #484848;
+  cursor: pointer;
+}
+
+.nav-signup:hover::after, .nav-login:hover::after {
+  content: "";
+  display: block;
+  position: relative;
+  top: 28px;
+  width: 100%;
+  height: 10%;
+  margin: 0 auto;
+  background-color: #484848;
+}
+
 .favicon {
   background-image: image-url(favicon-32x32);
   background-size: contain;
@@ -46,25 +79,6 @@
 
 .nav-search-bar {
   outline: red;
-}
-
-.nav-login {
-  vertical-align: middle;
-  font-size: 14px;
-  font-weight: 700;
-  color: #484848;
-}
-
-.nav-signup {
-  vertical-align: middle;
-  font-size: 14px;
-  font-weight: 700;
-  color: #484848;
-}
-
-.nav-signup:hover, .nav-login:hover {
-  border-bottom: 2px solid #484848;
-  cursor: pointer;
 }
 
 .splash-nav-login {
@@ -100,4 +114,8 @@
 .splash-nav-signup:hover, .splash-nav-login:hover {
   border-bottom: 2px solid #ffffff;
   cursor: pointer;
+}
+
+.splash-nav-bar {
+  height: 0px;
 }

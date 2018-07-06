@@ -34,7 +34,7 @@ class LoggedIn extends React.Component {
 
     sessionLinks() {
       return (
-        <nav>
+        <nav className="right-nav-cntr">
           <a className="nav-login"
             onClick={() => this.props.openModal('login')}>Log in</a>
 

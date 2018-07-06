@@ -8,7 +8,7 @@ import Modal from '../session_form/login_signup_modal.jsx';
 export const SplashNavBar = () => {
 
   return(
-    <div>
+    <div className="splash-nav-bar">
       <Modal />
       <Link to="/" className="favicon" rel="icon"
         type="image/png" href="favicon-32x32.png" sizes="32x32" />
