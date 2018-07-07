@@ -50,7 +50,7 @@ class SplashLoggedIn extends React.Component {
 
           <div className="splash-dropdown-button">
              <img src={this.props.currentUser.image_url}
-               alt="splash-dropdown-button" onClick={this.revealDropdown}/>
+              onClick={this.revealDropdown}/>
           </div>
 
           <ul id="dropdown" className="dropdown hidden">
