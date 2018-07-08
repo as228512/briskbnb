@@ -10,18 +10,47 @@ class HomeDetail extends React.Component {
     this.props.fetchBookings(this.props.homeId);
   }
 
+  componentWillReceiveProps(nextProps) {
+    // need to create another loading slice of redux state
+    //in order to stop calendar from rendering prematurely
+    if(this.props.home !== nextProps.home) {
+      console.log("fired");
+    }
+  }
+
   handleSubmit(event) {
     event.stopPropagation();
   }
 
+  calendar() {
+    //condional will go below for loading state
+    if(true) {
+      return (
+        <form className="booking-form" onSubmit={this.handleSubmit}>
+          <div className="price-line"><strong className="price">
+            ${this.props.home.price}</strong> per night</div>
+
+          <div className="date-picker-cntr">
+            <BookingDatePicker homeId={this.props.homeId}
+              bookings={this.props.bookings} className="date-picker"/>
+          </div>
+
+          <input className="book" type="submit" value={"Book"} />
+
+        </form>
+      );
+    }
+  }
+
 
   render () {
+    debugger
     return (
       <div>
 
         <img className="home-show-image" src={this.props.home.home_url}/>
 
-          <div className="home-contents-cntr">
+        <div className="home-contents-cntr">
           <div className="home-details-cntr">
 
             <ul className="home-summary">
@@ -36,18 +65,7 @@ class HomeDetail extends React.Component {
               </div>
             </ul>
 
-            <form className="booking-form" onSubmit={this.handleSubmit}>
-              <div className="price-line"><strong className="price">
-                ${this.props.home.price}</strong> per night</div>
-
-              <div className="date-picker-cntr">
-                <BookingDatePicker homeId={this.props.homeId}
-                  bookings={this.props.bookings} className="date-picker"/>
-              </div>
-
-            <input className="book" type="submit" value={"Book"} />
-
-            </form>
+            { this.calendar() }
 
           </div>
         </div>
