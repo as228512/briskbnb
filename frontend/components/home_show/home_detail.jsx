@@ -13,9 +13,6 @@ class HomeDetail extends React.Component {
   componentWillReceiveProps(nextProps) {
     // need to create another loading slice of redux state
     //in order to stop calendar from rendering prematurely
-    if(this.props.home !== nextProps.home) {
-      console.log("fired");
-    }
   }
 
   handleSubmit(event) {
@@ -24,7 +21,7 @@ class HomeDetail extends React.Component {
 
   calendar() {
     //condional will go below for loading state
-    if(true) {
+    if(!this.props.currentLoadingState && this.props.currentLoadingState !== undefined) {
       return (
         <form className="booking-form" onSubmit={this.handleSubmit}>
           <div className="price-line"><strong className="price">

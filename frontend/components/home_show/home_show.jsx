@@ -6,14 +6,14 @@ import HomeMap from '../home_map/home_map';
 import { NavBar } from '../nav/nav_bar';
 
 
-const HomeShow = ({ home, homeId, fetchHome, fetchBookings }) => {
+const HomeShow = ({ home, homeId, currentLoadingState, fetchHome, fetchBookings }) => {
 
   return(
     <div>
       <NavBar />
       <div className="single-home-show">
         <div>
-          <HomeDetail home={home} homeId={homeId}
+          <HomeDetail home={home} homeId={homeId} currentLoadingState={currentLoadingState}
             fetchHome={fetchHome} fetchBookings={fetchBookings} />
         </div>
       </div>
