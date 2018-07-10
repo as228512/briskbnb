@@ -10,17 +10,26 @@ class BookingDatepicker extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      startDate: moment(),
-      endDate: moment()
+      startDateSelected: false,
+      startDate: null,
+      endDate: null
     };
     this.handleChangeStart = this.handleChangeStart.bind(this);
     this.handleChangeEnd = this.handleChangeEnd.bind(this);
   }
 
   handleChangeStart(date) {
-    this.setState({
-      startDate: date
-    });
+    if(!date) {
+      this.setState({
+        startDate: null,
+        startDateSelected: false
+      });
+    } else {
+      this.setState({
+        startDate: date,
+        startDateSelected: true
+      });
+    }
   }
 
   handleChangeEnd(date) {
@@ -29,31 +38,55 @@ class BookingDatepicker extends React.Component {
     });
   }
 
+  checkOutDate() {
+    if(this.state.startDateSelected) {
+      return (
+        <div>
+          <p className="dates">Check Out</p>
+          <DatePicker
+            id="datepicker-border"
+            selectsEnd
+            selected={this.state.endDate}
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
+            minDate={this.state.startDate}
+            onChange={this.handleChangeEnd}
+            disabled={false}
+            placeholderText="Click to select a check-out date"
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <p className="dates">Check Out</p>
+          <DatePicker
+            id="datepicker-border"
+            selectsEnd
+            disabled={true}
+            placeholderText="Click to select a check-out date"
+          />
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="date-picker-inner-content">
+
         <p className="dates">Check In</p>
         <DatePicker
           id="datepicker-border"
           selectsStart
           selected={this.state.startDate}
-          startDate={this.state.startDate}
-          endDate={this.state.endDate}
           onChange={this.handleChangeStart}
           minDate={moment().add(1, "days")}
           placeholderText="Click to select a check-in date"
         />
 
-        <p className="dates">Check Out</p>
-        <DatePicker
-          id="datepicker-border"
-          selectsEnd
-          selected={this.state.endDate}
-          startDate={this.state.startDate}
-          endDate={this.state.endDate}
-          onChange={this.handleChangeEnd}
-          placeholderText="Select a check-out date"
-        />
+        {this.checkOutDate()}
+
       </div>
     );
   }
