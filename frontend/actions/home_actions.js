@@ -4,6 +4,7 @@ export const RECEIVE_HOMES = 'RECEIVE_HOMES';
 export const RECEIVE_HOME = 'RECEIVE_HOME';
 export const START_LOADING_HOMES = 'START_LOADING_HOMES';
 export const START_LOADING_HOME = 'START_LOADING_HOME';
+export const CLEAR_HOMES = 'CLEAR_HOMES';
 
 export const receiveHomes = homes => ({
   type: RECEIVE_HOMES,
@@ -23,6 +24,10 @@ export const startLoadingHome = () => ({
   type: START_LOADING_HOME
 });
 
+export const clearHomes = () => ({
+  type: CLEAR_HOMES
+});
+
 
 
 export const fetchHomes = filters => dispatch => {
@@ -39,6 +44,11 @@ export const fetchHome = id => dispatch => {
   ));
 };
 
+export const eraseHomes = () => dispatch => {
+  dispatch(clearHomes());
+};
+
+//future feature
 export const createHome = home => dispatch => (
   APIUtil.createHome(home).then(home => (
     dispatch(receiveHome(home))

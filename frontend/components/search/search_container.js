@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { updateFilter } from '../../actions/filter_actions';
+import { eraseHomes } from '../../actions/home_actions';
 import { asArray } from '../../reducers/selectors';
 import Search from './search';
 import homesReducer from '../../reducers/homes_reducer';
@@ -10,7 +11,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
+  updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
+  eraseHomes: () => dispatch(eraseHomes())
 });
 
 export default connect(

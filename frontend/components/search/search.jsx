@@ -1,7 +1,7 @@
 import React from 'react';
 import HomeMap from '../home_map/home_map';
 
-const Search = ({ homes, currentLoadingState, updateFilter }) => {
+const Search = ({ homes, currentLoadingState, updateFilter, eraseHomes }) => {
   return (
   <div>
     <HomeMap
@@ -9,6 +9,7 @@ const Search = ({ homes, currentLoadingState, updateFilter }) => {
       currentLoadingState={currentLoadingState}
       homes={homes}
       updateFilter={updateFilter}
+      eraseHomes={eraseHomes}
       />
   </div>
   );

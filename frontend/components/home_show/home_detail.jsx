@@ -10,9 +10,8 @@ class HomeDetail extends React.Component {
     this.props.fetchBookings(this.props.homeId);
   }
 
-  componentWillReceiveProps(nextProps) {
-    // need to create another loading slice of redux state
-    //in order to stop calendar from rendering prematurely
+  componentWillUnmount() {
+    this.props.eraseHome();
   }
 
   handleSubmit(event) {
@@ -20,7 +19,6 @@ class HomeDetail extends React.Component {
   }
 
   calendar() {
-    //condional will go below for loading state
     if(!this.props.currentLoadingState && this.props.currentLoadingState !== undefined) {
       return (
         <form className="booking-form" onSubmit={this.handleSubmit}>
@@ -41,7 +39,6 @@ class HomeDetail extends React.Component {
 
 
   render () {
-    debugger
     return (
       <div>
 

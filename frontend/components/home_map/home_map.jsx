@@ -71,11 +71,7 @@ class HomeMap extends React.Component {
   }
 
   componentWillUnmount() {
-    const bounds = {
-      northEast: { lat: 0, lng: 0 },
-      southWest: { lat: 0, lng: 0 } };
-
-    this.props.updateFilter('bounds', bounds);
+    this.props.eraseHomes();
   }
 
 
