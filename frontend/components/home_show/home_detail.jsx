@@ -7,7 +7,7 @@ class HomeDetail extends React.Component {
 
   componentDidMount() {
     this.props.fetchHome(this.props.homeId);
-    this.props.fetchBookings(this.props.homeId);
+    // this.props.fetchBookings(this.props.homeId);
   }
 
   componentWillUnmount() {
@@ -16,6 +16,7 @@ class HomeDetail extends React.Component {
 
   handleSubmit(event) {
     event.stopPropagation();
+    debugger
   }
 
   calendar() {
@@ -39,6 +40,7 @@ class HomeDetail extends React.Component {
 
 
   render () {
+    debugger
     return (
       <div>
 

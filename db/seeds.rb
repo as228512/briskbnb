@@ -524,8 +524,8 @@ Home.create!(
 )
 
 Booking.create!(
-  start_date: DateTime.strptime("06/04/2018 8:00", "%m/%d/%Y %H:%M"),
-  end_date: DateTime.strptime("06/07/2018 16:00", "%m/%d/%Y %H:%M"),
+  start_date: DateTime.strptime("08/15/2018 8:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("08/22/2018 16:00", "%m/%d/%Y %H:%M"),
   user_id: 100,
   home_id: 100
 )

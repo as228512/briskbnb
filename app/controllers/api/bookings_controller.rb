@@ -6,7 +6,7 @@ class Api::BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = current_user.bookings.new(booking_params)
     @booking.user_id = current_user.id
 
     booking_valid = true

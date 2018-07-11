@@ -22,6 +22,7 @@ class BookingDatepicker extends React.Component {
     if(!date) {
       this.setState({
         startDate: null,
+        endDate: null,
         startDateSelected: false
       });
     } else {
