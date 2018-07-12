@@ -523,6 +523,7 @@ Home.create!(
   home_url: "https://s3.amazonaws.com/briskavatars/homes/Toronto+Homes/Toronto_6.jpg"
 )
 
+#Toronto_6_booking
 Booking.create!(
   start_date: DateTime.strptime("08/15/2018 8:00", "%m/%d/%Y %H:%M"),
   end_date: DateTime.strptime("08/22/2018 16:00", "%m/%d/%Y %H:%M"),

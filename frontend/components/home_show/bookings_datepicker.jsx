@@ -5,8 +5,8 @@ import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-
-class BookingDatepicker extends React.Component {
+//need to pass createBooking into either this or homeDetail to try to save a booking (takes start endDates & home_id)
+class BookingDatePicker extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -49,6 +49,11 @@ class BookingDatepicker extends React.Component {
     });
   }
 
+  handleSubmit(event) {
+    event.stopPropagation();
+    debugger
+  }
+
   checkOutDate() {
     if(this.state.startDateSelected) {
       return (
@@ -84,23 +89,30 @@ class BookingDatepicker extends React.Component {
 
   render() {
     return (
-      <div className="date-picker-inner-content">
+      <form className="booking-form" onSubmit={this.handleSubmit}>
+        <div className="price-line"><strong className="price">
+          ${this.props.price}</strong> per night</div>
 
-        <p className="dates">Check In</p>
-        <DatePicker
-          id="datepicker-border"
-          selectsStart
-          selected={this.state.startDate}
-          onChange={this.handleChangeStart}
-          minDate={moment().add(1, "days")}
-          placeholderText="Click to select a check-in date"
-        />
+        <div className="date-picker-cntr">
+          <div className="date-picker-inner-content">
+            <p className="dates">Check In</p>
+            <DatePicker
+              id="datepicker-border"
+              selectsStart
+              selected={this.state.startDate}
+              onChange={this.handleChangeStart}
+              minDate={moment().add(1, "days")}
+              placeholderText="Click to select a check-in date"
+            />
 
-        {this.checkOutDate()}
+            {this.checkOutDate()}
+          </div>
+        </div>
 
-      </div>
+        <input className="book" type="submit" value={"Book"} />
+      </form>
     );
   }
 }
 
-export default BookingDatepicker;
+export default BookingDatePicker;

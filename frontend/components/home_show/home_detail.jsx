@@ -14,33 +14,20 @@ class HomeDetail extends React.Component {
     this.props.eraseHome();
   }
 
-  handleSubmit(event) {
-    event.stopPropagation();
-    debugger
-  }
-
   calendar() {
     if(!this.props.currentLoadingState && this.props.currentLoadingState !== undefined) {
       return (
-        <form className="booking-form" onSubmit={this.handleSubmit}>
-          <div className="price-line"><strong className="price">
-            ${this.props.home.price}</strong> per night</div>
-
-          <div className="date-picker-cntr">
-            <BookingDatePicker homeId={this.props.homeId}
-              bookings={this.props.bookings} className="date-picker"/>
-          </div>
-
-          <input className="book" type="submit" value={"Book"} />
-
-        </form>
+            <BookingDatePicker
+              homeId={this.props.homeId}
+              bookings={this.props.bookings}
+              price={this.props.home.price}
+              className="date-picker"/>
       );
     }
   }
 
 
   render () {
-    debugger
     return (
       <div>
 

@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import { fetchHome } from '../../actions/home_actions';
 import { fetchBookings } from '../../actions/booking_actions';
 import { selectHome, selectBookingsForHome } from '../../reducers/selectors';
-import { createBooking } from '../../actions/home_actions';
 import { eraseHomes } from '../../actions/home_actions';
 import HomeShow from './home_show';
 
