@@ -16,6 +16,11 @@ class BookingDatePicker extends React.Component {
     };
     this.handleChangeStart = this.handleChangeStart.bind(this);
     this.handleChangeEnd = this.handleChangeEnd.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    debugger
   }
 
   handleChangeStart(date) {
@@ -49,8 +54,14 @@ class BookingDatePicker extends React.Component {
     });
   }
 
-  handleSubmit(event) {
-    event.stopPropagation();
+  handleSubmit(e) {
+    debugger
+    e.preventDefault();
+    this.props.createBooking({
+                              startDate: this.state.startDate,
+                              endDate: this.state.endDate,
+                              home_id: this.props.homeId
+                            });
     debugger
   }
 
@@ -88,6 +99,7 @@ class BookingDatePicker extends React.Component {
   }
 
   render() {
+    debugger
     return (
       <form className="booking-form" onSubmit={this.handleSubmit}>
         <div className="price-line"><strong className="price">

@@ -12,7 +12,6 @@ const HomeShow = ({ home,
                     currentLoadingState,
                     fetchHome,
                     bookings,
-                    createBooking,
                     // fetchBookings,
                     eraseHome }) => {
                                       return(
@@ -25,7 +24,6 @@ const HomeShow = ({ home,
                                                 home={home}
                                                 homeId={homeId}
                                                 bookings={bookings}
-                                                createBooking={createBooking}
                                                 currentLoadingState={currentLoadingState}
                                                 fetchHome={fetchHome}
                                                 eraseHome={eraseHome}

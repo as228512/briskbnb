@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
-import BookingDatePicker from './bookings_datepicker';
+// import BookingDatePicker from './bookings_datepicker';
+import BookingsContainer from './booking_container' ;
 
 class HomeDetail extends React.Component {
 
@@ -17,7 +18,7 @@ class HomeDetail extends React.Component {
   calendar() {
     if(!this.props.currentLoadingState && this.props.currentLoadingState !== undefined) {
       return (
-            <BookingDatePicker
+            <BookingsContainer
               homeId={this.props.homeId}
               bookings={this.props.bookings}
               price={this.props.home.price}
