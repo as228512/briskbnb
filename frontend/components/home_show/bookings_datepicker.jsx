@@ -71,7 +71,7 @@ class BookingDatePicker extends React.Component {
         <div>
           <p className="dates">Check Out</p>
           <DatePicker
-            id="datepicker-border"
+            className="datepicker-border"
             selectsEnd
             selected={this.state.endDate}
             startDate={this.state.startDate}
@@ -88,7 +88,7 @@ class BookingDatePicker extends React.Component {
         <div>
           <p className="dates">Check Out</p>
           <DatePicker
-            id="datepicker-border"
+            className="datepicker-border"
             selectsEnd
             disabled={true}
             placeholderText="Click to select a check-out date"
@@ -109,7 +109,7 @@ class BookingDatePicker extends React.Component {
           <div className="date-picker-inner-content">
             <p className="dates">Check In</p>
             <DatePicker
-              id="datepicker-border"
+              className="datepicker-border"
               selectsStart
               selected={this.state.startDate}
               onChange={this.handleChangeStart}
