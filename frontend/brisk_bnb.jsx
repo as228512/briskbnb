@@ -2,12 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { createBooking } from './util/booking_api_util';
+//deleted createBooking from the window and import
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
-  window.createBooking = createBooking;
 
   let store;
   if (window.currentUser) {

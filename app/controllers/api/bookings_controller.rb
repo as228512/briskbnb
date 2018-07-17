@@ -1,5 +1,5 @@
 class Api::BookingsController < ApplicationController
-  before_action :require_logged_in, only: [:create, :destroy]
+  before_action :require_login, only: [:create, :destroy]
 
   def index
     @bookings = Booking.all

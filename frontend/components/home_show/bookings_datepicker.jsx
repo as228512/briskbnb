@@ -1,11 +1,10 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+import Modal from '../session_form/login_signup_modal';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-
-//need to pass createBooking into either this or homeDetail to try to save a booking (takes start endDates & home_id)
 class BookingDatePicker extends React.Component {
   constructor (props) {
     super(props);
@@ -20,7 +19,6 @@ class BookingDatePicker extends React.Component {
   }
 
   componentDidMount() {
-    debugger
   }
 
   handleChangeStart(date) {
@@ -55,14 +53,17 @@ class BookingDatePicker extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
     e.preventDefault();
-    this.props.createBooking({
-                              startDate: this.state.startDate,
-                              endDate: this.state.endDate,
-                              home_id: this.props.homeId
-                            });
-    debugger
+    if(this.props.currentUserStatus) {
+      this.props.createBooking({
+        startDate: this.state.startDate.d,
+        endDate: this.state.endDate.d,
+        home_id: this.props.homeId
+      });
+    }
+    else {
+      this.props.openModal('login')
+    }
   }
 
   checkOutDate() {
@@ -99,30 +100,32 @@ class BookingDatePicker extends React.Component {
   }
 
   render() {
-    debugger
     return (
-      <form className="booking-form" onSubmit={this.handleSubmit}>
-        <div className="price-line"><strong className="price">
-          ${this.props.price}</strong> per night</div>
+      <div>
+        <Modal/>
+          <form className="booking-form" onSubmit={this.handleSubmit}>
+            <div className="price-line"><strong className="price">
+              ${this.props.price}</strong> per night</div>
 
-        <div className="date-picker-cntr">
-          <div className="date-picker-inner-content">
-            <p className="dates">Check In</p>
-            <DatePicker
-              className="datepicker-border"
-              selectsStart
-              selected={this.state.startDate}
-              onChange={this.handleChangeStart}
-              minDate={moment().add(1, "days")}
-              placeholderText="Click to select a check-in date"
-            />
+            <div className="date-picker-cntr">
+              <div className="date-picker-inner-content">
+                <p className="dates">Check In</p>
+                <DatePicker
+                  className="datepicker-border"
+                  selectsStart
+                  selected={this.state.startDate}
+                  onChange={this.handleChangeStart}
+                  minDate={moment().add(1, "days")}
+                  placeholderText="Click to select a check-in date"
+                />
 
-            {this.checkOutDate()}
-          </div>
+                {this.checkOutDate()}
+              </div>
+            </div>
+
+            <input className="book" type="submit" value={"Book"} />
+          </form>
         </div>
-
-        <input className="book" type="submit" value={"Book"} />
-      </form>
     );
   }
 }

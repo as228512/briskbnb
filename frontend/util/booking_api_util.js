@@ -7,6 +7,7 @@ export const createBooking = (booking, homeId) => {
 };
 
 export const fetchBookings = bookings => {
+  debugger
   return $.ajax({
     method: 'GET',
     url: '/api/bookings',
