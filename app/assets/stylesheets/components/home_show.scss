@@ -12,6 +12,7 @@
 .date-picker-inner-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%
 }
 
@@ -25,8 +26,9 @@
 }
 
 .dates {
-  font-weight: 400;
-  margin: 20px 300px 5px 16px;
+  font-weight: 700;
+  width: 100%;
+  margin: 20px 0px 5px 44px;
 }
 
 .home-show-image {
@@ -86,24 +88,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 19.6vw;
 }
 
 .datepicker-border {
-  border: 1px solid rgb(219,219,219);
-  display: block;
+  border: 1px solid rgb(219,219,219) !important;
+  color: #484848 !important;
+  display: block !important;
   height:35px;
-  font-size: 16px;
-  border-radius: 1px;
+  font-size: 16px !important;
+  border-radius: 3px !important;
   text-indent: 10px;
-  width: 23.7vw;
-  margin-left: 22px;
+  width: 16.8vw;
 }
 
 .book {
   width: 88%;
   height: 45px;
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 700;
   letter-spacing: 1px;
   padding: 12px;
   margin-top: 24px;

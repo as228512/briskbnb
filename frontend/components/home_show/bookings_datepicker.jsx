@@ -70,7 +70,7 @@ class BookingDatePicker extends React.Component {
   checkOutDate() {
     if(this.state.startDateSelected) {
       return (
-        <div>
+        <div className="date-picker-inner-content">
           <p className="dates">Check Out</p>
           <DatePicker
             className="datepicker-border"
@@ -87,7 +87,7 @@ class BookingDatePicker extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div className="date-picker-inner-content">
           <p className="dates">Check Out</p>
           <DatePicker
             className="datepicker-border"
@@ -124,7 +124,7 @@ class BookingDatePicker extends React.Component {
               </div>
             </div>
 
-            <input className="book" type="submit" value={"Book"} />
+            <input className="book" type="submit" value={"Request to Book"} />
           </form>
         </div>
     );

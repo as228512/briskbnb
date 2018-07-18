@@ -8,7 +8,6 @@ class Api::BookingsController < ApplicationController
   def create
     @booking = current_user.bookings.new(booking_params)
     @booking.user_id = current_user.id
-    debugger
 
     booking_valid = true
     Booking.where(home_id: @booking.home_id).find_each do |booking|
@@ -21,8 +20,6 @@ class Api::BookingsController < ApplicationController
         break
       end
     end
-
-    debugger
 
     if booking_valid
       @booking.save
