@@ -55,9 +55,10 @@ class BookingDatePicker extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     if(this.props.currentUserStatus) {
+      debugger
       this.props.createBooking({
-        startDate: this.state.startDate.d,
-        endDate: this.state.endDate.d,
+        start_date: this.state.startDate.toDate(),
+        end_date: this.state.endDate.toDate(),
         home_id: this.props.homeId
       });
     }
