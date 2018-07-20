@@ -8,12 +8,13 @@ import HomeShow from './home_show';
 const mapStateToProps = (state, { match }) => {
   const homeId = parseInt(match.params.homeId);
   const home = selectHome(state.entities, homeId);
-  const bookings = selectBookingsForHome(state.entities, home);
+  const bookedDates = selectBookingsForHome(home);
+  debugger
   const currentLoadingState = state.ui.loadingState.homeLoading;
   return {
     homeId,
     home,
-    bookings,
+    bookedDates,
     currentLoadingState
   };
 };

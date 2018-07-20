@@ -19,6 +19,7 @@ class BookingDatePicker extends React.Component {
   }
 
   componentDidMount() {
+    debugger
   }
 
   handleChangeStart(date) {
@@ -55,7 +56,6 @@ class BookingDatePicker extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     if(this.props.currentUserStatus) {
-      debugger
       this.props.createBooking({
         start_date: this.state.startDate.toDate(),
         end_date: this.state.endDate.toDate(),
@@ -80,6 +80,7 @@ class BookingDatePicker extends React.Component {
             endDate={this.state.endDate}
             minDate={this.state.startDate}
             onChange={this.handleChangeEnd}
+            excludeDates={this.props.bookedDates}
             disabled={false}
             placeholderText="Click to select a check-out date"
           />
@@ -92,6 +93,7 @@ class BookingDatePicker extends React.Component {
           <DatePicker
             className="datepicker-border"
             selectsEnd
+            excludeDates={this.props.bookedDates}
             disabled={true}
             placeholderText="Click to select a check-out date"
           />
@@ -113,6 +115,7 @@ class BookingDatePicker extends React.Component {
                 <p className="dates">Check In</p>
                 <DatePicker
                   className="datepicker-border"
+                  excludeDates={this.props.bookedDates}
                   selectsStart
                   selected={this.state.startDate}
                   onChange={this.handleChangeStart}

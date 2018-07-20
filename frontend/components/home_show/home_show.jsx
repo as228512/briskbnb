@@ -11,7 +11,7 @@ const HomeShow = ({ home,
                     homeId,
                     currentLoadingState,
                     fetchHome,
-                    bookings,
+                    bookedDates,
                     // fetchBookings,
                     eraseHome }) => {
                                       return(
@@ -23,7 +23,7 @@ const HomeShow = ({ home,
                                               <HomeDetail
                                                 home={home}
                                                 homeId={homeId}
-                                                bookings={bookings}
+                                                bookedDates={bookedDates}
                                                 currentLoadingState={currentLoadingState}
                                                 fetchHome={fetchHome}
                                                 eraseHome={eraseHome}

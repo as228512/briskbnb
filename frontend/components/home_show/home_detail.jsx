@@ -20,7 +20,7 @@ class HomeDetail extends React.Component {
       return (
             <BookingsContainer
               homeId={this.props.homeId}
-              bookings={this.props.bookings}
+              bookedDates={this.props.bookedDates}
               price={this.props.home.price}
               className="date-picker"/>
       );
