@@ -19,6 +19,7 @@ class BookingDatePicker extends React.Component {
   }
 
   handleChangeStart(date) {
+    this.props.resetBookingErrors();
     if(!date) {
       this.setState({
         startDate: null,
@@ -44,9 +45,22 @@ class BookingDatePicker extends React.Component {
   }
 
   handleChangeEnd(date) {
+    this.props.resetBookingErrors();
     this.setState({
       endDate: date
     });
+  }
+
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li className='booking-errors' key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   handleSubmit(e) {
@@ -110,6 +124,8 @@ class BookingDatePicker extends React.Component {
 
             <div className="date-picker-cntr">
               <div className="date-picker-inner-content">
+                {this.renderErrors()}
+
                 <p className="dates">Check In</p>
                 <DatePicker
                   className="datepicker-border"

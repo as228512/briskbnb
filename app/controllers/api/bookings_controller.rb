@@ -24,7 +24,7 @@ class Api::BookingsController < ApplicationController
     if booking_valid
       @booking.save
     else
-      render json: ["Date range already booked"], status: 401
+      render json: ["Request conflicts with another reservation, please make another selection"], status: 401
     end
   end
 
