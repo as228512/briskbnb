@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-// import BookingDatePicker from './bookings_datepicker';
 import BookingsContainer from './booking_container' ;
 
 class HomeDetail extends React.Component {
@@ -8,7 +7,6 @@ class HomeDetail extends React.Component {
 
   componentDidMount() {
     this.props.fetchHome(this.props.homeId);
-    // this.props.fetchBookings(this.props.homeId);
   }
 
   componentWillUnmount() {

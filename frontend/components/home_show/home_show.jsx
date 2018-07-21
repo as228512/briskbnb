@@ -5,14 +5,11 @@ import HomeDetail from './home_detail';
 import HomeMap from '../home_map/home_map';
 import { NavBar } from '../nav/nav_bar';
 
-//remember to add fetchBookings={fetchBookings} back into the render
-// for homeDetail once you comment back in fetchBookings below
 const HomeShow = ({ home,
                     homeId,
                     currentLoadingState,
                     fetchHome,
                     bookedDates,
-                    // fetchBookings,
                     eraseHome }) => {
                                       return(
                                         <div>

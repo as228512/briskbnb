@@ -18,10 +18,6 @@ class BookingDatePicker extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    debugger
-  }
-
   handleChangeStart(date) {
     if(!date) {
       this.setState({
@@ -82,6 +78,7 @@ class BookingDatePicker extends React.Component {
             onChange={this.handleChangeEnd}
             excludeDates={this.props.bookedDates}
             disabled={false}
+            monthsShown={2}
             placeholderText="Click to select a check-out date"
           />
         </div>
@@ -91,11 +88,12 @@ class BookingDatePicker extends React.Component {
         <div className="date-picker-inner-content">
           <p className="dates">Check Out</p>
           <DatePicker
+            id="datepicker-border"
             className="datepicker-border"
             selectsEnd
             excludeDates={this.props.bookedDates}
             disabled={true}
-            placeholderText="Click to select a check-out date"
+            placeholderText="First, select a check-in date"
           />
         </div>
       );
@@ -120,6 +118,7 @@ class BookingDatePicker extends React.Component {
                   selected={this.state.startDate}
                   onChange={this.handleChangeStart}
                   minDate={moment().add(1, "days")}
+                  monthsShown={2}
                   placeholderText="Click to select a check-in date"
                 />
 

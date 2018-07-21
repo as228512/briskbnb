@@ -5,7 +5,6 @@ import BookingDatePicker from './bookings_datepicker';
 
 
 const mapStateToProps = (state) => {
-  debugger
   const users = state.entities.users;
   const currentUserStatus = Object.keys(users).length > 0
 
