@@ -133,7 +133,6 @@ class BookingDatePicker extends React.Component {
                   selectsStart
                   selected={this.state.startDate}
                   onChange={this.handleChangeStart}
-                  minDate={moment().add(1, "days")}
                   monthsShown={2}
                   placeholderText="Click to select a check-in date"
                 />
