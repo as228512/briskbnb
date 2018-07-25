@@ -51,6 +51,14 @@ class BookingDatePicker extends React.Component {
     });
   }
 
+  bookingSubmit() {
+    if(this.state.startDate && this.state.endDate) {
+      return (
+        <input className="book" type="submit" value={"Request to Book"} />
+      )
+    }
+  }
+
   renderErrors() {
     return(
       <ul>
@@ -133,6 +141,7 @@ class BookingDatePicker extends React.Component {
                   selectsStart
                   selected={this.state.startDate}
                   onChange={this.handleChangeStart}
+                  minDate={moment()}
                   monthsShown={2}
                   placeholderText="Click to select a check-in date"
                 />
@@ -141,7 +150,7 @@ class BookingDatePicker extends React.Component {
               </div>
             </div>
 
-            <input className="book" type="submit" value={"Request to Book"} />
+            {this.bookingSubmit()}
           </form>
         </div>
     );

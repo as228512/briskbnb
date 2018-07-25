@@ -13,7 +13,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%
+  width: 100%;
+  padding-bottom: 11.5px;
 }
 
 .date-picker-cntr {
@@ -100,7 +101,7 @@
 }
 
 #datepicker-border {
-  background-color: #a2a2a2;
+  background-color: #dbdbdb;
 }
 
 .datepicker-border {
@@ -115,17 +116,30 @@
 }
 
 .book {
+  animation: enable;
   width: 89%;
   height: 45px;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 1px;
   padding: 12px;
-  margin-top: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   border: 2px;
   border-radius: 3px;
   color: white;
-  background-color: #7595bf;
   cursor: pointer;
+  background-color: #7595bf;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes enable {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
