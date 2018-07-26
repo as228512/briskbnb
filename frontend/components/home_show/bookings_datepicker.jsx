@@ -1,12 +1,14 @@
-import React from 'react';
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
-import Modal from '../session_form/login_signup_modal';
+import React from "react";
+import { withRouter } from "react-router-dom";
 
-import 'react-datepicker/dist/react-datepicker.css';
+import DatePicker from "react-datepicker";
+import moment from "moment";
+import Modal from "../session_form/login_signup_modal";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 class BookingDatePicker extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       startDateSelected: false,
@@ -20,23 +22,19 @@ class BookingDatePicker extends React.Component {
 
   handleChangeStart(date) {
     this.props.resetBookingErrors();
-    if(!date) {
+    if (!date) {
       this.setState({
         startDate: null,
         endDate: null,
         startDateSelected: false
       });
-    }
-
-    else if(date > this.state.endDate) {
+    } else if (date > this.state.endDate) {
       this.setState({
         startDate: date,
         endDate: null,
         startDateSelected: true
       });
-    }
-
-    else {
+    } else {
       this.setState({
         startDate: date,
         startDateSelected: true
@@ -52,18 +50,16 @@ class BookingDatePicker extends React.Component {
   }
 
   bookingSubmit() {
-    if(this.state.startDate && this.state.endDate) {
-      return (
-        <input className="book" type="submit" value={"Request to Book"} />
-      )
+    if (this.state.startDate && this.state.endDate) {
+      return <input className="book" type="submit" value={"Request to Book"} />;
     }
   }
 
   renderErrors() {
-    return(
+    return (
       <ul>
         {this.props.errors.map((error, i) => (
-          <li className='booking-errors' key={`error-${i}`}>
+          <li className="booking-errors" key={`error-${i}`}>
             {error}
           </li>
         ))}
@@ -73,20 +69,32 @@ class BookingDatePicker extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if(this.props.currentUserStatus) {
-      this.props.createBooking({
-        start_date: this.state.startDate.toDate(),
-        end_date: this.state.endDate.toDate(),
-        home_id: this.props.homeId
-      });
-    }
-    else {
-      this.props.openModal('login')
+    if (this.props.currentUserStatus) {
+      this.props
+        .createBooking({
+          start_date: this.state.startDate.toDate(),
+          end_date: this.state.endDate.toDate(),
+          home_id: this.props.homeId
+        })
+        .then((booking) => {
+
+        });
+    } else {
+      this.props.openModal("login");
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    debugger;
+    if (
+      nextProps.errors.length === 0 &&
+      this.props.bookedDates.length < nextProps.bookedDates.length
+    ) {
+      this.props.history.push(`trips/${this.props.userId}`);
+    }
+  }
   checkOutDate() {
-    if(this.state.startDateSelected) {
+    if (this.state.startDateSelected) {
       return (
         <div className="date-picker-inner-content">
           <p className="dates">Check Out</p>
@@ -125,34 +133,35 @@ class BookingDatePicker extends React.Component {
   render() {
     return (
       <div>
-        <Modal/>
-          <form className="booking-form" onSubmit={this.handleSubmit}>
-            <div className="price-line"><strong className="price">
-              ${this.props.price}</strong> per night</div>
+        <Modal />
+        <form className="booking-form" onSubmit={this.handleSubmit}>
+          <div className="price-line">
+            <strong className="price">${this.props.price}</strong> per night
+          </div>
 
-            <div className="date-picker-cntr">
-              <div className="date-picker-inner-content">
-                {this.renderErrors()}
+          <div className="date-picker-cntr">
+            <div className="date-picker-inner-content">
+              {this.renderErrors()}
 
-                <p className="dates">Check In</p>
-                <DatePicker
-                  className="datepicker-border"
-                  excludeDates={this.props.bookedDates}
-                  selectsStart
-                  selected={this.state.startDate}
-                  onChange={this.handleChangeStart}
-                  minDate={moment()}
-                  monthsShown={2}
-                  placeholderText="Click to select a check-in date"
-                />
+              <p className="dates">Check In</p>
+              <DatePicker
+                className="datepicker-border"
+                excludeDates={this.props.bookedDates}
+                selectsStart
+                selected={this.state.startDate}
+                onChange={this.handleChangeStart}
+                minDate={moment()}
+                monthsShown={2}
+                placeholderText="Click to select a check-in date"
+              />
 
-                {this.checkOutDate()}
-              </div>
+              {this.checkOutDate()}
             </div>
+          </div>
 
-            {this.bookingSubmit()}
-          </form>
-        </div>
+          {this.bookingSubmit()}
+        </form>
+      </div>
     );
   }
 }

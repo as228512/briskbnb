@@ -17,10 +17,10 @@ class HomeDetail extends React.Component {
     if(!this.props.currentLoadingState && this.props.currentLoadingState !== undefined) {
       return (
             <BookingsContainer
+              className="date-picker"
               homeId={this.props.homeId}
               bookedDates={this.props.bookedDates}
-              price={this.props.home.price}
-              className="date-picker"/>
+              price={this.props.home.price} />
       );
     }
   }

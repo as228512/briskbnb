@@ -6,11 +6,12 @@ import BookingDatePicker from './bookings_datepicker';
 
 const mapStateToProps = (state) => {
   const users = state.entities.users;
+  const userId = parseInt(Object.keys(users)[0]);
   const currentUserStatus = Object.keys(users).length > 0
   const errors = state.errors.bookings
-
   return {
     currentUserStatus,
+    userId,
     errors
   }
 }

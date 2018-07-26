@@ -11,8 +11,8 @@ const greetingText = () => {
 
       <SplashNavBar />
       <div className="greeting-background-image">
-        <h1 className="splash-text">Book unique homes in cool climates</h1>
-        <h1 className="splash-2-text">the world over.</h1>
+        <h1 className="splash-text">Book unique homes in</h1>
+        <h1 className="splash-2-text">cool climates the world over</h1>
         <SearchBar className="search-bar-container"/>
       </div>
     </div>
