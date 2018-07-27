@@ -76,23 +76,15 @@ class BookingDatePicker extends React.Component {
           end_date: this.state.endDate.toDate(),
           home_id: this.props.homeId
         })
-        .then((booking) => {
-
+        .then(() => {
+          this.props.history.pop();
+          this.props.history.push(`trips/${this.props.userId}`);
         });
     } else {
       this.props.openModal("login");
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    debugger;
-    if (
-      nextProps.errors.length === 0 &&
-      this.props.bookedDates.length < nextProps.bookedDates.length
-    ) {
-      this.props.history.push(`trips/${this.props.userId}`);
-    }
-  }
   checkOutDate() {
     if (this.state.startDateSelected) {
       return (
@@ -166,4 +158,4 @@ class BookingDatePicker extends React.Component {
   }
 }
 
-export default BookingDatePicker;
+export default withRouter(BookingDatePicker);
