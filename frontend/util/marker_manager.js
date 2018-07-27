@@ -1,13 +1,13 @@
 class MarkerManager {
-  constructor(map, handleClick){
+  constructor(map, handleClick) {
     this.map = map;
     this.handleClick = handleClick;
     this.markers = {};
   }
 
-  updateMarkers(homes){
+  updateMarkers(homes) {
     const homesObj = {};
-    homes.forEach(home => homesObj[home.id] = home);
+    homes.forEach(home => (homesObj[home.id] = home));
 
     homes
       .filter(home => !this.markers[home.id])
@@ -15,10 +15,10 @@ class MarkerManager {
 
     Object.keys(this.markers)
       .filter(homeId => !homesObj[homeId])
-      .forEach((homeId) => this.removeMarker(this.markers[homeId]));
+      .forEach(homeId => this.removeMarker(this.markers[homeId]));
   }
 
- // marker creation / deletion handled by updateMarkers,
+  // marker creation / deletion handled by updateMarkers,
   // which is called upon GMAPS interaction (componentDidUpdate)
   createMarkerFromHome(home) {
     const position = new google.maps.LatLng(home.lat, home.long);
@@ -29,7 +29,7 @@ class MarkerManager {
       animation: google.maps.Animation.DROP
     });
 
-    marker.addListener('click', () => this.handleClick(home));
+    marker.addListener("click", () => this.handleClick(home));
     this.markers[marker.homeId] = marker;
   }
 

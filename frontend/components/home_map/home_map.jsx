@@ -50,7 +50,6 @@ class HomeMap extends React.Component {
 
     this.MarkerManager =
       new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-
     this.registerListeners();
     this.MarkerManager.updateMarkers(this.props.homes);
   }
@@ -86,6 +85,7 @@ class HomeMap extends React.Component {
   }
 
   handleMarkerClick(home) {
+    debugger
     this.props.history.push(`/homes/${home.id}`);
   }
 
