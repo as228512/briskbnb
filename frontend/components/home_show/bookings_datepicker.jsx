@@ -77,8 +77,9 @@ class BookingDatePicker extends React.Component {
           home_id: this.props.homeId
         })
         .then(() => {
-          this.props.history.pop();
-          this.props.history.push(`trips/${this.props.userId}`);
+          this.props.history.push({
+            pathname: `trips/${this.props.userId}`
+          });
         });
     } else {
       this.props.openModal("login");
