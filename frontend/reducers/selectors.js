@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from "moment";
 
 export const selectHome = ({ homes }, homeId) => {
   return homes[homeId] || { reviewIds: [], bookingIds: [] };
@@ -7,21 +7,22 @@ export const selectHome = ({ homes }, homeId) => {
 const calculateDaysBetweenDates = (startDate, endDate) => {
   let bookedDates = [];
 
-  let currentDate = moment(startDate).startOf('day');
-  let lastDate = moment(endDate).startOf('day');
+  let currentDate = moment(startDate).startOf("day");
+  let lastDate = moment(endDate).startOf("day");
 
   do {
     bookedDates.push(currentDate.clone().toDate());
-  } while(currentDate.add(1, 'days').diff(lastDate) < 1);
+  } while (currentDate.add(1, "days").diff(lastDate) < 1);
 
   return bookedDates;
-}
+};
 
-
-export const selectBookingsForHome = (home) => {
+export const selectBookingsForHome = home => {
   let bookedDates = [];
-
-  let homeReservationInformation = home.bookingIds.map(bookingId => home.bookings[bookingId]);
+  debugger;
+  let homeReservationInformation = home.bookingIds.map(
+    bookingId => home.bookings[bookingId]
+  );
 
   for (let i = 0; i < homeReservationInformation.length; i++) {
     let startDate = homeReservationInformation[i].start_date;
@@ -39,6 +40,4 @@ export const selectBookingsForHome = (home) => {
   return concatedDates;
 };
 
-export const asArray = ({ homes }) => (
-  Object.keys(homes).map(key => homes[key])
-);
+export const asArray = ({ homes }) => Object.keys(homes).map(key => homes[key]);

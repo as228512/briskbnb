@@ -1,15 +1,14 @@
 export const createBooking = (booking, homeId) => {
   return $.ajax({
-    method: 'POST',
+    method: "POST",
     url: `/api/homes/${homeId}/bookings`,
     data: { booking }
   });
 };
 
-export const fetchBookings = bookings => {
+export const fetchTrips = () => {
   return $.ajax({
-    method: 'GET',
-    url: '/api/bookings',
-    data: { bookings }
+    method: "GET",
+    url: "/api/bookings"
   });
 };
