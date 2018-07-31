@@ -2,9 +2,16 @@ class Api::HomesController < ApplicationController
   before_action :require_logged_in, only: [:create]
 
   def index
-    homes = bounds ? Home.in_bounds(bounds) : Home.all
-    debugger
+    if bounds
+      homes = Home.in_bounds(bounds)
+    elsif trips
+      homes = Home.booked_trips(trips)
+    else
+      homes = Home.all
+    end
+
     @homes = homes
+    
   end
 
   def show
@@ -24,5 +31,9 @@ class Api::HomesController < ApplicationController
 
   def bounds
     params[:bounds]
+  end
+
+  def trips
+    params[:trips]
   end
 end
