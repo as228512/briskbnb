@@ -2,12 +2,13 @@ class Api::BookingsController < ApplicationController
   before_action :require_login, only: [:create, :destroy]
 
   def index
-    @bookings = Booking.where(user_id: @booking.user_id)
-    debugger
+
+    @bookings = Booking.where(user_id: current_user.id)
+
   end
 
   def create
-    debugger
+
     @booking = current_user.bookings.new(booking_params)
     @booking.user_id = current_user.id
 

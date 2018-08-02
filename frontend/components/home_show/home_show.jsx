@@ -11,7 +11,7 @@ const HomeShow = ({ home,
                     fetchHome,
                     bookedDates,
                     eraseHome }) => {
-                      debugger
+                      
                                       return(
                                         <div>
                                           <NavBar />

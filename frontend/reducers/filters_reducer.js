@@ -13,7 +13,6 @@ const filtersReducer = (state = defaultFilters, action) => {
     const newFilter = {
       [action.filter]: action.value
     };
-    debugger;
     return merge({}, state, newFilter);
   } else {
     return state;

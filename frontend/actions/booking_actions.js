@@ -12,8 +12,9 @@ export const receiveBooking = ({ booking, user }) => ({
   user
 });
 
-export const receiveTrips = () => ({
-  type: RECEIVE_TRIPS
+export const receiveTrips = trips => ({
+  type: RECEIVE_TRIPS,
+  trips
 });
 
 export const receiveErrors = errors => ({
@@ -25,8 +26,8 @@ export const clearBookingErrors = () => ({
   type: CLEAR_BOOKING_ERRORS
 });
 
-export const fetchTrips = userId => dispatch =>
-  APIUtil.fetchTrips(userId).then(trips => dispatch(receiveTrips(trips)));
+export const fetchTrips = () => dispatch =>
+  APIUtil.fetchTrips().then(trips => dispatch(receiveTrips(trips)));
 
 export const createBooking = booking => dispatch =>
   APIUtil.createBooking(booking).then(

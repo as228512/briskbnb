@@ -85,7 +85,7 @@ class HomeMap extends React.Component {
   }
 
   handleMarkerClick(home) {
-    debugger
+    
     this.props.history.push(`/homes/${home.id}`);
   }
 

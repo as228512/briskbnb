@@ -77,7 +77,6 @@ class BookingDatePicker extends React.Component {
           home_id: this.props.homeId
         })
         .then(() => {
-          debugger
           this.props.history.replace({
             pathname: `/trips/${this.props.userId}`
           });

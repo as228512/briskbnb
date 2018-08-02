@@ -5,6 +5,7 @@ export const RECEIVE_HOME = "RECEIVE_HOME";
 export const START_LOADING_HOMES = "START_LOADING_HOMES";
 export const START_LOADING_HOME = "START_LOADING_HOME";
 export const CLEAR_HOMES = "CLEAR_HOMES";
+export const RECEIVE_TRIP_HOMES = "RECEIVE_TRIP_HOMES";
 
 export const receiveHomes = homes => ({
   type: RECEIVE_HOMES,
@@ -42,6 +43,12 @@ export const fetchHomes = filters => dispatch => {
 export const fetchHome = id => dispatch => {
   dispatch(startLoadingHome());
   return APIUtil.fetchHome(id).then(home => dispatch(receiveHome(home)));
+};
+
+export const fetchTripHomes = homeIds => dispatch => {
+  return APIUtil.fetchTripHomes(homeIds).then(homes =>
+    dispatch(receiveHomes(homes))
+  );
 };
 
 export const eraseHomes = () => dispatch => {

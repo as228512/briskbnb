@@ -9,7 +9,6 @@ const mapStateToProps = (state, { match }) => {
   const home = selectHome(state.entities, homeId);
   const bookedDates = selectBookingsForHome(home);
   const currentLoadingState = state.ui.loadingState.homeLoading;
-  debugger;
   return {
     homeId,
     home,
