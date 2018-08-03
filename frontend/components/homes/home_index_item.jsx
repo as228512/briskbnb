@@ -144,15 +144,18 @@ class HomeIndexItem extends React.Component {
          return (
            <div className="home-index-item" onClick={this.handleClick}>
 
-           <img className="home-index-image" src={home_url}/>
-           <div className='index-item-info'>
-           <div className="index-item-info-title">{title}</div>
-           <br/>
-           <ul className="booked-dates">
-           <strong>Booked Dates:</strong>
-           {renderBookingRanges}
-           </ul>
-           </div>
+             <img className="home-index-image" src={home_url}/>
+             <div className='index-item-info'>
+
+               <div className="index-item-info-title">{title}</div>
+               <br/>
+
+               <ul className="booked-dates">
+                 <strong>Booked Dates:</strong>
+                 {renderBookingRanges}
+               </ul>
+
+             </div>
            </div>
          );
     }
