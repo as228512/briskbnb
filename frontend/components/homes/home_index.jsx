@@ -5,12 +5,13 @@ import {withRouter} from 'react-router-dom';
 
 const HomeIndex = (props) => {
   const bookings = props.bookings;
+  const upcomingTrip = props.upcomingTrip;
 
   return(
         <div>
           <div className='home-index'>
             {props.homes.map(home => (
-              <HomeIndexItem home={home} bookings={bookings} key={home.id}/>
+              <HomeIndexItem home={home} bookings={bookings} upcomingTrip={upcomingTrip} key={home.id}/>
             ))}
           </div>
         </div>

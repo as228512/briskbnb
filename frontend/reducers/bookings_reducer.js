@@ -1,7 +1,5 @@
 import merge from "lodash/merge";
 
-//import new fetchTrips action and continue to look in the booking controller indexSearch
-
 import { RECEIVE_HOME } from "../actions/home_actions";
 import { RECEIVE_BOOKING, RECEIVE_TRIPS } from "../actions/booking_actions";
 

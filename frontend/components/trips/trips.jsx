@@ -26,7 +26,11 @@ class Trips extends React.Component {
       <div>
         <NavBar/>
         <h1 className="trips-heading">Upcoming Trips</h1>
-        <HomeIndex homes={homes} bookings={bookings} />
+        <HomeIndex homes={homes} bookings={bookings} upcomingTrip={true} />
+        <br/>
+        <h1 className="trips-heading">Passed Trips</h1>
+        <HomeIndex homes={homes} bookings={bookings} upcomingTrip={false} />
+
 
       </div>
     )

@@ -5,6 +5,7 @@ import HomeShowContainer from '../home_show/home_show_container';
 class HomeIndexItem extends React.Component {
   constructor(props) {
     super(props);
+
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -31,6 +32,13 @@ class HomeIndexItem extends React.Component {
       </div>
     );
   }
+
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
 
   translateBookingDates() {
 
@@ -64,8 +72,35 @@ class HomeIndexItem extends React.Component {
     return orderedBookingsArray;
   }
 
-  renderBookingRanges() {
+
+
+  filterUpcomingTrips() {
     const englishDateRanges = this.translateBookingDates();
+
+    const filteredDateRanges =
+                               englishDateRanges.filter(dateRange =>
+                                 new Date() < new Date(dateRange[1])
+                               )
+
+    return filteredDateRanges;
+  }
+
+
+  filterPastTrips() {
+    const englishDateRanges = this.translateBookingDates();
+
+    const filteredDateRanges =
+                              englishDateRanges.filter(dateRange =>
+                                new Date() >= new Date(dateRange[1])
+                              )
+
+    return filteredDateRanges;
+  }
+
+
+  renderUpcomingBookingRanges() {
+    const englishDateRanges = this.filterUpcomingTrips();
+
     return(
       <ul>
       {englishDateRanges.map((dateRange, i) => (
@@ -77,26 +112,55 @@ class HomeIndexItem extends React.Component {
     )
   }
 
-  tripIndex() {
+
+  renderPastBookingRanges() {
+    const englishDateRanges = this.filterPastTrips();
+
+    return(
+      <ul>
+      {englishDateRanges.map((dateRange, i) => (
+        <li className='booking-range' key={`dateRange-${i}`}>
+          • {dateRange[0]} - {dateRange[1]}
+        </li>
+      ))}
+      </ul>
+    )
+  }
+
+  TripIndex() {
     const { title, home_url } = this.props.home;
 
-    return (
-      <div className="home-index-item" onClick={this.handleClick}>
+    let renderBookingRanges;
+    if(this.props.upcomingTrip) {
+      renderBookingRanges = this.renderUpcomingBookingRanges();
+    }
+    else renderBookingRanges = this.renderPastBookingRanges();
 
-        <img className="home-index-image" src={home_url}/>
-        <div className='index-item-info'>
-          <div className="index-item-info-title">{title}</div>
-          <br/>
-          <strong>Booked Dates:</strong>
-          {this.renderBookingRanges()}
-        </div>
-      </div>
-    );
+    if(this.props.upcomingTrip && this.renderUpcomingBookingRanges().props.children.length === 0 ||
+       !this.props.upcomingTrip && this.renderPastBookingRanges().props.children.length === 0) {
+         return null;
+    }
+    else {
+         return (
+           <div className="home-index-item" onClick={this.handleClick}>
+
+           <img className="home-index-image" src={home_url}/>
+           <div className='index-item-info'>
+           <div className="index-item-info-title">{title}</div>
+           <br/>
+           <ul className="booked-dates">
+           <strong>Booked Dates:</strong>
+           {renderBookingRanges}
+           </ul>
+           </div>
+           </div>
+         );
+    }
   }
 
   render() {
     if(this.props.history.location.pathname === "/homes") return this.homeIndex()
-    else return this.tripIndex();
+    else return this.TripIndex();
   }
 }
 
