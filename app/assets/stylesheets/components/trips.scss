@@ -1,2 +1,23 @@
 .trips-heading {
+  display: block;
+  font-weight: 700;
+  font-size: 50px;
+  margin: 4vh 0 2vh 6vw;
+}
+
+.trip-index {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  flex-direction: row;
+  margin-left: 8vw;
+  padding-top: 13px;
+}
+
+.booked-dates strong {
+  font-weight: 700;
+}
+
+.booking-range {
+  margin-left: 1vw;
 }

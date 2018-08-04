@@ -20,153 +20,151 @@ html {
   width: 100%;
 }
 
- body {
-   height: 100%;
-   width: 100%;
-   font-family: Montserrat, sans-serif;
-   font-size: 14px;
-   color: #484848;
-   line-height: 1.45;
-   -webkit-font-smoothing: antialiased;
-   display: flex;
- }
+body {
+  height: 100%;
+  width: 100%;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  color: #484848;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+}
 
- main {
-   height: 100%;
-   width: 100%;
- }
+main {
+  height: 100%;
+  width: 100%;
+}
 
- .app-container {
-   height: 100%;
-   width: 100%;
-   float: right;
- }
+.app-container {
+  height: 100%;
+  width: 100%;
+  float: right;
+}
 
- .greeting-background-image {
-   min-height: 100%;
-   min-width: 1024px;
-   width: 100%;
-   height: 100vh;
-   background-image: image-url(SwissAlps_5);
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-color: #464646;
- }
+.greeting-background-image {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: 100vh;
+  background-image: image-url(SwissAlps_5);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #464646;
+}
 
- .home-index-body {
-   display: flex;
- }
+.home-index-body {
+  display: flex;
+}
 
- .home-index {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   flex-direction: row;
-   padding-top: 13px
- }
+.home-index {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  padding-top: 13px;
+}
 
- .home-index-cntr {
-   min-width: 65%;
- }
+.home-index-cntr {
+  min-width: 65%;
+}
 
- .home-index-item {
-   display: block;
-   box-sizing: border-box;
-   margin: 8px 8px 40px 8px;
- }
+.home-index-item {
+  display: block;
+  box-sizing: border-box;
+  margin: 8px 8px 40px 8px;
+}
 
- .index-item-info {
-   display: block;
-   width: 19.8vw;
- }
+.index-item-info {
+  display: block;
+  width: 19.8vw;
+}
 
- .index-item-info-title {
-   font-weight: 700;
- }
+.index-item-info-title {
+  font-weight: 700;
+}
 
- .home-index-image {
-   width: 19.8vw;
-   height: 25.8vh;
-   border-radius: 3px;
-   background-position: center center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-color: #464646;
-   cursor: pointer;
- }
+.home-index-image {
+  width: 19.8vw;
+  height: 25.8vh;
+  border-radius: 3px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #464646;
+  cursor: pointer;
+}
 
- .home-index-map {
-   margin-right: 1%;
- }
+.home-index-map {
+  margin-right: 1%;
+}
 
- .map-container {
-   padding-top: 21px;
-   position: sticky;
-   top: 70px;
- }
+.map-container {
+  padding-top: 21px;
+  position: sticky;
+  top: 70px;
+}
 
- #map {
-   height: calc(100vh - 113px);
-   width: 34vw;
- }
+#map {
+  height: calc(100vh - 113px);
+  width: 34vw;
+}
 
- .splash-text {
-   display: block;
-   font-size: calc(2.4vw + 9px);
-   color: #ffffff;
-   font-weight: 700;
-   position: absolute;
-   top: 37%;
-   left: 23%;
-   text-shadow: 1px 1px 40px
-      rgba(50,23,31,50);
- }
+.splash-text {
+  display: block;
+  font-size: calc(2.4vw + 9px);
+  color: #ffffff;
+  font-weight: 700;
+  position: absolute;
+  top: 37%;
+  left: 23%;
+  text-shadow: 1px 1px 40px rgba(50, 23, 31, 50);
+}
 
- .splash-2-text {
-   display: block;
-   font-size: calc(2.4vw + 9px);
-   color: #ffffff;
-   font-weight: 700;
-   position: absolute;
-   top: 42%;
-   left: 23%;
-   text-shadow: 1px 1px 40px
-      rgba(50,23,31,50);
- }
+.splash-2-text {
+  display: block;
+  font-size: calc(2.4vw + 9px);
+  color: #ffffff;
+  font-weight: 700;
+  position: absolute;
+  top: 42%;
+  left: 23%;
+  text-shadow: 1px 1px 40px rgba(50, 23, 31, 50);
+}
 
- .sign-up-form-footer {
-   display: inline-block;
-   margin-top: 30px;
-   font-style: inherit;
-   font-size: 19px;
-   margin-left: 60px;
- }
+.sign-up-form-footer {
+  display: inline-block;
+  margin-top: 30px;
+  font-style: inherit;
+  font-size: 19px;
+  margin-left: 60px;
+}
 
- .login-form-footer {
-   display: inline-block;
-   margin-top: 30px;
-   font-style: inherit;
-   font-size: 19px;
-   margin-left: 107px;
- }
+.login-form-footer {
+  display: inline-block;
+  margin-top: 30px;
+  font-style: inherit;
+  font-size: 19px;
+  margin-left: 107px;
+}
 
- .signup-form-footer-border {
-   border-bottom: 1px solid rgb(219,219,219);
-   width: 504px;
- }
+.signup-form-footer-border {
+  border-bottom: 1px solid rgb(219, 219, 219);
+  width: 504px;
+}
 
- .login-form-footer-border {
-   border-bottom: 1px solid rgb(219,219,219);
-   margin-bottom: 38px;
-   width: 504px;
- }
+.login-form-footer-border {
+  border-bottom: 1px solid rgb(219, 219, 219);
+  margin-bottom: 38px;
+  width: 504px;
+}
 
- .demo-form-footer-border {
-   border-bottom: 1px solid rgb(219,219,219);
-   margin-top: 29px;
-   margin-bottom: 22px;
-   width: 504px;
- }
+.demo-form-footer-border {
+  border-bottom: 1px solid rgb(219, 219, 219);
+  margin-top: 29px;
+  margin-bottom: 22px;
+  width: 504px;
+}
 
 .form-footer-link {
   color: #7595bf;
@@ -179,153 +177,153 @@ html {
   text-decoration: underline;
 }
 
- .modal-background {
-   position: fixed;
-   top: 0;
-   bottom: 0;
-   right: 0;
-   left: 0;
-   background: rgba(0, 0, 0, 0.7);
-   z-index: 10;
- }
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
 
- .session-errors {
-   color: red;
- }
+.session-errors {
+  color: red;
+}
 
- .modal-child {
-   height: 550px;
-   width: 504px;
-   display: block;
-   padding: 32px;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   background-color: rgb(255, 255, 255);
- }
+.modal-child {
+  height: 550px;
+  width: 504px;
+  display: block;
+  padding: 32px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+}
 
- .signup-form {
-   display: flex;
-   flex-direction: column;
-   margin-bottom: 8;
-   border: 1px;
-   border-radius: 10px;
-   border-color: rgb(219, 219, 219);
-   width: 100%;
- }
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8;
+  border: 1px;
+  border-radius: 10px;
+  border-color: rgb(219, 219, 219);
+  width: 100%;
+}
 
- .form-field {
-   font-family: Montserrat, sans-serif;
-   height: 40px;
-   line-height: 24px;
-   font-size: 19px;
-   color: rgb(72,72,72);
-   width: 498px;
- }
+.form-field {
+  font-family: Montserrat, sans-serif;
+  height: 40px;
+  line-height: 24px;
+  font-size: 19px;
+  color: rgb(72, 72, 72);
+  width: 498px;
+}
 
- .close-x {
-   cursor: pointer;
-   align-items: flex-start;
-   padding-bottom: 24px;
-   margin-right: auto;
-   width: 15px;
-   font-family: inherit;
-   font-size: 28px;
-   color: rgb(205,205,205);
- }
+.close-x {
+  cursor: pointer;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  margin-right: auto;
+  width: 15px;
+  font-family: inherit;
+  font-size: 28px;
+  color: rgb(205, 205, 205);
+}
 
- .signup-session-submit {
-   width: 504px;
-   height: 45px;
-   font-size: 19px;
-   font-weight: 700;
-   padding: 12px;
-   margin-top: 24px;
-   margin-bottom: 9px;
-   border: 2px;
-   border-radius: 3px;
-   color: white;
-   background-color: #011c40;
-   cursor: pointer;
- }
+.signup-session-submit {
+  width: 504px;
+  height: 45px;
+  font-size: 19px;
+  font-weight: 700;
+  padding: 12px;
+  margin-top: 24px;
+  margin-bottom: 9px;
+  border: 2px;
+  border-radius: 3px;
+  color: white;
+  background-color: #011c40;
+  cursor: pointer;
+}
 
- .login-session-submit {
-   width: 504px;
-   height: 45px;
-   font-size: 19px;
-   font-weight: 700;
-   padding: 12px;
-   margin-top: 34px;
-   margin-bottom: 29px;
-   border: 2px;
-   border-radius: 3px;
-   color: white;
-   background-color: #011c40;
-   cursor: pointer;
- }
+.login-session-submit {
+  width: 504px;
+  height: 45px;
+  font-size: 19px;
+  font-weight: 700;
+  padding: 12px;
+  margin-top: 34px;
+  margin-bottom: 29px;
+  border: 2px;
+  border-radius: 3px;
+  color: white;
+  background-color: #011c40;
+  cursor: pointer;
+}
 
- .demo-user {
-   width: 504px;
-   height: 45px;
-   font-size: 19px;
-   font-weight: 700;
-   padding: 12px;
-   border: 2px;
-   border-radius: 3px;
-   color: white;
-   background-color: #7595bf;
-   cursor: pointer;
- }
+.demo-user {
+  width: 504px;
+  height: 45px;
+  font-size: 19px;
+  font-weight: 700;
+  padding: 12px;
+  border: 2px;
+  border-radius: 3px;
+  color: white;
+  background-color: #7595bf;
+  cursor: pointer;
+}
 
- .dropdown-button {
-   width: 32px;
-   height: 32px;
-   position: fixed;
-   top: 2.5%;
-   right: 1.5%;
-   padding-bottom: 22px;
- }
+.dropdown-button {
+  width: 32px;
+  height: 32px;
+  position: fixed;
+  top: 2.5%;
+  right: 1.5%;
+  padding-bottom: 22px;
+}
 
- .dropdown-button:hover {
-   border-bottom: 2px solid #484848;
-   cursor: pointer;
- }
+.dropdown-button:hover {
+  border-bottom: 2px solid #484848;
+  cursor: pointer;
+}
 
- .dropdown-button img {
-   width:28px;
-   height:28px;
-   overflow: hidden;
-   object-fit: cover;
-   position: fixed;
-   border-radius:50%;
-   border: 2px solid;
-   border-color: #484848;
-   cursor: pointer;
- }
+.dropdown-button img {
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  object-fit: cover;
+  position: fixed;
+  border-radius: 50%;
+  border: 2px solid;
+  border-color: #484848;
+  cursor: pointer;
+}
 
- .splash-dropdown-button {
-   width: 32px;
-   height: 32px;
-   position: fixed;
-   top: 2.5%;
-   right: 1.5%;
-   padding-bottom: 22px;
- }
+.splash-dropdown-button {
+  width: 32px;
+  height: 32px;
+  position: fixed;
+  top: 2.5%;
+  right: 1.5%;
+  padding-bottom: 22px;
+}
 
- .splash-dropdown-button:hover {
-   border-bottom: 2px solid #ffffff;
-   cursor: pointer;
- }
+.splash-dropdown-button:hover {
+  border-bottom: 2px solid #ffffff;
+  cursor: pointer;
+}
 
- .splash-dropdown-button img {
-   width:28px;
-   height:28px;
-   overflow: hidden;
-   object-fit: cover;
-   position: fixed;
-   border-radius:50%;
-   border: 2px solid;
-   border-color: #ffffff;
-   cursor: pointer;
- }
+.splash-dropdown-button img {
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  object-fit: cover;
+  position: fixed;
+  border-radius: 50%;
+  border: 2px solid;
+  border-color: #ffffff;
+  cursor: pointer;
+}
