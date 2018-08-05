@@ -21,3 +21,17 @@
 .booking-range {
   margin-left: 1vw;
 }
+
+.more-bookings-button {
+  background: transparent;
+  border-color: rgb(209, 209, 209);
+  border-radius: 3px;
+  color: #808080;
+  margin-left: 1vw;
+  margin-top: 0.5vh;
+  cursor: pointer;
+}
+
+.more-bookings-button:focus {
+  outline: 0;
+}

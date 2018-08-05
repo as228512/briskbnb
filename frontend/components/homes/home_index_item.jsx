@@ -6,7 +6,14 @@ class HomeIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      showMore: false
+    }
+
+    this.showMoreBookings = this.showMoreBookings.bind(this);
+    this.showLessBookings = this.showLessBookings.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.renderMoreUpcomingBookings = this.renderMoreUpcomingBookings.bind(this);
   }
 
   componentDidMount() {
@@ -56,8 +63,8 @@ class HomeIndexItem extends React.Component {
     });
 
     let orderedBookingsArray = releventBookingsArray.sort();
-    let startDateOptions = { weekday: 'short', month: 'long', day: 'numeric' };
-    let endDateOptions = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+    let startDateOptions = { weekday: 'short', month: 'short', day: 'numeric' };
+    let endDateOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
 
     orderedBookingsArray.forEach(bookings => {
       let date = orderedBookingsArray.shift();
@@ -97,9 +104,53 @@ class HomeIndexItem extends React.Component {
     return filteredDateRanges;
   }
 
+  showMoreBookings() {
+    this.setState({
+      showMore: true
+    })
+  }
+
+  showLessBookings() {
+    this.setState({
+      showMore: false
+    })
+  }
+
+
+
+
+  renderMoreBookingsButton(totalBookingDatesLength) {
+    debugger
+    if(totalBookingDatesLength > 2 && !this.state.showMore) {
+      return(
+        <button type="button" className="more-bookings-button" onClick={this.showMoreBookings}>Show More... </button>
+      )
+    }
+    else if(totalBookingDatesLength > 2 && this.state.showMore) {
+      return(
+        <button type="button" className="more-bookings-button" onClick={this.showLessBookings}>Show Less... </button>
+      )
+    }
+    else if(totalBookingDatesLength > 0) {
+      return(
+        <div/>
+      )
+    }
+    else return null;
+  }
+
+
+
 
   renderUpcomingBookingRanges() {
-    const englishDateRanges = this.filterUpcomingTrips();
+    let totalBookingDatesLength = this.filterUpcomingTrips().length;
+
+    let englishDateRanges;
+    if(this.state.showMore) {
+      englishDateRanges = this.filterUpcomingTrips();
+    }
+    else englishDateRanges = this.filterUpcomingTrips().slice(0,2);
+
 
     return(
       <ul>
@@ -108,13 +159,35 @@ class HomeIndexItem extends React.Component {
           • {dateRange[0]} - {dateRange[1]}
         </li>
       ))}
+      {this.renderMoreBookingsButton(totalBookingDatesLength)}
       </ul>
     )
   }
 
+  renderMoreUpcomingBookings() {
+    debugger
+    const moreEnglishDateRanges = this.filterUpcomingTrips();
+
+    return(
+      <ul>
+      {moreEnglishDateRanges.map((dateRange, i) => (
+        <li className='booking-range' key={`dateRange-${i}`}>
+          • {dateRange[0]} - {dateRange[1]}
+        </li>
+      ))}
+      <button type="button" className="more-bookings-button" onClick={this.renderUpcomingBookingRanges}>Show Less... </button>
+      </ul>
+    )
+  }
 
   renderPastBookingRanges() {
-    const englishDateRanges = this.filterPastTrips();
+    let totalBookingDatesLength = this.filterPastTrips().length;
+
+    let englishDateRanges;
+    if(this.state.showMore) {
+      englishDateRanges = this.filterPastTrips();
+    }
+    else englishDateRanges = this.filterPastTrips().slice(0,2);
 
     return(
       <ul>
@@ -123,6 +196,23 @@ class HomeIndexItem extends React.Component {
           • {dateRange[0]} - {dateRange[1]}
         </li>
       ))}
+      {this.renderMoreBookingsButton(totalBookingDatesLength)}
+      </ul>
+    )
+  }
+
+  renderMorePastBookings() {
+    debugger
+    const moreEnglishDateRanges = this.filterPastTrips();
+
+    return(
+      <ul>
+      {moreEnglishDateRanges.map((dateRange, i) => (
+        <li className='booking-range' key={`dateRange-${i}`}>
+          • {dateRange[0]} - {dateRange[1]}
+        </li>
+      ))}
+      <button type="button" onClick={this.renderPastBookingRanges}>Show Less... </button>
       </ul>
     )
   }
@@ -136,15 +226,17 @@ class HomeIndexItem extends React.Component {
     }
     else renderBookingRanges = this.renderPastBookingRanges();
 
-    if(this.props.upcomingTrip && this.renderUpcomingBookingRanges().props.children.length === 0 ||
-       !this.props.upcomingTrip && this.renderPastBookingRanges().props.children.length === 0) {
+    debugger
+
+    if(this.props.upcomingTrip && !this.renderUpcomingBookingRanges().props.children[1] ||
+       !this.props.upcomingTrip && !this.renderPastBookingRanges().props.children[1]) {
          return null;
     }
     else {
          return (
-           <div className="home-index-item" onClick={this.handleClick}>
+           <div className="home-index-item" >
 
-             <img className="home-index-image" src={home_url}/>
+             <img className="home-index-image" src={home_url} onClick={this.handleClick}/>
              <div className='index-item-info'>
 
                <div className="index-item-info-title">{title}</div>

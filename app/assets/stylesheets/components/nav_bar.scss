@@ -36,7 +36,8 @@
   height: 0px;
 }
 
-.splash-nav-login, .splash-nav-signup {
+.splash-nav-login,
+.splash-nav-signup {
   vertical-align: middle;
   box-sizing: border-box;
   margin-right: 2%;
@@ -47,7 +48,8 @@
   cursor: pointer;
 }
 
-.splash-nav-signup:hover::after, .splash-nav-login:hover::after {
+.splash-nav-signup:hover::after,
+.splash-nav-login:hover::after {
   content: "";
   display: block;
   position: relative;
@@ -58,7 +60,8 @@
   background-color: #ffffff;
 }
 
-.nav-login, .nav-signup {
+.nav-login,
+.nav-signup {
   vertical-align: middle;
   font-size: 14px;
   font-weight: 700;
@@ -66,7 +69,8 @@
   cursor: pointer;
 }
 
-.nav-signup:hover::after, .nav-login:hover::after {
+.nav-signup:hover::after,
+.nav-login:hover::after {
   content: "";
   display: block;
   position: relative;
@@ -94,8 +98,8 @@
   height: 40px;
   line-height: 22px;
   width: 100%;
-  border: 1px solid #DBDBDB;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 1px solid #dbdbdb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
-  left: 4%
+  left: 4%;
 }
