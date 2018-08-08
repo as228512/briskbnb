@@ -29,10 +29,6 @@ export const clearHomes = () => ({
   type: CLEAR_HOMES
 });
 
-// fetch all bookings of current user
-//fetch relevent homes/trips using homeIDs in each booking
-//return those homes
-
 export const fetchHomes = filters => dispatch => {
   dispatch(startLoadingHomes());
   return APIUtil.fetchHomes(filters).then(homes =>
@@ -45,6 +41,9 @@ export const fetchHome = id => dispatch => {
   return APIUtil.fetchHome(id).then(home => dispatch(receiveHome(home)));
 };
 
+// fetch all bookings of current user
+//fetch relevent homes/trips using homeIDs in each booking
+//return those homes
 export const fetchTripHomes = homeIds => dispatch => {
   return APIUtil.fetchTripHomes(homeIds).then(homes =>
     dispatch(receiveHomes(homes))
