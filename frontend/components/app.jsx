@@ -17,8 +17,12 @@ const App = () => (
       <Route exact path="/homes" component={SearchContainer} />
       <Route exact path="/homes/:homeId" component={HomeShowContainer} />
       <AuthRoute exact path="/trips/:userId" component={TripShowContainer} />
+      <Redirect from="/" to="/" />
     </Switch>
   </div>
 );
+
+//this is happening because you have logic to compare routes to determine which type of search bar to use
+//
 
 export default App;
