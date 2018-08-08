@@ -42,6 +42,7 @@ export const selectBookingsForHome = home => {
 export const asArray = ({ homes }) => Object.keys(homes).map(key => homes[key]);
 
 const formatBookings = bookings => {
+  debugger;
   let orderedBookingsArray = [];
 
   //extracts dates and home_id from bookings, pushing them into a workable array
@@ -62,11 +63,13 @@ const formatBookings = bookings => {
 
 export const asSortedArray = ({ homes, bookings }) => {
   let orderedBookings = formatBookings(bookings);
+  debugger;
 
   //itterates over each sorted booking, keys into homes hash via "home_id"
   //and pushes home objects, in order of start_date, into the result array (orderedTrips)
   let orderedTrips = new Set();
   orderedBookings.forEach(booking => {
+    debugger;
     orderedTrips.add(homes[booking[2]]);
   });
 

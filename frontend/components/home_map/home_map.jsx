@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { withRouter } from 'react-router-dom';
-import ReactBodymovin from 'react-bodymovin';
-import animation from '../../../app/assets/animations/location_pin.json';
+import React from "react";
+import ReactDOM from "react-dom";
+import { withRouter } from "react-router-dom";
+import ReactBodymovin from "react-bodymovin";
+import animation from "../../../app/assets/animations/location_pin.json";
 
-import MarkerManager from '../../util/marker_manager';
-import HomeIndex from '../homes/home_index';
-import { NavBar } from '../nav/nav_bar';
+import MarkerManager from "../../util/marker_manager";
+import HomeIndex from "../homes/home_index";
+import { NavBar } from "../nav/nav_bar";
 
 class HomeMap extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state ={
+    this.state = {
       initialLoadingState: true
     };
   }
@@ -20,7 +20,6 @@ class HomeMap extends React.Component {
   componentDidMount() {
     this.indexSearch();
   }
-
 
   indexSearch() {
     this.setState({ initialLoadingState: true });
@@ -34,58 +33,56 @@ class HomeMap extends React.Component {
     bounds.f.b = parseFloat(search.get("view3"));
     bounds.f.f = parseFloat(search.get("view4"));
 
-
     if (!bounds.b.b) {
       const defaultCoords = { lat: 43.979128, lng: -74.431108 };
       this.map = new google.maps.Map(map, {
         center: defaultCoords,
         zoom: 7
       });
-    }
-
-    else {
+    } else {
       this.map = new google.maps.Map(map);
       this.map.fitBounds(bounds);
     }
 
-    this.MarkerManager =
-      new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+    this.MarkerManager = new MarkerManager(
+      this.map,
+      this.handleMarkerClick.bind(this)
+    );
     this.registerListeners();
     this.MarkerManager.updateMarkers(this.props.homes);
   }
 
-
-
-
-
   componentWillReceiveProps(nextProps) {
-    if(this.props.location.search !== nextProps.location.search) {
+    debugger;
+    if (this.props.location.search !== nextProps.location.search) {
       this.indexSearch();
     }
-    if(this.props.currentLoadingState === true) this.setState({ initialLoadingState: false });
+    if (this.props.currentLoadingState === true)
+      this.setState({ initialLoadingState: false });
   }
 
   componentDidUpdate() {
+    debugger;
     this.MarkerManager.updateMarkers(this.props.homes);
   }
 
   componentWillUnmount() {
+    debugger;
     this.props.eraseHomes();
   }
 
-
   registerListeners() {
-    google.maps.event.addListener(this.map, 'idle', () => {
-        const { north, south, east, west } = this.map.getBounds().toJSON();
-        const bounds = {
-          northEast: { lat: north, lng: east },
-          southWest: { lat: south, lng: west } };
-          this.props.updateFilter('bounds', bounds);
+    google.maps.event.addListener(this.map, "idle", () => {
+      const { north, south, east, west } = this.map.getBounds().toJSON();
+      const bounds = {
+        northEast: { lat: north, lng: east },
+        southWest: { lat: south, lng: west }
+      };
+      this.props.updateFilter("bounds", bounds);
     });
   }
 
   handleMarkerClick(home) {
-    
     this.props.history.push(`/homes/${home.id}`);
   }
 
@@ -97,43 +94,51 @@ class HomeMap extends React.Component {
       animationData: animation
     };
 
-    if((this.props.currentLoadingState === false && this.state.initialLoadingState === false) &&
-       (this.props.homes.length === 0)) {
+    if (
+      this.props.currentLoadingState === false &&
+      this.state.initialLoadingState === false &&
+      this.props.homes.length === 0
+    ) {
       return (
         <div>
           <div className="no-results-cntr">
             <div className="no-results-text">
               <p className="no-homes-text-1">No Results</p>
-              <p className="no-homes-text-2">To get more results, try zooming out on the map or searching a new location</p>
+              <p className="no-homes-text-2">
+                To get more results, try zooming out on the map or searching a
+                new location
+              </p>
             </div>
             <div className="map-marker-animation">
               <ReactBodymovin options={bodyMovinOptions} />
             </div>
           </div>
-          <div className="no-results-bottom-border"></div>
+          <div className="no-results-bottom-border" />
         </div>
       );
     }
   }
 
-  render () {
+  render() {
+    debugger;
     return (
-    <div>
-      <NavBar />
-      <div className="home-index-body">
-        <div className="home-index-cntr">
-          { this.homeMessage() }
-          <HomeIndex key={this.props.homes.id} homes={this.props.homes}/>
-        </div>
+      <div>
+        <NavBar />
+        <div className="home-index-body">
+          <div className="home-index-cntr">
+            {this.homeMessage()}
+            <HomeIndex key={this.props.homes.id} homes={this.props.homes} />
+          </div>
 
-        <div className="home-index-map">
-          <div className="map-container">
-            <div className="map" id="map" ref="map">Map</div>
+          <div className="home-index-map">
+            <div className="map-container">
+              <div className="map" id="map" ref="map">
+                Map
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
-    </div>
     );
   }
 }

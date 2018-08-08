@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 class SplashLoggedIn extends React.Component {
   constructor(props) {
@@ -50,16 +50,20 @@ class SplashLoggedIn extends React.Component {
   }
 
   avatarDropdown() {
+    const currentUser = this.props.currentUser;
+
     return (
-      <hgroup>
+      <hgroup className="splash-nav-cntr">
+        <a
+          className="splash-nav-trip"
+          onClick={() => this.props.history.push(`/trips/${currentUser.id}`)}>
+          Trips
+        </a>
         <div className="splash-dropdown-button">
-          <img
-            src={this.props.currentUser.image_url}
-            onClick={this.revealDropdown}
-          />
+          <img src={currentUser.image_url} onClick={this.revealDropdown} />
         </div>
 
-        <ul id="dropdown" className="dropdown hidden">
+        <ul id="dropdown" className="splash-dropdown dropdown hidden">
           <li>
             <ul className="options">
               <div>
@@ -85,4 +89,4 @@ class SplashLoggedIn extends React.Component {
   }
 }
 
-export default SplashLoggedIn;
+export default withRouter(SplashLoggedIn);
