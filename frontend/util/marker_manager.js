@@ -27,6 +27,7 @@ class MarkerManager {
       map: this.map,
       homeId: home.id,
       animation: google.maps.Animation.DROP
+      //title: "something will appear if user hovers of marker"
     });
 
     marker.addListener("click", () => this.handleClick(home));

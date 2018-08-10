@@ -22,7 +22,4 @@ const App = () => (
   </div>
 );
 
-//this is happening because you have logic to compare routes to determine which type of search bar to use
-//
-
 export default App;
