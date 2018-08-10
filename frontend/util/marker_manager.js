@@ -32,7 +32,8 @@ class MarkerManager {
     };
 
     const customIcon = {
-      path: "M 25 0 L 375 0 L 375 200 L 225 200 L 200 250 L 175 200 L 25 200 Z",
+      // path: "M 25 0 L 375 0 L 375 200 L 225 200 L 200 250 L 175 200 L 25 200 Z",
+      path: "M 25 0 L 375 0 L 375 200 L 260 200 L 200 250 L 140 200 L 25 200 Z",
       anchor: new google.maps.Point(200, 240),
       labelOrigin: new google.maps.Point(200, 110),
       scale: 0.12,
