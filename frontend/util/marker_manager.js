@@ -20,6 +20,7 @@ class MarkerManager {
 
   // marker creation / deletion handled by updateMarkers,
   // which is called upon GMAPS interaction (componentDidUpdate)
+  // unique markerIcon created by vector pathing
   createMarkerFromHome(home) {
     const position = new google.maps.LatLng(home.lat, home.long);
 

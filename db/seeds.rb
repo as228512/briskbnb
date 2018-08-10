@@ -32,7 +32,7 @@ Home.create!(
 Home.create!(
   description: "Full house available. The room is a Japanese style tatmi room. Stays may range from one to many days. Ample parking available, and I suggest you come by car.",
   price: 46,
-  title: "A wild man\'s hideout with a hearthplate, only one minute by car to Hifa Ski Resort",
+  title: "A wild man\'s hideout, Hifa Ski Resort only a minute away",
   lat: 43.972340,
   long: 142.513142,
   user_id: 100,
