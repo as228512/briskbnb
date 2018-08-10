@@ -1,7 +1,12 @@
-import React from 'react';
-import { withRouter, Route, Redirect, Switch, NavLink, HashRouter } from 'react-router-dom';
-
-
+import React from "react";
+import {
+  withRouter,
+  Route,
+  Redirect,
+  Switch,
+  NavLink,
+  HashRouter
+} from "react-router-dom";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -14,26 +19,25 @@ class SearchBar extends React.Component {
   }
 
   setLocation(location) {
-    this.setState({ location: location });
+    this.setState({ location });
   }
 
   componentDidMount() {
     const splashInput = document.getElementsByClassName("splash-search-bar")[0];
     const navInput = document.getElementsByClassName("nav-search-bar")[0];
-    const autocomplete = new google.maps.places.Autocomplete(splashInput || navInput);
+    const autocomplete = new google.maps.places.Autocomplete(
+      splashInput || navInput
+    );
 
     let location;
     autocomplete.addListener("place_changed", () => {
-
       if (!autocomplete.getPlace().formatted_address) {
         location = autocomplete.getPlace().name;
         this.setState({
           location: location
         });
         this.handleSubmit();
-      }
-
-      else {
+      } else {
         location = autocomplete.getPlace().formatted_address;
         this.setState({
           location: location
@@ -42,8 +46,6 @@ class SearchBar extends React.Component {
       }
     });
   }
-
-
 
   handleSubmit(e) {
     const geocoder = new google.maps.Geocoder();
@@ -57,10 +59,9 @@ class SearchBar extends React.Component {
 
         this.props.history.push({
           pathname: "/homes",
-          search:`?view1=${view1}&view2=${view2}
+          search: `?view1=${view1}&view2=${view2}
                   &view3=${view3}&view4=${view4}`
         });
-
       }
     });
   }
@@ -73,25 +74,27 @@ class SearchBar extends React.Component {
   }
 
   splashSearch() {
-    if(this.props.location.pathname === "/") {
+    if (this.props.location.pathname === "/") {
       return (
         <input
           className="splash-search-bar"
           onChange={this.update("location")}
-          placeholder='"Try Hokkaido"'
-          value={this.state.location}/>
+          placeholder="&quot;Try Hokkaido&quot;"
+          value={this.state.location}
+        />
       );
     }
   }
 
   navSearch() {
-    if(this.props.location.pathname !== "/") {
+    if (this.props.location.pathname !== "/") {
       return (
         <input
           className="nav-search-bar"
           onChange={this.update("location")}
-          placeholder='"Try Hokkaido"'
-          value={this.state.location}/>
+          placeholder="&quot;Try Hokkaido&quot;"
+          value={this.state.location}
+        />
       );
     }
   }
@@ -99,8 +102,8 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div>
-        { this.splashSearch() }
-        { this.navSearch() }
+        {this.splashSearch()}
+        {this.navSearch()}
       </div>
     );
   }

@@ -22,12 +22,34 @@ class MarkerManager {
   // which is called upon GMAPS interaction (componentDidUpdate)
   createMarkerFromHome(home) {
     const position = new google.maps.LatLng(home.lat, home.long);
+
+    const homePrice = {
+      boxShadow: "0 2px 3px 0 rgba(0, 0, 0, 0.07)",
+      color: "484848",
+      fontSize: "12px",
+      fontWeight: "bold",
+      text: `$${home.price}`
+    };
+
+    const customIcon = {
+      path:
+        "M 75 50 L 325 50 L 325 200 L 225 200 L 200 250 L 175 200 L 75 200 Z",
+      anchor: new google.maps.Point(200, 240),
+      labelOrigin: new google.maps.Point(200, 130),
+      scale: 0.12,
+      fillColor: "white",
+      fillOpacity: 1,
+      strokeColor: "rgba(0, 0, 0, 0.2)",
+      strokeColor: "black",
+      strokeWeight: 1
+    };
+
     const marker = new google.maps.Marker({
       position,
       map: this.map,
       homeId: home.id,
-      animation: google.maps.Animation.DROP
-      //title: "something will appear if user hovers of marker"
+      icon: customIcon,
+      label: homePrice
     });
 
     marker.addListener("click", () => this.handleClick(home));
