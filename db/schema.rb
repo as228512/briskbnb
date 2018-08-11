@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 20180810234807) do
   create_table "reviews", force: :cascade do |t|
     t.text "body", null: false
     t.integer "rating", null: false
-    t.datetime "created_on", null: false
     t.integer "home_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false

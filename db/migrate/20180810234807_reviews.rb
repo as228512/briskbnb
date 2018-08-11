@@ -3,7 +3,6 @@ class Reviews < ActiveRecord::Migration[5.1]
     create_table :reviews do |t|
       t.text :body, null: false
       t.integer :rating, null: false
-      t.datetime :created_on, null: false
 
       t.integer :home_id, null: false
       t.integer :user_id, null: false
