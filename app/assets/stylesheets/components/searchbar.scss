@@ -4,19 +4,15 @@
   background-color: #ffffff;
   font-weight: 400;
   font-family: inherit;
-  position: fixed;
-  top: 50%;
-  left: 23%;
   border-radius: 5px;
-  height: 6.7%;
-  width: 49.5%;
-  text-indent: 20px;
+  height: 6vh;
+  width: -webkit-fill-available;
+  text-indent: 60px;
 }
 
-.search-bar-container {
-  display: block;
-  position: fixed;
-  top: 50%;
-  left: 74.0%;
-  z-index: 1;
+.search-bar-container .search-icon {
+  position: relative;
+  top: 47px;
+  left: 20px;
+  font-size: 27px;
 }
