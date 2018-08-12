@@ -6,7 +6,6 @@ import { withRouter } from "react-router-dom";
 const HomeIndex = props => {
   const bookings = props.bookings;
   const upcomingTrip = props.upcomingTrip;
-  debugger;
 
   if (props.location.pathname === "/homes") {
     return (

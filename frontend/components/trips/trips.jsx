@@ -9,14 +9,12 @@ class Trips extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.fetchTrips().then(trips => {
       this.props.fetchHomes(trips);
     });
   }
 
   componentWillUnmount() {
-    debugger;
     this.props.clearHomes();
   }
 

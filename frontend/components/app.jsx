@@ -2,6 +2,11 @@ import React from "react";
 import { Provider } from "react-redux";
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+library.add(faSearch);
 
 import GreetingContainer from "./greeting/greeting_container";
 import SearchContainer from "./search/search_container";

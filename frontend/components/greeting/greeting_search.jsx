@@ -7,6 +7,7 @@ import {
   NavLink,
   HashRouter
 } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -73,15 +74,34 @@ class SearchBar extends React.Component {
       });
   }
 
+  chooseRandomLocation() {
+    let briskDestinations = [
+      '"Hokkaido"',
+      '"Toronto"',
+      '"Switzerland"',
+      '"Greenland"'
+    ];
+
+    return briskDestinations[
+      Math.floor(Math.random() * briskDestinations.length)
+    ];
+    // we're in the middle of adding a search icon to the searcbars using fontawesome
+
+    // and, at the same time, we just wrote the review model and haven't started the ctrlr yet
+  }
+
   splashSearch() {
     if (this.props.location.pathname === "/") {
       return (
-        <input
-          className="splash-search-bar"
-          onChange={this.update("location")}
-          placeholder="&quot;Try Hokkaido&quot;"
-          value={this.state.location}
-        />
+        <div className="search-bar-container">
+          <FontAwesomeIcon className="search-icon" icon="search" />
+          <input
+            className="splash-search-bar"
+            onChange={this.update("location")}
+            placeholder={"Try " + this.chooseRandomLocation()}
+            value={this.state.location}
+          />
+        </div>
       );
     }
   }
@@ -92,7 +112,7 @@ class SearchBar extends React.Component {
         <input
           className="nav-search-bar"
           onChange={this.update("location")}
-          placeholder="&quot;Try Hokkaido&quot;"
+          placeholder={"Try " + this.chooseRandomLocation()}
           value={this.state.location}
         />
       );

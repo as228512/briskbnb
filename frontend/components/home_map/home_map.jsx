@@ -53,7 +53,6 @@ class HomeMap extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger;
     if (this.props.location.search !== nextProps.location.search) {
       this.indexSearch();
     }
@@ -62,12 +61,10 @@ class HomeMap extends React.Component {
   }
 
   componentDidUpdate() {
-    debugger;
     this.MarkerManager.updateMarkers(this.props.homes);
   }
 
   componentWillUnmount() {
-    debugger;
     this.props.eraseHomes();
   }
 
@@ -120,7 +117,6 @@ class HomeMap extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <div>
         <NavBar />

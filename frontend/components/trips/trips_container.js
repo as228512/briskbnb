@@ -6,11 +6,8 @@ import { fetchHomes, clearHomes } from "../../actions/home_actions";
 import { asSortedArray } from "../../reducers/selectors";
 
 const mapStateToProps = state => {
-  let homes = [];
-  debugger;
-  homes = asSortedArray(state.entities);
+  const homes = asSortedArray(state.entities);
   const bookings = state.entities.bookings;
-  debugger;
 
   return {
     homes,
