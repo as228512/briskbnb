@@ -53,6 +53,8 @@ class SearchBar extends React.Component {
 
     geocoder.geocode({ address: this.state.location }, (results, status) => {
       if (status === "OK") {
+        debugger;
+        const searched = results[0].address_components[0].long_name;
         const view1 = results[0].geometry.viewport.b.b;
         const view2 = results[0].geometry.viewport.b.f;
         const view3 = results[0].geometry.viewport.f.b;
@@ -61,7 +63,7 @@ class SearchBar extends React.Component {
         this.props.history.push({
           pathname: "/homes",
           search: `?view1=${view1}&view2=${view2}
-                  &view3=${view3}&view4=${view4}`
+                  &view3=${view3}&view4=${view4}&searched=${searched}`
         });
       }
     });
@@ -79,7 +81,9 @@ class SearchBar extends React.Component {
       '"Hokkaido"',
       '"Toronto"',
       '"Switzerland"',
-      '"Greenland"'
+      '"Greenland"',
+      '"Alaska"',
+      '"New York"'
     ];
 
     return briskDestinations[
