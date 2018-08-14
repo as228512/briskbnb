@@ -26,21 +26,19 @@ class HomeMap extends React.Component {
     const map = this.refs.map;
     const coords = this.props.location.search;
     const search = new URLSearchParams(coords);
-    debugger;
 
     let bounds = new google.maps.LatLngBounds();
     bounds.b.b = parseFloat(search.get("view1"));
     bounds.b.f = parseFloat(search.get("view2"));
     bounds.f.b = parseFloat(search.get("view3"));
     bounds.f.f = parseFloat(search.get("view4"));
-    debugger;
 
     //corrections for google smart search incase of Alaska or Greenland
     const searched = search.get("searched");
     const alaskaCoords = { lat: 59.670926419997, lng: -152.5 };
     const greenLandCoords = { lat: 55.6925, lng: -48.318 };
 
-    if (searched === "New York" || !bounds.b.b) {
+    if (!bounds.b.b) {
       const defaultCoords = { lat: 43.979128, lng: -74.431108 };
       this.map = new google.maps.Map(map, {
         center: defaultCoords,

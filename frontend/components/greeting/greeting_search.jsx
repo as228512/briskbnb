@@ -82,8 +82,7 @@ class SearchBar extends React.Component {
       '"Toronto"',
       '"Switzerland"',
       '"Greenland"',
-      '"Alaska"',
-      '"New York"'
+      '"Alaska"'
     ];
 
     return briskDestinations[
@@ -115,7 +114,7 @@ class SearchBar extends React.Component {
           <input
             className="nav-search-bar"
             onChange={this.update("location")}
-            placeholder={"Try " + this.chooseRandomLocation()}
+            placeholder="Search"
             value={this.state.location}
           />
         </div>

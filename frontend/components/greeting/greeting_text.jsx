@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import SearchBar from "./greeting_search";
-import Autocomplete from "react-google-autocomplete";
 import { SplashNavBar } from "../nav/splash_nav";
 
 const greetingText = () => {
