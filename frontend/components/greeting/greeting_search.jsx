@@ -53,7 +53,6 @@ class SearchBar extends React.Component {
 
     geocoder.geocode({ address: this.state.location }, (results, status) => {
       if (status === "OK") {
-        debugger;
         const searched = results[0].address_components[0].long_name;
         const view1 = results[0].geometry.viewport.b.b;
         const view2 = results[0].geometry.viewport.b.f;
