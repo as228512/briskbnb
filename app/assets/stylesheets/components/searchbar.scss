@@ -2,7 +2,7 @@
   display: block;
   font-size: 22px;
   background-color: #ffffff;
-  font-weight: 400;
+  font-weight: 800;
   font-family: inherit;
   border-radius: 5px;
   height: 6vh;
@@ -10,9 +10,12 @@
   text-indent: 60px;
 }
 
-.search-bar-container .search-icon {
+.splash-search-bar-container .splash-search-icon {
   position: relative;
   top: 47px;
   left: 20px;
   font-size: 27px;
 }
+
+//if this gets messed up it's probably becuase
+//of the display flex on .search-bar-container

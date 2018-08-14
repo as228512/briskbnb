@@ -85,16 +85,13 @@ class SearchBar extends React.Component {
     return briskDestinations[
       Math.floor(Math.random() * briskDestinations.length)
     ];
-    // we're in the middle of adding a search icon to the searcbars using fontawesome
-
-    // and, at the same time, we just wrote the review model and haven't started the ctrlr yet
   }
 
   splashSearch() {
     if (this.props.location.pathname === "/") {
       return (
-        <div className="search-bar-container">
-          <FontAwesomeIcon className="search-icon" icon="search" />
+        <div className="splash-search-bar-container">
+          <FontAwesomeIcon className="splash-search-icon" icon="search" />
           <input
             className="splash-search-bar"
             onChange={this.update("location")}
@@ -109,12 +106,15 @@ class SearchBar extends React.Component {
   navSearch() {
     if (this.props.location.pathname !== "/") {
       return (
-        <input
-          className="nav-search-bar"
-          onChange={this.update("location")}
-          placeholder={"Try " + this.chooseRandomLocation()}
-          value={this.state.location}
-        />
+        <div className="nav-search-bar-container">
+          <FontAwesomeIcon className="nav-search-icon" icon="search" />
+          <input
+            className="nav-search-bar"
+            onChange={this.update("location")}
+            placeholder={"Try " + this.chooseRandomLocation()}
+            value={this.state.location}
+          />
+        </div>
       );
     }
   }
