@@ -33,7 +33,9 @@ class HomeIndexItem extends React.Component {
         <img className="home-index-image" src={home_url} />
         <div className="index-item-info">
           <div className="index-item-info-title">{title}</div>
-          <p>From ${price} per night · Free cancellation</p>
+          <p className="index-item-description">
+            From ${price} per night · Free cancellation
+          </p>
         </div>
       </div>
     );
@@ -234,7 +236,7 @@ class HomeIndexItem extends React.Component {
       return (
         <div className="home-index-item">
           <img
-            className="home-index-image"
+            className="trip-index-image"
             src={home_url}
             onClick={this.handleClick}
           />
