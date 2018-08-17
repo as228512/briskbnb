@@ -1,12 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import configureStore from './store/store';
-import Root from './components/root';
-//deleted createBooking from the window and import
+import React from "react";
+import ReactDOM from "react-dom";
+import configureStore from "./store/store";
+import Root from "./components/root";
 
-
-document.addEventListener('DOMContentLoaded', () => {
-
+document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
     const preloadedState = {
@@ -21,6 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  const root = document.getElementById('root');
-  ReactDOM.render(<Root store={ store }/>, root);
+  const root = document.getElementById("root");
+  ReactDOM.render(<Root store={store} />, root);
 });

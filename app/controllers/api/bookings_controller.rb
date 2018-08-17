@@ -2,9 +2,8 @@ class Api::BookingsController < ApplicationController
   before_action :require_login, only: [:create, :destroy]
 
   def index
-
+    #called to assist in rendering trips based on current user's bookings
     @bookings = Booking.where(user_id: current_user.id)
-
   end
 
   def create
@@ -12,17 +11,7 @@ class Api::BookingsController < ApplicationController
     @booking = current_user.bookings.new(booking_params)
     @booking.user_id = current_user.id
 
-    booking_valid = true
-    Booking.where(home_id: @booking.home_id).find_each do |booking|
-      if @booking.start_date < booking.start_date &&
-         @booking.end_date < booking.start_date ||
-         @booking.start_date > booking.end_date
-          next
-      else
-        booking_valid = false
-        break
-      end
-    end
+    booking_valid = Booking.valid_booking?(@booking)
 
     if booking_valid
       @booking.save
@@ -41,5 +30,4 @@ class Api::BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :home_id)
   end
-
 end

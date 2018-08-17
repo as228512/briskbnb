@@ -4,14 +4,15 @@ class Api::HomesController < ApplicationController
   def index
     if bounds
       homes = Home.in_bounds(bounds)
+
     elsif trips
       homes = Home.booked_trips(trips)
+
     else
       homes = Home.all
     end
 
     @homes = homes
-    
   end
 
   def show
