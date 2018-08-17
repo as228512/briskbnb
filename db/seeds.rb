@@ -530,3 +530,11 @@ Booking.create!(
   user_id: 100,
   home_id: 100
 )
+
+#Toronto_6_review
+Review.create!(
+  rating: 4,
+  body: "For the price, this was easily the best home in the area",
+  user_id: 100,
+  home_id: 100
+)
