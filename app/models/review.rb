@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
 
-  validates :body, :rating, presense: true
+  validates :body, :rating, presence: true
 
   belongs_to :user
   belongs_to :home
