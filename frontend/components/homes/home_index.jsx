@@ -26,14 +26,16 @@ const HomeIndex = props => {
     return (
       <div>
         <div className="trip-index">
-          {props.homes.map(home => (
-            <HomeIndexItem
-              home={home}
-              bookings={bookings}
-              upcomingTrip={upcomingTrip}
-              key={home.id}
-            />
-          ))}
+          {props.homes.map(home => {
+            return (
+              <HomeIndexItem
+                home={home}
+                bookings={bookings}
+                upcomingTrip={upcomingTrip}
+                key={home.id}
+              />
+            );
+          })}
         </div>
       </div>
     );

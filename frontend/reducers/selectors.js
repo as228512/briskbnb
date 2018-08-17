@@ -41,18 +41,20 @@ export const selectBookingsForHome = home => {
 
 export const asArray = ({ homes }) => Object.keys(homes).map(key => homes[key]);
 
-const formatBookings = bookings => {
+const formatBookings = (bookings, currentUserId) => {
   let orderedBookingsArray = [];
 
-  //extracts dates and home_id from bookings, pushing them into a workable array
+  //extracts dates and home_id from currentUser's bookings, pushing them into a workable array
   //of sub-arrays ex. format [[start_date, end_date, home_id],
   //                          [start_date2, end_date2, home_id2]]
   Object.keys(bookings).forEach(key => {
-    orderedBookingsArray.push([
-      bookings[key]["start_date"],
-      bookings[key]["end_date"],
-      bookings[key]["home_id"]
-    ]);
+    if (bookings[key]["user_id"] === currentUserId) {
+      orderedBookingsArray.push([
+        bookings[key]["start_date"],
+        bookings[key]["end_date"],
+        bookings[key]["home_id"]
+      ]);
+    }
   });
 
   //sorts by start date, not by order of booking creation / O(n log n) at worst
@@ -60,14 +62,17 @@ const formatBookings = bookings => {
   return orderedBookingsArray;
 };
 
-export const asSortedArray = ({ homes, bookings }) => {
-  let orderedBookings = formatBookings(bookings);
+export const asSortedArray = ({ homes, bookings, users }) => {
+  const currentUserId = Object.values(users)[0]["id"];
+  let orderedBookings = formatBookings(bookings, currentUserId);
 
   //itterates over each sorted booking, keys into homes hash via "home_id"
   //and pushes home objects, in order of start_date, into the result array (orderedTrips)
   let orderedTrips = new Set();
   orderedBookings.forEach(booking => {
-    orderedTrips.add(homes[booking[2]]);
+    if (homes[booking[2]]) {
+      orderedTrips.add(homes[booking[2]]);
+    }
   });
 
   let orderedTripsArray = Array.from(orderedTrips);
