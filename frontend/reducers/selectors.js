@@ -1,5 +1,7 @@
 import moment from "moment";
 
+//in the case home info hasn't been fetched yet, empty object with relevant
+//fields are populated as placeholders to prevent crash
 export const selectHome = ({ homes }, homeId) => {
   return homes[homeId] || { reviewIds: [], bookingIds: [] };
 };
@@ -17,6 +19,7 @@ const calculateDaysBetweenDates = (startDate, endDate) => {
   return bookedDates;
 };
 
+//home passed in as a result of #selectHome
 export const selectBookingsForHome = home => {
   let bookedDates = [];
   let homeReservationInformation = home.bookingIds.map(

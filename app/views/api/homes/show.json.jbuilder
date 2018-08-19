@@ -1,11 +1,9 @@
-# json.home do
-#   json.partial! '/api/homes/home', home: @home
-#   json.reviewIds @home.reviews.pluck(:id)
-# end
-
-
 json.partial! '/api/homes/home', home: @home
 json.bookingIds @home.bookings.pluck(:id)
+json.reviewIds @home.reviews.pluck(:id)
+
+#trying to figure out what the issue is with the review json
+#and hoping to see the seeded review show up on the front end
 
 
 @home.bookings.includes(:user).each do |booking|
@@ -22,17 +20,16 @@ json.bookingIds @home.bookings.pluck(:id)
   end
 end
 
+@home.reviews.includes(:user).each do |review|
+  json.reviews do
+    json.set! review.id do
+      json.partial! '/api/reviews/review', review: review
+    end
+  end
 
-# @home.reviews.includes(:user).each do |review|
-#   json.reviews do
-#     json.set! review.id do
-#       json.partial! '/api/reviews/review', review: review
-#     end
-#   end
-#
-#   json.users do
-#     json.set! review.user.id do
-#       json.extract! review.user, :id, :e_mail
-#     end
-#   end
-# end
+  json.users do
+    json.set! review.user.id do
+      json.extract! review.user, :id, :e_mail
+    end
+  end
+end

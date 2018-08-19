@@ -6,7 +6,13 @@ class Api::ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.create!(review_params)
+    @review = Review.new(review_params)
+
+    if @review.save
+      render "/api/reviews/create"
+    else
+      render json: @review.errors.full_messages, status: 422
+    end
   end
 
   def destroy
