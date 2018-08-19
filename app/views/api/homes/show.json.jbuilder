@@ -2,10 +2,6 @@ json.partial! '/api/homes/home', home: @home
 json.bookingIds @home.bookings.pluck(:id)
 json.reviewIds @home.reviews.pluck(:id)
 
-#trying to figure out what the issue is with the review json
-#and hoping to see the seeded review show up on the front end
-
-
 @home.bookings.includes(:user).each do |booking|
   json.bookings do
     json.set! booking.id do
