@@ -20,6 +20,10 @@ class BookingDatePicker extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.resetBookingErrors();
+  }
+
   handleChangeStart(date) {
     this.props.resetBookingErrors();
     if (!date) {
@@ -124,6 +128,7 @@ class BookingDatePicker extends React.Component {
   }
 
   render() {
+    debugger;
     return (
       <div>
         <Modal />
