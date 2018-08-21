@@ -1,6 +1,7 @@
 Home.destroy_all
 User.destroy_all
 Booking.destroy_all
+Review.destroy_all
 
 User.create!(
   e_mail: 'demo@demos.com',
@@ -526,7 +527,7 @@ Home.create!(
 #Toronto_6_booking
 Booking.create!(
   start_date: DateTime.strptime("08/15/2018 4:00", "%m/%d/%Y %H:%M"),
-  end_date: DateTime.strptime("08/22/2018 4:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("08/19/2018 4:00", "%m/%d/%Y %H:%M"),
   user_id: 100,
   home_id: 100
 )
