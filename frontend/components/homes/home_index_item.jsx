@@ -2,6 +2,8 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import HomeShowContainer from "../home_show/home_show_container";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 class HomeIndexItem extends React.Component {
   constructor(props) {
     super(props);
@@ -10,8 +12,7 @@ class HomeIndexItem extends React.Component {
       showMore: false
     };
 
-    this.showMoreBookings = this.showMoreBookings.bind(this);
-    this.showLessBookings = this.showLessBookings.bind(this);
+    this.toggleBookings = this.toggleBookings.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.renderMoreUpcomingBookings = this.renderMoreUpcomingBookings.bind(
       this
@@ -104,16 +105,9 @@ class HomeIndexItem extends React.Component {
     return filteredDateRanges;
   }
 
-  showMoreBookings() {
-    this.setState({
-      showMore: true
-    });
-  }
-
-  showLessBookings() {
-    this.setState({
-      showMore: false
-    });
+  toggleBookings() {
+    if (this.state.showMore) this.setState({ showMore: false });
+    else this.setState({ showMore: true });
   }
 
   renderMoreBookingsButton(totalBookingDatesLength) {
@@ -122,7 +116,7 @@ class HomeIndexItem extends React.Component {
         <button
           type="button"
           className="more-bookings-button"
-          onClick={this.showMoreBookings}>
+          onClick={this.toggleBookings}>
           Show More...{" "}
         </button>
       );
@@ -131,7 +125,7 @@ class HomeIndexItem extends React.Component {
         <button
           type="button"
           className="more-bookings-button"
-          onClick={this.showLessBookings}>
+          onClick={this.toggleBookings}>
           Show Less...{" "}
         </button>
       );
@@ -152,7 +146,10 @@ class HomeIndexItem extends React.Component {
       <ul>
         {englishDateRanges.map((dateRange, i) => (
           <li className="booking-range" key={`dateRange-${i}`}>
-            • {dateRange[0]} - {dateRange[1]}
+            <span>
+              <FontAwesomeIcon icon="snowflake" />
+            </span>{" "}
+            {dateRange[0]} - {dateRange[1]}
           </li>
         ))}
         {this.renderMoreBookingsButton(totalBookingDatesLength)}
@@ -167,7 +164,10 @@ class HomeIndexItem extends React.Component {
       <ul>
         {moreEnglishDateRanges.map((dateRange, i) => (
           <li className="booking-range" key={`dateRange-${i}`}>
-            • {dateRange[0]} - {dateRange[1]}
+            <span>
+              <FontAwesomeIcon icon="snowflake" />
+            </span>{" "}
+            {dateRange[0]} - {dateRange[1]}
           </li>
         ))}
         <button
@@ -188,11 +188,20 @@ class HomeIndexItem extends React.Component {
       englishDateRanges = this.filterPastTrips();
     } else englishDateRanges = this.filterPastTrips().slice(0, 2);
 
+    debugger;
+    //<button onClick={render model func goes here}>Review Trip</button>
+
     return (
       <ul>
         {englishDateRanges.map((dateRange, i) => (
           <li className="booking-range" key={`dateRange-${i}`}>
-            • {dateRange[0]} - {dateRange[1]}
+            <span>
+              <FontAwesomeIcon icon="snowflake" />
+            </span>{" "}
+            {dateRange[0]} - {dateRange[1]}{" "}
+            <span>
+              <button>Review Trip?</button>
+            </span>
           </li>
         ))}
         {this.renderMoreBookingsButton(totalBookingDatesLength)}
@@ -207,7 +216,10 @@ class HomeIndexItem extends React.Component {
       <ul>
         {moreEnglishDateRanges.map((dateRange, i) => (
           <li className="booking-range" key={`dateRange-${i}`}>
-            • {dateRange[0]} - {dateRange[1]}
+            <span>
+              <FontAwesomeIcon icon="snowflake" />
+            </span>{" "}
+            {dateRange[0]} - {dateRange[1]}
           </li>
         ))}
         <button type="button" onClick={this.renderPastBookingRanges}>
@@ -221,9 +233,15 @@ class HomeIndexItem extends React.Component {
     const { title, home_url } = this.props.home;
 
     let renderBookingRanges;
+    let preBookingText;
+
     if (this.props.upcomingTrip) {
       renderBookingRanges = this.renderUpcomingBookingRanges();
-    } else renderBookingRanges = this.renderPastBookingRanges();
+      preBookingText = "Booked Dates:";
+    } else {
+      renderBookingRanges = this.renderPastBookingRanges();
+      preBookingText = "Past Visits:";
+    }
 
     if (
       (this.props.upcomingTrip &&
@@ -245,7 +263,7 @@ class HomeIndexItem extends React.Component {
             <br />
 
             <ul className="booked-dates">
-              <strong>Booked Dates:</strong>
+              <strong>{preBookingText}</strong>
               {renderBookingRanges}
             </ul>
           </div>

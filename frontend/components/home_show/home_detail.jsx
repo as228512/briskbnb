@@ -1,10 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router';
-import BookingsContainer from './booking_container' ;
+import React from "react";
+import { Link } from "react-router";
+import BookingsContainer from "./booking_container";
 
 class HomeDetail extends React.Component {
-
-
   componentDidMount() {
     //when home is fetched, bookings reducer plants all relevent bookings
     //inside bookings object
@@ -16,41 +14,50 @@ class HomeDetail extends React.Component {
   }
 
   calendar() {
-    if(!this.props.currentLoadingState && this.props.currentLoadingState !== undefined) {
+    if (
+      !this.props.currentLoadingState &&
+      this.props.currentLoadingState !== undefined
+    ) {
       return (
-            <BookingsContainer
-              className="date-picker"
-              homeId={this.props.homeId}
-              bookedDates={this.props.bookedDates}
-              price={this.props.home.price} />
+        <BookingsContainer
+          className="date-picker"
+          homeId={this.props.homeId}
+          bookedDates={this.props.bookedDates}
+          price={this.props.home.price}
+        />
       );
     }
   }
 
+  comments() {
+    //tbd
+  }
 
-  render () {
+  render() {
     return (
       <div>
-
-        <img className="home-show-image" src={this.props.home.home_url}/>
+        <img className="home-show-image" src={this.props.home.home_url} />
 
         <div className="home-contents-cntr">
           <div className="home-details-cntr">
-
             <ul className="home-summary">
               <div className="home-header">
                 <h1 className="home-title">{this.props.home.title}</h1>
-                <img className="seller-avatar" src={this.props.home.image_url}/>
+                <img
+                  className="seller-avatar"
+                  src={this.props.home.image_url}
+                />
               </div>
-              <br/>
-              <br/>
+              <br />
+              <br />
               <div>
-                <li className="home-description">{this.props.home.description}</li>
+                <li className="home-description">
+                  {this.props.home.description}
+                </li>
               </div>
             </ul>
 
-            { this.calendar() }
-
+            {this.calendar()}
           </div>
         </div>
       </div>

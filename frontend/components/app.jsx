@@ -5,8 +5,8 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-library.add(faSearch);
+import { faSearch, faSnowflake } from "@fortawesome/free-solid-svg-icons";
+library.add(faSearch, faSnowflake);
 
 import GreetingContainer from "./greeting/greeting_container";
 import SearchContainer from "./search/search_container";
