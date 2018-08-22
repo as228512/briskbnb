@@ -38,13 +38,13 @@ class LoggedIn extends React.Component {
       <nav className="right-nav-cntr">
         <a
           className="nav-login"
-          onClick={() => this.props.openSessionModal("login")}>
+          onClick={() => this.props.openModal("login")}>
           Log in
         </a>
 
         <a
           className="nav-signup"
-          onClick={() => this.props.openSessionModal("signup")}>
+          onClick={() => this.props.openModal("signup")}>
           Sign up
         </a>
       </nav>

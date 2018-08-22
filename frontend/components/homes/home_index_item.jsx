@@ -188,9 +188,6 @@ class HomeIndexItem extends React.Component {
       englishDateRanges = this.filterPastTrips();
     } else englishDateRanges = this.filterPastTrips().slice(0, 2);
 
-    debugger;
-    //<button onClick={render model func goes here}>Review Trip</button>
-
     return (
       <ul>
         {englishDateRanges.map((dateRange, i) => (
@@ -200,7 +197,9 @@ class HomeIndexItem extends React.Component {
             </span>{" "}
             {dateRange[0]} - {dateRange[1]}{" "}
             <span>
-              <button>Review Trip?</button>
+              <button onClick={() => this.props.openModal("review")}>
+                Review Trip
+              </button>
             </span>
           </li>
         ))}

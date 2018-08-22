@@ -1,15 +1,15 @@
-export const OPEN_SESSION_MODAL = "OPEN_SESSION_MODAL";
-export const CLOSE_SESSION_MODAL = "CLOSE_SESSION_MODAL";
+export const OPEN_MODAL = "OPEN_MODAL";
+export const CLOSE_MODAL = "CLOSE_MODAL";
 
-export const openSessionModal = modal => {
+export const openModal = modal => {
   return {
-    type: OPEN_SESSION_MODAL,
+    type: OPEN_MODAL,
     modal
   };
 };
 
-export const closeSessionModal = () => {
+export const closeModal = () => {
   return {
-    type: CLOSE_SESSION_MODAL
+    type: CLOSE_MODAL
   };
 };

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { NavBar } from "../nav/nav_bar";
-import HomeIndex from "../homes/home_index";
+import HomeIndexContainer from "../homes/home_index_container";
 
 class Trips extends React.Component {
   constructor(props) {
@@ -26,10 +26,18 @@ class Trips extends React.Component {
       <div>
         <NavBar />
         <h1 className="trips-heading">Upcoming Trips</h1>
-        <HomeIndex homes={homes} bookings={bookings} upcomingTrip={true} />
+        <HomeIndexContainer
+          homes={homes}
+          bookings={bookings}
+          upcomingTrip={true}
+        />
         <br />
         <h1 className="trips-heading">Passed Trips</h1>
-        <HomeIndex homes={homes} bookings={bookings} upcomingTrip={false} />
+        <HomeIndexContainer
+          homes={homes}
+          bookings={bookings}
+          upcomingTrip={false}
+        />
       </div>
     );
   }

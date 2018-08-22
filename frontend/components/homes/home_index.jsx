@@ -6,18 +6,14 @@ import { withRouter } from "react-router-dom";
 const HomeIndex = props => {
   const bookings = props.bookings;
   const upcomingTrip = props.upcomingTrip;
+  const openModal = props.openModal;
 
   if (props.location.pathname === "/homes") {
     return (
       <div>
         <div className="home-index">
           {props.homes.map(home => (
-            <HomeIndexItem
-              home={home}
-              bookings={bookings}
-              upcomingTrip={upcomingTrip}
-              key={home.id}
-            />
+            <HomeIndexItem home={home} bookings={bookings} key={home.id} />
           ))}
         </div>
       </div>
@@ -32,6 +28,7 @@ const HomeIndex = props => {
                 home={home}
                 bookings={bookings}
                 upcomingTrip={upcomingTrip}
+                openModal={openModal}
                 key={home.id}
               />
             );

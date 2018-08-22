@@ -5,7 +5,7 @@ import ReactBodymovin from "react-bodymovin";
 import animation from "../../../app/assets/animations/location_pin.json";
 
 import MarkerManager from "../../util/marker_manager";
-import HomeIndex from "../homes/home_index";
+import HomeIndexContainer from "../homes/home_index_container";
 import { NavBar } from "../nav/nav_bar";
 
 class HomeMap extends React.Component {
@@ -139,7 +139,10 @@ class HomeMap extends React.Component {
         <div className="home-index-body">
           <div className="home-index-cntr">
             {this.homeMessage()}
-            <HomeIndex key={this.props.homes.id} homes={this.props.homes} />
+            <HomeIndexContainer
+              key={this.props.homes.id}
+              homes={this.props.homes}
+            />
           </div>
 
           <div className="home-index-map">

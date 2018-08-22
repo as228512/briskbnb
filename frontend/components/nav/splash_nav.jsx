@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import SplashGreetingContainer from "../greeting/splash_greeting_container";
-import Modal from "../session_form/login_signup_modal.jsx";
+import Modal from "../modals/modal_switch.jsx";
 
 export const SplashNavBar = () => {
   return (

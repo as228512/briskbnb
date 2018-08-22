@@ -36,13 +36,13 @@ class SplashLoggedIn extends React.Component {
       <nav className="splash-nav-cntr">
         <a
           className="splash-nav-login"
-          onClick={() => this.props.openSessionModal("login")}>
+          onClick={() => this.props.openModal("login")}>
           Log in
         </a>
 
         <a
           className="splash-nav-signup"
-          onClick={() => this.props.openSessionModal("signup")}>
+          onClick={() => this.props.openModal("signup")}>
           Sign up
         </a>
       </nav>

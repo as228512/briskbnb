@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter, Route, Redirect } from "react-router-dom";
-import LoggedIn from "../greeting/greeting";
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -25,7 +24,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(this.props.closeSessionModal);
+    this.props.processForm(user).then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -47,7 +46,7 @@ class SessionForm extends React.Component {
           <div className="signup-form-container">
             <form onSubmit={this.handleSubmit}>
               <br />
-              <div onClick={this.props.closeSessionModal} className="close-x">
+              <div onClick={this.props.closeModal} className="close-x">
                 X
               </div>
               {this.renderErrors()}
@@ -122,7 +121,7 @@ class SessionForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <br />
               <div>
-                <div onClick={this.props.closeSessionModal} className="close-x">
+                <div onClick={this.props.closeModal} className="close-x">
                   X
                 </div>
                 {this.renderErrors()}
@@ -168,7 +167,7 @@ class SessionForm extends React.Component {
                         e_mail: "demo@demos.com",
                         password: "Demo11"
                       })
-                      .then(this.props.closeSessionModal)
+                      .then(this.props.closeModal)
                   }
                 />
                 <div className="demo-form-footer-border" />

@@ -1,16 +1,19 @@
 import React from "react";
-import { closeSessionModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
+import { closeModal } from "../../actions/modal_actions";
+
 import LoginFormContainer from "../session_form/login_form_container";
 import SignupFormContainer from "../session_form/signup_form_container";
+import ReviewFormContainer from "../reviews/review_form_container";
 
 function Modal(props) {
-  if (!props.sessionModal) {
+  if (!props.modal) {
     return null;
   }
 
+  //do we really need the break after each case? *****
   let component;
-  switch (props.sessionModal) {
+  switch (props.modal) {
     case "login":
       component = <LoginFormContainer />;
       break;
@@ -19,12 +22,15 @@ function Modal(props) {
       component = <SignupFormContainer />;
       break;
 
+    case "review":
+      component = <ReviewFormContainer />;
+      break;
+
     default:
       return null;
   }
-
   return (
-    <div className="modal-background" onClick={props.closeSessionModal}>
+    <div className="modal-background" onClick={props.closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
         {component}
       </div>
@@ -34,13 +40,13 @@ function Modal(props) {
 
 const mapStateToProps = state => {
   return {
-    sessionModal: state.ui.sessionModal
+    modal: state.ui.modal
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    closeSessionModal: () => dispatch(closeSessionModal())
+    closeModal: () => dispatch(closeModal())
   };
 };
 

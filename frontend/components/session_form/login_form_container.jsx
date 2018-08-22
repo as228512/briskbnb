@@ -2,10 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import SessionForm from "./session_form";
 import { login, guestLogin } from "../../actions/session_actions";
-import {
-  openSessionModal,
-  closeSessionModal
-} from "../../actions/modal_actions";
+import { openModal, closeModal } from "../../actions/modal_actions";
 
 const mapStateToProps = ({ errors }) => {
   return {
@@ -18,10 +15,8 @@ const mapDispatchToProps = dispatch => {
   return {
     processForm: user => dispatch(login(user)),
     processGuest: user => dispatch(guestLogin(user)),
-    otherForm: (
-      <a onClick={() => dispatch(openSessionModal("signup"))}>Sign up</a>
-    ),
-    closeSessionModal: () => dispatch(closeSessionModal())
+    otherForm: <a onClick={() => dispatch(openModal("signup"))}>Sign up</a>,
+    closeModal: () => dispatch(closeModal())
   };
 };
 

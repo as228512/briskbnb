@@ -10,3 +10,6 @@ export const receiveReviews = reviews => ({
 
 export const createReview = review => dispatch =>
   APIUtil.createReview(review).then(review => dispatch(receiveReviews()));
+
+export const fetchReviews = homeId => dispatch =>
+  APIUtil.fetchReviews(homeId).then(reviews => dispatch(receiveReviews()));

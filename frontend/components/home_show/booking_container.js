@@ -3,7 +3,7 @@ import {
   createBooking,
   resetBookingErrors
 } from "../../actions/booking_actions";
-import { openSessionModal } from "../../actions/modal_actions";
+import { openModal } from "../../actions/modal_actions";
 import BookingDatePicker from "./bookings_datepicker";
 
 const mapStateToProps = state => {
@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     createBooking: booking => dispatch(createBooking(booking)),
     resetBookingErrors: () => dispatch(resetBookingErrors()),
-    openSessionModal: modal => dispatch(openSessionModal(modal))
+    openModal: modal => dispatch(openModal(modal))
   };
 };
 

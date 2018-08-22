@@ -8,11 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faSnowflake } from "@fortawesome/free-solid-svg-icons";
 library.add(faSearch, faSnowflake);
 
-import GreetingContainer from "./greeting/greeting_container";
+import GreetingText from "./greeting/greeting_text";
 import SearchContainer from "./search/search_container";
 import HomeShowContainer from "./home_show/home_show_container";
-import GreetingText from "./greeting/greeting_text";
-import Modal from "./session_form/login_signup_modal.jsx";
 import TripShowContainer from "./trips/trips_container";
 
 const App = () => (

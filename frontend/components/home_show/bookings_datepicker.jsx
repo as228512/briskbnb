@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 
 import DatePicker from "react-datepicker";
 import moment from "moment";
-import Modal from "../session_form/login_signup_modal";
+import Modal from "../modals/modal_switch";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -86,7 +86,7 @@ class BookingDatePicker extends React.Component {
           });
         });
     } else {
-      this.props.openSessionModal("login");
+      this.props.openModal("login");
     }
   }
 
