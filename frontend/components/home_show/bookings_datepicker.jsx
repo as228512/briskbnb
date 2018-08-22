@@ -86,7 +86,7 @@ class BookingDatePicker extends React.Component {
           });
         });
     } else {
-      this.props.openModal("login");
+      this.props.openSessionModal("login");
     }
   }
 
