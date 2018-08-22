@@ -36,13 +36,15 @@ class LoggedIn extends React.Component {
   loggedOutNav() {
     return (
       <nav className="right-nav-cntr">
-        <a className="nav-login" onClick={() => this.props.openModal("login")}>
+        <a
+          className="nav-login"
+          onClick={() => this.props.openSessionModal("login")}>
           Log in
         </a>
 
         <a
           className="nav-signup"
-          onClick={() => this.props.openModal("signup")}>
+          onClick={() => this.props.openSessionModal("signup")}>
           Sign up
         </a>
       </nav>
