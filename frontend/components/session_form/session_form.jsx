@@ -45,8 +45,8 @@ class SessionForm extends React.Component {
             type="text"
             value={fname}
             className="error-form-field"
-            onClick={this.props.clearSessionErrors}
-            onClick={this.clearField("fname")}
+            onFocus={this.props.clearSessionErrors}
+            onFocus={this.clearField("fname")}
           />
         </div>
       );
@@ -77,8 +77,8 @@ class SessionForm extends React.Component {
             type="text"
             value={lname}
             className="error-form-field"
-            onClick={this.props.clearSessionErrors}
-            onClick={this.clearField("lname")}
+            onFocus={this.props.clearSessionErrors}
+            onFocus={this.clearField("lname")}
           />
         </div>
       );
@@ -100,17 +100,20 @@ class SessionForm extends React.Component {
   emailInputField() {
     let e_mail;
 
-    if (this.state.e_mail === "E-mail can't be blank") {
-      e_mail = " E-mail can't be blank";
+    if (
+      this.state.e_mail === "E-mail can't be blank" ||
+      this.state.e_mail === "Invalid E-mail and"
+    ) {
+      e_mail = this.state.e_mail;
 
       return (
         <div>
           <input
             type="text"
-            value={e_mail}
+            value={` ${e_mail}`}
             className="error-form-field"
-            onClick={this.props.clearSessionErrors}
-            onClick={this.clearField("e_mail")}
+            onFocus={this.props.clearSessionErrors}
+            onFocus={this.clearField("e_mail")}
           />
         </div>
       );
@@ -132,17 +135,20 @@ class SessionForm extends React.Component {
   passwordInputField() {
     let password;
 
-    if (this.state.password === "Invalid Password (minimum of 6 characters)") {
-      password = " Invalid Password (minimum of 6 characters)";
+    if (
+      this.state.password === "Invalid Password (minimum of 6 characters)" ||
+      this.state.password === "password combination"
+    ) {
+      password = this.state.password;
 
       return (
         <div>
           <input
             type="text"
-            value={password}
+            value={` ${password}`}
             className="error-form-field"
-            onClick={this.props.clearSessionErrors}
-            onClick={this.clearField("password")}
+            onFocus={this.props.clearSessionErrors}
+            onFocus={this.clearField("password")}
           />
         </div>
       );
@@ -174,6 +180,10 @@ class SessionForm extends React.Component {
 
     if (nextProps.errors.includes("E mail can't be blank")) {
       e_mail = "E-mail can't be blank";
+    } else if (
+      nextProps.errors.includes("Invalid e-mail/password combination")
+    ) {
+      e_mail = "Invalid E-mail and";
     } else e_mail = this.state.e_mail;
 
     if (
@@ -182,6 +192,10 @@ class SessionForm extends React.Component {
       )
     ) {
       password = "Invalid Password (minimum of 6 characters)";
+    } else if (
+      nextProps.errors.includes("Invalid e-mail/password combination")
+    ) {
+      password = "password combination";
     } else password = this.state.password;
 
     this.setState({
@@ -191,9 +205,6 @@ class SessionForm extends React.Component {
       password: password
     });
   }
-
-  //clean up the component a bit and make sure to send a clear errors action onClick to the newly made error-form-fields
-  //so, on click, it will clear the field for the user to try again! :D
 
   render() {
     switch (this.props.formType) {
@@ -251,26 +262,11 @@ class SessionForm extends React.Component {
                   X
                 </div>
 
-                <div>
-                  <input
-                    type="text"
-                    value={this.state.e_mail}
-                    onChange={this.update("e_mail")}
-                    className="form-field"
-                    placeholder="Email Address"
-                  />
-                </div>
+                {this.emailInputField()}
 
                 <br />
-                <div>
-                  <input
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.update("password")}
-                    className="form-field"
-                    placeholder="Password"
-                  />
-                </div>
+
+                {this.passwordInputField()}
 
                 <br />
 
