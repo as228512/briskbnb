@@ -1,0 +1,70 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.session-modal-child {
+  height: 550px;
+  width: 504px;
+  display: block;
+  padding: 32px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+}
+
+.session-errors {
+  color: red;
+}
+
+.sign-up-form-footer {
+  display: inline-block;
+  margin-top: 30px;
+  font-style: inherit;
+  font-size: 19px;
+  margin-left: 60px;
+}
+
+.login-form-footer {
+  display: inline-block;
+  margin-top: 30px;
+  font-style: inherit;
+  font-size: 19px;
+  margin-left: 107px;
+}
+
+.signup-form-footer-border {
+  border-bottom: 1px solid rgb(219, 219, 219);
+  width: 504px;
+}
+
+.login-form-footer-border {
+  border-bottom: 1px solid rgb(219, 219, 219);
+  margin-bottom: 38px;
+  width: 504px;
+}
+
+.demo-form-footer-border {
+  border-bottom: 1px solid rgb(219, 219, 219);
+  margin-top: 29px;
+  margin-bottom: 22px;
+  width: 504px;
+}
+
+.form-footer-link {
+  color: #7595bf;
+  font-style: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.form-footer-link:hover {
+  text-decoration: underline;
+}
