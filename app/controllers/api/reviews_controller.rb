@@ -20,10 +20,6 @@ class Api::ReviewsController < ApplicationController
     @review.destroy!
   end
 
-
-
-  private
-
   def review_params
     params.require(:review).permit(:body, :rating)
   end
