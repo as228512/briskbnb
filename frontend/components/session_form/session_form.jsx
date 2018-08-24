@@ -5,13 +5,12 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      firstName: "",
-      lastName: "",
+      e_mail: "",
+      fname: "",
+      lname: "",
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.renderErrors = this.renderErrors.bind(this);
   }
 
   update(field) {
@@ -27,15 +26,15 @@ class SessionForm extends React.Component {
     this.props.processForm(user).then(this.props.closeModal);
   }
 
-  firstNameInputField() {
-    let firstName;
+  fnameInputField() {
+    let fname;
 
-    if (this.state.firstName === "First Name can't be blank") {
-      firstName = " First Name can't be blank";
+    if (this.state.fname === "First Name can't be blank") {
+      fname = " First Name can't be blank";
 
       return (
         <div>
-          <input type="text" value={firstName} className="error-form-field" />
+          <input type="text" value={fname} className="error-form-field" />
         </div>
       );
     } else {
@@ -43,8 +42,8 @@ class SessionForm extends React.Component {
         <div>
           <input
             type="text"
-            value={this.state.firstName}
-            onChange={this.update("firstName")}
+            value={this.state.fname}
+            onChange={this.update("fname")}
             className="form-field"
             placeholder="First Name"
           />
@@ -54,14 +53,14 @@ class SessionForm extends React.Component {
   }
 
   lastNameInputField() {
-    let lastName;
+    let lname;
 
-    if (this.state.lastName === "Last Name can't be blank") {
-      lastName = " Last Name can't be blank";
+    if (this.state.lname === "Last Name can't be blank") {
+      lname = " Last Name can't be blank";
 
       return (
         <div>
-          <input type="text" value={lastName} className="error-form-field" />
+          <input type="text" value={lname} className="error-form-field" />
         </div>
       );
     } else {
@@ -69,8 +68,8 @@ class SessionForm extends React.Component {
         <div>
           <input
             type="text"
-            value={this.state.lastName}
-            onChange={this.update("lastName")}
+            value={this.state.lname}
+            onChange={this.update("lname")}
             className="form-field"
             placeholder="Last Name"
           />
@@ -80,14 +79,14 @@ class SessionForm extends React.Component {
   }
 
   emailInputField() {
-    let email;
+    let e_mail;
 
-    if (this.state.email === "E-mail can't be blank") {
-      email = " E-mail can't be blank";
+    if (this.state.e_mail === "E-mail can't be blank") {
+      e_mail = " E-mail can't be blank";
 
       return (
         <div>
-          <input type="text" value={email} className="error-form-field" />
+          <input type="text" value={e_mail} className="error-form-field" />
         </div>
       );
     } else {
@@ -95,8 +94,8 @@ class SessionForm extends React.Component {
         <div>
           <input
             type="text"
-            value={this.state.email}
-            onChange={this.update("email")}
+            value={this.state.e_mail}
+            onChange={this.update("e_mail")}
             className="form-field"
             placeholder="Email Address"
           />
@@ -132,19 +131,19 @@ class SessionForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    let firstName, lastName, email, password;
+    let fname, lname, e_mail, password;
 
     if (nextProps.errors.includes("Fname can't be blank")) {
-      firstName = "First Name can't be blank";
-    } else firstName = this.state.firstName;
+      fname = "First Name can't be blank";
+    } else fname = this.state.fname;
 
     if (nextProps.errors.includes("Lname can't be blank")) {
-      lastName = "Last Name can't be blank";
-    } else lastName = this.state.lastName;
+      lname = "Last Name can't be blank";
+    } else lname = this.state.lname;
 
     if (nextProps.errors.includes("E mail can't be blank")) {
-      email = "E-mail can't be blank";
-    } else email = this.state.email;
+      e_mail = "E-mail can't be blank";
+    } else e_mail = this.state.e_mail;
 
     if (
       nextProps.errors.includes(
@@ -155,9 +154,9 @@ class SessionForm extends React.Component {
     } else password = this.state.password;
 
     this.setState({
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
+      fname: fname,
+      lname: lname,
+      e_mail: e_mail,
       password: password
     });
   }
@@ -181,7 +180,7 @@ class SessionForm extends React.Component {
 
                   <br />
 
-                  {this.firstNameInputField()}
+                  {this.fnameInputField()}
 
                   <br />
 
@@ -224,8 +223,8 @@ class SessionForm extends React.Component {
                 <div>
                   <input
                     type="text"
-                    value={this.state.email}
-                    onChange={this.update("email")}
+                    value={this.state.e_mail}
+                    onChange={this.update("e_mail")}
                     className="form-field"
                     placeholder="Email Address"
                   />
