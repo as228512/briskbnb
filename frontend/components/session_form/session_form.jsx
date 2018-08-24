@@ -20,6 +20,13 @@ class SessionForm extends React.Component {
       });
   }
 
+  clearField(field) {
+    return e =>
+      this.setState({
+        [field]: ""
+      });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -34,7 +41,13 @@ class SessionForm extends React.Component {
 
       return (
         <div>
-          <input type="text" value={fname} className="error-form-field" />
+          <input
+            type="text"
+            value={fname}
+            className="error-form-field"
+            onClick={this.props.clearSessionErrors}
+            onClick={this.clearField("fname")}
+          />
         </div>
       );
     } else {
@@ -60,7 +73,13 @@ class SessionForm extends React.Component {
 
       return (
         <div>
-          <input type="text" value={lname} className="error-form-field" />
+          <input
+            type="text"
+            value={lname}
+            className="error-form-field"
+            onClick={this.props.clearSessionErrors}
+            onClick={this.clearField("lname")}
+          />
         </div>
       );
     } else {
@@ -86,7 +105,13 @@ class SessionForm extends React.Component {
 
       return (
         <div>
-          <input type="text" value={e_mail} className="error-form-field" />
+          <input
+            type="text"
+            value={e_mail}
+            className="error-form-field"
+            onClick={this.props.clearSessionErrors}
+            onClick={this.clearField("e_mail")}
+          />
         </div>
       );
     } else {
@@ -112,7 +137,13 @@ class SessionForm extends React.Component {
 
       return (
         <div>
-          <input type="text" value={password} className="error-form-field" />
+          <input
+            type="text"
+            value={password}
+            className="error-form-field"
+            onClick={this.props.clearSessionErrors}
+            onClick={this.clearField("password")}
+          />
         </div>
       );
     } else {
