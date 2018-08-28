@@ -180,6 +180,14 @@ class HomeIndexItem extends React.Component {
     );
   }
 
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+
   renderPastBookingRanges() {
     let totalBookingDatesLength = this.filterPastTrips().length;
 
@@ -188,6 +196,7 @@ class HomeIndexItem extends React.Component {
       englishDateRanges = this.filterPastTrips();
     } else englishDateRanges = this.filterPastTrips().slice(0, 2);
 
+    let homeId = this.props.home.id;
     return (
       <ul>
         {englishDateRanges.map((dateRange, i) => (
@@ -197,7 +206,8 @@ class HomeIndexItem extends React.Component {
             </span>{" "}
             {dateRange[0]} - {dateRange[1]}{" "}
             <span>
-              <button onClick={() => this.props.openModal("review")}>
+              <button
+                onClick={() => this.props.openReviewModal("review", homeId)}>
                 Review Trip
               </button>
             </span>
@@ -207,6 +217,15 @@ class HomeIndexItem extends React.Component {
       </ul>
     );
   }
+
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
 
   renderMorePastBookings() {
     const moreEnglishDateRanges = this.filterPastTrips();

@@ -7,9 +7,16 @@ import SignupFormContainer from "../session_form/signup_form_container";
 import ReviewFormContainer from "../reviews/review_form_container";
 
 const mapStateToProps = state => {
-  return {
-    modal: state.ui.modal
-  };
+  let modal = state.ui.modal;
+
+  if (modal instanceof Array) {
+    let homeId = modal[1];
+
+    return {
+      modal: modal[0],
+      homeId: homeId
+    };
+  } else return { modal: modal };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -39,8 +46,8 @@ function Modal(props) {
     return null;
   }
 
-  //do we really need the break after each case? *****
   let formName;
+
   switch (props.modal) {
     case "login":
       component = <LoginFormContainer />;
@@ -53,7 +60,7 @@ function Modal(props) {
       break;
 
     case "review":
-      component = <ReviewFormContainer />;
+      component = <ReviewFormContainer homeId={props.homeId} />;
       formName = "review";
       break;
 

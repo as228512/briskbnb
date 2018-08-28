@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 
 import DatePicker from "react-datepicker";
 import moment from "moment";
-import Modal from "../modals/modal_switch";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -130,7 +129,6 @@ class BookingDatePicker extends React.Component {
   render() {
     return (
       <div>
-        <Modal />
         <form className="booking-form" onSubmit={this.handleSubmit}>
           <div className="price-line">
             <strong className="price">${this.props.price}</strong> per night

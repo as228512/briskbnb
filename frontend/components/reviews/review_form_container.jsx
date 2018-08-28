@@ -4,16 +4,14 @@ import { createReview } from "../../actions/review_actions";
 import { closeModal } from "../../actions/modal_actions";
 import ReviewForm from "./review_form";
 
-const mapStateToProps = state => ({
-  state: state
-});
-
-const mapDispatchToProps = disptach => ({
-  processForm: review => dispatch(createReview(review)),
-  closeModal: () => dispatch(closeModal())
-});
+const mapDispatchToProps = dispatch => {
+  return {
+    processForm: (review, homeId) => dispatch(createReview(review, homeId)),
+    closeModal: () => dispatch(closeModal())
+  };
+};
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(ReviewForm);

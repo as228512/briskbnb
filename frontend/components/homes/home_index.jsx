@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 const HomeIndex = props => {
   const bookings = props.bookings;
   const upcomingTrip = props.upcomingTrip;
-  const openModal = props.openModal;
+  const openReviewModal = props.openReviewModal;
 
   if (props.location.pathname === "/homes") {
     return (
@@ -28,7 +28,7 @@ const HomeIndex = props => {
                 home={home}
                 bookings={bookings}
                 upcomingTrip={upcomingTrip}
-                openModal={openModal}
+                openReviewModal={openReviewModal}
                 key={home.id}
               />
             );
