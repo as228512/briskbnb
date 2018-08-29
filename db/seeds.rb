@@ -4,18 +4,11 @@ Booking.destroy_all
 Review.destroy_all
 
 User.create!(
+  id: 100,
   e_mail: 'demo@demos.com',
   fname: 'Demo',
   lname: 'Demo',
   password: 'Demo11'
-)
-
-User.create!(
-  id: 100,
-  e_mail: 'hokkaido@hokkaido.com',
-  fname: 'Demo',
-  lname: 'Demo',
-  password: 'password'
 )
 
  #hokkaido_1
@@ -526,8 +519,35 @@ Home.create!(
 
 #Toronto_6_booking
 Booking.create!(
+  start_date: DateTime.strptime("08/10/2018 4:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("08/14/2018 4:00", "%m/%d/%Y %H:%M"),
+  user_id: 100,
+  home_id: 100,
+  reviewed: true
+)
+
+#Toronto_6_booking
+Booking.create!(
   start_date: DateTime.strptime("08/15/2018 4:00", "%m/%d/%Y %H:%M"),
   end_date: DateTime.strptime("08/19/2018 4:00", "%m/%d/%Y %H:%M"),
+  user_id: 100,
+  home_id: 100,
+  reviewed: true
+)
+
+#Toronto_6_booking
+Booking.create!(
+  start_date: DateTime.strptime("08/20/2018 4:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("08/23/2018 4:00", "%m/%d/%Y %H:%M"),
+  user_id: 100,
+  home_id: 100,
+  reviewed: true
+)
+
+#Toronto_6_review
+Review.create!(
+  rating: 5,
+  body: "Objectively, the best home anyone has ever stayed in. Ever...",
   user_id: 100,
   home_id: 100
 )
@@ -535,6 +555,14 @@ Booking.create!(
 #Toronto_6_review
 Review.create!(
   rating: 4,
+  body: "For the price, this was easily the best home in the area",
+  user_id: 100,
+  home_id: 100
+)
+
+#Toronto_6_review
+Review.create!(
+  rating: 3,
   body: "For the price, this was easily the best home in the area",
   user_id: 100,
   home_id: 100
