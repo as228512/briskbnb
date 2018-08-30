@@ -7,18 +7,41 @@ class Api::BookingsController < ApplicationController
   end
 
   def create
-
     @booking = current_user.bookings.new(booking_params)
     @booking.user_id = current_user.id
 
     booking_valid = Booking.valid_booking?(@booking)
 
     if booking_valid
-      @booking.save
+      @booking.save!
     else
       render json: ["Request conflicts with another reservation, please make another selection"], status: 401
     end
   end
+
+  ##$$
+
+  def update
+    #successfully updating bookings after review, next problems we need to solve is
+    #having the trips index rerender after the booking is updated, so the button disappears
+    #and we don't have to reload the page to see no review button and "reviewed" in bookings
+    #state showing as (newly updated) "true"
+    @booking = Booking.find(params[:id])
+
+    if @booking
+      updated_booking = { start_date: @booking.start_date,
+                          end_date: @booking.end_date,
+                          home_id: @booking.home_id,
+                          reviewed: true
+                        }
+
+      @booking.update(updated_booking)
+    else
+      render json: @booking.errors.full_messages, status: 422
+    end
+  end
+
+  ####
 
   def destroy
     @booking = Booking.find(params[:id])

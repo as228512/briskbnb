@@ -4,6 +4,7 @@ class Booking < ApplicationRecord
 
   belongs_to :user
   belongs_to :home
+  has_one :review
 
   def self.valid_booking?(new_booking)
     home_id = new_booking.home_id

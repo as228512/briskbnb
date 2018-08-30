@@ -6,7 +6,7 @@ export const createReview = review => {
   });
 };
 
-export const fetchReviews = homeId => {
+export const fetchReviews = () => {
   return $.ajax({
     method: "GET",
     url: "/api/reviews"

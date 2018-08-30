@@ -5,6 +5,7 @@ export const CREATE_BOOKING = "CREATE_BOOKING";
 export const RECEIVE_BOOKING_ERRORS = "RECEIVE_BOOKING_ERRORS";
 export const CLEAR_BOOKING_ERRORS = "CLEAR_BOOKING_ERRORS";
 export const RECEIVE_TRIPS = "RECEIVE_TRIPS";
+export const EDIT_BOOKING_REVIEW_STATUS = "EDIT_BOOKING_REVIEW_STATUS";
 
 export const receiveBooking = ({ booking, user }) => ({
   type: RECEIVE_BOOKING,
@@ -26,6 +27,11 @@ export const clearBookingErrors = () => ({
   type: CLEAR_BOOKING_ERRORS
 });
 
+export const editBookingReviewStatus = bookingId => ({
+  type: EDIT_BOOKING_REVIEW_STATUS,
+  bookingId
+});
+
 export const fetchTrips = () => dispatch =>
   APIUtil.fetchTrips().then(trips => dispatch(receiveTrips(trips)));
 
@@ -37,3 +43,6 @@ export const createBooking = booking => dispatch =>
 
 export const resetBookingErrors = () => dispatch =>
   dispatch(clearBookingErrors());
+
+export const updateReviewedBooking = bookingId => dispatch =>
+  APIUtil.editBookingReviewStatus(bookingId);

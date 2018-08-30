@@ -8,13 +8,15 @@ import ReviewFormContainer from "../reviews/review_form_container";
 
 const mapStateToProps = state => {
   let modal = state.ui.modal;
+  debugger;
 
   if (modal instanceof Array) {
-    let homeId = modal[1];
+    //this is a review type modal
 
     return {
       modal: modal[0],
-      homeId: homeId
+      homeId: modal[1],
+      bookingId: modal[2]
     };
   } else return { modal: modal };
 };
@@ -60,7 +62,12 @@ function Modal(props) {
       break;
 
     case "review":
-      component = <ReviewFormContainer homeId={props.homeId} />;
+      component = (
+        <ReviewFormContainer
+          homeId={props.homeId}
+          bookingId={props.bookingId}
+        />
+      );
       formName = "review";
       break;
 

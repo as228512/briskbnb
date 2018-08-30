@@ -12,3 +12,12 @@ export const fetchTrips = () => {
     url: "/api/bookings"
   });
 };
+
+export const editBookingReviewStatus = bookingId => {
+  debugger;
+  return $.ajax({
+    method: "PATCH",
+    url: `/api/bookings/${bookingId}`,
+    data: { bookingId }
+  });
+};

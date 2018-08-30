@@ -13,12 +13,16 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const body = this.state.body;
-    const rating = this.state.rating;
-    const homeId = this.props.homeId;
+    debugger;
 
     this.props
-      .processForm({ body: body, rating: rating, home_id: homeId })
+      .processForm({
+        body: this.state.body,
+        rating: this.state.rating,
+        home_id: this.props.homeId,
+        booking_id: this.props.bookingId
+      })
+      .then(() => this.props.updateReviewedBooking(this.props.bookingId))
       .then(this.props.closeModal);
   }
 

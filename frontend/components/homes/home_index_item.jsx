@@ -58,12 +58,15 @@ class HomeIndexItem extends React.Component {
       if (homeId === bookings[key]["home_id"]) {
         releventBookingsArray.push([
           bookings[key]["start_date"],
-          bookings[key]["end_date"]
+          bookings[key]["end_date"],
+          bookings[key]["reviewed"],
+          bookings[key]["id"]
         ]);
       }
     });
 
     let orderedBookingsArray = releventBookingsArray.sort();
+    debugger;
     let startDateOptions = { weekday: "short", month: "short", day: "numeric" };
     let endDateOptions = {
       weekday: "short",
@@ -72,13 +75,19 @@ class HomeIndexItem extends React.Component {
       day: "numeric"
     };
 
-    orderedBookingsArray.forEach(bookings => {
-      let date = orderedBookingsArray.shift();
-      let startDate = new Date(date[0]);
-      let endDate = new Date(date[1]);
+    orderedBookingsArray.forEach(booking => {
+      let bookingInfo = orderedBookingsArray.shift();
+
+      let startDate = new Date(bookingInfo[0]);
+      let endDate = new Date(bookingInfo[1]);
+      let reviewed = bookingInfo[2];
+      let bookingId = bookingInfo[3];
+
       orderedBookingsArray.push([
         startDate.toLocaleDateString("en-US", startDateOptions),
-        endDate.toLocaleDateString("en-US", endDateOptions)
+        endDate.toLocaleDateString("en-US", endDateOptions),
+        reviewed,
+        bookingId
       ]);
     });
 
@@ -188,29 +197,43 @@ class HomeIndexItem extends React.Component {
   //
   //
 
+  renderReviewButton(review, bookingId) {
+    let homeId = this.props.home.id;
+    debugger;
+
+    if (!review) {
+      debugger;
+      return (
+        <span>
+          <button
+            onClick={() =>
+              this.props.openReviewModal("review", homeId, bookingId)
+            }>
+            Review Trip
+          </button>
+        </span>
+      );
+    }
+  }
+
   renderPastBookingRanges() {
     let totalBookingDatesLength = this.filterPastTrips().length;
 
-    let englishDateRanges;
+    let bookingInfo;
     if (this.state.showMore) {
-      englishDateRanges = this.filterPastTrips();
-    } else englishDateRanges = this.filterPastTrips().slice(0, 2);
+      bookingInfo = this.filterPastTrips();
+    } else bookingInfo = this.filterPastTrips().slice(0, 2);
 
-    let homeId = this.props.home.id;
+    //bookingInfo info ex. arr obj. >> [start_date, end_date, reviewed, booking_id]
+
     return (
       <ul>
-        {englishDateRanges.map((dateRange, i) => (
+        {bookingInfo.map((info, i) => (
           <li className="booking-range" key={`dateRange-${i}`}>
             <span>
               <FontAwesomeIcon icon="snowflake" />
             </span>{" "}
-            {dateRange[0]} - {dateRange[1]}{" "}
-            <span>
-              <button
-                onClick={() => this.props.openReviewModal("review", homeId)}>
-                Review Trip
-              </button>
-            </span>
+            {info[0]} - {info[1]} {this.renderReviewButton(info[2], info[3])}
           </li>
         ))}
         {this.renderMoreBookingsButton(totalBookingDatesLength)}
