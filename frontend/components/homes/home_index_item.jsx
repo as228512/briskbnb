@@ -66,7 +66,6 @@ class HomeIndexItem extends React.Component {
     });
 
     let orderedBookingsArray = releventBookingsArray.sort();
-    debugger;
     let startDateOptions = { weekday: "short", month: "short", day: "numeric" };
     let endDateOptions = {
       weekday: "short",
@@ -199,10 +198,8 @@ class HomeIndexItem extends React.Component {
 
   renderReviewButton(review, bookingId) {
     let homeId = this.props.home.id;
-    debugger;
 
     if (!review) {
-      debugger;
       return (
         <span>
           <button

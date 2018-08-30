@@ -29,7 +29,8 @@ class Api::BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     if @booking
-      updated_booking = { start_date: @booking.start_date,
+      updated_booking = {
+                          start_date: @booking.start_date,
                           end_date: @booking.end_date,
                           home_id: @booking.home_id,
                           reviewed: true

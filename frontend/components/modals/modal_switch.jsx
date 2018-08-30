@@ -8,7 +8,6 @@ import ReviewFormContainer from "../reviews/review_form_container";
 
 const mapStateToProps = state => {
   let modal = state.ui.modal;
-  debugger;
 
   if (modal instanceof Array) {
     //this is a review type modal

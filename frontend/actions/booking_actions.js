@@ -45,4 +45,6 @@ export const resetBookingErrors = () => dispatch =>
   dispatch(clearBookingErrors());
 
 export const updateReviewedBooking = bookingId => dispatch =>
-  APIUtil.editBookingReviewStatus(bookingId);
+  APIUtil.editBookingReviewStatus(bookingId).then(() =>
+    APIUtil.fetchTrips().then(trips => dispatch(receiveTrips(trips)))
+  );

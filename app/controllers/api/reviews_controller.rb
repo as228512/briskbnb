@@ -7,13 +7,10 @@ class Api::ReviewsController < ApplicationController
   end
 
   def create
-    debugger
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    debugger
 
     if @review.save!
-      debugger
       render "/api/reviews/create"
     else
       render json: @review.errors.full_messages, status: 422

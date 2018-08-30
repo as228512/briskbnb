@@ -14,7 +14,6 @@ export const fetchTrips = () => {
 };
 
 export const editBookingReviewStatus = bookingId => {
-  debugger;
   return $.ajax({
     method: "PATCH",
     url: `/api/bookings/${bookingId}`,
