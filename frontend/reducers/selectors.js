@@ -3,7 +3,7 @@ import moment from "moment";
 //in the case home info hasn't been fetched yet, empty object with relevant
 //fields are populated as placeholders to prevent crash
 export const selectHome = ({ homes }, homeId) => {
-  return homes[homeId] || { reviewIds: [], bookingIds: [] };
+  return homes[homeId] || { reviewIds: [], bookingIds: [], reviewIds: [] };
 };
 
 const calculateDaysBetweenDates = (startDate, endDate) => {
@@ -42,7 +42,12 @@ export const selectBookingsForHome = home => {
   return concatedDates;
 };
 
-export const asArray = ({ homes }) => Object.keys(homes).map(key => homes[key]);
+export const asArray = objects => {
+  debugger;
+  if (Object.keys(objects).includes("homes")) objects = objects.homes;
+  debugger;
+  return Object.keys(objects).map(key => objects[key]);
+};
 
 const formatBookings = (bookings, currentUserId) => {
   let orderedBookingsArray = [];
@@ -60,7 +65,7 @@ const formatBookings = (bookings, currentUserId) => {
     }
   });
 
-  //sorts by start date, not by order of booking creation / O(n log n) at worst
+  //sorts by "start_date", not by order of booking creation / O(n log n) at worst
   orderedBookingsArray = orderedBookingsArray.sort();
   return orderedBookingsArray;
 };

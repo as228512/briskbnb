@@ -6,9 +6,10 @@ export const createReview = review => {
   });
 };
 
-export const fetchReviews = () => {
+export const fetchReviews = homeId => {
   return $.ajax({
     method: "GET",
-    url: "/api/reviews"
+    url: "/api/reviews",
+    data: { homeId }
   });
 };

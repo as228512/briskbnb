@@ -22,11 +22,13 @@ class HomeIndexItem extends React.Component {
   componentDidMount() {}
 
   handleClick() {
+    debugger;
     const homeId = this.props.home.id;
     this.props.history.push(`/homes/${homeId}`);
   }
 
   homeIndex() {
+    debugger;
     const { title, price, home_url } = this.props.home;
 
     return (

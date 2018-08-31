@@ -1,0 +1,29 @@
+.top-rating-border,
+.comments-border {
+  display: block;
+  height: 1px;
+  width: 90%;
+  background-color: #dbdbdb;
+  margin-top: 28px;
+  margin-bottom: 32px;
+}
+
+.comments-border {
+  margin-bottom: 28px;
+}
+
+.average-rating {
+  font-family: inherit;
+  font-size: x-large;
+  font-weight: 700;
+}
+
+.commenter-avatar {
+  display: block;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background: #dbdbdb;
+  border: 2px solid #ffffff;
+  vertical-align: middle;
+}
