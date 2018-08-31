@@ -38,7 +38,6 @@ class HomeDetail extends React.Component {
 
   comments() {
     if (this.loadingComplete()) {
-      debugger;
       return (
         <CommentsContainer
           className="comments"
@@ -56,7 +55,6 @@ class HomeDetail extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <div>
         <img className="home-show-image" src={this.props.home.home_url} />

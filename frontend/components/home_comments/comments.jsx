@@ -25,8 +25,6 @@ class Comments extends React.Component {
     const reviews = this.props.reviews;
     const numberOfReviews = this.props.reviews.length;
 
-    debugger;
-
     return (
       <div>
         <div>

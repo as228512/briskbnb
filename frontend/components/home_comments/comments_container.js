@@ -6,12 +6,9 @@ import { asArray, selectHome } from "../../reducers/selectors";
 import Comments from "./comments";
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   const currentUser = state.session.id;
   const homeId = ownProps.homeId;
-  debugger;
   const reviews = asArray(ownProps.reviews || []);
-  debugger;
 
   return {
     currentUser,

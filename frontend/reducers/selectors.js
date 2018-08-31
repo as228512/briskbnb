@@ -43,9 +43,7 @@ export const selectBookingsForHome = home => {
 };
 
 export const asArray = objects => {
-  debugger;
   if (Object.keys(objects).includes("homes")) objects = objects.homes;
-  debugger;
   return Object.keys(objects).map(key => objects[key]);
 };
 

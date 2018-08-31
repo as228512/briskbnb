@@ -553,7 +553,7 @@ Booking.create!(
   end_date: DateTime.strptime("08/23/2018 4:00", "%m/%d/%Y %H:%M"),
   user_id: 100,
   home_id: 100,
-  reviewed: true
+  reviewed: false
 )
 
 #Toronto_6_review

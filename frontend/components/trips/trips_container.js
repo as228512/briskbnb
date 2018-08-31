@@ -8,7 +8,6 @@ import { asSortedArray } from "../../reducers/selectors";
 const mapStateToProps = state => {
   const homes = asSortedArray(state.entities);
   const bookings = state.entities.bookings;
-  debugger;
   return {
     homes,
     bookings

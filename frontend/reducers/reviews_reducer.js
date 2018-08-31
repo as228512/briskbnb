@@ -9,11 +9,9 @@ const reviewsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_HOME:
     case RECEIVE_REVIEWS:
-      debugger;
       return merge({}, state, action.reviews);
 
     case GET_USER_INFO:
-      debugger;
       return merge({}, state, action.userInfo);
 
     default:

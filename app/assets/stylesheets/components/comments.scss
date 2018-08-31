@@ -18,6 +18,16 @@
   font-weight: 700;
 }
 
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  color: #484848;
+}
+
+.commenter-info-container {
+  display: flex;
+}
+
 .commenter-avatar {
   display: block;
   height: 48px;
@@ -26,4 +36,29 @@
   background: #dbdbdb;
   border: 2px solid #ffffff;
   vertical-align: middle;
+  margin-right: 3%;
+  box-sizing: border-box;
+}
+
+.commenter-text-info {
+  display: flex;
+  flex-direction: column;
+  font-family: inherit;
+}
+
+.commenter-name {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.comment-creation-date {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.comment-body {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 22px;
 }

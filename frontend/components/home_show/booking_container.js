@@ -7,7 +7,6 @@ import { openModal } from "../../actions/modal_actions";
 import BookingDatePicker from "./bookings_datepicker";
 
 const mapStateToProps = state => {
-  debugger;
   const userId = state.session.id;
   const errors = state.errors.bookings;
   return {
