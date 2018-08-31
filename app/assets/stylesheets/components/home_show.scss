@@ -5,7 +5,7 @@
 .price-line {
   padding-top: 10px;
   padding-bottom: 15px;
-  border-bottom: 1px solid rgb(219,219,219);
+  border-bottom: 1px solid rgb(219, 219, 219);
   width: 88%;
 }
 
@@ -81,7 +81,10 @@
   height: 64px;
   width: 64px;
   margin-left: 25px;
-  border-radius: 50px;
+  border-radius: 50%;
+  background: #dbdbdb;
+  border: 2px solid #ffffff;
+  vertical-align: middle;
 }
 
 .home-description {
@@ -89,9 +92,8 @@
   font-size: 16px;
 }
 
-
 .booking-form {
-  border: 1px solid rgb(219,219,219);
+  border: 1px solid rgb(219, 219, 219);
   border-radius: 1px;
   display: flex;
   flex-direction: column;
@@ -105,10 +107,10 @@
 }
 
 .datepicker-border {
-  border: 1px solid rgb(219,219,219) !important;
+  border: 1px solid rgb(219, 219, 219) !important;
   color: #484848 !important;
   display: block !important;
-  height:35px;
+  height: 35px;
   font-size: 16px !important;
   border-radius: 3px !important;
   text-indent: 10px;

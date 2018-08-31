@@ -2,8 +2,7 @@ class Api::ReviewsController < ApplicationController
   before_action :require_login, only: [:create, :destroy]
 
   def index
-    #called to assist in cross referencing total # of reviews to # of bookings
-    @reviews = Review.where(user_id: current_user.id)
+    @reviews = Review.where(home_id: params[:home_id])
   end
 
   def create

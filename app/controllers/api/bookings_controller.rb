@@ -22,10 +22,6 @@ class Api::BookingsController < ApplicationController
   ##$$
 
   def update
-    #successfully updating bookings after review, next problems we need to solve is
-    #having the trips index rerender after the booking is updated, so the button disappears
-    #and we don't have to reload the page to see no review button and "reviewed" in bookings
-    #state showing as (newly updated) "true"
     @booking = Booking.find(params[:id])
 
     if @booking
