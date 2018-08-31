@@ -72,7 +72,7 @@ class BookingDatePicker extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.props.currentUserStatus) {
+    if (this.props.userId) {
       this.props
         .createBooking({
           start_date: this.state.startDate.toDate(),
@@ -85,6 +85,7 @@ class BookingDatePicker extends React.Component {
           });
         });
     } else {
+      debugger;
       this.props.openModal("login");
     }
   }

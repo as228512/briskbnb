@@ -6,7 +6,7 @@ Review.destroy_all
 User.create!(
   id: 100,
   e_mail: 'demo@demos.com',
-  fname: 'Demo',
+  fname: 'Jon',
   lname: 'Demo',
   password: 'Demo11'
 )

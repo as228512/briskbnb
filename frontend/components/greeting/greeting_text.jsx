@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "./greeting_search";
 import { SplashNavBar } from "../nav/splash_nav";
 
-const greetingText = () => {
+const GreetingText = () => {
   return (
     <div>
       <SplashNavBar />
@@ -19,4 +19,4 @@ const greetingText = () => {
   );
 };
 
-export default greetingText;
+export default GreetingText;
