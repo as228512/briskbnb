@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20180829223111) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "booking_id", null: false
+    t.integer "booking_id"
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
     t.index ["home_id"], name: "index_reviews_on_home_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
