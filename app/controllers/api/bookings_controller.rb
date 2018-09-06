@@ -13,7 +13,6 @@ class Api::BookingsController < ApplicationController
     booking_valid = Booking.valid_booking?(@booking)
 
     if booking_valid
-      debugger
       @booking.save!
     else
       render json: ["Request conflicts with another reservation, please make another selection"], status: 401
