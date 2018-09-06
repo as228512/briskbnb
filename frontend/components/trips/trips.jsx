@@ -32,7 +32,7 @@ class Trips extends React.Component {
           upcomingTrip={true}
         />
         <br />
-        <h1 className="trips-heading">Passed Trips</h1>
+        <h1 className="trips-heading">Past Trips</h1>
         <HomeIndexContainer
           homes={homes}
           bookings={bookings}
