@@ -556,20 +556,20 @@ Booking.create!(
   reviewed: false
 )
 
-# #Toronto_6_review
-# Review.create!(
-#   rating: 5,
-#   body: "Objectively, the best home anyone has ever stayed in. Ever...",
-#   user_id: 100,
-#   home_id: 100,
-#   booking_id: 99
-# )
-#
-# #Toronto_6_review
-# Review.create!(
-#   rating: 3,
-#   body: "For the price, this was easily the best home in the area",
-#   user_id: 100,
-#   home_id: 100,
-#   booking_id: 100
-# )
+#Toronto_6_review
+Review.create!(
+  rating: 5,
+  body: "Objectively, the best home anyone has ever stayed in. Ever...",
+  user_id: 100,
+  home_id: 100,
+  booking_id: 99
+)
+
+#Toronto_6_review
+Review.create!(
+  rating: 3,
+  body: "For the price, this was easily the best home in the area",
+  user_id: 100,
+  home_id: 100,
+  booking_id: 100
+)
