@@ -5,8 +5,14 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faSearch, faSnowflake } from "@fortawesome/free-solid-svg-icons";
-library.add(faSearch, faSnowflake);
+import {
+  faSearch,
+  faSnowflake,
+  faStar
+} from "@fortawesome/free-solid-svg-icons";
+import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
+
+library.add(faSearch, faSnowflake, faStar, emptyStar);
 
 import GreetingText from "./greeting/greeting_text";
 import SearchContainer from "./search/search_container";

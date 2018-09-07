@@ -1,4 +1,6 @@
 import React from "react";
+import Rating from "react-rating";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import SingleComment from "./single_comment";
 
@@ -32,7 +34,11 @@ class Comments extends React.Component {
 
           <h1 className="average-rating">
             {numberOfReviews} REVIEWS{" "}
-            <span>{this.averageReviewRating(reviews)}</span>
+            <Rating
+              initialRating={this.averageReviewRating(reviews)}
+              emptySymbol={<FontAwesomeIcon icon={["far", "star"]} />}
+              fullSymbol={<FontAwesomeIcon icon="star" />}
+            />
           </h1>
 
           <div className="comments-border" />
