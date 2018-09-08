@@ -1,6 +1,9 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
+import Rating from "react-rating";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
@@ -25,11 +28,17 @@ class ReviewForm extends React.Component {
       .then(this.props.closeModal);
   }
 
-  update(field) {
-    return e =>
-      this.setState({
-        [field]: e.currentTarget.value
+  update(field, rate = null) {
+    if (!rate) {
+      return e =>
+        this.setState({
+          [field]: e.currentTarget.value
+        });
+    } else {
+      return this.setState({
+        [field]: rate
       });
+    }
   }
 
   render() {
@@ -42,13 +51,21 @@ class ReviewForm extends React.Component {
 
           <div>Rate your stay at this brisk location!</div>
 
-          <input
-            type="number"
-            value={this.state.rating}
-            onChange={this.update("rating")}
-            className="temp-rating-field"
-            min="1"
-            max="5"
+          <Rating
+            start={0}
+            stop={5}
+            fullSymbol={
+              <FontAwesomeIcon icon="star" color="#7595bf" size="3x" />
+            }
+            emptySymbol={
+              <FontAwesomeIcon
+                icon={["far", "star"]}
+                color="#7595bf"
+                size="3x"
+              />
+            }
+            initialRating={this.state.rating}
+            onChange={rate => this.update("rating", rate)}
           />
 
           <div>Let us know! How was your stay?</div>
