@@ -23,6 +23,22 @@ class HomeDetail extends React.Component {
     } else return false;
   }
 
+  reviewData(reviews) {
+    const userReviews = Object.keys(reviews).map(key => reviews[key]);
+    let reviewData = {};
+
+    let average = 0;
+
+    userReviews.forEach(review => {
+      average += review.rating;
+    });
+
+    reviewData["averageRating"] = average / userReviews.length || "";
+    reviewData["timesReviewed"] = userReviews.length;
+
+    return reviewData;
+  }
+
   calendar() {
     if (this.loadingComplete()) {
       return (
@@ -31,18 +47,22 @@ class HomeDetail extends React.Component {
           homeId={this.props.homeId}
           bookedDates={this.props.bookedDates}
           price={this.props.home.price}
+          reviewData={this.reviewData(this.props.home.reviews)}
         />
       );
     }
   }
 
   comments() {
+    let reviews = this.props.home.reviews;
+
     if (this.loadingComplete()) {
       return (
         <CommentsContainer
           className="comments"
           homeId={this.props.homeId}
-          reviews={this.props.home.reviews}
+          reviews={reviews}
+          reviewData={this.reviewData(reviews)}
         />
       );
     }

@@ -9,20 +9,8 @@ class Comments extends React.Component {
     super(props);
   }
 
-  componentWillMount() {}
-
-  averageReviewRating(reviews) {
-    let average = 0;
-
-    reviews.forEach(review => {
-      average += review.rating;
-    });
-
-    return average / reviews.length || "";
-  }
-
-  // comment(comment) {}
-
+  //change the color of starRating to the correct color and place into other components with
+  //appropriates alternations (size.. etc..)
   render() {
     const reviews = this.props.reviews;
     const numberOfReviews = this.props.reviews.length;
@@ -33,11 +21,21 @@ class Comments extends React.Component {
           <div className="top-rating-border" />
 
           <h1 className="average-rating">
-            {numberOfReviews} REVIEWS{" "}
+            {numberOfReviews} Reviews{" "}
             <Rating
-              initialRating={this.averageReviewRating(reviews)}
-              emptySymbol={<FontAwesomeIcon icon={["far", "star"]} />}
-              fullSymbol={<FontAwesomeIcon icon="star" />}
+              className="comment-star-rating"
+              initialRating={this.props.reviewData.averageRating}
+              emptySymbol={
+                <FontAwesomeIcon
+                  icon={["far", "star"]}
+                  color="#7595bf"
+                  size="xs"
+                />
+              }
+              fullSymbol={
+                <FontAwesomeIcon icon="star" color="#7595bf" size="xs" />
+              }
+              readonly
             />
           </h1>
 

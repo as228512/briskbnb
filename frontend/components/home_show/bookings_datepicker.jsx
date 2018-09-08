@@ -2,9 +2,10 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 import DatePicker from "react-datepicker";
-import moment from "moment";
-
 import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Rating from "react-rating";
 
 class BookingDatePicker extends React.Component {
   constructor(props) {
@@ -127,11 +128,30 @@ class BookingDatePicker extends React.Component {
   }
 
   render() {
+    const timesReviewed = this.props.reviewData.timesReviewed;
+    const averageRating = this.props.reviewData.averageRating;
     return (
       <div>
         <form className="booking-form" onSubmit={this.handleSubmit}>
           <div className="price-line">
-            <strong className="price">${this.props.price}</strong> per night
+            <div>
+              <strong className="price">${this.props.price}</strong> per night
+            </div>
+            <Rating
+              initialRating={averageRating}
+              emptySymbol={
+                <FontAwesomeIcon
+                  icon={["far", "star"]}
+                  color="#7595bf"
+                  size="xs"
+                />
+              }
+              fullSymbol={
+                <FontAwesomeIcon icon="star" color="#7595bf" size="xs" />
+              }
+              readonly
+            />{" "}
+            {timesReviewed}
           </div>
 
           <div className="date-picker-cntr">
