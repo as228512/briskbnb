@@ -130,6 +130,7 @@ class BookingDatePicker extends React.Component {
   render() {
     const timesReviewed = this.props.reviewData.timesReviewed;
     const averageRating = this.props.reviewData.averageRating;
+
     return (
       <div>
         <form className="booking-form" onSubmit={this.handleSubmit}>

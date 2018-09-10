@@ -24,6 +24,7 @@ class HomeDetail extends React.Component {
   }
 
   reviewData(reviews) {
+    if (!reviews) return { averageRating: 0, timesReviewed: "" };
     const userReviews = Object.keys(reviews).map(key => reviews[key]);
     let reviewData = {};
 
@@ -41,22 +42,22 @@ class HomeDetail extends React.Component {
 
   calendar() {
     if (this.loadingComplete()) {
+      const reviews = this.props.home.reviews;
       return (
         <BookingsContainer
           className="date-picker"
           homeId={this.props.homeId}
           bookedDates={this.props.bookedDates}
           price={this.props.home.price}
-          reviewData={this.reviewData(this.props.home.reviews)}
+          reviewData={this.reviewData(reviews)}
         />
       );
     }
   }
 
   comments() {
-    let reviews = this.props.home.reviews;
-
     if (this.loadingComplete()) {
+      const reviews = this.props.home.reviews;
       return (
         <CommentsContainer
           className="comments"
