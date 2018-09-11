@@ -192,31 +192,6 @@ class HomeIndexItem extends React.Component {
     );
   }
 
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  // renderReviewButton(review, bookingId) {
-  //   let homeId = this.props.home.id;
-  //
-  //   if (!review) {
-  //     return (
-  //       <span>
-  //         <button
-  //           onClick={() =>
-  //             this.props.openReviewModal("review", homeId, bookingId)
-  //           }>
-  //           Review Trip
-  //         </button>
-  //       </span>
-  //     );
-  //   }
-  // }
-
   renderPastBookingRanges() {
     let totalBookingDatesLength = this.filterPastTrips().length;
 
@@ -225,7 +200,7 @@ class HomeIndexItem extends React.Component {
       bookingInfo = this.filterPastTrips();
     } else bookingInfo = this.filterPastTrips().slice(0, 2);
 
-    //bookingInfo info ex. arr obj. >> [start_date, end_date, reviewed, booking_id]
+    //bookingInfo info ex. arr obj >> [start_date, end_date, reviewed, booking_id]
 
     return (
       <ul>
@@ -246,15 +221,6 @@ class HomeIndexItem extends React.Component {
       </ul>
     );
   }
-
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
 
   renderMorePastBookings() {
     const moreEnglishDateRanges = this.filterPastTrips();
