@@ -1,12 +1,10 @@
 import React from "react";
 import HomeIndexItem from "./home_index_item";
-import HomeMap from "../home_map/home_map";
 import { withRouter } from "react-router-dom";
 
 const HomeIndex = props => {
   const bookings = props.bookings;
   const upcomingTrip = props.upcomingTrip;
-  const openReviewModal = props.openReviewModal;
 
   if (props.location.pathname === "/homes") {
     return (
@@ -28,7 +26,6 @@ const HomeIndex = props => {
                 home={home}
                 bookings={bookings}
                 upcomingTrip={upcomingTrip}
-                openReviewModal={openReviewModal}
                 key={home.id}
               />
             );

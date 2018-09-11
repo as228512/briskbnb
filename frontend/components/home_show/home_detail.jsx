@@ -61,7 +61,7 @@ class HomeDetail extends React.Component {
       return (
         <CommentsContainer
           className="comments"
-          homeId={this.props.homeId}
+          home={this.props.home}
           reviews={reviews}
           reviewData={this.reviewData(reviews)}
         />

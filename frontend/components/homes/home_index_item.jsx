@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import HomeShowContainer from "../home_show/home_show_container";
+import ReviewButtonContainer from "../reviews/review_button_container";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -124,7 +125,8 @@ class HomeIndexItem extends React.Component {
         <button
           type="button"
           className="more-bookings-button"
-          onClick={this.toggleBookings}>
+          onClick={this.toggleBookings}
+        >
           Show More...{" "}
         </button>
       );
@@ -133,7 +135,8 @@ class HomeIndexItem extends React.Component {
         <button
           type="button"
           className="more-bookings-button"
-          onClick={this.toggleBookings}>
+          onClick={this.toggleBookings}
+        >
           Show Less...{" "}
         </button>
       );
@@ -181,7 +184,8 @@ class HomeIndexItem extends React.Component {
         <button
           type="button"
           className="more-bookings-button"
-          onClick={this.renderUpcomingBookingRanges}>
+          onClick={this.renderUpcomingBookingRanges}
+        >
           Show Less...{" "}
         </button>
       </ul>
@@ -195,23 +199,23 @@ class HomeIndexItem extends React.Component {
   //
   //
   //
-
-  renderReviewButton(review, bookingId) {
-    let homeId = this.props.home.id;
-
-    if (!review) {
-      return (
-        <span>
-          <button
-            onClick={() =>
-              this.props.openReviewModal("review", homeId, bookingId)
-            }>
-            Review Trip
-          </button>
-        </span>
-      );
-    }
-  }
+  //
+  // renderReviewButton(review, bookingId) {
+  //   let homeId = this.props.home.id;
+  //
+  //   if (!review) {
+  //     return (
+  //       <span>
+  //         <button
+  //           onClick={() =>
+  //             this.props.openReviewModal("review", homeId, bookingId)
+  //           }>
+  //           Review Trip
+  //         </button>
+  //       </span>
+  //     );
+  //   }
+  // }
 
   renderPastBookingRanges() {
     let totalBookingDatesLength = this.filterPastTrips().length;
@@ -230,7 +234,12 @@ class HomeIndexItem extends React.Component {
             <span>
               <FontAwesomeIcon icon="snowflake" />
             </span>{" "}
-            {info[0]} - {info[1]} {this.renderReviewButton(info[2], info[3])}
+            {info[0]} - {info[1]}{" "}
+            <ReviewButtonContainer
+              review={info[2]}
+              bookingId={info[3]}
+              homeId={this.props.home.id}
+            />
           </li>
         ))}
         {this.renderMoreBookingsButton(totalBookingDatesLength)}
