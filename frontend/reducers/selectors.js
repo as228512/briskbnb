@@ -47,14 +47,32 @@ export const asArray = objects => {
   return Object.keys(objects).map(key => objects[key]);
 };
 
-const formatBookings = (bookings, currentUserId) => {
+export const nonReviewedTrips = (bookings, currentUserId) => {
+  let userBookings = formatBookings(bookings, currentUserId, true);
+
+  let nonReviewedTrips = [];
+
+  userBookings.forEach(booking => {
+    if (new Date() > new Date(booking[1])) {
+      nonReviewedTrips.push(booking);
+    }
+  });
+
+  return nonReviewedTrips;
+};
+
+const formatBookings = (bookings, currentUserId, nonReviewedTrips = false) => {
   let orderedBookingsArray = [];
 
   //extracts dates and home_id from currentUser's bookings, pushing them into a workable array
   //of sub-arrays ex. format [[start_date, end_date, home_id],
   //                          [start_date2, end_date2, home_id2]]
+  //tests to see if nonReviewedTrips() OR tripsIndex is calling it, to determine whether "reviewed" status is relevant
+  debugger;
   Object.keys(bookings).forEach(key => {
-    if (bookings[key]["user_id"] === currentUserId) {
+    if (nonReviewedTrips && bookings[key]["reviewed"]) {
+      return true;
+    } else if (bookings[key]["user_id"] === currentUserId) {
       orderedBookingsArray.push([
         bookings[key]["start_date"],
         bookings[key]["end_date"],

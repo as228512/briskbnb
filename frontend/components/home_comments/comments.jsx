@@ -9,35 +9,82 @@ class Comments extends React.Component {
     super(props);
   }
 
-  //change the color of starRating to the correct color and place into other components with
-  //appropriates alternations (size.. etc..)
+  formatPendingReviewText() {
+    if (this.props.pendingReviews.length > 0) {
+      const pendingReview = this.props.pendingReviews[0];
+      const options = { month: "short", year: "numeric" };
+      debugger;
+
+      const englishDate = new Date(pendingReview[0]).toLocaleDateString(
+        "en-US",
+        options
+      );
+
+      return (
+        <ul className="pending-review-text">
+          <br />
+          <li>{`You stayed here in ${englishDate}.`}</li>
+          <li>Be the first to tell everyone what you think!</li>
+        </ul>
+      );
+    } else
+      return (
+        <li className="pending-review-text">
+          Why not book a stay and be the first?
+        </li>
+      );
+  }
+
+  timesReviewed(numberOfReviews) {
+    if (numberOfReviews > 0) {
+      let pluralReviews = "Reviews";
+      if (numberOfReviews === 1) pluralReviews = "Review";
+
+      return (
+        <h1 className="average-rating">
+          {numberOfReviews} {pluralReviews}{" "}
+          <Rating
+            className="comment-star-rating"
+            initialRating={this.props.reviewData.averageRating}
+            emptySymbol={
+              <FontAwesomeIcon
+                icon={["far", "star"]}
+                color="#7595bf"
+                size="xs"
+              />
+            }
+            fullSymbol={
+              <FontAwesomeIcon icon="star" color="#7595bf" size="xs" />
+            }
+            readonly
+          />
+        </h1>
+      );
+    } else {
+      let pendingReviewText = this.formatPendingReviewText();
+
+      return (
+        <h1 className="average-rating">
+          <ul>
+            <li>No reviews just yet.</li>
+            {pendingReviewText}
+          </ul>
+        </h1>
+      );
+    }
+  }
+
   render() {
     const reviews = this.props.reviews;
     const numberOfReviews = this.props.reviews.length;
+    const reviewText = this.timesReviewed(numberOfReviews);
 
     return (
       <div>
         <div>
           <div className="top-rating-border" />
 
-          <h1 className="average-rating">
-            {numberOfReviews} Reviews{" "}
-            <Rating
-              className="comment-star-rating"
-              initialRating={this.props.reviewData.averageRating}
-              emptySymbol={
-                <FontAwesomeIcon
-                  icon={["far", "star"]}
-                  color="#7595bf"
-                  size="xs"
-                />
-              }
-              fullSymbol={
-                <FontAwesomeIcon icon="star" color="#7595bf" size="xs" />
-              }
-              readonly
-            />
-          </h1>
+          {reviewText}
 
           <div className="comments-border" />
         </div>

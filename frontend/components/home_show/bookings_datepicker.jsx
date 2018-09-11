@@ -127,10 +127,34 @@ class BookingDatePicker extends React.Component {
     }
   }
 
-  render() {
+  hasReviews() {
     const timesReviewed = this.props.reviewData.timesReviewed;
     const averageRating = this.props.reviewData.averageRating;
 
+    if (timesReviewed > 0) {
+      return (
+        <div>
+          <Rating
+            initialRating={averageRating}
+            emptySymbol={
+              <FontAwesomeIcon
+                icon={["far", "star"]}
+                color="#7595bf"
+                size="xs"
+              />
+            }
+            fullSymbol={
+              <FontAwesomeIcon icon="star" color="#7595bf" size="xs" />
+            }
+            readonly
+          />{" "}
+          {timesReviewed}
+        </div>
+      );
+    }
+  }
+
+  render() {
     return (
       <div>
         <form className="booking-form" onSubmit={this.handleSubmit}>
@@ -138,21 +162,7 @@ class BookingDatePicker extends React.Component {
             <div>
               <strong className="price">${this.props.price}</strong> per night
             </div>
-            <Rating
-              initialRating={averageRating}
-              emptySymbol={
-                <FontAwesomeIcon
-                  icon={["far", "star"]}
-                  color="#7595bf"
-                  size="xs"
-                />
-              }
-              fullSymbol={
-                <FontAwesomeIcon icon="star" color="#7595bf" size="xs" />
-              }
-              readonly
-            />{" "}
-            {timesReviewed}
+            {this.hasReviews()}
           </div>
 
           <div className="date-picker-cntr">
