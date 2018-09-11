@@ -5,7 +5,6 @@ export const RECEIVE_HOME = "RECEIVE_HOME";
 export const START_LOADING_HOMES = "START_LOADING_HOMES";
 export const START_LOADING_HOME = "START_LOADING_HOME";
 export const CLEAR_HOMES = "CLEAR_HOMES";
-export const RECEIVE_TRIP_HOMES = "RECEIVE_TRIP_HOMES";
 
 export const receiveHomes = homes => ({
   type: RECEIVE_HOMES,

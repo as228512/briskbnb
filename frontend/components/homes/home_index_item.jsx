@@ -211,6 +211,7 @@ class HomeIndexItem extends React.Component {
             </span>{" "}
             {info[0]} - {info[1]}{" "}
             <ReviewButtonContainer
+              tripsIndex={true}
               review={info[2]}
               bookingId={info[3]}
               homeId={this.props.home.id}

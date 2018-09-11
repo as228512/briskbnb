@@ -1,6 +1,7 @@
 import React from "react";
 import Rating from "react-rating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ReviewButtonContainer from "../reviews/review_button_container";
 
 import SingleComment from "./single_comment";
 
@@ -13,8 +14,6 @@ class Comments extends React.Component {
     if (this.props.pendingReviews.length > 0) {
       const pendingReview = this.props.pendingReviews[0];
       const options = { month: "short", year: "numeric" };
-      debugger;
-
       const englishDate = new Date(pendingReview[0]).toLocaleDateString(
         "en-US",
         options
@@ -24,7 +23,17 @@ class Comments extends React.Component {
         <ul className="pending-review-text">
           <br />
           <li>{`You stayed here in ${englishDate}.`}</li>
-          <li>Be the first to tell everyone what you think!</li>
+          <li>
+            Be the first to tell everyone what you think!
+            <span>
+              <ReviewButtonContainer
+                homeShow={true}
+                review={false}
+                bookingId={this.props.home.bookingIds[0]}
+                homeId={pendingReview[2]}
+              />
+            </span>
+          </li>
         </ul>
       );
     } else

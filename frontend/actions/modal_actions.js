@@ -9,12 +9,13 @@ export const openModal = modal => {
   };
 };
 
-export const openReviewModal = (modal, homeId, bookingId) => {
+export const openReviewModal = (modal, homeId, bookingId, component) => {
   return {
     type: OPEN_REVIEW_MODAL,
     modal,
     homeId,
-    bookingId
+    bookingId,
+    component
   };
 };
 

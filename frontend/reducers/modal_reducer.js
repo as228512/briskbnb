@@ -10,7 +10,7 @@ export default function modalReducer(state = null, action) {
       return action.modal;
 
     case OPEN_REVIEW_MODAL:
-      return [action.modal, action.homeId, action.bookingId];
+      return [action.modal, action.homeId, action.bookingId, action.component];
 
     case CLOSE_MODAL:
       return null;

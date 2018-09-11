@@ -41,67 +41,63 @@ class HomeDetail extends React.Component {
   }
 
   calendar() {
-    if (this.loadingComplete()) {
-      const reviews = this.props.home.reviews;
-      return (
-        <BookingsContainer
-          className="date-picker"
-          homeId={this.props.homeId}
-          bookedDates={this.props.bookedDates}
-          price={this.props.home.price}
-          reviewData={this.reviewData(reviews)}
-        />
-      );
-    }
+    const reviews = this.props.home.reviews;
+    return (
+      <BookingsContainer
+        className="date-picker"
+        homeId={this.props.homeId}
+        bookedDates={this.props.bookedDates}
+        price={this.props.home.price}
+        reviewData={this.reviewData(reviews)}
+      />
+    );
   }
 
   comments() {
-    if (this.loadingComplete()) {
-      const reviews = this.props.home.reviews;
-      return (
-        <CommentsContainer
-          className="comments"
-          home={this.props.home}
-          reviews={reviews}
-          reviewData={this.reviewData(reviews)}
-        />
-      );
-    }
-  }
-
-  sellerAvatar() {
-    if (this.loadingComplete()) {
-      return <img className="seller-avatar" src={this.props.home.image_url} />;
-    }
+    const reviews = this.props.home.reviews;
+    return (
+      <CommentsContainer
+        className="comments"
+        home={this.props.home}
+        reviews={reviews}
+        reviewData={this.reviewData(reviews)}
+      />
+    );
   }
 
   render() {
-    return (
-      <div>
-        <img className="home-show-image" src={this.props.home.home_url} />
+    debugger;
+    if (this.loadingComplete() || this.props.home.home_url) {
+      return (
+        <div>
+          <img className="home-show-image" src={this.props.home.home_url} />
 
-        <div className="home-contents-cntr">
-          <div className="home-details-cntr">
-            <ul className="home-summary">
-              <div className="home-header">
-                <h1 className="home-title">{this.props.home.title}</h1>
-                {this.sellerAvatar()}
-              </div>
-              <br />
-              <br />
-              <div>
-                <li className="home-description">
-                  {this.props.home.description}
-                </li>
-              </div>
-              {this.comments()}
-            </ul>
+          <div className="home-contents-cntr">
+            <div className="home-details-cntr">
+              <ul className="home-summary">
+                <div className="home-header">
+                  <h1 className="home-title">{this.props.home.title}</h1>
+                  <img
+                    className="seller-avatar"
+                    src={this.props.home.image_url}
+                  />
+                </div>
+                <br />
+                <br />
+                <ul>
+                  <li className="home-description">
+                    {this.props.home.description}
+                  </li>
+                </ul>
+                {this.comments()}
+              </ul>
 
-            {this.calendar()}
+              {this.calendar()}
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else return <div />;
   }
 }
 

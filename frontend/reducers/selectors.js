@@ -68,7 +68,6 @@ const formatBookings = (bookings, currentUserId, nonReviewedTrips = false) => {
   //of sub-arrays ex. format [[start_date, end_date, home_id],
   //                          [start_date2, end_date2, home_id2]]
   //tests to see if nonReviewedTrips() OR tripsIndex is calling it, to determine whether "reviewed" status is relevant
-  debugger;
   Object.keys(bookings).forEach(key => {
     if (nonReviewedTrips && bookings[key]["reviewed"]) {
       return true;

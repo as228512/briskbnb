@@ -12,7 +12,6 @@ import Comments from "./comments";
 const mapStateToProps = (state, ownProps) => {
   const currentUser = state.session.id;
   const reviews = asArray(ownProps.reviews || []);
-  debugger;
   const pendingReviews = nonReviewedTrips(
     ownProps.home.bookings || {},
     currentUser

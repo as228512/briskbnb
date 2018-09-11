@@ -2,7 +2,7 @@ class Api::ReviewsController < ApplicationController
   before_action :require_login, only: [:create, :destroy]
 
   def index
-    @reviews = Review.where(home_id: params[:home_id])
+    @reviews = Review.where(home_id: params[:homeId])
   end
 
   def create

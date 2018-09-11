@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { createReview } from "../../actions/review_actions";
 import { closeModal } from "../../actions/modal_actions";
 import { updateReviewedBooking } from "../../actions/booking_actions";
+import { fetchHome } from "../../actions/home_actions";
+
 import ReviewForm from "./review_form";
 
 const mapDispatchToProps = dispatch => {
@@ -10,6 +12,7 @@ const mapDispatchToProps = dispatch => {
     processForm: review => dispatch(createReview(review)),
     updateReviewedBooking: bookingId =>
       dispatch(updateReviewedBooking(bookingId)),
+    fetchHome: homeId => dispatch(fetchHome(homeId)),
     closeModal: () => dispatch(closeModal())
   };
 };

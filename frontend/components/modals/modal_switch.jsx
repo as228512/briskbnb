@@ -15,7 +15,8 @@ const mapStateToProps = state => {
     return {
       modal: modal[0],
       homeId: modal[1],
-      bookingId: modal[2]
+      bookingId: modal[2],
+      component: modal[3]
     };
   } else return { modal: modal };
 };
@@ -65,6 +66,7 @@ function Modal(props) {
         <ReviewFormContainer
           homeId={props.homeId}
           bookingId={props.bookingId}
+          component={props.component}
         />
       );
       formName = "review";
