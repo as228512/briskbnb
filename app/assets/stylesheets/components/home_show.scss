@@ -2,16 +2,11 @@
   font-size: small;
 }
 
-.price-review-line,
 .price-line {
   padding-top: 10px;
-  padding-bottom: 15px;
+  padding-bottom: 4px;
   border-bottom: 1px solid rgb(219, 219, 219);
   width: 88%;
-}
-
-.price-line {
-  padding-bottom: 4px;
 }
 
 .date-picker-inner-content {
@@ -54,7 +49,7 @@
 
 .book {
   animation: book;
-  width: 89%;
+  width: 86%;
   height: 45px;
   font-size: 16px;
   font-weight: 700;
@@ -81,7 +76,8 @@
   }
 }
 
-.booking-form {
+.booking-form,
+.booking-form-reviewV {
   animation: container;
   animation-duration: 5.8s;
   animation-timing-function: ease-out;
@@ -94,6 +90,12 @@
   width: 19.6vw;
 }
 
+.booking-form-reviewV {
+  animation: reviewV-container;
+  animation-duration: 5.8s;
+  animation-timing-function: ease-out;
+}
+
 @keyframes container {
   0% {
     height: 290px;
@@ -102,7 +104,19 @@
     height: 290px;
   }
   100% {
-    height: 323px;
+    height: 325px;
+  }
+}
+
+@keyframes reviewV-container {
+  0% {
+    height: 290px;
+  }
+  75% {
+    height: 290px;
+  }
+  100% {
+    height: 342px;
   }
 }
 

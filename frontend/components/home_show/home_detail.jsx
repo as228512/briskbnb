@@ -66,7 +66,6 @@ class HomeDetail extends React.Component {
   }
 
   render() {
-    debugger;
     if (this.loadingComplete() || this.props.home.home_url) {
       return (
         <div>

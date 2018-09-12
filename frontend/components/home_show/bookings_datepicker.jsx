@@ -158,27 +158,7 @@ class BookingDatePicker extends React.Component {
     }
   }
 
-  priceLine() {
-    const timesReviewed = this.props.reviewData.timesReviewed;
-
-    if (timesReviewed > 0) {
-      return (
-        <div className="price-review-line">
-          <div>
-            <strong className="price">${this.props.price}</strong> per night
-          </div>
-          {this.hasReviews()}
-        </div>
-      );
-    } else
-      return (
-        <div className="price-line">
-          <strong className="price">${this.props.price}</strong> per night
-        </div>
-      );
-  }
-
-  hasReviews() {
+  hasReviews(timesReviewed) {
     const averageRating = this.props.reviewData.averageRating;
 
     return (
@@ -218,50 +198,109 @@ class BookingDatePicker extends React.Component {
     );
   }
 
-  render() {
-    return (
-      <div>
-        <form className="booking-form" onSubmit={this.handleSubmit}>
-          {this.priceLine()}
+  renderSwitch() {
+    const timesReviewed = this.props.reviewData.timesReviewed;
 
-          <div className="date-picker-cntr">
-            <div className="date-picker-inner-content">
-              {this.renderErrors()}
-
-              <p className="dates">Check In</p>
-              <DatePicker
-                className="datepicker-border"
-                excludeDates={this.props.bookedDates}
-                selectsStart
-                selected={this.state.startDate}
-                onChange={this.handleChangeStart}
-                minDate={moment()}
-                monthsShown={2}
-                placeholderText="Click to select a check-in date"
-                popperPlacement="top-end"
-                popperModifiers={{
-                  offset: {
-                    enabled: true,
-                    offset: "315px, 5px"
-                  },
-                  preventOverflow: {
-                    enabled: true,
-                    escapeWithReference: false,
-                    boundariesElement: "viewport"
-                  }
-                }}
-              />
-
-              {this.checkOutDate()}
+    if (timesReviewed > 0) {
+      return (
+        <div>
+          <form className="booking-form-reviewV" onSubmit={this.handleSubmit}>
+            <div className="price-line">
+              <div>
+                <strong className="price">${this.props.price}</strong> per night
+              </div>
+              {this.hasReviews(timesReviewed)}
             </div>
-          </div>
 
-          {this.bookingSubmit()}
-          <div className="booking-form-bottom-border" />
-          {this.popularity()}
-        </form>
-      </div>
-    );
+            <div className="date-picker-cntr">
+              <div className="date-picker-inner-content">
+                {this.renderErrors()}
+
+                <p className="dates">Check In</p>
+                <DatePicker
+                  className="datepicker-border"
+                  excludeDates={this.props.bookedDates}
+                  selectsStart
+                  selected={this.state.startDate}
+                  onChange={this.handleChangeStart}
+                  minDate={moment()}
+                  monthsShown={2}
+                  placeholderText="Click to select a check-in date"
+                  popperPlacement="top-end"
+                  popperModifiers={{
+                    offset: {
+                      enabled: true,
+                      offset: "315px, 5px"
+                    },
+                    preventOverflow: {
+                      enabled: true,
+                      escapeWithReference: false,
+                      boundariesElement: "viewport"
+                    }
+                  }}
+                />
+
+                {this.checkOutDate()}
+              </div>
+            </div>
+
+            {this.bookingSubmit()}
+            <div className="booking-form-bottom-border" />
+            {this.popularity()}
+          </form>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <form className="booking-form" onSubmit={this.handleSubmit}>
+            <div className="price-line">
+              <strong className="price">${this.props.price}</strong> per night
+            </div>
+
+            <div className="date-picker-cntr">
+              <div className="date-picker-inner-content">
+                {this.renderErrors()}
+
+                <p className="dates">Check In</p>
+                <DatePicker
+                  className="datepicker-border"
+                  excludeDates={this.props.bookedDates}
+                  selectsStart
+                  selected={this.state.startDate}
+                  onChange={this.handleChangeStart}
+                  minDate={moment()}
+                  monthsShown={2}
+                  placeholderText="Click to select a check-in date"
+                  popperPlacement="top-end"
+                  popperModifiers={{
+                    offset: {
+                      enabled: true,
+                      offset: "315px, 5px"
+                    },
+                    preventOverflow: {
+                      enabled: true,
+                      escapeWithReference: false,
+                      boundariesElement: "viewport"
+                    }
+                  }}
+                />
+
+                {this.checkOutDate()}
+              </div>
+            </div>
+
+            {this.bookingSubmit()}
+            <div className="booking-form-bottom-border" />
+            {this.popularity()}
+          </form>
+        </div>
+      );
+    }
+  }
+
+  render() {
+    return <div>{this.renderSwitch()}</div>;
   }
 }
 
