@@ -10,9 +10,12 @@ import {
   faSnowflake,
   faStar
 } from "@fortawesome/free-solid-svg-icons";
-import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
+import {
+  faStar as emptyStar,
+  faLightbulb as lightbulb
+} from "@fortawesome/free-regular-svg-icons";
 
-library.add(faSearch, faSnowflake, faStar, emptyStar);
+library.add(faSearch, faSnowflake, faStar, emptyStar, lightbulb);
 
 import GreetingText from "./greeting/greeting_text";
 import SearchContainer from "./search/search_container";

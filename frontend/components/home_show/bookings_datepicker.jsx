@@ -55,7 +55,14 @@ class BookingDatePicker extends React.Component {
 
   bookingSubmit() {
     if (this.state.startDate && this.state.endDate) {
-      return <input className="book" type="submit" value={"Request to Book"} />;
+      return (
+        <div className="booking-request-cntr">
+          <input className="book" type="submit" value={"Request to Book"} />
+          <p className="booking-charge-notification">
+            You won't be charged yet
+          </p>
+        </div>
+      );
     }
   }
 
@@ -154,6 +161,36 @@ class BookingDatePicker extends React.Component {
     }
   }
 
+  popularity() {
+    function isOdd(number) {
+      let result = number % 2;
+      if (result === 0) return true;
+      else return false;
+    }
+
+    if (isOdd(Math.floor(Math.random() * 2))) {
+      return (
+        <div className="popular-booking-cntr">
+          <ul>
+            <li className="popular-booking-text">
+              This home is on people's minds.
+            </li>
+            <li>
+              It's been viewed {Math.floor(Math.random() * 500) + 100} times in
+              the past week.
+            </li>
+          </ul>
+          <FontAwesomeIcon
+            className="lightbulb"
+            icon={["far", "lightbulb"]}
+            color="#7595bf"
+            size="3x"
+          />
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div>
@@ -186,6 +223,8 @@ class BookingDatePicker extends React.Component {
           </div>
 
           {this.bookingSubmit()}
+          <div className="booking-form-bottom-border" />
+          {this.popularity()}
         </form>
       </div>
     );
