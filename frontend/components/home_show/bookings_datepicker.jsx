@@ -162,33 +162,25 @@ class BookingDatePicker extends React.Component {
   }
 
   popularity() {
-    function isOdd(number) {
-      let result = number % 2;
-      if (result === 0) return true;
-      else return false;
-    }
-
-    if (isOdd(Math.floor(Math.random() * 2))) {
-      return (
-        <div className="popular-booking-cntr">
-          <ul>
-            <li className="popular-booking-text">
-              This home is on people's minds.
-            </li>
-            <li>
-              It's been viewed {Math.floor(Math.random() * 500) + 100} times in
-              the past week.
-            </li>
-          </ul>
-          <FontAwesomeIcon
-            className="lightbulb"
-            icon={["far", "lightbulb"]}
-            color="#7595bf"
-            size="3x"
-          />
-        </div>
-      );
-    }
+    return (
+      <div className="popular-booking-cntr">
+        <ul>
+          <li className="popular-booking-text">
+            This home is on people's minds.
+          </li>
+          <li>
+            It's been viewed {Math.floor(Math.random() * 500) + 100} times in
+            the past week.
+          </li>
+        </ul>
+        <FontAwesomeIcon
+          className="lightbulb"
+          icon={["far", "lightbulb"]}
+          color="#dcdc1d"
+          size="3x"
+        />
+      </div>
+    );
   }
 
   render() {
