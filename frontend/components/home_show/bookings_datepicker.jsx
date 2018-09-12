@@ -114,6 +114,18 @@ class BookingDatePicker extends React.Component {
             disabled={false}
             monthsShown={2}
             placeholderText="Click to select a check-out date"
+            popperPlacement="top-end"
+            popperModifiers={{
+              offset: {
+                enabled: true,
+                offset: "315px, 5px"
+              },
+              preventOverflow: {
+                enabled: true,
+                escapeWithReference: false,
+                boundariesElement: "viewport"
+              }
+            }}
           />
         </div>
       );
@@ -128,37 +140,60 @@ class BookingDatePicker extends React.Component {
             excludeDates={this.props.bookedDates}
             disabled={true}
             placeholderText="First, select a check-in date"
+            popperPlacement="top-end"
+            popperModifiers={{
+              offset: {
+                enabled: true,
+                offset: "315px, 5px"
+              },
+              preventOverflow: {
+                enabled: true,
+                escapeWithReference: false,
+                boundariesElement: "viewport"
+              }
+            }}
           />
         </div>
       );
     }
   }
 
-  hasReviews() {
+  priceLine() {
     const timesReviewed = this.props.reviewData.timesReviewed;
-    const averageRating = this.props.reviewData.averageRating;
 
     if (timesReviewed > 0) {
       return (
-        <div>
-          <Rating
-            initialRating={averageRating}
-            emptySymbol={
-              <FontAwesomeIcon
-                icon={["far", "star"]}
-                color="#7595bf"
-                size="xs"
-              />
-            }
-            fullSymbol={
-              <FontAwesomeIcon icon="star" color="#7595bf" size="xs" />
-            }
-            readonly
-          />{" "}
-          {timesReviewed}
+        <div className="price-review-line">
+          <div>
+            <strong className="price">${this.props.price}</strong> per night
+          </div>
+          {this.hasReviews()}
         </div>
       );
-    }
+    } else
+      return (
+        <div className="price-line">
+          <strong className="price">${this.props.price}</strong> per night
+        </div>
+      );
+  }
+
+  hasReviews() {
+    const averageRating = this.props.reviewData.averageRating;
+
+    return (
+      <div>
+        <Rating
+          initialRating={averageRating}
+          emptySymbol={
+            <FontAwesomeIcon icon={["far", "star"]} color="#7595bf" size="xs" />
+          }
+          fullSymbol={<FontAwesomeIcon icon="star" color="#7595bf" size="xs" />}
+          readonly
+        />{" "}
+        {timesReviewed}
+      </div>
+    );
   }
 
   popularity() {
@@ -187,12 +222,7 @@ class BookingDatePicker extends React.Component {
     return (
       <div>
         <form className="booking-form" onSubmit={this.handleSubmit}>
-          <div className="price-line">
-            <div>
-              <strong className="price">${this.props.price}</strong> per night
-            </div>
-            {this.hasReviews()}
-          </div>
+          {this.priceLine()}
 
           <div className="date-picker-cntr">
             <div className="date-picker-inner-content">
@@ -208,6 +238,18 @@ class BookingDatePicker extends React.Component {
                 minDate={moment()}
                 monthsShown={2}
                 placeholderText="Click to select a check-in date"
+                popperPlacement="top-end"
+                popperModifiers={{
+                  offset: {
+                    enabled: true,
+                    offset: "315px, 5px"
+                  },
+                  preventOverflow: {
+                    enabled: true,
+                    escapeWithReference: false,
+                    boundariesElement: "viewport"
+                  }
+                }}
               />
 
               {this.checkOutDate()}
