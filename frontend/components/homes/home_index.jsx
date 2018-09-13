@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 import HomeIndexItem from "./home_index_item";
 
 const HomeIndex = props => {
-  debugger;
   const homes = props.homes;
   const bookings = props.bookings;
   const upcomingTrip = props.upcomingTrip;
@@ -14,13 +13,12 @@ const HomeIndex = props => {
       <div>
         <div className="home-index">
           {homes.map(home => {
-            const reviewData = props.reviewData(home.reviews);
-            debugger;
+            const reviewStats = props.reviewStats(home.reviews);
             return (
               <HomeIndexItem
                 home={home}
                 bookings={bookings}
-                reviewData={reviewData}
+                reviewStats={reviewStats}
                 key={home.id}
               />
             );

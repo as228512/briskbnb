@@ -42,7 +42,7 @@ export const selectBookingsForHome = home => {
   return concatedDates;
 };
 
-export const reviewData = reviews => {
+export const reviewStats = reviews => {
   if (!reviews) return { averageRating: 0, timesReviewed: "" };
   const userReviews = Object.keys(reviews).map(key => reviews[key]);
 
@@ -51,11 +51,11 @@ export const reviewData = reviews => {
     average += review.rating;
   });
 
-  let reviewData = {};
-  reviewData["averageRating"] = average / userReviews.length || "";
-  reviewData["timesReviewed"] = userReviews.length;
+  let reviewStats = {};
+  reviewStats["averageRating"] = average / userReviews.length || "";
+  reviewStats["timesReviewed"] = userReviews.length;
 
-  return reviewData;
+  return reviewStats;
 };
 
 export const asArray = objects => {

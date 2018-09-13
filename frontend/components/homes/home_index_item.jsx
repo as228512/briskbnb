@@ -24,8 +24,8 @@ class HomeIndexItem extends React.Component {
     this.props.history.push(`/homes/${homeId}`);
   }
 
-  averageStarRating(reviewData) {
-    const { timesReviewed, averageRating } = reviewData;
+  averageStarRating(reviewStats) {
+    const { timesReviewed, averageRating } = reviewStats;
     if (timesReviewed > 0) {
       return (
         <div>
@@ -50,9 +50,8 @@ class HomeIndexItem extends React.Component {
   }
 
   homeIndex() {
-    debugger;
     const { title, price, home_url } = this.props.home;
-    const reviewData = this.props.reviewData;
+    const reviewStats = this.props.reviewStats;
 
     return (
       <div className="home-index-item" onClick={this.handleClick}>
@@ -62,7 +61,7 @@ class HomeIndexItem extends React.Component {
           <p className="index-item-description">
             ${price} per night · Free cancellation
           </p>
-          {this.averageStarRating(reviewData)}
+          {this.averageStarRating(reviewStats)}
         </div>
       </div>
     );

@@ -159,7 +159,7 @@ class BookingDatePicker extends React.Component {
   }
 
   hasReviews(timesReviewed) {
-    const averageRating = this.props.reviewData.averageRating;
+    const averageRating = this.props.reviewStats.averageRating;
 
     return (
       <div>
@@ -199,7 +199,7 @@ class BookingDatePicker extends React.Component {
   }
 
   renderSwitch() {
-    const timesReviewed = this.props.reviewData.timesReviewed;
+    const timesReviewed = this.props.reviewStats.timesReviewed;
 
     if (timesReviewed > 0) {
       return (

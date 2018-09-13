@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
-import { reviewData } from "../../reducers/selectors";
+import { reviewStats } from "../../reducers/selectors";
 import BookingsContainer from "./booking_container";
 import CommentsContainer from "../home_comments/comments_container";
 
@@ -36,7 +36,7 @@ class HomeDetail extends React.Component {
         homeId={this.props.homeId}
         bookedDates={this.props.bookedDates}
         price={this.props.home.price}
-        reviewData={reviewData(reviews)}
+        reviewStats={reviewStats(reviews)}
       />
     );
   }
@@ -48,7 +48,7 @@ class HomeDetail extends React.Component {
         className="comments"
         home={this.props.home}
         reviews={reviews}
-        reviewData={reviewData(reviews)}
+        reviewStats={reviewStats(reviews)}
       />
     );
   }
