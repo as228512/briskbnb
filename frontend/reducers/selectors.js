@@ -3,7 +3,7 @@ import moment from "moment";
 //in the case home info hasn't been fetched yet, empty object with relevant
 //fields are populated as placeholders to prevent crash
 export const selectHome = ({ homes }, homeId) => {
-  return homes[homeId] || { reviewIds: [], bookingIds: [], reviewIds: [] };
+  return homes[homeId] || { reviewIds: [], bookingIds: [], reviews: [] };
 };
 
 const calculateDaysBetweenDates = (startDate, endDate) => {
@@ -40,6 +40,22 @@ export const selectBookingsForHome = home => {
   }
 
   return concatedDates;
+};
+
+export const reviewData = reviews => {
+  if (!reviews) return { averageRating: 0, timesReviewed: "" };
+  const userReviews = Object.keys(reviews).map(key => reviews[key]);
+
+  let average = 0;
+  userReviews.forEach(review => {
+    average += review.rating;
+  });
+
+  let reviewData = {};
+  reviewData["averageRating"] = average / userReviews.length || "";
+  reviewData["timesReviewed"] = userReviews.length;
+
+  return reviewData;
 };
 
 export const asArray = objects => {
