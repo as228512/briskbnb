@@ -11,7 +11,7 @@ json.reviewIds @home.reviews.pluck(:id)
 
   json.users do
     json.set! booking.user.id do
-      json.extract! booking.user, :id, :e_mail
+      json.extract! booking.user, :id
     end
   end
 end
@@ -25,7 +25,9 @@ end
 
   json.users do
     json.set! review.user.id do
-      json.extract! review.user, :id, :e_mail
+      json.extract! review.user, :fname
+      json.image_url review.user.image.url
+      json.image_url asset_path(review.user.image.url)
     end
   end
 end

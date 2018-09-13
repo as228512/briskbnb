@@ -3,19 +3,6 @@ import React from "react";
 class SingleComment extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      firstName: "",
-      imageUrl: ""
-    };
-  }
-
-  componentDidMount() {
-    this.props.fetchCommenterInfo(this.props.review.user_id).then(userInfo => {
-      this.setState({
-        firstName: userInfo.userInfo.fname,
-        imageUrl: userInfo.userInfo.image_url
-      });
-    });
   }
 
   convertDateToEnglish() {
@@ -26,11 +13,10 @@ class SingleComment extends React.Component {
   }
 
   render() {
-    const userId = this.props.review.user_id;
     const body = this.props.review.body;
     const creationDate = this.convertDateToEnglish();
-    const firstName = this.state.firstName;
-    const imageUrl = this.state.imageUrl;
+    const firstName = this.props.commenterInfo.fname || "";
+    const imageUrl = this.props.commenterInfo.image_url || "";
 
     return (
       <div>

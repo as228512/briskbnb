@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import { fetchReviews } from "../../actions/review_actions";
-import { fetchCommenterInfo } from "../../actions/user_actions";
 import {
   asArray,
   selectHome,
@@ -16,22 +15,17 @@ const mapStateToProps = (state, ownProps) => {
     ownProps.home.bookings || {},
     currentUser
   );
+  const commenters = ownProps.home.users || {};
 
   return {
     currentUser,
     reviews,
-    pendingReviews
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchReviews: homeId => dispatch(fetchReviews(homeId)),
-    fetchCommenterInfo: userId => dispatch(fetchCommenterInfo(userId))
+    pendingReviews,
+    commenters
   };
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(Comments);

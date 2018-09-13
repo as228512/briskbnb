@@ -54,7 +54,7 @@ class Comments extends React.Component {
           {numberOfReviews} {pluralReviews}{" "}
           <Rating
             className="comment-star-rating"
-            initialRating={this.props.reviewData.averageRating}
+            initialRating={this.props.reviewStats.averageRating}
             emptySymbol={
               <FontAwesomeIcon
                 icon={["far", "star"]}
@@ -85,6 +85,7 @@ class Comments extends React.Component {
 
   render() {
     const reviews = this.props.reviews;
+    const commenters = this.props.commenters;
     const numberOfReviews = this.props.reviews.length;
     const reviewText = this.timesReviewed(numberOfReviews);
 
@@ -99,10 +100,12 @@ class Comments extends React.Component {
         </div>
 
         {reviews.map(review => {
+          const commenterInfo = commenters[review.user_id] || {};
+
           return (
             <SingleComment
               review={review}
-              fetchCommenterInfo={this.props.fetchCommenterInfo}
+              commenterInfo={commenterInfo}
               key={review.id}
             />
           );

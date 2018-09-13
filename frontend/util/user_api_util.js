@@ -6,10 +6,3 @@ export const updateAvatar = (id, formData) =>
     contentType: false,
     data: formData
   });
-
-export const fetchCommenterInfo = userId =>
-  $.ajax({
-    method: "GET",
-    url: `/api/users/${userId}`,
-    data: userId
-  });
