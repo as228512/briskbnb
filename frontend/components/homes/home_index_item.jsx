@@ -183,7 +183,7 @@ class HomeIndexItem extends React.Component {
       <ul>
         {englishDateRanges.map((dateRange, i) => (
           <li className="booking-range" key={`dateRange-${i}`}>
-            <span>
+            <span className="trips-snowflake-bullet">
               <FontAwesomeIcon icon="snowflake" />
             </span>{" "}
             {dateRange[0]} - {dateRange[1]}
@@ -201,7 +201,7 @@ class HomeIndexItem extends React.Component {
       <ul>
         {moreEnglishDateRanges.map((dateRange, i) => (
           <li className="booking-range" key={`dateRange-${i}`}>
-            <span>
+            <span className="trips-snowflake-bullet">
               <FontAwesomeIcon icon="snowflake" />
             </span>{" "}
             {dateRange[0]} - {dateRange[1]}
@@ -232,7 +232,7 @@ class HomeIndexItem extends React.Component {
       <ul>
         {bookingInfo.map((info, i) => (
           <li className="booking-range" key={`dateRange-${i}`}>
-            <span>
+            <span className="trips-snowflake-bullet">
               <FontAwesomeIcon icon="snowflake" />
             </span>{" "}
             {info[0]} - {info[1]}{" "}
@@ -256,7 +256,7 @@ class HomeIndexItem extends React.Component {
       <ul>
         {moreEnglishDateRanges.map((dateRange, i) => (
           <li className="booking-range" key={`dateRange-${i}`}>
-            <span>
+            <span className="trips-snowflake-bullet">
               <FontAwesomeIcon icon="snowflake" />
             </span>{" "}
             {dateRange[0]} - {dateRange[1]}

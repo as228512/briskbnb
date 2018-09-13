@@ -12,13 +12,14 @@ const ReviewButton = props => {
   if (!review) {
     return (
       <span>
-        <button
+        <input
+          type="submit"
+          className="review-button"
+          value={"Review"}
           onClick={() =>
             props.openReviewModal("review", homeId, bookingId, component)
           }
-        >
-          Review Trip
-        </button>
+        />
       </span>
     );
   } else return <div />;
