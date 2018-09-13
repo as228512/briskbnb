@@ -7,6 +7,7 @@ import animation from "../../../app/assets/animations/location_pin.json";
 import MarkerManager from "../../util/marker_manager";
 import HomeIndex from "../homes/home_index";
 import { NavBar } from "../nav/nav_bar";
+import { reviewData } from "../../reducers/selectors";
 
 class HomeMap extends React.Component {
   constructor(props) {
@@ -139,7 +140,11 @@ class HomeMap extends React.Component {
         <div className="home-index-body">
           <div className="home-index-cntr">
             {this.homeMessage()}
-            <HomeIndex key={this.props.homes.id} homes={this.props.homes} />
+            <HomeIndex
+              key={this.props.homes.id}
+              homes={this.props.homes}
+              reviewData={reviewData}
+            />
           </div>
 
           <div className="home-index-map">

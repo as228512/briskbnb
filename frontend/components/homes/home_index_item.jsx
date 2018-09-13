@@ -1,9 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import HomeShowContainer from "../home_show/home_show_container";
 import ReviewButtonContainer from "../reviews/review_button_container";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Rating from "react-rating";
 
 class HomeIndexItem extends React.Component {
   constructor(props) {
@@ -20,15 +19,40 @@ class HomeIndexItem extends React.Component {
     );
   }
 
-  componentDidMount() {}
-
   handleClick() {
     const homeId = this.props.home.id;
     this.props.history.push(`/homes/${homeId}`);
   }
 
+  averageStarRating(reviewData) {
+    const { timesReviewed, averageRating } = reviewData;
+    if (timesReviewed > 0) {
+      return (
+        <div>
+          <Rating
+            initialRating={averageRating}
+            emptySymbol={
+              <FontAwesomeIcon
+                icon={["far", "star"]}
+                color="#7595bf"
+                size="xs"
+              />
+            }
+            fullSymbol={
+              <FontAwesomeIcon icon="star" color="#7595bf" size="xs" />
+            }
+            readonly
+          />{" "}
+          <span className="home-index-review-number">{timesReviewed}</span>
+        </div>
+      );
+    }
+  }
+
   homeIndex() {
+    debugger;
     const { title, price, home_url } = this.props.home;
+    const reviewData = this.props.reviewData;
 
     return (
       <div className="home-index-item" onClick={this.handleClick}>
@@ -36,19 +60,22 @@ class HomeIndexItem extends React.Component {
         <div className="index-item-info">
           <div className="index-item-info-title">{title}</div>
           <p className="index-item-description">
-            From ${price} per night · Free cancellation
+            ${price} per night · Free cancellation
           </p>
+          {this.averageStarRating(reviewData)}
         </div>
       </div>
     );
   }
 
+  //Home index ^^^
   ///
   ///
   ///
   ///
   ///
   ///
+  //Trip index ▽▽▽
 
   translateBookingDates() {
     const bookings = this.props.bookings;

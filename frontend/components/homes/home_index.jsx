@@ -1,8 +1,11 @@
 import React from "react";
-import HomeIndexItem from "./home_index_item";
 import { withRouter } from "react-router-dom";
 
+import HomeIndexItem from "./home_index_item";
+
 const HomeIndex = props => {
+  debugger;
+  const homes = props.homes;
   const bookings = props.bookings;
   const upcomingTrip = props.upcomingTrip;
 
@@ -10,9 +13,18 @@ const HomeIndex = props => {
     return (
       <div>
         <div className="home-index">
-          {props.homes.map(home => (
-            <HomeIndexItem home={home} bookings={bookings} key={home.id} />
-          ))}
+          {homes.map(home => {
+            const reviewData = props.reviewData(home.reviews);
+            debugger;
+            return (
+              <HomeIndexItem
+                home={home}
+                bookings={bookings}
+                reviewData={reviewData}
+                key={home.id}
+              />
+            );
+          })}
         </div>
       </div>
     );
@@ -20,7 +32,7 @@ const HomeIndex = props => {
     return (
       <div>
         <div className="trip-index">
-          {props.homes.map(home => {
+          {homes.map(home => {
             return (
               <HomeIndexItem
                 home={home}
