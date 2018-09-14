@@ -51,7 +51,6 @@
 }
 
 .review-modal-child {
-  height: 25vw;
   width: 40vw;
   display: block;
   padding: 32px;
@@ -88,11 +87,11 @@
 }
 
 .review-submit-button {
-  color: white;
   background-color: #335989;
   color: white;
   border-radius: 4px;
-  margin-top: 30px;
+  margin-top: 1em;
+  margin-bottom: 1em;
   width: 86.2%;
   font-size: 24px;
   padding: 4px;
