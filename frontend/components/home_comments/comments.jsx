@@ -10,7 +10,7 @@ class Comments extends React.Component {
     super(props);
   }
 
-  promptUserReview() {
+  promptUserReview(numberOfReviews) {
     if (this.props.pendingReviews.length > 0) {
       const pendingReview = this.props.pendingReviews[0];
       const options = { month: "short", year: "numeric" };
@@ -33,15 +33,20 @@ class Comments extends React.Component {
           />
         </div>
       );
-    } else
+    } else if (numberOfReviews > 0) {
+      return <div />;
+    } else {
       return (
         <ul className="pending-review-text-v2">
           <li>Why not be the first?</li>
         </ul>
       );
+    }
   }
 
-  timesReviewed(numberOfReviews) {
+  timesReviewed() {
+    const numberOfReviews = this.props.reviews.length;
+
     if (numberOfReviews > 0) {
       let pluralReviews = "Reviews";
       if (numberOfReviews === 1) pluralReviews = "Review";
@@ -64,7 +69,7 @@ class Comments extends React.Component {
             }
             readonly
           />
-          {this.promptUserReview()}
+          {this.promptUserReview(numberOfReviews)}
         </h1>
       );
     } else {
@@ -80,8 +85,7 @@ class Comments extends React.Component {
   render() {
     const reviews = this.props.reviews;
     const commenters = this.props.commenters;
-    const numberOfReviews = this.props.reviews.length;
-    const reviewText = this.timesReviewed(numberOfReviews);
+    const reviewText = this.timesReviewed();
 
     return (
       <div>
