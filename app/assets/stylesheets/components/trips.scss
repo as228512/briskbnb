@@ -20,16 +20,20 @@
 }
 
 .booking-range {
+  display: flex;
   margin-left: 1vw;
   margin-top: 0.25vw;
 }
 
 .trips-snowflake-bullet {
-  margin-right: 2%;
+  margin-right: 3%;
+}
+
+.trips-review-button-cntr {
+  margin: auto;
 }
 
 .trips-review-button {
-  margin-left: 8%;
   border: 2px;
   border-radius: 3px;
   color: white;

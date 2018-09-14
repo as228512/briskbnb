@@ -11,7 +11,7 @@ const ReviewButton = props => {
 
   if (!review && component === "tripsIndex") {
     return (
-      <span>
+      <span className="trips-review-button-cntr">
         <input
           className="trips-review-button"
           type="submit"
