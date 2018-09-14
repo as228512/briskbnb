@@ -203,7 +203,7 @@ class BookingDatePicker extends React.Component {
 
     if (timesReviewed > 0) {
       return (
-        <div>
+        <div className="booking-form-cntr">
           <form className="booking-form-reviewV" onSubmit={this.handleSubmit}>
             <div className="price-line">
               <div>
