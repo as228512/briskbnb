@@ -10,7 +10,7 @@ class Comments extends React.Component {
     super(props);
   }
 
-  formatPendingReviewText() {
+  promptUserReview() {
     if (this.props.pendingReviews.length > 0) {
       const pendingReview = this.props.pendingReviews[0];
       const options = { month: "short", year: "numeric" };
@@ -20,27 +20,24 @@ class Comments extends React.Component {
       );
 
       return (
-        <ul className="pending-review-text">
-          <br />
-          <li>{`You stayed here in ${englishDate}.`}</li>
-          <li>
-            Be the first to tell everyone what you think!
-            <span>
-              <ReviewButtonContainer
-                homeShow={true}
-                review={false}
-                bookingId={this.props.home.bookingIds[0]}
-                homeId={pendingReview[2]}
-              />
-            </span>
-          </li>
-        </ul>
+        <div className="pending-review-cntr">
+          <ul className="pending-review-text-v1">
+            <li>{`You stayed here in ${englishDate}.`}</li>
+            <li>Let us know what you thought!</li>
+          </ul>
+          <ReviewButtonContainer
+            homeShow={true}
+            review={false}
+            bookingId={pendingReview[3]}
+            homeId={pendingReview[2]}
+          />
+        </div>
       );
     } else
       return (
-        <li className="pending-review-text">
-          Why not book a stay and be the first?
-        </li>
+        <ul className="pending-review-text-v2">
+          <li>Why not be the first?</li>
+        </ul>
       );
   }
 
@@ -67,17 +64,14 @@ class Comments extends React.Component {
             }
             readonly
           />
+          {this.promptUserReview()}
         </h1>
       );
     } else {
-      let pendingReviewText = this.formatPendingReviewText();
-
       return (
         <h1 className="average-rating">
-          <ul>
-            <li>No reviews just yet.</li>
-            {pendingReviewText}
-          </ul>
+          <li>No reviews just yet.</li>
+          {this.promptUserReview()}
         </h1>
       );
     }

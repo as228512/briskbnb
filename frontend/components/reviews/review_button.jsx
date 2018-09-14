@@ -9,18 +9,29 @@ const ReviewButton = props => {
   if (props.homeShow) component = "homeShow";
   else if (props.tripsIndex) component = "tripsIndex";
 
-  if (!review) {
+  if (!review && component === "tripsIndex") {
     return (
       <span>
         <input
+          className="trips-review-button"
           type="submit"
-          className="review-button"
           value={"Review"}
           onClick={() =>
             props.openReviewModal("review", homeId, bookingId, component)
           }
         />
       </span>
+    );
+  } else if (!review && component === "homeShow") {
+    return (
+      <input
+        className="home-show-review-button"
+        type="submit"
+        value={"Review"}
+        onClick={() =>
+          props.openReviewModal("review", homeId, bookingId, component)
+        }
+      />
     );
   } else return <div />;
 };

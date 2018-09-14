@@ -13,15 +13,38 @@
 }
 
 .average-rating {
+  display: flex;
   font-family: inherit;
   font-size: x-large;
   font-weight: 700;
 }
 
-.pending-review-text {
-  font-size: medium;
-  font-weight: 400;
-  text-indent: 10px;
+.pending-review-cntr {
+  display: flex;
+  flex-direction: row;
+  width: 53%;
+}
+
+.pending-review-text-v1 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 10%;
+  margin-right: 6%;
+}
+
+.pending-review-text-v2 {
+  font-weight: 700;
+  margin-left: 14%;
+}
+
+.home-show-review-button {
+  border: 2px;
+  border-radius: 3px;
+  color: white;
+  background-color: #335989;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .comment-star-rating {

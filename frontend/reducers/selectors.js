@@ -81,8 +81,8 @@ const formatBookings = (bookings, currentUserId, nonReviewedTrips = false) => {
   let orderedBookingsArray = [];
 
   //extracts dates and home_id from currentUser's bookings, pushing them into a workable array
-  //of sub-arrays ex. format [[start_date, end_date, home_id],
-  //                          [start_date2, end_date2, home_id2]]
+  //of sub-arrays ex. format [[start_date, end_date, home_id, id],
+  //                          [start_date2, end_date2, home_id2, id]]
   //tests to see if nonReviewedTrips() OR tripsIndex is calling it, to determine whether "reviewed" status is relevant
   Object.keys(bookings).forEach(key => {
     if (nonReviewedTrips && bookings[key]["reviewed"]) {
@@ -91,7 +91,8 @@ const formatBookings = (bookings, currentUserId, nonReviewedTrips = false) => {
       orderedBookingsArray.push([
         bookings[key]["start_date"],
         bookings[key]["end_date"],
-        bookings[key]["home_id"]
+        bookings[key]["home_id"],
+        bookings[key]["id"]
       ]);
     }
   });

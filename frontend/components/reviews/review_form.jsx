@@ -14,11 +14,6 @@ class ReviewForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  currentComponent(componentName) {
-    if (componentName === "homeShow") return true;
-    else if (componentName === "tripsIndex") return false;
-  }
-
   handleSubmit(e) {
     e.preventDefault();
 
@@ -40,8 +35,8 @@ class ReviewForm extends React.Component {
           home_id: this.props.homeId,
           booking_id: this.props.bookingId
         })
-        .then(() => this.props.fetchHome(this.props.homeId))
         .then(() => this.props.updateReviewedBooking(this.props.bookingId))
+        .then(() => this.props.fetchHome(this.props.homeId))
         .then(this.props.closeModal);
     }
   }
@@ -63,30 +58,34 @@ class ReviewForm extends React.Component {
     return (
       <div className="review-form-container">
         <form onSubmit={this.handleSubmit} className="review-form">
-          <div onClick={this.props.closeModal} className="close-x">
+          <div onClick={this.props.closeModal} className="review-close-x">
             X
           </div>
 
-          <div>Rate your stay at this brisk location!</div>
+          <div className="review-form-text-1">
+            Rate your stay at this brisk location!
+          </div>
 
           <Rating
             start={0}
             stop={5}
             fullSymbol={
-              <FontAwesomeIcon icon="star" color="#7595bf" size="3x" />
+              <FontAwesomeIcon icon="star" color="#7595bf" size="2x" />
             }
             emptySymbol={
               <FontAwesomeIcon
                 icon={["far", "star"]}
                 color="#7595bf"
-                size="3x"
+                size="2x"
               />
             }
             initialRating={this.state.rating}
             onChange={rate => this.update("rating", rate)}
           />
 
-          <div>Let us know! How was your stay?</div>
+          <div className="review-form-text-2">
+            Let us know! How was your stay?
+          </div>
 
           <textarea
             type="text"
@@ -99,7 +98,7 @@ class ReviewForm extends React.Component {
 
           <input
             type="submit"
-            valiue={"Submit"}
+            value={"Submit"}
             className="review-submit-button"
           />
         </form>

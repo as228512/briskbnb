@@ -19,8 +19,6 @@ class Api::BookingsController < ApplicationController
     end
   end
 
-  ##$$
-
   def update
     @booking = Booking.find(params[:id])
 
@@ -37,8 +35,6 @@ class Api::BookingsController < ApplicationController
       render json: @booking.errors.full_messages, status: 422
     end
   end
-
-  ####
 
   def destroy
     @booking = Booking.find(params[:id])

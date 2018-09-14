@@ -24,10 +24,30 @@
   height: 100%;
 }
 
+.review-close-x {
+  cursor: pointer;
+  width: 19px;
+  padding-bottom: 5px;
+  font-size: 28px;
+  fill: #767676;
+  align-self: flex-start;
+}
+
 .review-form {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.review-form-text-1 {
+  margin-bottom: 2%;
+}
+
+.review-form-text-2 {
+  margin-top: 7%;
 }
 
 .review-modal-child {
@@ -54,21 +74,31 @@
 }
 
 .review-body {
+  line-height: 2;
+  background-color: #ffffff;
+  font-family: inherit;
   margin-top: 14px;
-  margin-left: 12px;
   height: 85px;
+  width: 85%;
   font-size: 16px;
   font-family: inherit;
-  text-indent: 10px;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .review-submit-button {
+  color: white;
+  background-color: #335989;
+  color: white;
+  border-radius: 4px;
   margin-top: 30px;
-  margin-left: 12px;
-  width: 100%;
-  font-size: 60px;
+  width: 86.2%;
+  font-size: 24px;
+  padding: 4px;
   font-family: inherit;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .session-errors {
