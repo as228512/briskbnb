@@ -9,13 +9,23 @@ export const openModal = modal => {
   };
 };
 
-export const openReviewModal = (modal, homeId, bookingId, component) => {
+//reviewId only in the case that review is an edit/delete
+export const openReviewModal = (
+  modal,
+  homeId,
+  bookingId,
+  component,
+  requestType,
+  reviewId
+) => {
   return {
     type: OPEN_REVIEW_MODAL,
     modal,
     homeId,
     bookingId,
-    component
+    component,
+    requestType,
+    reviewId
   };
 };
 

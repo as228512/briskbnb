@@ -18,15 +18,27 @@ class ReviewForm extends React.Component {
     e.preventDefault();
 
     if (this.props.component === "tripsIndex") {
-      this.props
-        .processForm({
-          body: this.state.body,
-          rating: this.state.rating,
-          home_id: this.props.homeId,
-          booking_id: this.props.bookingId
-        })
-        .then(() => this.props.updateReviewedBooking(this.props.bookingId))
-        .then(this.props.closeModal);
+      if (this.props.requestType === "create") {
+        this.props
+          .processForm({
+            body: this.state.body,
+            rating: this.state.rating,
+            home_id: this.props.homeId,
+            booking_id: this.props.bookingId
+          })
+          .then(() => this.props.updateReviewedBooking(this.props.bookingId))
+          .then(this.props.closeModal);
+      } else if (this.props.requestType === "update") {
+        this.props
+          .updateForm({
+            body: this.state.body,
+            rating: this.state.rating,
+            home_id: this.props.homeId,
+            booking_id: this.props.bookingId,
+            id: this.props.reviewId
+          })
+          .then(this.props.closeModal);
+      }
     } else if (this.props.component === "homeShow") {
       this.props
         .processForm({

@@ -16,16 +16,16 @@ class Api::ReviewsController < ApplicationController
     end
   end
 
-  # def update
-  #   @review = review.find(params[:booking_id])
-  #
-  #   if @review
-  #     @review.update(review_params)
-  #     render "/api/reviews/create"
-  #   else
-  #     render json: @review.errors.full_messages, status: 422
-  #   end
-  # end
+  def update
+    @review = Review.find(params[:review][:id])
+
+    if @review
+      @review.update(review_params)
+      render "/api/reviews/create"
+    else
+      render json: @review.errors.full_messages, status: 422
+    end
+  end
   #
   # def destroy
   #   @review = Review.find(params[:id])

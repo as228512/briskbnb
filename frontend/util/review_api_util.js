@@ -1,3 +1,11 @@
+export const fetchReviews = homeId => {
+  return $.ajax({
+    method: "GET",
+    url: "/api/reviews",
+    data: { homeId }
+  });
+};
+
 export const createReview = review => {
   return $.ajax({
     method: "POST",
@@ -6,10 +14,10 @@ export const createReview = review => {
   });
 };
 
-export const fetchReviews = homeId => {
+export const editReview = review => {
   return $.ajax({
-    method: "GET",
-    url: "/api/reviews",
-    data: { homeId }
+    method: "PATCH",
+    url: `/api/reviews/${review.reviewId}`,
+    data: { review }
   });
 };

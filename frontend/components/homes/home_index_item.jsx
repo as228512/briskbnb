@@ -218,8 +218,19 @@ class HomeIndexItem extends React.Component {
     );
   }
 
+  findReviewId(bookingId) {
+    const reviews = this.props.home.reviews || {};
+    const reviewsArr = Object.keys(reviews).map(key => reviews[key]);
+
+    let review = reviewsArr.find(review => {
+      return review.booking_id === bookingId;
+    });
+
+    return review.id;
+  }
+
   renderPastBookingRanges() {
-    let totalBookingDatesLength = this.filterPastTrips().length;
+    const totalBookingDatesLength = this.filterPastTrips().length;
 
     let bookingInfo;
     if (this.state.showMore) {
@@ -227,7 +238,6 @@ class HomeIndexItem extends React.Component {
     } else bookingInfo = this.filterPastTrips().slice(0, 2);
 
     //bookingInfo info ex. arr obj >> [start_date, end_date, reviewed, booking_id]
-
     return (
       <ul>
         {bookingInfo.map((info, i) => (
@@ -241,6 +251,7 @@ class HomeIndexItem extends React.Component {
               review={info[2]}
               bookingId={info[3]}
               homeId={this.props.home.id}
+              reviewId={this.findReviewId(info[3])}
             />
           </li>
         ))}
@@ -313,9 +324,9 @@ class HomeIndexItem extends React.Component {
   }
 
   render() {
-    if (this.props.history.location.pathname === "/homes")
-      return this.homeIndex();
-    else return this.TripIndex();
+    return this.props.history.location.pathname === "/homes"
+      ? this.homeIndex()
+      : this.TripIndex();
   }
 }
 

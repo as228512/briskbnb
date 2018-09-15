@@ -84,6 +84,8 @@ const formatBookings = (bookings, currentUserId, nonReviewedTrips = false) => {
   //of sub-arrays ex. format [[start_date, end_date, home_id, id],
   //                          [start_date2, end_date2, home_id2, id]]
   //tests to see if nonReviewedTrips() OR tripsIndex is calling it, to determine whether "reviewed" status is relevant
+  //if nonReviewedTrips is calling, and the current trip returns as "reviewed", we continue to the next trip via "return true"
+  //omitting it from the result
   Object.keys(bookings).forEach(key => {
     if (nonReviewedTrips && bookings[key]["reviewed"]) {
       return true;
@@ -117,6 +119,5 @@ export const asSortedArray = ({ homes, bookings, users }) => {
 
   let orderedTripsArray = Array.from(orderedTrips);
 
-  if (!orderedTripsArray[0]) return [];
-  else return orderedTripsArray;
+  return orderedTripsArray[0] ? orderedTripsArray : [];
 };
