@@ -59,6 +59,7 @@
 
 .commenter-info-container {
   display: flex;
+  width: 90%;
 }
 
 .commenter-avatar {
@@ -88,6 +89,90 @@
 .comment-creation-date {
   font-size: 14px;
   line-height: 18px;
+}
+
+.comment-crud-dropdown-x,
+.comment-crud-dropdown-bars {
+  margin-top: -11px;
+  margin-right: 5px;
+  width: 19px;
+  font-family: inherit;
+  font-size: 14px;
+  fill: rgb(118, 118, 118);
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.comment-dropdown-cntr {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px;
+  box-sizing: border-box;
+  align-items: center;
+  right: 175px;
+}
+
+.comment-dropdown-cntr input {
+  border: 2px;
+  border-radius: 3px;
+  color: white;
+  padding: 3px 12px 3px 12px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.edit-review-DD-btn {
+  animation: bounce 1.2s;
+  -webkit-animation: bounce 1.2s;
+  background-color: #335989;
+  margin-right: 5px;
+  padding: 3px 12px 3px 12px;
+}
+
+.delete-review-DD-btn {
+  animation: bounce 1.2s;
+  -webkit-animation: bounce 1.2s;
+  background-color: #bb0618;
+  padding: 3px 12px 3px 12px;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1, 1) translate(0px, -30px);
+  }
+
+  30% {
+    transform: scale(1, 1) translate(0px, 0px);
+  }
+
+  90% {
+    transform: scale(1, 0.8) translate(0px, 10px);
+  }
+
+  100% {
+    transform: scale(1, 1) translate(0px, 0px);
+  }
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    transform: scale(1, 1) translate(0px, -30px);
+  }
+
+  30% {
+    transform: scale(1, 1) translate(0px, 0px);
+  }
+
+  90% {
+    transform: scale(1, 0.8) translate(0px, 10px);
+  }
+
+  100% {
+    transform: scale(1, 1) translate(0px, 0px);
+  }
 }
 
 .comment-body {

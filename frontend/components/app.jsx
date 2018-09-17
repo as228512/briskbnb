@@ -8,14 +8,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
   faSnowflake,
-  faStar
+  faStar,
+  faBars,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faStar as emptyStar,
   faLightbulb as lightbulb
 } from "@fortawesome/free-regular-svg-icons";
 
-library.add(faSearch, faSnowflake, faStar, emptyStar, lightbulb);
+library.add(
+  faSearch,
+  faSnowflake,
+  faStar,
+  emptyStar,
+  lightbulb,
+  faBars,
+  faTimes
+);
 
 import GreetingText from "./greeting/greeting_text";
 import SearchContainer from "./search/search_container";
