@@ -21,16 +21,18 @@ class Api::BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
+    @booking.reviewed = params[:reviewed]
 
     if @booking
       updated_booking = {
                           start_date: @booking.start_date,
                           end_date: @booking.end_date,
                           home_id: @booking.home_id,
-                          reviewed: true
+                          reviewed: @booking.reviewed
                         }
 
       @booking.update(updated_booking)
+      render json: {}
     else
       render json: @booking.errors.full_messages, status: 422
     end
@@ -39,6 +41,7 @@ class Api::BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy!
+    render json: {}
   end
 
   private

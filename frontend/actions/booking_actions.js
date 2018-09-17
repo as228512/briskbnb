@@ -27,11 +27,6 @@ export const clearBookingErrors = () => ({
   type: CLEAR_BOOKING_ERRORS
 });
 
-export const editBookingReviewStatus = bookingId => ({
-  type: EDIT_BOOKING_REVIEW_STATUS,
-  bookingId
-});
-
 export const fetchTrips = () => dispatch =>
   APIUtil.fetchTrips().then(trips => dispatch(receiveTrips(trips)));
 
@@ -44,7 +39,7 @@ export const createBooking = booking => dispatch =>
 export const resetBookingErrors = () => dispatch =>
   dispatch(clearBookingErrors());
 
-export const updateReviewedBooking = bookingId => dispatch =>
-  APIUtil.editBookingReviewStatus(bookingId).then(() =>
+export const updateReviewedBooking = booking => dispatch =>
+  APIUtil.editBookingReviewStatus(booking).then(() =>
     APIUtil.fetchTrips().then(trips => dispatch(receiveTrips(trips)))
   );

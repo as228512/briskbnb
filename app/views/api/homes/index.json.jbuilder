@@ -11,7 +11,5 @@
         end
       end
     end
-
-    json.averageReviewRating 0
   end
 end

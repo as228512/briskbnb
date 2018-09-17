@@ -14,10 +14,17 @@ export const fetchReviews = homeId => dispatch =>
 
 export const createReview = review => dispatch =>
   APIUtil.createReview(review)
-    .then(review => APIUtil.fetchReviews(review.review.home_id))
+    .then(payLoad => APIUtil.fetchReviews(payLoad.review.home_id))
     .then(reviews => dispatch(receiveReviews(reviews)));
 
 export const editReview = review => dispatch =>
   APIUtil.editReview(review)
-    .then(review => APIUtil.fetchReviews(review.review.home_id))
+    .then(payLoad => APIUtil.fetchReviews(payLoad.review.home_id))
     .then(reviews => dispatch(receiveReviews(reviews)));
+
+export const deleteReview = (reviewId, homeId) => dispatch =>
+  APIUtil.deleteReview(reviewId).then(homeId =>
+    APIUtil.fetchReviews(homeId).then(reviews =>
+      dispatch(receiveReviews(reviews))
+    )
+  );
