@@ -1,14 +1,15 @@
 import React from "react";
 
 const ReviewButton = props => {
+  const modalType = "review";
   const review = props.review;
   const bookingId = props.bookingId;
   const homeId = props.homeId;
   const reviewId = props.reviewId;
 
   let component;
-  if (props.homeShow) component = "homeShow";
-  else if (props.tripsIndex) component = "tripsIndex";
+  let isHomeShow = props.homeShow;
+  isHomeShow ? (component = "homeShow") : (component = "tripsIndex");
 
   if (!review && component === "tripsIndex") {
     const requestType = "create";
@@ -18,10 +19,10 @@ const ReviewButton = props => {
         <input
           className="trips-review-button"
           type="submit"
-          value={"Review"}
+          value={"Write Review"}
           onClick={() =>
             props.openReviewModal(
-              "review",
+              modalType,
               homeId,
               bookingId,
               component,
@@ -32,23 +33,37 @@ const ReviewButton = props => {
       </span>
     );
   } else if (review && component === "tripsIndex") {
-    const requestType = "update";
-
     return (
       <span className="trips-review-button-cntr">
         <input
-          className="trips-review-button"
+          className="trips-review-update-button"
           type="submit"
           value={"Edit Review"}
           onClick={() =>
             props.openReviewModal(
-              "review",
+              modalType,
               homeId,
               bookingId,
               component,
-              requestType,
+              "update",
               reviewId
             )
+          }
+        />
+        <input
+          className="trips-review-delete-button"
+          type="submit"
+          value={"Delete Review"}
+          onClick={() =>
+            props
+              .deleteReview(reviewId, homeId)
+              .then(() =>
+                props.updateReviewedBooking({
+                  bookingId: bookingId,
+                  reviewed: false
+                })
+              )
+              .then(() => props.fetchHome(homeId))
           }
         />
       </span>
@@ -60,7 +75,7 @@ const ReviewButton = props => {
         type="submit"
         value={"Review"}
         onClick={() =>
-          props.openReviewModal("review", homeId, bookingId, component)
+          props.openReviewModal(modalType, homeId, bookingId, component)
         }
       />
     );

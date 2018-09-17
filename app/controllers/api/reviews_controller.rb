@@ -2,7 +2,7 @@ class Api::ReviewsController < ApplicationController
   before_action :require_login, only: [:create, :destroy]
 
   def index
-    @reviews = Review.where(home_id: params[:homeId])
+    @reviews = Review.where(home_id: params[:home_id])
   end
 
   def create
@@ -26,11 +26,12 @@ class Api::ReviewsController < ApplicationController
       render json: @review.errors.full_messages, status: 422
     end
   end
-  #
-  # def destroy
-  #   @review = Review.find(params[:id])
-  #   @review.destroy!
-  # end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy!
+    render json: {}
+  end
 
   private
 

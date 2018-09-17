@@ -226,16 +226,18 @@ class HomeIndexItem extends React.Component {
       return review.booking_id === bookingId;
     });
 
-    return review.id;
+    let reviewId = review ? review.id : null;
+
+    return reviewId;
   }
 
   renderPastBookingRanges() {
-    const totalBookingDatesLength = this.filterPastTrips().length;
+    const seeMore = this.state.showMore;
+    const allPastTrips = this.filterPastTrips();
+    const twoPastTrips = this.filterPastTrips().slice(0, 2);
 
-    let bookingInfo;
-    if (this.state.showMore) {
-      bookingInfo = this.filterPastTrips();
-    } else bookingInfo = this.filterPastTrips().slice(0, 2);
+    const bookingInfo = seeMore ? allPastTrips : twoPastTrips;
+    const totalBookingDatesLength = this.filterPastTrips().length;
 
     //bookingInfo info ex. arr obj >> [start_date, end_date, reviewed, booking_id]
     return (

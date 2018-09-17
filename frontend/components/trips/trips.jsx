@@ -14,6 +14,8 @@ class Trips extends React.Component {
     });
   }
 
+  componentWillReceiveProps(nextProps) {}
+
   componentWillUnmount() {
     this.props.clearHomes();
   }

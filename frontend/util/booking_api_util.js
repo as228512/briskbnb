@@ -13,10 +13,10 @@ export const fetchTrips = () => {
   });
 };
 
-export const editBookingReviewStatus = bookingId => {
+export const editBookingReviewStatus = ({ bookingId, reviewed }) => {
   return $.ajax({
     method: "PATCH",
     url: `/api/bookings/${bookingId}`,
-    data: { bookingId }
+    data: { reviewed }
   });
 };

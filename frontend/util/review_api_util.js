@@ -1,8 +1,7 @@
 export const fetchReviews = homeId => {
   return $.ajax({
     method: "GET",
-    url: "/api/reviews",
-    data: { homeId }
+    url: "/api/reviews"
   });
 };
 
@@ -19,5 +18,12 @@ export const editReview = review => {
     method: "PATCH",
     url: `/api/reviews/${review.reviewId}`,
     data: { review }
+  });
+};
+
+export const deleteReview = reviewId => {
+  return $.ajax({
+    method: "DELETE",
+    url: `/api/reviews/${reviewId}`
   });
 };
