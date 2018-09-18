@@ -47,6 +47,7 @@ class HomeDetail extends React.Component {
       <CommentsContainer
         className="comments"
         home={this.props.home}
+        bookedDates={this.props.bookedDates}
         reviews={reviews}
         reviewStats={reviewStats(reviews)}
       />
@@ -75,6 +76,7 @@ class HomeDetail extends React.Component {
                   <li className="home-description">
                     {this.props.home.description}
                   </li>
+                  <div className="comments-bottom-border" />
                 </ul>
                 {this.comments()}
               </ul>

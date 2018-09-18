@@ -118,7 +118,7 @@ class SingleComment extends React.Component {
             <p className="comment-body">{body}</p>
           </div>
         </div>
-        <div className="comments-border" />
+        <div className="comments-bottom-border" />
       </div>
     );
   }

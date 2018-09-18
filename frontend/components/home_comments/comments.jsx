@@ -2,6 +2,7 @@ import React from "react";
 import Rating from "react-rating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReviewButtonContainer from "../reviews/review_button_container";
+import DatePicker from "react-datepicker";
 
 import SingleComment from "./single_comment";
 
@@ -82,6 +83,20 @@ class Comments extends React.Component {
     }
   }
 
+  availabilityCalendar() {
+    return (
+      <div className="inline-datepicker-cntr">
+        <h1 className="inline-datepicker-text">Availability</h1>
+        <DatePicker
+          inline
+          monthsShown={2}
+          excludeDates={this.props.bookedDates}
+          disabled={true}
+        />
+      </div>
+    );
+  }
+
   render() {
     const reviews = this.props.reviews;
     const commenters = this.props.commenters;
@@ -95,12 +110,13 @@ class Comments extends React.Component {
 
     return (
       <div>
+        {this.availabilityCalendar()}
         <div>
-          <div className="top-rating-border" />
+          <div className="comments-top-border" />
 
           {reviewText}
 
-          <div className="comments-border" />
+          <div className="comments-bottom-border" />
         </div>
 
         {reviews.map(review => {

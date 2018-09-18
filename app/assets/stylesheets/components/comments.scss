@@ -1,5 +1,5 @@
-.top-rating-border,
-.comments-border {
+.comments-top-border,
+.comments-bottom-border {
   display: block;
   height: 1px;
   width: 90%;
@@ -8,7 +8,7 @@
   margin-bottom: 32px;
 }
 
-.comments-border {
+.comments-bottom-border {
   margin-bottom: 28px;
 }
 
