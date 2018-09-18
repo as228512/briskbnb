@@ -20,9 +20,9 @@ class BookingDatePicker extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state === nextState ? false : true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return this.state === nextState ? false : true;
+  // }
 
   componentWillUnmount() {
     this.props.resetBookingErrors();
@@ -181,25 +181,49 @@ class BookingDatePicker extends React.Component {
   }
 
   popularity() {
-    return (
-      <div className="popular-booking-cntr">
-        <ul>
-          <li className="popular-booking-text">
-            This home is on people's minds.
-          </li>
-          <li>
-            It's been viewed {Math.floor(Math.random() * 500) + 100} times in
-            the past week.
-          </li>
-        </ul>
-        <FontAwesomeIcon
-          className="lightbulb"
-          icon={["far", "lightbulb"]}
-          color="#dcdc1d"
-          size="3x"
-        />
-      </div>
-    );
+    const timesReviewed = this.props.reviewStats.timesReviewed;
+
+    if (timesReviewed > 0) {
+      return (
+        <div className="popular-booking-cntr">
+          <ul>
+            <li className="popular-booking-text">
+              This home is on people's minds.
+            </li>
+            <li>
+              It's been viewed {Math.floor(Math.random() * 500) + 100} times in
+              the past week.
+            </li>
+          </ul>
+          <FontAwesomeIcon
+            className="lightbulb"
+            icon={["far", "lightbulb"]}
+            color="#dcdc1d"
+            size="3x"
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div className="popular-booking-cntrV2">
+          <ul>
+            <li className="popular-booking-text">
+              This home is on people's minds.
+            </li>
+            <li>
+              It's been viewed {Math.floor(Math.random() * 500) + 100} times in
+              the past week.
+            </li>
+          </ul>
+          <FontAwesomeIcon
+            className="lightbulb"
+            icon={["far", "lightbulb"]}
+            color="#dcdc1d"
+            size="3x"
+          />
+        </div>
+      );
+    }
   }
 
   renderSwitch() {

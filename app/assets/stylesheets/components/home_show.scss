@@ -86,7 +86,7 @@
   animation: container;
   animation-duration: 5.8s;
   animation-timing-function: ease-out;
-  border: 1px solid rgb(219, 219, 219);
+  border: 1.1px solid rgb(219, 219, 219);
   border-radius: 1px;
   display: flex;
   flex-direction: column;
@@ -125,7 +125,8 @@
   }
 }
 
-.popular-booking-cntr {
+.popular-booking-cntr,
+.popular-booking-cntrV2 {
   animation: popular;
   animation-duration: 6s;
   animation-timing-function: ease-out;
@@ -135,7 +136,30 @@
   margin-bottom: 1vw;
 }
 
+.popular-booking-cntrV2 {
+  animation: popularV2;
+  animation-duration: 6s;
+  animation-timing-function: ease-out;
+}
+
 @keyframes popular {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+    transform: translateY(-140px);
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes popularV2 {
   0% {
     opacity: 0;
   }
