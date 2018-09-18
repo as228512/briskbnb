@@ -17,7 +17,10 @@ class ReviewForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    if (this.props.component === "tripsIndex") {
+    if (
+      this.props.component === "tripsIndex" ||
+      this.props.component === "singleComment"
+    ) {
       if (this.props.requestType === "create") {
         this.props
           .processForm({

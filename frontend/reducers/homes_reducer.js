@@ -17,7 +17,7 @@ const homesReducer = (state = {}, action) => {
 
     case RECEIVE_HOME:
       const newHome = { [action.home.id]: action.home };
-      return merge({}, state, newHome);
+      return Object.assign({}, state, newHome);
 
     default:
       return state;

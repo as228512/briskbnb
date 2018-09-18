@@ -86,6 +86,12 @@ class Comments extends React.Component {
     const reviews = this.props.reviews;
     const commenters = this.props.commenters;
     const reviewText = this.timesReviewed();
+    const openReviewModal = this.props.openReviewModal;
+    const deleteReview = this.props.deleteReview;
+    const updateReviewedBooking = this.props.updateReviewedBooking;
+    const currentUser = this.props.currentUser;
+    const eraseHomes = this.props.eraseHomes;
+    const fetchHome = this.props.fetchHome;
 
     return (
       <div>
@@ -102,8 +108,14 @@ class Comments extends React.Component {
 
           return (
             <SingleComment
+              currentUser={currentUser}
               review={review}
               commenterInfo={commenterInfo}
+              openReviewModal={openReviewModal}
+              deleteReview={deleteReview}
+              updateReviewedBooking={updateReviewedBooking}
+              eraseHomes={eraseHomes}
+              fetchHome={fetchHome}
               key={review.id}
             />
           );

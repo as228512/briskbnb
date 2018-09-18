@@ -9,7 +9,7 @@ export const openModal = modal => {
   };
 };
 
-//reviewId only in the case that review is an edit/delete
+//reviewId only in the case that review is an edit
 export const openReviewModal = (
   modal,
   homeId,

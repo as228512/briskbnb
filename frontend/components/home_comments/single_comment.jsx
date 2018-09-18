@@ -27,41 +27,70 @@ class SingleComment extends React.Component {
     });
   }
 
-  doNothing() {}
-
   dropdownButton() {
-    if (this.state.dropdownButtonStatus) {
-      return (
-        <ul className="comment-crud-dropdown-x">
-          <FontAwesomeIcon icon="times" onClick={() => this.toggleDropdown()} />
-          {this.dropdown()}
-        </ul>
-      );
-    } else
-      return (
-        <ul className="comment-crud-dropdown-bars">
-          <FontAwesomeIcon onClick={() => this.toggleDropdown()} icon="bars" />
-          {this.dropdown()}
-        </ul>
-      );
+    if (this.props.currentUser === this.props.review.user_id)
+      if (this.state.dropdownButtonStatus) {
+        return (
+          <ul className="comment-crud-dropdown-x">
+            <FontAwesomeIcon
+              icon="times"
+              onClick={() => this.toggleDropdown()}
+            />
+            {this.dropdown()}
+          </ul>
+        );
+      } else
+        return (
+          <ul className="comment-crud-dropdown-bars">
+            <FontAwesomeIcon
+              onClick={() => this.toggleDropdown()}
+              icon="bars"
+            />
+            {this.dropdown()}
+          </ul>
+        );
   }
 
   dropdown() {
     if (this.state.dropdownStatus) {
+      const modalType = "review";
+      const homeId = this.props.review.home_id;
+      const bookingId = this.props.review.booking_id;
+      const component = "singleComment";
+      const reviewId = this.props.review.id;
+
       return (
         <nav className="comment-dropdown-cntr">
           <input
             className="edit-review-DD-btn"
             type="submit"
             value={"Edit Review"}
-            onClick={() => this.doNothing()}
+            onClick={() =>
+              this.props.openReviewModal(
+                modalType,
+                homeId,
+                bookingId,
+                component,
+                "update",
+                reviewId
+              )
+            }
           />
 
           <input
             className="delete-review-DD-btn"
             type="submit"
             value={"Delete Review"}
-            onClick={() => this.doNothing()}
+            onClick={() =>
+              this.props.deleteReview(reviewId, homeId).then(() =>
+                this.props
+                  .updateReviewedBooking({
+                    bookingId: bookingId,
+                    reviewed: false
+                  })
+                  .then(() => this.props.fetchHome(homeId))
+              )
+            }
           />
         </nav>
       );

@@ -1,5 +1,8 @@
 import { connect } from "react-redux";
-import { fetchReviews } from "../../actions/review_actions";
+import { openReviewModal } from "../../actions/modal_actions";
+import { deleteReview } from "../../actions/review_actions";
+import { updateReviewedBooking } from "../../actions/booking_actions";
+import { fetchHome, eraseHomes } from "../../actions/home_actions";
 import {
   asArray,
   selectHome,
@@ -25,7 +28,35 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteReview: review => dispatch(deleteReview(review)),
+    updateReviewedBooking: bookingId =>
+      dispatch(updateReviewedBooking(bookingId)),
+    eraseHomes: () => dispatch(eraseHomes()),
+    fetchHome: homeId => dispatch(fetchHome(homeId)),
+    openReviewModal: (
+      modal,
+      homeId,
+      bookingId,
+      component,
+      requestType,
+      reviewId
+    ) =>
+      dispatch(
+        openReviewModal(
+          modal,
+          homeId,
+          bookingId,
+          component,
+          requestType,
+          reviewId
+        )
+      )
+  };
+};
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Comments);
