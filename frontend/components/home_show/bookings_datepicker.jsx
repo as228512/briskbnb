@@ -20,10 +20,6 @@ class BookingDatePicker extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return this.state === nextState ? false : true;
-  // }
-
   componentWillUnmount() {
     this.props.resetBookingErrors();
   }
