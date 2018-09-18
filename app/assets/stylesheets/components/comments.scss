@@ -126,16 +126,16 @@
 }
 
 .edit-review-DD-btn {
-  animation: bounce 1.2s;
-  -webkit-animation: bounce 1.2s;
+  animation: bounce 1.5s;
+  -webkit-animation: bounce 1.5s;
   background-color: #335989;
   margin-right: 5px;
   padding: 3px 12px 3px 12px;
 }
 
 .delete-review-DD-btn {
-  animation: bounce 1.2s;
-  -webkit-animation: bounce 1.2s;
+  animation: bounce 1.5s;
+  -webkit-animation: bounce 1.5s;
   background-color: #bb0618;
   padding: 3px 12px 3px 12px;
 }
@@ -149,7 +149,7 @@
     transform: scale(1, 1) translate(0px, 0px);
   }
 
-  90% {
+  80% {
     transform: scale(1, 0.8) translate(0px, 10px);
   }
 
@@ -167,7 +167,7 @@
     transform: scale(1, 1) translate(0px, 0px);
   }
 
-  90% {
+  80% {
     transform: scale(1, 0.8) translate(0px, 10px);
   }
 
