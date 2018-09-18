@@ -11,6 +11,25 @@ class Comments extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    debugger;
+    const map = new google.maps.Map(document.getElementById("home-show-map"), {
+      center: { lat: this.props.home.lat, lng: this.props.home.long },
+      zoom: 13
+    });
+
+    const homeLocation = new google.maps.Circle({
+      strokeColor: "#FF0000",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#FF0000",
+      fillOpacity: 0.35,
+      map: map,
+      center: map.center,
+      radius: 500
+    });
+  }
+
   promptUserReview(numberOfReviews) {
     if (this.props.pendingReviews.length > 0) {
       const pendingReview = this.props.pendingReviews[0];
@@ -98,6 +117,7 @@ class Comments extends React.Component {
   }
 
   render() {
+    debugger;
     const reviews = this.props.reviews;
     const commenters = this.props.commenters;
     const reviewText = this.timesReviewed();
@@ -136,6 +156,12 @@ class Comments extends React.Component {
             />
           );
         })}
+        <h1 className="home-show-map-text">The neighborhood</h1>
+        <div id="home-show-map" />
+        <h3 className="home-show-map-bottom-text">
+          Exact location information is provided after a booking is confirmed
+        </h3>
+        <div className="comments-bottom-border" />
       </div>
     );
   }
