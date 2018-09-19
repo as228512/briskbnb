@@ -8,16 +8,21 @@ DEAN_QUOTES = ["I think I figured out why the plane crashed: There were skeleto
 HANK_QUOTES = ["I am the Bat!", "My tongue keeps getting caught in the mouth slit, it's maddening!"]
 ORPHEUS_QUOTES = ["Ah, but we two souls have shared a cheese sandwich more than twice. And the stitched-together quilt of your stony silence forms a tapestry of quiet desperation", "Do not be hasty entering that room. I HAD TACO BELL FOR LUNCH!"]
 MONARCH_QUOTES = ["Venture and I have been engaged in a deadly game of cat and also-cat for years!", "Revenge, like gazpacho soup, is a dish best served cold, precise, and merciless."]
+NAMES = ["Rusty", "Dean", "Hank", "Orpheus", "Monarch"]
 
 
 
 ActiveRecord::Base.transaction do
-  NAMES = ["Rusty", "Dean", "Hank", "Orpheus", "Monarch"]
   name_idx = 0
   5.times do
     fname = NAMES[name_idx]
     e_mail = Faker::VentureBros.vehicle + '@' + Faker::VentureBros.organization + '.com'
-    User.create!(fname: fname, lname: 'Venture', e_mail: e_mail, password: 'teamventure')
+    if name_idx != 3
+      User.create!(fname: fname, lname: 'Venture', e_mail: e_mail, password: 'teamventure')
+    else
+      #demo user
+      User.create!(fname: 'Orpheus', lname: 'Venture', e_mail: 'demo@demos.com', password: 'Demo11' )
+    end
 
     name_idx += 1
   end
@@ -614,6 +619,4 @@ ActiveRecord::Base.transaction do
  end
 
  puts "# of reviews:#{Review.all.length}"
-
- User.create!(id: 100, fname: 'Brock', lname: 'Samoson', e_mail: 'demo@demos.com', password: 'Demo11' )
 end
