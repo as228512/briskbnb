@@ -31,6 +31,7 @@ gem 'jquery-rails'
 gem 'paperclip', '~> 5.0.0'
 gem 'figaro'
 gem 'aws-sdk', '< 3.0'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 
 # Use Capistrano for deployment

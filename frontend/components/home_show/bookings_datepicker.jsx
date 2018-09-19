@@ -276,7 +276,7 @@ class BookingDatePicker extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div className="booking-form-cntr">
           <form className="booking-form" onSubmit={this.handleSubmit}>
             <div className="price-line">
               <strong className="price">${this.props.price}</strong> per night

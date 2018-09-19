@@ -12,7 +12,6 @@ class Comments extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     const map = new google.maps.Map(document.getElementById("home-show-map"), {
       center: { lat: this.props.home.lat, lng: this.props.home.long },
       zoom: 13
@@ -117,7 +116,6 @@ class Comments extends React.Component {
   }
 
   render() {
-    debugger;
     const reviews = this.props.reviews;
     const commenters = this.props.commenters;
     const reviewText = this.timesReviewed();
