@@ -13,7 +13,10 @@ class Comments extends React.Component {
 
   componentDidMount() {
     const map = new google.maps.Map(document.getElementById("home-show-map"), {
-      center: { lat: this.props.home.lat, lng: this.props.home.long },
+      center: {
+        lat: parseFloat(this.props.home.lat),
+        lng: parseFloat(this.props.home.long)
+      },
       zoom: 13
     });
 
