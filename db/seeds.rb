@@ -27,8 +27,6 @@ ActiveRecord::Base.transaction do
     name_idx += 1
   end
 
-  User.create!(fname: "Andrew", lname: "Schumacher", e_mail: "as228512@ohio.edu", password: "redline369")
-
   puts "users_created"
   puts "#{User.first}"
   puts "#{User.last}"
@@ -627,4 +625,6 @@ ActiveRecord::Base.transaction do
  end
 
  puts "# of reviews:#{Review.all.length}"
+
+ User.create!(fname: "Andrew", lname: "Schumacher", e_mail: "as228512@ohio.edu", password: "redline369")
 end
