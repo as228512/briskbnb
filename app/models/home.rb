@@ -18,13 +18,7 @@ class Home < ApplicationRecord
   end
 
   def self.booked_trips(trips)
-    trip_home_ids = []
-
-    trips.keys.each do |key|
-      trip_home_ids << trips[key]["home_id"]
-    end
-
-    user_trips = self.where({ id: trip_home_ids })
+    user_trips = self.where({ id: trips })
     user_trips
   end
 

@@ -10,7 +10,13 @@ class Trips extends React.Component {
 
   componentDidMount() {
     this.props.fetchTrips().then(trips => {
-      this.props.fetchHomes(trips);
+      const tripHomeIds = [];
+
+      Object.keys(trips.trips).forEach(key => {
+        tripHomeIds.push(trips.trips[key]["home_id"]);
+      });
+
+      this.props.fetchHomes({ trips: tripHomeIds });
     });
   }
 
