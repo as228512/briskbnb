@@ -28,8 +28,8 @@ ActiveRecord::Base.transaction do
   end
 
   puts "users_created"
-  puts "#{User.first.id}"
-  puts "#{User.last.id}"
+  puts "#{User.first}"
+  puts "#{User.last}"
 
   users_arr = User.all
 
@@ -542,7 +542,8 @@ ActiveRecord::Base.transaction do
  puts "# of homes:#{Home.all.length}"
 
 
-
+ # start_date: DateTime.strptime("08/15/2018 4:00", "%m/%d/%Y %H:%M"),
+ # end_date: DateTime.strptime("08/19/2018 4:00", "%m/%d/%Y %H:%M")
 
  current_user_id = User.first.id
  current_home_id = Home.first.id
@@ -551,23 +552,26 @@ ActiveRecord::Base.transaction do
  year = 2018
 
  180.times do
-   current_date = Date.new(year, month, day)
+   current_date = DateTime.strptime("#{month}/#{day}/#{year} 10:00", "%m/%d/%Y %H:%M")
+   end_date = current_date + 1
+   puts "#{current_date} - #{end_date}"
 
    Booking.create!(
      start_date: current_date,
-     end_date: current_date + 1,
+     end_date: end_date,
      user_id: current_user_id,
      home_id: current_home_id,
      reviewed: true
    )
 
-   month += 1 if day == 27
    if day == 27 && month == 12
      year += 1
      month = 1
+     day = 0
    end
-
+   month += 1 if day == 27
    day == 27 ? day = 1 : day += 2
+
    current_user_id == User.last.id ? current_user_id = User.first.id : current_user_id += 1
    current_home_id == Home.last.id ? current_home_id = Home.first.id : current_home_id += 1
  end
@@ -581,7 +585,7 @@ ActiveRecord::Base.transaction do
  year = 2018
 
  180.times do
-   current_date = Date.new(year, month, day)
+   current_date = DateTime.strptime("#{month}/#{day}/#{year} 10:00", "%m/%d/%Y %H:%M")
    fname = User.find_by(id: current_user_id).fname
    booking_id = Booking.find_by(user_id: current_user_id, home_id: current_home_id, start_date: current_date).id
 
@@ -608,12 +612,14 @@ ActiveRecord::Base.transaction do
      booking_id: booking_id
    )
 
-   month += 1 if day == 27
    if day == 27 && month == 12
      year += 1
      month = 1
+     day = 0
    end
+   month += 1 if day == 27
    day == 27 ? day = 1 : day += 2
+
    current_user_id == User.last.id ? current_user_id = User.first.id : current_user_id += 1
    current_home_id == Home.last.id ? current_home_id = Home.first.id : current_home_id += 1
  end
