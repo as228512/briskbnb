@@ -5,7 +5,6 @@ import {
 } from "../actions/booking_actions";
 
 export default (state = [], action) => {
-  debugger;
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_BOOKING_ERRORS:
