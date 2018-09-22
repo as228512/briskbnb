@@ -83,9 +83,9 @@ const formatBookings = (bookings, currentUserId, nonReviewedTrips = false) => {
   //extracts dates and home_id from currentUser's bookings, pushing them into a workable array
   //of sub-arrays ex. format [[start_date, end_date, home_id, id],
   //                          [start_date2, end_date2, home_id2, id]]
-  //tests to see if nonReviewedTrips() OR tripsIndex is calling it, to determine whether "reviewed" status is relevant
+  //tests to see if nonReviewedTrips() OR tripsIndex is calling it, to determine whether "reviewed" status is relevant..
   //if nonReviewedTrips is calling, and the current trip returns as "reviewed", we continue to the next trip via "return true"
-  //omitting it from the result
+  //omitting any reviewed results from the returned array
   Object.keys(bookings).forEach(key => {
     if (nonReviewedTrips && bookings[key]["reviewed"]) {
       return true;
@@ -104,8 +104,10 @@ const formatBookings = (bookings, currentUserId, nonReviewedTrips = false) => {
   return orderedBookingsArray;
 };
 
-export const asSortedArray = ({ homes, bookings, users }) => {
-  const currentUserId = Object.values(users)[0]["id"];
+export const asSortedArray = state => {
+  const homes = state.entities.homes;
+  const bookings = state.entities.bookings;
+  const currentUserId = state.session.id;
   let orderedBookings = formatBookings(bookings, currentUserId);
 
   //itterates over each sorted booking, keys into homes hash via "home_id"
@@ -120,4 +122,19 @@ export const asSortedArray = ({ homes, bookings, users }) => {
   let orderedTripsArray = Array.from(orderedTrips);
 
   return orderedTripsArray[0] ? orderedTripsArray : [];
+};
+
+export const currentUsersBookings = state => {
+  const bookings = state.entities.bookings;
+  const currentUserId = state.session.id;
+
+  let relevantBookings = {};
+
+  Object.keys(bookings).forEach(key => {
+    if (bookings[key]["user_id"] === currentUserId) {
+      relevantBookings[key] = bookings[key];
+    }
+  });
+
+  return relevantBookings;
 };

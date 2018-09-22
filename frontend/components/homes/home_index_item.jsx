@@ -235,7 +235,6 @@ class HomeIndexItem extends React.Component {
     const seeMore = this.state.showMore;
     const allPastTrips = this.filterPastTrips();
     const twoPastTrips = this.filterPastTrips().slice(0, 2);
-
     const bookingInfo = seeMore ? allPastTrips : twoPastTrips;
     const totalBookingDatesLength = this.filterPastTrips().length;
 
