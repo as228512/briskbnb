@@ -1,3 +1,41 @@
+.dancing-penguin-cntr {
+  display: flex;
+  justify-content: center;
+  margin-top: 7%;
+}
+
+.no-trips-text-cntr {
+  font-family: inherit;
+  width: 74vw;
+  margin-right: -10%;
+  margin-left: 20%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.no-trips-text-cntr h1 {
+  font-size: 4em;
+  font-weight: 700;
+}
+
+.no-trips-text-cntr h2 {
+  font-size: large;
+}
+
+.no-trips-text-cntr span {
+  color: rgb(74, 111, 255);
+}
+
+.dancing-penguin {
+  margin-right: 20%;
+  margin-left: -8%;
+}
+
+.arpit.work {
+  display: none;
+}
+
 .trips-heading {
   display: block;
   font-weight: 700;
