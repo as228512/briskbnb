@@ -99,10 +99,11 @@ class SessionForm extends React.Component {
 
   emailInputField() {
     let e_mail;
-
+    debugger;
     if (
       this.state.e_mail === "E-mail can't be blank" ||
-      this.state.e_mail === "Invalid E-mail and"
+      this.state.e_mail === "Invalid e-mail and/or password" ||
+      this.state.e_mail === "E-mail has already been taken"
     ) {
       e_mail = this.state.e_mail;
 
@@ -137,7 +138,7 @@ class SessionForm extends React.Component {
 
     if (
       this.state.password === "Invalid Password (minimum of 6 characters)" ||
-      this.state.password === "password combination"
+      this.state.password === "Please try again"
     ) {
       password = this.state.password;
 
@@ -160,7 +161,7 @@ class SessionForm extends React.Component {
             value={this.state.password}
             onChange={this.update("password")}
             className="form-field"
-            placeholder="Create a Password"
+            placeholder="Password"
           />
         </div>
       );
@@ -183,7 +184,9 @@ class SessionForm extends React.Component {
     } else if (
       nextProps.errors.includes("Invalid e-mail/password combination")
     ) {
-      e_mail = "Invalid E-mail and";
+      e_mail = "Invalid e-mail and/or password";
+    } else if (nextProps.errors.includes("E mail has already been taken")) {
+      e_mail = "E-mail has already been taken";
     } else e_mail = this.state.e_mail;
 
     if (
@@ -195,7 +198,7 @@ class SessionForm extends React.Component {
     } else if (
       nextProps.errors.includes("Invalid e-mail/password combination")
     ) {
-      password = "password combination";
+      password = "Please try again";
     } else password = this.state.password;
 
     this.setState({
