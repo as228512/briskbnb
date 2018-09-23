@@ -27,10 +27,38 @@ class SessionForm extends React.Component {
       });
   }
 
+  errorCheck(state) {
+    if (
+      state.fname === "" ||
+      state.lname === "" ||
+      state.e_mail === "" ||
+      state.password === ""
+    ) {
+      return true;
+    } else if (
+      state.fname === "First Name can't be blank" ||
+      state.lname === "Last Name can't be blank" ||
+      state.e_mail === "E-mail can't be blank" ||
+      state.e_mail === "Invalid e-mail and/or password" ||
+      state.password === "Invalid Password (minimum of 6 characters)" ||
+      state.password === "Please try again"
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(this.props.closeModal);
+    if (!this.errorCheck(this.state)) {
+      debugger;
+      return;
+    } else {
+      debugger;
+      const user = Object.assign({}, this.state);
+      this.props.processForm(user).then(this.props.closeModal);
+    }
   }
 
   fnameInputField() {
@@ -99,7 +127,6 @@ class SessionForm extends React.Component {
 
   emailInputField() {
     let e_mail;
-    debugger;
     if (
       this.state.e_mail === "E-mail can't be blank" ||
       this.state.e_mail === "Invalid e-mail and/or password" ||

@@ -57,7 +57,6 @@ class Trips extends React.Component {
   }
 
   noTrips(pastBookings, futureBookings) {
-    debugger;
     if (!pastBookings.length && !futureBookings.length) {
       const bodyMovinOptions = {
         loop: true,

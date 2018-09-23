@@ -131,7 +131,6 @@ class HomeIndexItem extends React.Component {
     const totalBookingDatesLength = this.translateBookingDates().length;
 
     if (isUpcoming) {
-      debugger;
       return (
         <ul>
           {bookingInfo.map((dateRange, i) => (
@@ -218,8 +217,6 @@ class HomeIndexItem extends React.Component {
       : true;
 
     const preBookingText = isUpcomingTrip ? "Booked Dates:" : "Past Visits:";
-
-    debugger;
 
     if (tripsPlanned) {
       return (
