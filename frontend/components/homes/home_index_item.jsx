@@ -14,9 +14,6 @@ class HomeIndexItem extends React.Component {
 
     this.toggleBookings = this.toggleBookings.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.renderMoreUpcomingBookings = this.renderMoreUpcomingBookings.bind(
-      this
-    );
   }
 
   handleClick() {
@@ -120,29 +117,56 @@ class HomeIndexItem extends React.Component {
     return orderedBookingsArray;
   }
 
-  filterUpcomingTrips() {
-    const englishDateRanges = this.translateBookingDates();
-
-    const filteredDateRanges = englishDateRanges.filter(
-      dateRange => new Date() < new Date(dateRange[1])
-    );
-
-    return filteredDateRanges;
-  }
-
-  filterPastTrips() {
-    const englishDateRanges = this.translateBookingDates();
-
-    const filteredDateRanges = englishDateRanges.filter(
-      dateRange => new Date() >= new Date(dateRange[1])
-    );
-
-    return filteredDateRanges;
-  }
-
   toggleBookings() {
     if (this.state.showMore) this.setState({ showMore: false });
     else this.setState({ showMore: true });
+  }
+
+  renderBookingRanges() {
+    const isUpcoming = this.props.upcomingTrip;
+    const showMore = this.state.showMore;
+    const allTrips = this.translateBookingDates();
+    const twoTrips = this.translateBookingDates().slice(0, 2);
+    const bookingInfo = showMore ? allTrips : twoTrips;
+    const totalBookingDatesLength = this.translateBookingDates().length;
+
+    if (isUpcoming) {
+      debugger;
+      return (
+        <ul>
+          {bookingInfo.map((dateRange, i) => (
+            <li className="booking-range" key={`dateRange-${i}`}>
+              <span className="trips-snowflake-bullet">
+                <FontAwesomeIcon icon="snowflake" />
+              </span>{" "}
+              {dateRange[0]} - {dateRange[1]}
+            </li>
+          ))}
+          {this.renderMoreBookingsButton(totalBookingDatesLength)}
+        </ul>
+      );
+    } else {
+      return (
+        <ul>
+          {bookingInfo.map((info, i) => (
+            <li className="booking-range" key={`dateRange-${i}`}>
+              <span className="trips-snowflake-bullet">
+                <FontAwesomeIcon icon="snowflake" />
+              </span>{" "}
+              {info[0]} - {info[1]}{" "}
+              <ReviewButtonContainer
+                tripsIndex={true}
+                review={info[2]}
+                bookingId={info[3]}
+                homeId={this.props.home.id}
+                reviewId={this.findReviewId(info[3])}
+              />
+            </li>
+          ))}
+          {this.renderMoreBookingsButton(totalBookingDatesLength)}
+        </ul>
+      );
+    }
   }
 
   renderMoreBookingsButton(totalBookingDatesLength) {
@@ -171,53 +195,6 @@ class HomeIndexItem extends React.Component {
     } else return null;
   }
 
-  renderUpcomingBookingRanges() {
-    let totalBookingDatesLength = this.filterUpcomingTrips().length;
-
-    let englishDateRanges;
-    if (this.state.showMore) {
-      englishDateRanges = this.filterUpcomingTrips();
-    } else englishDateRanges = this.filterUpcomingTrips().slice(0, 2);
-
-    return (
-      <ul>
-        {englishDateRanges.map((dateRange, i) => (
-          <li className="booking-range" key={`dateRange-${i}`}>
-            <span className="trips-snowflake-bullet">
-              <FontAwesomeIcon icon="snowflake" />
-            </span>{" "}
-            {dateRange[0]} - {dateRange[1]}
-          </li>
-        ))}
-        {this.renderMoreBookingsButton(totalBookingDatesLength)}
-      </ul>
-    );
-  }
-
-  renderMoreUpcomingBookings() {
-    const moreEnglishDateRanges = this.filterUpcomingTrips();
-
-    return (
-      <ul>
-        {moreEnglishDateRanges.map((dateRange, i) => (
-          <li className="booking-range" key={`dateRange-${i}`}>
-            <span className="trips-snowflake-bullet">
-              <FontAwesomeIcon icon="snowflake" />
-            </span>{" "}
-            {dateRange[0]} - {dateRange[1]}
-          </li>
-        ))}
-        <button
-          type="button"
-          className="more-bookings-button"
-          onClick={this.renderUpcomingBookingRanges}
-        >
-          Show Less...{" "}
-        </button>
-      </ul>
-    );
-  }
-
   findReviewId(bookingId) {
     const reviews = this.props.home.reviews || {};
     const reviewsArr = Object.keys(reviews).map(key => reviews[key]);
@@ -231,78 +208,20 @@ class HomeIndexItem extends React.Component {
     return reviewId;
   }
 
-  renderPastBookingRanges() {
-    const seeMore = this.state.showMore;
-    const allPastTrips = this.filterPastTrips();
-    const twoPastTrips = this.filterPastTrips().slice(0, 2);
-    const bookingInfo = seeMore ? allPastTrips : twoPastTrips;
-    const totalBookingDatesLength = this.filterPastTrips().length;
-
-    //bookingInfo info ex. arr obj >> [start_date, end_date, reviewed, booking_id]
-    return (
-      <ul>
-        {bookingInfo.map((info, i) => (
-          <li className="booking-range" key={`dateRange-${i}`}>
-            <span className="trips-snowflake-bullet">
-              <FontAwesomeIcon icon="snowflake" />
-            </span>{" "}
-            {info[0]} - {info[1]}{" "}
-            <ReviewButtonContainer
-              tripsIndex={true}
-              review={info[2]}
-              bookingId={info[3]}
-              homeId={this.props.home.id}
-              reviewId={this.findReviewId(info[3])}
-            />
-          </li>
-        ))}
-        {this.renderMoreBookingsButton(totalBookingDatesLength)}
-      </ul>
-    );
-  }
-
-  renderMorePastBookings() {
-    const moreEnglishDateRanges = this.filterPastTrips();
-
-    return (
-      <ul>
-        {moreEnglishDateRanges.map((dateRange, i) => (
-          <li className="booking-range" key={`dateRange-${i}`}>
-            <span className="trips-snowflake-bullet">
-              <FontAwesomeIcon icon="snowflake" />
-            </span>{" "}
-            {dateRange[0]} - {dateRange[1]}
-          </li>
-        ))}
-        <button type="button" onClick={this.renderPastBookingRanges}>
-          Show Less...{" "}
-        </button>
-      </ul>
-    );
-  }
-
   TripIndex() {
     const { title, home_url } = this.props.home;
 
-    let renderBookingRanges;
-    let preBookingText;
+    const bookingRanges = this.renderBookingRanges();
+    const isUpcomingTrip = this.props.upcomingTrip;
+    const tripsPlanned = !this.renderBookingRanges().props.children[1]
+      ? false
+      : true;
 
-    if (this.props.upcomingTrip) {
-      renderBookingRanges = this.renderUpcomingBookingRanges();
-      preBookingText = "Booked Dates:";
-    } else {
-      renderBookingRanges = this.renderPastBookingRanges();
-      preBookingText = "Past Visits:";
-    }
+    const preBookingText = isUpcomingTrip ? "Booked Dates:" : "Past Visits:";
 
-    if (
-      (this.props.upcomingTrip &&
-        !this.renderUpcomingBookingRanges().props.children[1]) ||
-      (!this.props.upcomingTrip &&
-        !this.renderPastBookingRanges().props.children[1])
-    ) {
-      return null;
-    } else {
+    debugger;
+
+    if (tripsPlanned) {
       return (
         <div className="home-index-item">
           <img
@@ -316,11 +235,13 @@ class HomeIndexItem extends React.Component {
 
             <ul className="booked-dates">
               <strong>{preBookingText}</strong>
-              {renderBookingRanges}
+              {bookingRanges}
             </ul>
           </div>
         </div>
       );
+    } else {
+      return null;
     }
   }
 
