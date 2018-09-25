@@ -9,9 +9,10 @@ class Api::ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
 
-    if @review.save!
+    if @review.save
       render "/api/reviews/create"
     else
+      debugger
       render json: @review.errors.full_messages, status: 422
     end
   end
@@ -19,8 +20,7 @@ class Api::ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:review][:id])
 
-    if @review
-      @review.update(review_params)
+    if @review.update(review_params)
       render "/api/reviews/create"
     else
       render json: @review.errors.full_messages, status: 422
