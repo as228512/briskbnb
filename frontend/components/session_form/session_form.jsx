@@ -34,7 +34,7 @@ class SessionForm extends React.Component {
       state.e_mail === "" ||
       state.password === ""
     ) {
-      return true;
+      return false;
     } else if (
       state.fname === "First Name can't be blank" ||
       state.lname === "Last Name can't be blank" ||
@@ -43,19 +43,19 @@ class SessionForm extends React.Component {
       state.password === "Invalid Password (minimum of 6 characters)" ||
       state.password === "Please try again"
     ) {
-      return false;
-    } else {
       return true;
     }
+
+    return false;
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    if (!this.errorCheck(this.state)) {
-      debugger;
+    const anError = this.errorCheck(this.state);
+
+    if (anError) {
       return;
     } else {
-      debugger;
       const user = Object.assign({}, this.state);
       this.props.processForm(user).then(this.props.closeModal);
     }
