@@ -2,10 +2,9 @@ import React from "react";
 
 const ReviewButton = props => {
   const modalType = "review";
-  const review = props.review;
   const bookingId = props.bookingId;
   const homeId = props.homeId;
-  const reviewId = props.reviewId;
+  const review = props.review;
 
   let component;
   let isHomeShow = props.homeShow;
@@ -46,7 +45,7 @@ const ReviewButton = props => {
               bookingId,
               component,
               "update",
-              reviewId
+              review
             )
           }
         />
@@ -56,7 +55,7 @@ const ReviewButton = props => {
           value={"Delete Review"}
           onClick={() =>
             props
-              .deleteReview(reviewId, homeId)
+              .deleteReview(review.id, homeId)
               .then(() =>
                 props.updateReviewedBooking({
                   bookingId: bookingId,

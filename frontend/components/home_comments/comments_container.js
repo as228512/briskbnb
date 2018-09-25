@@ -41,7 +41,7 @@ const mapDispatchToProps = dispatch => {
       bookingId,
       component,
       requestType,
-      reviewId
+      review
     ) =>
       dispatch(
         openReviewModal(
@@ -50,7 +50,7 @@ const mapDispatchToProps = dispatch => {
           bookingId,
           component,
           requestType,
-          reviewId
+          review
         )
       )
   };

@@ -17,7 +17,7 @@ const mapStateToProps = state => {
       bookingId: modal[2],
       component: modal[3],
       requestType: modal[4],
-      reviewId: modal[5]
+      review: modal[5]
     };
   } else return { modal: modal };
 };
@@ -69,7 +69,7 @@ function Modal(props) {
           bookingId={props.bookingId}
           component={props.component}
           requestType={props.requestType}
-          reviewId={props.reviewId}
+          review={props.review}
         />
       );
       formName = "review";

@@ -155,10 +155,10 @@ class HomeIndexItem extends React.Component {
               {info[0]} - {info[1]}{" "}
               <ReviewButtonContainer
                 tripsIndex={true}
-                review={info[2]}
+                reviewed={info[2]}
                 bookingId={info[3]}
                 homeId={this.props.home.id}
-                reviewId={this.findReviewId(info[3])}
+                review={this.findReview(info[3])}
               />
             </li>
           ))}
@@ -194,7 +194,7 @@ class HomeIndexItem extends React.Component {
     } else return null;
   }
 
-  findReviewId(bookingId) {
+  findReview(bookingId) {
     const reviews = this.props.home.reviews || {};
     const reviewsArr = Object.keys(reviews).map(key => reviews[key]);
 
@@ -202,9 +202,7 @@ class HomeIndexItem extends React.Component {
       return review.booking_id === bookingId;
     });
 
-    let reviewId = review ? review.id : null;
-
-    return reviewId;
+    return review;
   }
 
   TripIndex() {

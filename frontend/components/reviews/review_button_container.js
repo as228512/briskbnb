@@ -13,23 +13,9 @@ const mapDispatchToProps = dispatch => ({
     dispatch(updateReviewedBooking(bookingId)),
   fetchHome: homeId => dispatch(fetchHome(homeId)),
   eraseHomes: () => dispatch(eraseHomes()),
-  openReviewModal: (
-    modal,
-    homeId,
-    bookingId,
-    component,
-    requestType,
-    reviewId
-  ) =>
+  openReviewModal: (modal, homeId, bookingId, component, requestType, review) =>
     dispatch(
-      openReviewModal(
-        modal,
-        homeId,
-        bookingId,
-        component,
-        requestType,
-        reviewId
-      )
+      openReviewModal(modal, homeId, bookingId, component, requestType, review)
     )
 });
 

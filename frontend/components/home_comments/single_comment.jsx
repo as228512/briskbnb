@@ -57,7 +57,7 @@ class SingleComment extends React.Component {
       const homeId = this.props.review.home_id;
       const bookingId = this.props.review.booking_id;
       const component = "singleComment";
-      const reviewId = this.props.review.id;
+      const review = this.props.review;
 
       return (
         <nav className="comment-dropdown-cntr">
@@ -72,7 +72,7 @@ class SingleComment extends React.Component {
                 bookingId,
                 component,
                 "update",
-                reviewId
+                review
               )
             }
           />
@@ -82,7 +82,7 @@ class SingleComment extends React.Component {
             type="submit"
             value={"Delete Review"}
             onClick={() =>
-              this.props.deleteReview(reviewId, homeId).then(() =>
+              this.props.deleteReview(review.id, homeId).then(() =>
                 this.props
                   .updateReviewedBooking({
                     bookingId: bookingId,

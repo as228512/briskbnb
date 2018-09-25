@@ -16,7 +16,7 @@ export default function modalReducer(state = null, action) {
         action.bookingId,
         action.component,
         action.requestType,
-        action.reviewId
+        action.review
       ];
 
     case CLOSE_MODAL:

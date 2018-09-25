@@ -7,9 +7,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
+
+    let body = "";
+    let rating = 0;
+    if (props.review) {
+      body = props.review.body;
+      rating = props.review.rating;
+    }
+
     this.state = {
-      body: "",
-      rating: 0
+      body: body,
+      rating: rating
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -40,19 +48,13 @@ class ReviewForm extends React.Component {
       } else if (this.props.requestType === "update") {
         this.props
           .updateForm({
-            id: this.props.reviewId,
+            id: this.props.review.id,
             body: this.state.body,
             rating: this.state.rating,
             home_id: this.props.homeId,
             booking_id: this.props.bookingId,
             reviewed: true
           })
-          .then(() =>
-            this.props.updateReviewedBooking({
-              bookingId: this.props.bookingId,
-              reviewed: true
-            })
-          )
           .then(() => this.props.fetchHome(this.props.homeId))
           .then(this.props.closeModal);
       }
