@@ -8,6 +8,11 @@ import HomeIndex from "../homes/home_index";
 class Trips extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      initialLoad: true,
+      loadComplete: false
+    };
   }
 
   componentDidMount() {
@@ -22,12 +27,19 @@ class Trips extends React.Component {
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.indexLoading) this.setState({ initialLoad: false });
+    if (!nextProps.indexLoading && !this.state.initialLoad) {
+      this.setState({ loadComplete: true });
+    }
+  }
+
   componentWillUnmount() {
     this.props.clearHomes();
   }
 
   futureTrips(futureBookings) {
-    if (futureBookings.length) {
+    if (futureBookings.length && this.state.loadComplete) {
       return (
         <div>
           <h1 className="trips-heading">Upcoming Trips</h1>
@@ -42,7 +54,7 @@ class Trips extends React.Component {
   }
 
   pastTrips(pastBookings) {
-    if (pastBookings.length) {
+    if (pastBookings.length && this.state.loadComplete) {
       return (
         <div>
           <h1 className="trips-heading">Past Trips</h1>
@@ -57,7 +69,11 @@ class Trips extends React.Component {
   }
 
   noTrips(pastBookings, futureBookings) {
-    if (!pastBookings.length && !futureBookings.length) {
+    if (
+      !pastBookings.length &&
+      !futureBookings.length &&
+      this.state.loadComplete
+    ) {
       const bodyMovinOptions = {
         loop: true,
         autoplay: true,
