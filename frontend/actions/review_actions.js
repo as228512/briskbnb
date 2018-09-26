@@ -10,7 +10,6 @@ export const receiveReviews = reviews => ({
 });
 
 export const receiveErrors = errors => {
-  debugger;
   return { type: RECEIVE_REVIEW_ERRORS, errors };
 };
 

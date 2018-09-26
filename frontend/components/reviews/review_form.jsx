@@ -37,13 +37,13 @@ class ReviewForm extends React.Component {
             home_id: this.props.homeId,
             booking_id: this.props.bookingId
           })
-          .then(() =>
+          .then(
             this.props.updateReviewedBooking({
               bookingId: this.props.bookingId,
               reviewed: true
             })
           )
-          .then(() => this.props.fetchHome(this.props.homeId))
+          .then(this.props.fetchHome(this.props.homeId))
           .then(this.props.closeModal);
       } else if (this.props.requestType === "update") {
         this.props
@@ -55,7 +55,7 @@ class ReviewForm extends React.Component {
             booking_id: this.props.bookingId,
             reviewed: true
           })
-          .then(() => this.props.fetchHome(this.props.homeId))
+          .then(this.props.fetchHome(this.props.homeId))
           .then(this.props.closeModal);
       }
     } else if (this.props.component === "homeShow") {
@@ -66,13 +66,13 @@ class ReviewForm extends React.Component {
           home_id: this.props.homeId,
           booking_id: this.props.bookingId
         })
-        .then(() =>
+        .then(
           this.props.updateReviewedBooking({
             bookingId: this.props.bookingId,
             reviewed: true
           })
         )
-        .then(() => this.props.fetchHome(this.props.homeId))
+        .then(this.props.fetchHome(this.props.homeId))
         .then(this.props.closeModal);
     }
   }
@@ -90,6 +90,93 @@ class ReviewForm extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    let body, rating;
+
+    if (nextProps.errors.includes("Body can't be blank")) {
+      body = "Body can't be blank";
+    } else body = this.state.body;
+
+    if (nextProps.errors.includes("Rating must be greater than 0")) {
+      rating = "Rating must be greater than 0";
+    } else if (nextProps.errors.includes("Rating must be less than 6")) {
+      rating = "Rating must be less than 6";
+    } else rating = this.state.rating;
+
+    this.setState({
+      body: body,
+      rating: rating
+    });
+  }
+
+  clearField(field) {
+    let defaultValue;
+    field === "body" ? (defaultValue = "") : (defaultValue = 0);
+    return e =>
+      this.setState({
+        [field]: defaultValue
+      });
+  }
+
+  starRating() {
+    if (
+      this.state.rating === "Rating must be greater than 0" ||
+      this.state.rating === "Rating must be less than 6"
+    ) {
+      return (
+        <Rating
+          start={0}
+          stop={5}
+          fullSymbol={<FontAwesomeIcon icon="star" color="red" size="2x" />}
+          emptySymbol={
+            <FontAwesomeIcon icon={["far", "star"]} color="red" size="2x" />
+          }
+          initialRating={this.state.rating}
+          onChange={rate => this.update("rating", rate)}
+        />
+      );
+    } else {
+      return (
+        <Rating
+          start={0}
+          stop={5}
+          fullSymbol={<FontAwesomeIcon icon="star" color="#7595bf" size="2x" />}
+          emptySymbol={
+            <FontAwesomeIcon icon={["far", "star"]} color="#7595bf" size="2x" />
+          }
+          initialRating={this.state.rating}
+          onChange={rate => this.update("rating", rate)}
+        />
+      );
+    }
+  }
+
+  textBody() {
+    if (this.state.body === "Body can't be blank") {
+      return (
+        <textarea
+          type="text"
+          value={this.state.body}
+          onChange={this.update("body")}
+          onFocus={this.clearField("body")}
+          className="review-error-body"
+          maxLength="500"
+          placeholder=" Body can't be blank"
+        />
+      );
+    } else
+      return (
+        <textarea
+          type="text"
+          value={this.state.body}
+          onChange={this.update("body")}
+          className="review-body"
+          maxLength="500"
+          placeholder=" Comments"
+        />
+      );
+  }
+
   render() {
     return (
       <div className="review-form-container">
@@ -102,35 +189,13 @@ class ReviewForm extends React.Component {
             Rate your stay at this brisk location!
           </div>
 
-          <Rating
-            start={0}
-            stop={5}
-            fullSymbol={
-              <FontAwesomeIcon icon="star" color="#7595bf" size="2x" />
-            }
-            emptySymbol={
-              <FontAwesomeIcon
-                icon={["far", "star"]}
-                color="#7595bf"
-                size="2x"
-              />
-            }
-            initialRating={this.state.rating}
-            onChange={rate => this.update("rating", rate)}
-          />
+          {this.starRating()}
 
           <div className="review-form-text-2">
             Let us know! How was your stay?
           </div>
 
-          <textarea
-            type="text"
-            value={this.state.body}
-            onChange={this.update("body")}
-            className="review-body"
-            maxLength="500"
-            placeholder=" Comments"
-          />
+          {this.textBody()}
 
           <input
             type="submit"

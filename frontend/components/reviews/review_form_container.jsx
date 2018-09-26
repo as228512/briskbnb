@@ -7,6 +7,13 @@ import { createReview, editReview } from "../../actions/review_actions";
 
 import ReviewForm from "./review_form";
 
+const mapStateToProps = state => {
+  const errors = state.errors.reviews;
+  return {
+    errors
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     processForm: review => dispatch(createReview(review)),
@@ -20,6 +27,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ReviewForm);

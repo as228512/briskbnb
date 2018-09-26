@@ -12,7 +12,6 @@ class Api::ReviewsController < ApplicationController
     if @review.save
       render "/api/reviews/create"
     else
-      debugger
       render json: @review.errors.full_messages, status: 422
     end
   end
