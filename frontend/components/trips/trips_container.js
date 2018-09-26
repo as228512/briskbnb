@@ -8,9 +8,11 @@ import { asSortedArray, currentUsersBookings } from "../../reducers/selectors";
 const mapStateToProps = state => {
   const homes = asSortedArray(state);
   const bookings = currentUsersBookings(state);
+  const indexLoading = state.ui.loadingState.indexLoading;
   return {
     homes,
-    bookings
+    bookings,
+    indexLoading
   };
 };
 
