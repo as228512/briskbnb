@@ -37,13 +37,27 @@
   height: 0px;
 }
 
+.splash-site-link-cntr {
+  display: flex;
+  margin-right: auto;
+  margin-top: 16px;
+}
+
+.splash-site-link-cntr a {
+  margin-left: 20px;
+}
+
+.splash-site-link-cntr a:hover {
+  box-shadow: 0 3px 17px #ffffff;
+}
+
 .splash-nav-login,
 .splash-nav-signup,
 .splash-nav-trip {
   vertical-align: middle;
   box-sizing: border-box;
-  margin-right: 2%;
-  margin-top: 1.8%;
+  margin-right: 25px;
+  margin-top: 25px;
   font-size: 14px;
   font-weight: 700;
   color: #ffffff;

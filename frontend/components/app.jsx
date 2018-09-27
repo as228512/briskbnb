@@ -12,6 +12,9 @@ import {
   faBars,
   faTimes
 } from "@fortawesome/free-solid-svg-icons";
+
+import { faGithubSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 import {
   faStar as emptyStar,
   faLightbulb as lightbulb
@@ -24,7 +27,9 @@ library.add(
   emptyStar,
   lightbulb,
   faBars,
-  faTimes
+  faTimes,
+  faGithubSquare,
+  faLinkedin
 );
 
 import GreetingText from "./greeting/greeting_text";

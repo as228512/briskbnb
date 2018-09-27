@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 class SplashLoggedIn extends React.Component {
   constructor(props) {
     super(props);
@@ -34,6 +36,25 @@ class SplashLoggedIn extends React.Component {
   sessionLinks() {
     return (
       <nav className="splash-nav-cntr">
+        <div className="splash-site-link-cntr">
+          <a href="https://github.com/as228512/briskbnb" title="Github">
+            <FontAwesomeIcon
+              color="#ffffff"
+              icon={["fab", "github-square"]}
+              size="2x"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/andrew-schumacher-1b3b2914a/"
+            title="Linkedin"
+          >
+            <FontAwesomeIcon
+              color="#ffffff"
+              icon={["fab", "linkedin"]}
+              size="2x"
+            />
+          </a>
+        </div>
         <a
           className="splash-nav-login"
           onClick={() => this.props.openModal("login")}
