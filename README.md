@@ -4,7 +4,7 @@
 
 [heroku]: https://briskbnb.herokuapp.com
 
-Briskbnb is a cold climate, home rental, full-stack application, which was inspired by Airbnb.
+Briskbnb is an Airbnb inspired, home rental full-stack application, with a cold climate theme twist.
 
 - Front-end: React.js + Redux
 - Database: PostgreSQL
