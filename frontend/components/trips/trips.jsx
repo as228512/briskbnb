@@ -106,6 +106,16 @@ class Trips extends React.Component {
     }
   }
 
+  bottomNavBar() {
+    if (this.state.loadComplete) {
+      return (
+        <div className="trip-index-bottom-bar">
+          <BottomNavBar />
+        </div>
+      );
+    }
+  }
+
   sortTrips() {
     const bookings = this.props.bookings;
 
@@ -130,9 +140,7 @@ class Trips extends React.Component {
         {this.futureTrips(futureBookings)}
         <br />
         {this.pastTrips(pastBookings)}
-        <div className="trip-index-bottom-bar">
-          <BottomNavBar />
-        </div>
+        {this.bottomNavBar()}
       </div>
     );
   }

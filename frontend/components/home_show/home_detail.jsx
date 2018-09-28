@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import { reviewStats } from "../../reducers/selectors";
+import { BottomNavBar } from "../nav/bottom_nav";
 import BookingsContainer from "./booking_container";
 import CommentsContainer from "../home_comments/comments_container";
 
@@ -81,6 +82,9 @@ class HomeDetail extends React.Component {
 
               {this.calendar()}
             </div>
+          </div>
+          <div className="home-show-bottom-bar">
+            <BottomNavBar />
           </div>
         </div>
       );
