@@ -10,4 +10,4 @@ Briskbnb is a cold climate, home rental, full-stack application, which was inspi
 - Database: PostgreSQL
 - Back-end: Ruby on Rails
 
-![Splash-Page](./desktop/splash.png)
+![Splash-Page](./readme_images/splash.png)
