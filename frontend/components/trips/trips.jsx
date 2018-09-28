@@ -3,6 +3,7 @@ import ReactBodymovin from "react-bodymovin";
 import animation from "../../../app/assets/animations/techno_penguin.json";
 
 import { NavBar } from "../nav/nav_bar";
+import { BottomNavBar } from "../nav/bottom_nav";
 import HomeIndex from "../homes/home_index";
 
 class Trips extends React.Component {
@@ -129,6 +130,9 @@ class Trips extends React.Component {
         {this.futureTrips(futureBookings)}
         <br />
         {this.pastTrips(pastBookings)}
+        <div className="trip-index-bottom-bar">
+          <BottomNavBar />
+        </div>
       </div>
     );
   }
