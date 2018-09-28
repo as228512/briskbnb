@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import HomeDetail from "./home_detail";
 import HomeMap from "../home_map/home_map";
 import { NavBar } from "../nav/nav_bar";
+import { BottomNavBar } from "../nav/bottom_nav";
 
 const HomeShow = ({
   home,
@@ -27,6 +28,9 @@ const HomeShow = ({
             eraseHome={eraseHome}
           />
         </div>
+      </div>
+      <div className="home-show-bottom-bar">
+        <BottomNavBar />
       </div>
     </div>
   );

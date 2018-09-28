@@ -7,6 +7,7 @@ import animation from "../../../app/assets/animations/location_pin.json";
 import MarkerManager from "../../util/marker_manager";
 import HomeIndex from "../homes/home_index";
 import { NavBar } from "../nav/nav_bar";
+import { BottomNavBar } from "../nav/bottom_nav";
 import { reviewStats } from "../../reducers/selectors";
 
 class HomeMap extends React.Component {
@@ -155,6 +156,7 @@ class HomeMap extends React.Component {
             </div>
           </div>
         </div>
+        <BottomNavBar className="home-map-bottom-bar" />
       </div>
     );
   }

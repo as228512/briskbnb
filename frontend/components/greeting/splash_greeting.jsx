@@ -19,9 +19,7 @@ class SplashLoggedIn extends React.Component {
     this.props.updateAvatar(this.props.currentUser.id, formData);
   }
 
-  revealDropdown(event) {
-    // shouldn't use Jquery, need to conditionally render a child throgh jsx
-    // and maybe switching a state slice from null to open
+  revealDropdown() {
     $("#dropdown").removeClass("hidden");
     $("#dropdown-button").off("click", this.revealDropdown);
     $(document).on("click", this.hideDropdown);
@@ -77,6 +75,25 @@ class SplashLoggedIn extends React.Component {
 
     return (
       <hgroup className="splash-nav-cntr">
+        <div className="splash-site-link-cntr">
+          <a href="https://github.com/as228512/briskbnb" title="Github">
+            <FontAwesomeIcon
+              color="#ffffff"
+              icon={["fab", "github-square"]}
+              size="2x"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/andrew-schumacher-1b3b2914a/"
+            title="Linkedin"
+          >
+            <FontAwesomeIcon
+              color="#ffffff"
+              icon={["fab", "linkedin"]}
+              size="2x"
+            />
+          </a>
+        </div>
         <a
           className="splash-nav-trip"
           onClick={() => this.props.history.push(`/trips/${currentUser.id}`)}

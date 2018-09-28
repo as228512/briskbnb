@@ -1,0 +1,29 @@
+.nav-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  width: 100%;
+  z-index: 1;
+  margin-top: -13px;
+}
+
+.home-show-bottom-bar {
+  margin-top: -47px;
+}
+
+.nav-bottom-bar-trademark-text {
+  margin-right: 20px;
+}
+
+//github + linkin icons
+.svg-inline--fa.fa-github-square.fa-w-14.fa-3x,
+.svg-inline--fa.fa-linkedin.fa-w-14.fa-3x {
+  margin-left: 20px;
+  opacity: 0.5;
+}
+
+.svg-inline--fa.fa-github-square.fa-w-14.fa-3x:hover,
+.svg-inline--fa.fa-linkedin.fa-w-14.fa-3x:hover {
+  opacity: 1;
+}
