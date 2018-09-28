@@ -10,8 +10,6 @@ class HomeDetail extends React.Component {
   }
 
   componentDidMount() {
-    //when a home is fetched, bookings reducer plants all relevent bookings
-    //inside a bookings object
     this.props.fetchHome(this.props.homeId);
   }
 
