@@ -1,24 +1,13 @@
-# README
+# Briskbnb
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Briskbnb Live][heroku]
 
-Things you may want to cover:
+[heroku]: https://briskbnb.herokuapp.com
 
-* Ruby version
+Briskbnb is a cold climate, home rental, full-stack application, which was inspired by Airbnb.
 
-* System dependencies
+Front-end: React.js + Redux
+Database: PostgreSQL
+Back-end: Ruby on Rails
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Splash-Page](./desktop/splash.png)
