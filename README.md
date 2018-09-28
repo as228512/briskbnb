@@ -6,10 +6,8 @@
 
 Briskbnb is a cold climate, home rental, full-stack application, which was inspired by Airbnb.
 
-Front-end: React.js + Redux
-
-Database: PostgreSQL
-
-Back-end: Ruby on Rails
+- Front-end: React.js + Redux
+- Database: PostgreSQL
+- Back-end: Ruby on Rails
 
 ![Splash-Page](./desktop/splash.png)
