@@ -12,17 +12,18 @@ Briskbnb is a cold climate, home rental, full-stack application, which was inspi
 
 ![Splash-Page](./readme_images/splash.png)
 
+--------------------
+
 ## Main Features
 
 - [Users](#users)
 - [Google Maps](#google-maps)
 - [Bookings](#bookings)
+- [Reviews](#reviews)
+
+--------------------
 
 ### Users
-
-While access to the site is available without logging in, a user is granted extra permissions after having signed up, or selecting to log in via the demo user.
-
-![login](./readme_images/loginGif.gif)
 
 A user has the ability to:
 
@@ -31,11 +32,17 @@ A user has the ability to:
 - Request a booking
 - Review a home (if booking date has passed)
 
+While access to the site is available without logging in, a user is granted extra permissions after having signed up, or selecting to log in via the demo user.
+
+![login](./readme_images/loginGif.gif)
+
+--------------------
+
 ### Google Maps
 
 Both Google Maps and Google Autocomplete are incorporated in the application.
 
-First, Google Autocomplete wraps possible inputs for a user search, _splashInput and navInput_, Then, it determines if a user clicked one of the smart search suggestions (from the drop down), or simply hit enter after entering his or her search. If a user does not select an item from the drop down, a formatted address object is not returned from Google Autocomplete. In that case, an object with a string, of only the name searched, is fed back into Google Autocomplete to extract the correctly formatted address.
+First, Google Autocomplete wraps possible inputs for a user search, _splashInput and navInput_. Then, it determines if a user clicked one of the smart search suggestions (from the drop down), or simply hit enter after entering his or her search. If a user does not select an item from the drop down, a formatted address object is not returned from Google Autocomplete. In that case, an object with a string, of only the name searched, is fed back into Google Autocomplete to extract the correctly formatted address.
 
 ```js
   componentDidMount() {
@@ -84,9 +91,29 @@ After a formatted address is extracted, local state's "location" is set, and the
 
 ![gmaps](./readme_images/gmapsGif.gif)
 
+--------------------
+
 ### Bookings
 
-Once logged in, a user is able to book a stay at any listed home. Upon clicking the *check In* field, a user is prompted to select a date to book, with pre-booked dates disabled. This is achieved by feeding the React Date Picker API pre-booked dates. As added protection, so a user does not select invalid dates, model level checks are made before the controller saves the booking.
+Once logged in, a user is able to book a stay at any listed home. Upon clicking the *check In* field, a user is prompted to select a date to book, with pre-booked dates disabled. This is achieved by feeding the React Date Picker API pre-booked dates.
+Pre-booked dates are determined by logging each date between the start and end dates of a booking, using Moment.js.
+
+```js
+  const calculateDaysBetweenDates = (startDate, endDate) => {
+    let bookedDates = [];
+
+    let currentDate = moment(startDate).startOf("day");
+    let lastDate = moment(endDate).startOf("day");
+
+    do {
+      bookedDates.push(currentDate.clone().toDate());
+    } while (currentDate.add(1, "days").diff(lastDate) < 1);
+
+    return bookedDates;
+  };
+```
+
+As added protection, so a user does not select invalid dates, model level checks are made before the controller saves the booking.
 
 ```ruby
   def self.valid_booking?(new_booking)
@@ -122,3 +149,23 @@ Once logged in, a user is able to book a stay at any listed home. Upon clicking 
 Once a successful booking is made, a user is navigated to the trips page to review an index of both upcoming and past trips.
 
 ![booking](./readme_images/bookingGif.gif)
+
+--------------------
+
+### Reviews
+
+A user is able to create reviews once logged in and at least one booking has passed. To control review authenticity, only one review per booked stay is allowed. However, a user is permitted to edit or delete a previously made review. To achieve this, a *reviewed* column is stored in each booking object. When a booking is created, this column defaults to false. Once a valid review is made for a booking, the field is updated to true, disallowing futher comments for that specific booking.
+
+If a user has a past booking that has not been reviewed, the user will be prompted to write a review in both the trip index and individual home show page.
+
+![review](./readme_images/reviewGif.gif)
+
+--------------------
+
+## Future Additions
+
+- Ability for users to become hosts by adding homes
+- Messaging to host concerning any user questions
+- User/Host personal profiles
+- Added columns to home table for more detail (ex. type of home, number of rooms / bathrooms, etc..)
+- Incorporation of Airbnb calendar API for better UX
