@@ -55,7 +55,7 @@ First, Google Autocomplete wraps possible inputs for a user search, *splashInput
       this.handleSubmit();
     });
   }
-  ```
+```
   
 After a formatted address is extracted, local state's "location" is set, and then passed into the Google Maps Geocoder. The status of the returned object is verified and the latitude and longitude are exported to another component to be read, and ultimately, set the correct boundaries and zoom distance of the Google Map.
 
