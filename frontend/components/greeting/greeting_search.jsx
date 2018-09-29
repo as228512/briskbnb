@@ -34,20 +34,15 @@ class SearchBar extends React.Component {
       const formattedAddress = autocomplete.getPlace().formatted_address;
       const getFormattedAddress = autocomplete.getPlace().name;
 
-      if (formattedAddress) {
-        this.setState({
-          location: formattedAddress
-        });
-      } else {
-        this.setState({
-          location: getFormattedAddress
-        });
-      }
+      formattedAddress
+        ? this.setState({ location: formattedAddress })
+        : this.setState({ location: getFormattedAddress });
+
       this.handleSubmit();
     });
   }
 
-  handleSubmit(e) {
+  handleSubmit() {
     const geocoder = new google.maps.Geocoder();
 
     geocoder.geocode({ address: this.state.location }, (results, status) => {
