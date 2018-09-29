@@ -104,6 +104,7 @@ Once logged in, a user is able to book a stay at any listed home. Upon clicking 
     true
   end
 
+
   def create
     @booking = current_user.bookings.new(booking_params)
     @booking.user_id = current_user.id
