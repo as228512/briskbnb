@@ -30,21 +30,20 @@ class SearchBar extends React.Component {
       splashInput || navInput
     );
 
-    let location;
     autocomplete.addListener("place_changed", () => {
-      if (!autocomplete.getPlace().formatted_address) {
-        location = autocomplete.getPlace().name;
+      const formattedAddress = autocomplete.getPlace().formatted_address;
+      const getFormattedAddress = autocomplete.getPlace().name;
+
+      if (formattedAddress) {
         this.setState({
-          location: location
+          location: formattedAddress
         });
-        this.handleSubmit();
       } else {
-        location = autocomplete.getPlace().formatted_address;
         this.setState({
-          location: location
+          location: getFormattedAddress
         });
-        this.handleSubmit();
       }
+      this.handleSubmit();
     });
   }
 
