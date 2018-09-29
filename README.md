@@ -81,4 +81,4 @@ After a formatted address is extracted, local state's "location" is set, and the
   }
 ```
 
-![gmaps](./readme_images/googleMapsGif.gif)
+![gmaps](./readme_images/gmapsGif.gif)
