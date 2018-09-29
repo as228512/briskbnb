@@ -16,6 +16,7 @@ Briskbnb is a cold climate, home rental, full-stack application, which was inspi
 
 - [Users](#users)
 - [Google Maps](#google-maps)
+- [Bookings](#bookings)
 
 ### Users
 
@@ -82,3 +83,43 @@ After a formatted address is extracted, local state's "location" is set, and the
 ```
 
 ![gmaps](./readme_images/gmapsGif.gif)
+
+### Bookings
+
+Once logged in, a user is able to book a stay at any listed home. Upon clicking the *check In* field, a user is prompted to select a date to book, with pre-booked dates disabled. This is achieved by feeding the React Date Picker API pre-booked dates. As added protection, so a user does not select invalid dates, model level checks are made before the controller saves the booking.
+
+```ruby
+  def self.valid_booking?(new_booking)
+    home_id = new_booking.home_id
+
+    self.where(home_id: home_id).find_each do |old_booking|
+      if new_booking.start_date < old_booking.start_date &&
+         new_booking.end_date < old_booking.start_date ||
+         new_booking.start_date > old_booking.end_date
+          next
+      else
+        return false
+      end
+    end
+    true
+  end
+  
+  def create
+    @booking = current_user.bookings.new(booking_params)
+    @booking.user_id = current_user.id
+
+    booking_valid = Booking.valid_booking?(@booking)
+
+    if booking_valid
+      @booking.save!
+    else
+      render json: ["Request conflicts with another reservation, please make another selection"], status: 401
+    end
+  end
+```
+
+Once a successful booking is made, a user is navigated to the trips page to review an index of both upcoming and past trips.
+
+![booking](./readme_images/bookingGif.gif)
+
+
