@@ -1,8 +1,9 @@
 .dancing-penguin-cntr {
   display: flex;
   justify-content: center;
-  margin-top: 7vw;
-  margin-bottom: 14vw;
+  min-height: 448px;
+  margin-top: 150px;
+  margin-bottom: 150px;
 }
 
 .no-trips-text-cntr {
@@ -29,6 +30,7 @@
 }
 
 .dancing-penguin {
+  margin-top: 40px;
   margin-right: 20%;
   margin-left: -8%;
 }
