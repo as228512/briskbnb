@@ -124,7 +124,7 @@ export const sortedTripHomes = state => {
   });
 
   const orderedTrips = {
-    pastTrips: Array.from(pastOrderedTrips),
+    pastTrips: Array.from(pastOrderedTrips).reverse(),
     futureTrips: Array.from(futureOrderedTrips)
   };
 
