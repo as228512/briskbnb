@@ -3,6 +3,7 @@ import Rating from "react-rating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReviewButtonContainer from "../reviews/review_button_container";
 import DatePicker from "react-datepicker";
+import moment from "moment";
 
 import SingleComment from "./single_comment";
 
@@ -111,6 +112,7 @@ class Comments extends React.Component {
         <DatePicker
           inline
           monthsShown={2}
+          minDate={moment()}
           excludeDates={this.props.bookedDates}
           disabled={true}
         />
