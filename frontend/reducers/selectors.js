@@ -101,27 +101,36 @@ const formatBookings = (bookings, currentUserId, nonReviewedTrips = false) => {
 
   //sorts by "start_date", not by order of booking creation / O(n log n) at worst
   orderedBookingsArray = orderedBookingsArray.sort();
+  debugger;
   return orderedBookingsArray;
 };
 
-export const asSortedArray = state => {
+export const sortedTripHomes = state => {
   const homes = state.entities.homes;
   const bookings = state.entities.bookings;
   const currentUserId = state.session.id;
   let orderedBookings = formatBookings(bookings, currentUserId);
 
   //itterates over each sorted booking, keys into homes hash via "home_id"
-  //and pushes home objects, in order of start_date, into the result array (orderedTrips)
-  let orderedTrips = new Set();
+  //and pushes home objects, in order of start_date, into pastTrips
+  //and futureTrips arrays, respectively
+  let pastOrderedTrips = new Set();
+  let futureOrderedTrips = new Set();
+
   orderedBookings.forEach(booking => {
-    if (homes[booking[2]]) {
-      orderedTrips.add(homes[booking[2]]);
-    }
+    if (homes[booking[2]] && new Date(booking[1]) <= new Date()) {
+      pastOrderedTrips.add(homes[booking[2]]);
+    } else if (homes[booking[2]]) futureOrderedTrips.add(homes[booking[2]]);
   });
 
-  let orderedTripsArray = Array.from(orderedTrips);
+  const orderedTrips = {
+    pastTrips: Array.from(pastOrderedTrips),
+    futureTrips: Array.from(futureOrderedTrips)
+  };
 
-  return orderedTripsArray[0] ? orderedTripsArray : [];
+  debugger;
+
+  return orderedTrips;
 };
 
 export const currentUsersBookings = state => {

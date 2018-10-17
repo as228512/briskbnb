@@ -45,7 +45,7 @@ class Trips extends React.Component {
         <div>
           <h1 className="trips-heading">Upcoming Trips</h1>
           <HomeIndex
-            homes={this.props.homes}
+            homes={this.props.homes.futureTrips}
             bookings={futureBookings}
             upcomingTrip={true}
           />
@@ -60,7 +60,7 @@ class Trips extends React.Component {
         <div>
           <h1 className="trips-heading">Past Trips</h1>
           <HomeIndex
-            homes={this.props.homes}
+            homes={this.props.homes.pastTrips}
             bookings={pastBookings}
             upcomingTrip={false}
           />
@@ -132,6 +132,8 @@ class Trips extends React.Component {
     pastBookings = pastBookings.map(key => {
       return bookings[key];
     });
+
+    debugger;
 
     return (
       <div>

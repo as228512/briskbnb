@@ -3,10 +3,13 @@ import { connect } from "react-redux";
 import Trips from "./trips";
 import { fetchTrips } from "../../actions/booking_actions";
 import { fetchHomes, clearHomes } from "../../actions/home_actions";
-import { asSortedArray, currentUsersBookings } from "../../reducers/selectors";
+import {
+  sortedTripHomes,
+  currentUsersBookings
+} from "../../reducers/selectors";
 
 const mapStateToProps = state => {
-  const homes = asSortedArray(state);
+  const homes = sortedTripHomes(state);
   const bookings = currentUsersBookings(state);
   const indexLoading = state.ui.loadingState.indexLoading;
   return {
