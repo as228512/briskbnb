@@ -30,17 +30,17 @@ class HomeMap extends React.Component {
     const search = new URLSearchParams(coords);
 
     let bounds = new google.maps.LatLngBounds();
-    bounds.b.b = parseFloat(search.get("view1"));
-    bounds.b.f = parseFloat(search.get("view2"));
-    bounds.f.b = parseFloat(search.get("view3"));
-    bounds.f.f = parseFloat(search.get("view4"));
+    bounds.j.j = parseFloat(search.get("view1"));
+    bounds.j.l = parseFloat(search.get("view2"));
+    bounds.l.j = parseFloat(search.get("view3"));
+    bounds.l.l = parseFloat(search.get("view4"));
 
     //corrections for google smart search incase of Alaska or Greenland
     const searched = search.get("searched");
     const alaskaCoords = { lat: 59.670926419997, lng: -152.5 };
     const greenLandCoords = { lat: 55.6925, lng: -48.318 };
 
-    if (!bounds.b.b) {
+    if (!bounds.j.j) {
       const defaultCoords = { lat: 43.979128, lng: -74.431108 };
       this.map = new google.maps.Map(map, {
         center: defaultCoords,

@@ -43,10 +43,10 @@ class SearchBar extends React.Component {
     geocoder.geocode({ address: this.state.location }, (results, status) => {
       if (status === "OK") {
         const searched = results[0].address_components[0].long_name;
-        const view1 = results[0].geometry.viewport.b.b;
-        const view2 = results[0].geometry.viewport.b.f;
-        const view3 = results[0].geometry.viewport.f.b;
-        const view4 = results[0].geometry.viewport.f.f;
+        const view1 = results[0].geometry.viewport.j.j;
+        const view2 = results[0].geometry.viewport.j.l;
+        const view3 = results[0].geometry.viewport.l.j;
+        const view4 = results[0].geometry.viewport.l.l;
 
         this.props.history.push({
           pathname: "/homes",
