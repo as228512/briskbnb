@@ -101,7 +101,6 @@ const formatBookings = (bookings, currentUserId, nonReviewedTrips = false) => {
 
   //sorts by "start_date", not by order of booking creation / O(n log n) at worst
   orderedBookingsArray = orderedBookingsArray.sort();
-  debugger;
   return orderedBookingsArray;
 };
 
@@ -127,8 +126,6 @@ export const sortedTripHomes = state => {
     pastTrips: Array.from(pastOrderedTrips).reverse(),
     futureTrips: Array.from(futureOrderedTrips)
   };
-
-  debugger;
 
   return orderedTrips;
 };

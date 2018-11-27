@@ -89,9 +89,7 @@ class HomeIndexItem extends React.Component {
       }
     });
 
-    debugger;
     let orderedBookingsArray = releventBookingsArray.sort();
-    debugger;
     let startDateOptions = { weekday: "short", month: "short", day: "numeric" };
     let endDateOptions = {
       weekday: "short",

@@ -133,8 +133,6 @@ class Trips extends React.Component {
       return bookings[key];
     });
 
-    debugger;
-
     return (
       <div>
         <NavBar />

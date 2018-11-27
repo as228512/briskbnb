@@ -160,8 +160,10 @@ main {
   width: 100%;
 }
 
-.form-field {
+.form-field,
+.error-form-field {
   font-family: Montserrat, sans-serif;
+  text-indent: 10px;
   height: 40px;
   line-height: 24px;
   font-size: 19px;
@@ -170,13 +172,9 @@ main {
 }
 
 .error-form-field {
-  font-family: Montserrat, sans-serif;
-  height: 40px;
-  line-height: 24px;
-  font-size: 19px;
+  text-indent: 0;
   color: red;
   border-color: red;
-  width: 498px;
 }
 
 .close-x {
