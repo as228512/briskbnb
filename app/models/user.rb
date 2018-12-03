@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :homes
   has_many :bookings
 
-  has_attached_file :image, default_url: "some_dude.jpg"
+  has_attached_file :image, default_url: "some_dude.jpg", s3_protocall: "https"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   after_initialize :ensure_session_token
