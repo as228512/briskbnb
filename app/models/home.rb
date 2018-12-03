@@ -1,7 +1,7 @@
 class Home < ApplicationRecord
   validates :description, :lat, :long, :title, :price, presence: true
 
-  has_attached_file :image, default_url: "some_dude.jpg"
+  has_attached_file :image, default_url: "some_dude.jpg", s3_protocol: 'https'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   #each home has 1 creator
