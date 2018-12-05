@@ -37,14 +37,14 @@ class ReviewForm extends React.Component {
             home_id: this.props.homeId,
             booking_id: this.props.bookingId
           })
-          .then(
+          .then(() =>
             this.props.updateReviewedBooking({
               bookingId: this.props.bookingId,
               reviewed: true
             })
           )
-          .then(this.props.fetchHome(this.props.homeId))
-          .then(this.props.closeModal);
+          .then(() => this.props.fetchHome(this.props.homeId))
+          .then(() => this.props.closeModal());
       } else if (this.props.requestType === "update") {
         this.props
           .updateForm({
@@ -52,11 +52,10 @@ class ReviewForm extends React.Component {
             body: this.state.body,
             rating: this.state.rating,
             home_id: this.props.homeId,
-            booking_id: this.props.bookingId,
-            reviewed: true
+            booking_id: this.props.bookingId
           })
-          .then(this.props.fetchHome(this.props.homeId))
-          .then(this.props.closeModal);
+          .then(() => this.props.fetchHome(this.props.homeId))
+          .then(() => this.props.closeModal());
       }
     } else if (this.props.component === "homeShow") {
       this.props
@@ -66,14 +65,14 @@ class ReviewForm extends React.Component {
           home_id: this.props.homeId,
           booking_id: this.props.bookingId
         })
-        .then(
+        .then(() =>
           this.props.updateReviewedBooking({
             bookingId: this.props.bookingId,
             reviewed: true
           })
         )
-        .then(this.props.fetchHome(this.props.homeId))
-        .then(this.props.closeModal);
+        .then(() => this.props.fetchHome(this.props.homeId))
+        .then(() => this.props.closeModal());
     }
   }
 
