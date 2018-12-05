@@ -1,12 +1,18 @@
-import { RECEIVE_HOMES, RECEIVE_HOME, START_LOADING_HOMES, START_LOADING_HOME } from "../actions/home_actions";
+import {
+  RECEIVE_HOMES,
+  RECEIVE_HOME,
+  START_LOADING_HOMES,
+  START_LOADING_HOME
+} from "../actions/home_actions";
 
 const initialState = {
   indexLoading: false,
+  homeLoading: false
 };
 
 const loadingReducer = (state = initialState, action) => {
   Object.freeze(state);
-  switch(action.type) {
+  switch (action.type) {
     case RECEIVE_HOMES:
       return Object.assign({}, state, { indexLoading: false });
 

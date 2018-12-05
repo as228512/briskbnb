@@ -28,11 +28,19 @@ class Trips extends React.Component {
     });
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.indexLoading) this.setState({ initialLoad: false });
-    if (!nextProps.indexLoading && !this.state.initialLoad) {
-      this.setState({ loadComplete: true });
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.loadComplete) this.setState({ loadComplete: false });
+
+    //toggle off initalLoad once assets begin load
+    if (nextProps.isLoadingAssets && this.state.initialLoad) {
+      this.setState({ initialLoad: false });
+      return false;
     }
+    //once all assets have loaded, render will fire
+    else if (!this.state.initialLoad && !nextProps.isLoadingAssets) {
+      this.setState({ initialLoad: true, loadComplete: true });
+      return true;
+    } else return false;
   }
 
   componentWillUnmount() {
@@ -40,7 +48,7 @@ class Trips extends React.Component {
   }
 
   futureTrips(futureBookings) {
-    if (futureBookings.length && this.state.loadComplete) {
+    if (futureBookings.length) {
       return (
         <div>
           <h1 className="trips-heading">Upcoming Trips</h1>
@@ -55,7 +63,7 @@ class Trips extends React.Component {
   }
 
   pastTrips(pastBookings) {
-    if (pastBookings.length && this.state.loadComplete) {
+    if (pastBookings.length) {
       return (
         <div>
           <h1 className="trips-heading">Past Trips</h1>
@@ -70,11 +78,7 @@ class Trips extends React.Component {
   }
 
   noTrips(pastBookings, futureBookings) {
-    if (
-      !pastBookings.length &&
-      !futureBookings.length &&
-      this.state.loadComplete
-    ) {
+    if (!pastBookings.length && !futureBookings.length) {
       const bodyMovinOptions = {
         loop: true,
         autoplay: true,
@@ -107,18 +111,15 @@ class Trips extends React.Component {
   }
 
   bottomNavBar() {
-    if (this.state.loadComplete) {
-      return (
-        <div className="trip-index-bottom-bar">
-          <BottomNavBar />
-        </div>
-      );
-    }
+    return (
+      <div className="trip-index-bottom-bar">
+        <BottomNavBar />
+      </div>
+    );
   }
 
   sortTrips() {
     const bookings = this.props.bookings;
-
     let futureBookings = Object.keys(bookings).filter(key => {
       return new Date(bookings[key]["end_date"]) > new Date();
     });
@@ -146,7 +147,8 @@ class Trips extends React.Component {
   }
 
   render() {
-    return <div>{this.sortTrips()}</div>;
+    if (this.state.loadComplete) return <div>{this.sortTrips()}</div>;
+    else return <div />;
   }
 }
 

@@ -11,11 +11,12 @@ import {
 const mapStateToProps = state => {
   const homes = sortedTripHomes(state);
   const bookings = currentUsersBookings(state);
-  const indexLoading = state.ui.loadingState.indexLoading;
+  const isLoadingAssets =
+    state.ui.loadingState.indexLoading || state.ui.loadingState.homeLoading;
   return {
     homes,
     bookings,
-    indexLoading
+    isLoadingAssets
   };
 };
 
