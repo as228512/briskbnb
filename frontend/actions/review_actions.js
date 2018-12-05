@@ -22,25 +22,31 @@ export const fetchReviews = homeId => dispatch =>
     dispatch(receiveReviews(reviews))
   );
 
-export const createReview = review => dispatch =>
-  APIUtil.createReview(review)
+export const createReview = review => dispatch => {
+  return APIUtil.createReview(review)
     .then(
-      payLoad => APIUtil.fetchReviews(payLoad.review.home_id),
+      review => APIUtil.fetchReviews(review),
       err => dispatch(receiveErrors(err.responseJSON))
     )
     .then(reviews => dispatch(receiveReviews(reviews)));
+};
 
 export const editReview = review => dispatch =>
   APIUtil.editReview(review)
     .then(
-      payLoad => APIUtil.fetchReviews(payLoad.review.home_id),
+      payLoad => {
+        return APIUtil.fetchReviews(payLoad.review);
+      },
       err => dispatch(receiveErrors(err.responseJSON))
     )
     .then(reviews => dispatch(receiveReviews(reviews)));
 
-export const deleteReview = (reviewId, homeId) => dispatch =>
-  APIUtil.deleteReview(reviewId).then(homeId =>
+export const deleteReview = review => dispatch => {
+  const homeId = review.home_id;
+
+  return APIUtil.deleteReview(review).then(() =>
     APIUtil.fetchReviews(homeId).then(reviews =>
       dispatch(receiveReviews(reviews))
     )
   );
+};

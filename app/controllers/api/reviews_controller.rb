@@ -17,7 +17,7 @@ class Api::ReviewsController < ApplicationController
   end
 
   def update
-    @review = Review.find(params[:review][:id])
+    @review = Review.find(params[:id])
 
     if @review.update(review_params)
       render "/api/reviews/create"

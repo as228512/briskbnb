@@ -55,7 +55,7 @@ const ReviewButton = props => {
           value={"Delete Review"}
           onClick={() =>
             props
-              .deleteReview(review.id, homeId)
+              .deleteReview(review)
               .then(() =>
                 props.updateReviewedBooking({
                   bookingId: bookingId,

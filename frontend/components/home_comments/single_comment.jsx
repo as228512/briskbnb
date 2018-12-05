@@ -82,7 +82,7 @@ class SingleComment extends React.Component {
             type="submit"
             value={"Delete Review"}
             onClick={() =>
-              this.props.deleteReview(review.id, homeId).then(() =>
+              this.props.deleteReview(review).then(() =>
                 this.props
                   .updateReviewedBooking({
                     bookingId: bookingId,
