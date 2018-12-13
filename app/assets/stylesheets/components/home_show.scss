@@ -77,8 +77,9 @@
 }
 
 .booking-form-cntr {
+  height: -webkit-fill-available;
   position: sticky;
-  top: 105px;
+  top: 110px;
 }
 
 .booking-form,
