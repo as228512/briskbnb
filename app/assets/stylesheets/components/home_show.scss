@@ -266,6 +266,14 @@
   font-size: 16px;
 }
 
+.react-datepicker-popper {
+  height: 275px;
+}
+
+.react-datepicker-popper[data-placement^="top"] {
+  margin-bottom: 0px !important;
+}
+
 .inline-datepicker-text {
   font-size: 16px;
   font-family: inherit;
@@ -295,7 +303,7 @@
 .react-datepicker {
   z-index: 0;
   display: flex !important;
-  width: 481px;
+  width: 480px;
   margin-left: 34px;
 }
 
