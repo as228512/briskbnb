@@ -114,16 +114,16 @@ class BookingDatePicker extends React.Component {
             disabled={false}
             monthsShown={2}
             placeholderText="Click to select a check-out date"
-            popperPlacement="top-end"
+            popperPlacement="bottom-end"
             popperModifiers={{
               offset: {
                 enabled: true,
-                offset: "315px, 5px"
+                offset: "315px, 10px"
               },
               preventOverflow: {
                 enabled: true,
-                escapeWithReference: false,
-                boundariesElement: "viewport"
+                escapeWithReference: true,
+                boundariesElement: "header-group"
               }
             }}
           />
@@ -140,16 +140,16 @@ class BookingDatePicker extends React.Component {
             excludeDates={this.props.bookedDates}
             disabled={true}
             placeholderText="First, select a check-in date"
-            popperPlacement="top-end"
+            popperPlacement="bottom-end"
             popperModifiers={{
               offset: {
                 enabled: true,
-                offset: "315px, 5px"
+                offset: "315px, 10px"
               },
               preventOverflow: {
                 enabled: true,
-                escapeWithReference: false,
-                boundariesElement: "viewport"
+                escapeWithReference: true,
+                boundariesElement: "header-group"
               }
             }}
           />
@@ -254,12 +254,12 @@ class BookingDatePicker extends React.Component {
                   popperModifiers={{
                     offset: {
                       enabled: true,
-                      offset: "315px, 5px"
+                      offset: "315px, 10px"
                     },
                     preventOverflow: {
                       enabled: true,
-                      escapeWithReference: false,
-                      boundariesElement: "viewport"
+                      escapeWithReference: true,
+                      boundariesElement: "header-group"
                     }
                   }}
                 />
@@ -300,11 +300,11 @@ class BookingDatePicker extends React.Component {
                   popperModifiers={{
                     offset: {
                       enabled: true,
-                      offset: "315px, 5px"
+                      offset: "315px, 10px"
                     },
                     preventOverflow: {
                       enabled: true,
-                      escapeWithReference: false,
+                      escapeWithReference: true,
                       boundariesElement: "viewport"
                     }
                   }}
