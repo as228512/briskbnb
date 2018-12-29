@@ -28,19 +28,15 @@ class HomeMap extends React.Component {
     const map = this.refs.map;
     const coords = this.props.location.search;
     const search = new URLSearchParams(coords);
-
-    let bounds = new google.maps.LatLngBounds();
-    bounds.ea.j = parseFloat(search.get("view1"));
-    bounds.ea.l = parseFloat(search.get("view2"));
-    bounds.la.j = parseFloat(search.get("view3"));
-    bounds.la.l = parseFloat(search.get("view4"));
+    
+    let bounds = JSON.parse(search.get("bounds"));
 
     //corrections for google smart search incase of Alaska or Greenland
     const searched = search.get("searched");
     const alaskaCoords = { lat: 59.670926419997, lng: -152.5 };
     const greenLandCoords = { lat: 55.6925, lng: -48.318 };
 
-    if (!bounds.ea.j) {
+    if (!bounds) {
       const defaultCoords = { lat: 43.979128, lng: -74.431108 };
       this.map = new google.maps.Map(map, {
         center: defaultCoords,
