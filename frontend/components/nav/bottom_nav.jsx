@@ -7,7 +7,11 @@ export const BottomNavBar = () => {
   return (
     <div className="nav-bottom-bar">
       <div className="nav-bottom-bar-link-cntr">
-        <a href="https://github.com/as228512/briskbnb" title="Github">
+        <a
+          href="https://github.com/as228512/briskbnb"
+          title="Github"
+          target="_blank"
+        >
           <FontAwesomeIcon
             color="#484848"
             icon={["fab", "github-square"]}
@@ -17,12 +21,16 @@ export const BottomNavBar = () => {
         <a
           href="https://www.linkedin.com/in/andrew-schumacher-1b3b2914a/"
           title="Linkedin"
+          target="_blank"
         >
           <FontAwesomeIcon
             color="#484848"
             icon={["fab", "linkedin"]}
             size="3x"
           />
+        </a>
+        <a href="https://andrewschumacher.io" title="Portfolio" target="_blank">
+          <FontAwesomeIcon color="#484848" icon="info-circle" size="3x" />
         </a>
       </div>
       <h3 className="nav-bottom-bar-trademark-text">
