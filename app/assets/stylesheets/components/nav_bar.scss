@@ -49,8 +49,14 @@
 
 //github + linkin icons
 .svg-inline--fa.fa-github-square.fa-w-14.fa-2x:hover,
-.svg-inline--fa.fa-linkedin.fa-w-14.fa-2x:hover {
-  box-shadow: 0 3px 17px #ffffff;
+.svg-inline--fa.fa-linkedin.fa-w-14.fa-2x:hover  {
+  box-shadow: 0 5px 16px  #fff;
+  border-radius: 3px;
+}
+
+.svg-inline--fa.fa-info-circle.fa-w-16.fa-2x:hover {
+  box-shadow: 0 4px 16px  #fff;
+  border-radius: 13px;
 }
 
 .splash-nav-login,

@@ -35,7 +35,7 @@ class SplashLoggedIn extends React.Component {
     return (
       <nav className="splash-nav-cntr">
         <div className="splash-site-link-cntr">
-          <a href="https://github.com/as228512/briskbnb" title="Github">
+          <a href="https://github.com/as228512/briskbnb" title="Github" target="_blank">
             <FontAwesomeIcon
               color="#ffffff"
               icon={["fab", "github-square"]}
@@ -44,11 +44,18 @@ class SplashLoggedIn extends React.Component {
           </a>
           <a
             href="https://www.linkedin.com/in/andrew-schumacher-1b3b2914a/"
-            title="Linkedin"
+            title="Linkedin" target="_blank"
           >
             <FontAwesomeIcon
               color="#ffffff"
               icon={["fab", "linkedin"]}
+              size="2x"
+            />
+          </a>
+          <a href="https://andrewschumacher.io" title="Portfolio" target="_blank">
+            <FontAwesomeIcon
+              color="#ffffff"
+              icon="info-circle"
               size="2x"
             />
           </a>
