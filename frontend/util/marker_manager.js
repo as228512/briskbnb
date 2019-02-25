@@ -18,6 +18,17 @@ class MarkerManager {
       .forEach(homeId => this.removeMarker(this.markers[homeId]));
   }
 
+  setCustomZindex() {
+    const markers = Object.values(this.markers);
+    const indexMap = {};
+
+    markers.forEach(marker => (indexMap[marker.zIndex] = true));
+
+    for (let i = 0; i < markers.length; i++) {
+      if (!indexMap[i]) return i;
+    }
+  }
+
   // marker creation / deletion handled by updateMarkers,
   // which is called upon GMAPS interaction (componentDidUpdate)
   // unique markerIcon created by vector pathing
@@ -47,7 +58,8 @@ class MarkerManager {
       map: this.map,
       homeId: home.id,
       icon: customIcon,
-      label: homePrice
+      label: homePrice,
+      zIndex: this.setCustomZindex()
     });
 
     marker.addListener("click", () => this.handleClick(home));
