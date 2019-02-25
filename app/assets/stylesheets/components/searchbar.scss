@@ -10,9 +10,15 @@
   text-indent: 75px;
 }
 
-.splash-search-bar-container .splash-search-icon {
+.splash-search-bar-container {
   position: relative;
-  top: 47px;
-  left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.splash-search-bar-container .splash-search-icon {
+  position: absolute;
+  padding-left: 1rem;
   font-size: 27px;
 }
